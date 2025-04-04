@@ -18,3 +18,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('landing_page.main');
 });
+Route::get('/admin', function () {
+    return view('admin_pannel.main');
+})->name('admin');
