@@ -15,13 +15,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-route::get('/', [HomeController::class, 'index']);
-route::get('pannel', [HomeController::class, 'pannelLayoutIndex']);
-
-// location 
-route::get('location', [LocationController::class, 'index']);
-route::get('location/create-update', [LocationController::class, 'create']);
-route::any('location/create-or-update', [LocationController::class, 'createOrUpdate'])->name('createOrUpdate');
+Route::get('/', function () {
+    return view('landing_page.main');
+});
