@@ -1,7 +1,10 @@
 <?php
 
-use App\Http\Controllers\LandingPageController;
-use App\Http\Controllers\LocationController;
+use App\Http\Controllers\{
+    ActivityController,
+    LandingPageController,
+    LocationController
+};
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,3 +33,11 @@ route::post('location/store', [LocationController::class, 'store'])->name('locat
 Route::get('location/edit/{id}', [LocationController::class, 'edit'])->name('location.edit');
 Route::put('location/update/{id}', [LocationController::class, 'update'])->name('location.update');
 Route::delete('location/delete/{id}', [LocationController::class, 'destroy'])->name('location.delete');
+
+// activity 
+route::get('activity', [ActivityController::class, 'index'])->name('activity');
+route::get('activity/create', [activityController::class, 'create'])->name('activity.create');
+route::post('activity/store', [activityController::class, 'store'])->name('activity.store');
+Route::get('activity/edit/{id}', [activityController::class, 'edit'])->name('activity.edit');
+Route::put('activity/update/{id}', [activityController::class, 'update'])->name('activity.update');
+Route::delete('activity/delete/{id}', [activityController::class, 'destroy'])->name('activity.delete');

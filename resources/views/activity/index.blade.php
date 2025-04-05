@@ -3,7 +3,7 @@
     <div class="container-fluid">
         <div class="row page-title">
             <div class="col-sm-6">
-                <h3>Location</h3>
+                <h3>Activity</h3>
             </div>
             <div class="col-sm-6">
                 <nav>
@@ -16,10 +16,11 @@
                                 </svg>
                             </a>
                         </li>
-                        <li class="breadcrumb-item active">Location</li>
-                        <li class="breadcrumb-item active"><a href="{{ route('location.create') }}"
-                                class="btn btn-primary btn-sm">Add
-                                Location</a>
+                        <li class="breadcrumb-item active">Activity</li>
+                        <li class="ms-2">
+                            <a href="{{ route('activity.create') }}" class="btn btn-primary btn-sm">Add
+                                Activity
+                            </a>
                         </li>
                     </ol>
                 </nav>
@@ -34,7 +35,6 @@
                     {{ session('message') }}
                 </div>
             @endif
-
             <!-- Zero Configuration  Starts-->
             <div class="col-sm-12">
                 <div class="card">
@@ -49,18 +49,18 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($locations as $location)
+                                    @foreach ($activities as $activity)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $location->name }}</td>
+                                            <td>{{ $activity->name }}</td>
                                             <td>
                                                 <ul class="action">
                                                     <li class="edit"><a
-                                                            href="{{ route('location.edit', ['id' => $location->id]) }}"><i
+                                                            href="{{ route('activity.edit', ['id' => $activity->id]) }}"><i
                                                                 class="icon-pencil-alt"></i></a>
                                                     </li>
                                                     <li class="delete">
-                                                        <form action="{{ route('location.delete', $location->id) }}"
+                                                        <form action="{{ route('activity.delete', $activity->id) }}"
                                                             method="POST" class="delete-form d-inline">
                                                             @csrf
                                                             @method('DELETE')
@@ -69,7 +69,6 @@
                                                                 <i class="icon-trash"></i>
                                                             </button>
                                                         </form>
-
                                                     </li>
                                                 </ul>
                                             </td>
@@ -87,6 +86,7 @@
     </div>
     <!-- Container-fluid starts-->
 @endsection
+
 @section('script')
     <script>
         $('.btn-delete').on('click', function(e) {

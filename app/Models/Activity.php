@@ -6,13 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Location extends Model
+class Activity extends Model
 {
-    use HasFactory, SoftDeletes;
-    protected $table = "locations";
-    protected $fillable = [
-        'name'
-    ];
-    protected $dates = ['deleted_at'];
 
+    use HasFactory, SoftDeletes;
+    protected $table = "activities";
+    protected $fillable = ["name"];
+    protected $dates = ['deleted_at'];
 }

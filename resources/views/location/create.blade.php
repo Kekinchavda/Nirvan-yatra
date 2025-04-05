@@ -8,15 +8,19 @@
             <div class="col-sm-6">
                 <nav>
                     <ol class="breadcrumb justify-content-sm-end align-items-center">
-                        <li class="breadcrumb-item"> <a href="#">
+                        <li class="breadcrumb-item">
+                            <a href="#">
                                 <svg class="svg-color">
-                                    <use href="https://larathemes.pixelstrap.com/edmin/assets/svg/iconly-sprite.svg#Home">
+                                    <use href="{{ asset('assets/admin_pannel/edmin/assets/svg/iconly-sprite.svg#Home') }}">
                                     </use>
-                                </svg></a></li>
+                                </svg>
+                            </a>
+                        </li>
                         <li class="breadcrumb-item active">Location</li>
-                        <li class="breadcrumb-item active"><a href="{{ route('location.create') }}"
-                                class="btn btn-primary btn-sm">Add
-                                Location</a>
+                        <li class="ms-2">
+                            <a href="{{ url()->previous() }}" class="btn btn-secondary btn-sm" title="Back to location">
+                                <i class="fa fa-arrow-left me-1"></i> Back
+                            </a>
                         </li>
                     </ol>
                 </nav>
@@ -38,10 +42,13 @@
                             <div class="col-md-4 position-relative">
                                 <label class="form-label" for="validationTooltip01">Title</label>
                                 <input class="form-control" id="validationTooltip01" type="text" placeholder="Location"
-                                    required="" name="name">
+                                    required="" name="name" value="{{ old('name') }}">
+                                <div class="invalid-tooltip">
+                                    Please enter a valid title.
+                                </div>
                             </div>
                             <div class="col-12">
-                                <button class="btn btn-primary" type="submit">Submit form</button>
+                                <button class="btn btn-primary" type="submit">Submit</button>
                             </div>
                         </form>
                     </div>

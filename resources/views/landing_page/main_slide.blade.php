@@ -166,7 +166,7 @@
                                         <i class="icon icon-travle"></i>
                                         <label for="type2">Activities Type</label>
                                         <select name="type" class="selectpicker" id="type2">
-                                            <option value="select">Adventure</option>
+                                            {{-- <option value="select">Adventure</option>
                                             <option value="select">Cultural & Heritage</option>
                                             <option value="select">Nature & Wildlife</option>
                                             <option value="select">Water-Based</option>
@@ -174,7 +174,10 @@
                                             <option value="select">Winter & Snow</option>
                                             <option value="spanis">Booking Type</option>
                                             <option value="africa">Beach</option>
-                                            <option value="europe">Discovery</option>
+                                            <option value="europe">Discovery</option> --}}
+                                            @foreach ($activitys as $activity)
+                                                <option value="{{ $activity->id }}">{{ $activity->name }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                     <div class="banner-form__control banner-form__control--date banner-form__col--3">

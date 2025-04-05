@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Location;
+use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class LocationController extends Controller
 {
@@ -12,7 +15,7 @@ class LocationController extends Controller
      */
     public function index()
     {
-        $locations = Location::all();
+        $locations = Location::whereNull('deleted_at')->get();
         return view("location.index", compact("locations"));
     }
 
@@ -29,10 +32,28 @@ class LocationController extends Controller
      */
     public function store(Request $request)
     {
-        $location = new Location();
-        $location->name = $request->name;
-        $location->save();
-        return redirect()->route("location")->with("success", "Location created successfully");
+        $request->validate([
+            'name' => 'required|string|max:30|unique:locations,name',
+        ]);
+
+        try {
+            $location = new Location();
+            $location->name = $request->name;
+            $location->save();
+
+            return redirect()->route('location')->with([
+                'message' => 'Location created successfully.',
+                'type' => 'success'
+            ]);
+        } catch (\Exception $e) {
+            // Log the error for debugging (optional)
+            log::error('Location creation failed: ' . $e->getMessage());
+
+            return redirect()->back()->withInput()->with([
+                'message' => 'Something went wrong while creating the location.',
+                'type' => 'error'
+            ]);
+        }
     }
 
     /**
@@ -48,8 +69,23 @@ class LocationController extends Controller
      */
     public function edit(Request $request, $id)
     {
-        $location = Location::findOrFail($id);
-        return view('location.edit', compact('location'));
+        try {
+            $location = Location::findOrFail($id);
+            return view('location.edit', compact('location'));
+        } catch (ModelNotFoundException $e) {
+            Log::error("Location not found with ID: $id", ['error' => $e->getMessage()]);
+            return redirect()->route('location')->with([
+                'message' => 'Location not found.',
+                'type' => 'error'
+            ]);
+        } catch (Exception $e) {
+            Log::error("Error loading location edit page", ['error' => $e->getMessage()]);
+            return redirect()->route('location')->with([
+                'message' => 'Something went wrong. Please try again later.',
+                'type' => 'error'
+            ]);
+        }
+
     }
 
     /**
@@ -61,8 +97,7 @@ class LocationController extends Controller
         $location->name = $request->name;
         $location->status = $request->status ?? 1;
         $location->save();
-
-        return redirect()->route('location')->with('success', 'Location updated successfully.');
+        return redirect()->route('location')->with('message', 'Location updated successfully')->with('type', 'success');
     }
 
     /**
@@ -70,8 +105,26 @@ class LocationController extends Controller
      */
     public function destroy($id)
     {
-        $location = Location::findOrFail($id);
-        $location->delete();
-        return redirect()->route('location')->with('success', 'Location deleted successfully.');
+        try {
+            $location = Location::findOrFail($id);
+            $location->delete(); // Performs a soft delete if SoftDeletes is used
+
+            return redirect()->route('location')->with([
+                'message' => 'Location deleted successfully.',
+                'type' => 'success'
+            ]);
+        } catch (ModelNotFoundException $e) {
+            Log::error("Delete failed. Location not found with ID: $id", ['error' => $e->getMessage()]);
+            return redirect()->route('location')->with([
+                'message' => 'Location not found.',
+                'type' => 'error'
+            ]);
+        } catch (Exception $e) {
+            Log::error("Unexpected error occurred while deleting location ID: $id", ['error' => $e->getMessage()]);
+            return redirect()->route('location')->with([
+                'message' => 'Something went wrong. Please try again later.',
+                'type' => 'error'
+            ]);
+        }
     }
 }

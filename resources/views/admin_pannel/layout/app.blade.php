@@ -3,7 +3,7 @@
 
 <head>
 
-    <meta name="csrf-token" content="KeQEVwy1BBIT4hgZTxLSsAkY1P13ogZqtWbGo0k1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +14,7 @@
     <meta name="author" content="pixelstrap">
     <title>@yield('title', 'Admin Panel')</title>
     <!-- Favicon icon-->
-    <link rel="icon" href="https://larathemes.pixelstrap.com/edmin/assets/images/favicon/favicon.png"
+    <link rel="icon" href="{{ asset('assets/admin_pannel/edmin/assets/images/favicon/favicon.png') }}"
         type="image/x-icon">
     <link rel="shortcut icon" href="https://larathemes.pixelstrap.com/edmin/assets/images/favicon/favicon.png"
         type="image/x-icon">
@@ -26,7 +26,8 @@
         rel="stylesheet">
 
     <script>
-        var baseUrl = "https://larathemes.pixelstrap.com/edmin/";
+        // var baseUrl = "https://larathemes.pixelstrap.com/edmin/";
+        var baseUrl = "{{ asset('') }}";
     </script> <!-- Font awesome icon css -->
     <!-- Font awesome icon css -->
 
@@ -68,7 +69,7 @@
     <!-- App css-->
     <link rel="preload" as="style"
         href="{{ asset('assets/admin_pannel/edmin/build/assets/style-BQ9xLEwC.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/admin_pannel//edmin/build/assets/style-BQ9xLEwC.css') }}"
+    <link rel="stylesheet" href="{{ asset('assets/admin_pannel/edmin/build/assets/style-BQ9xLEwC.css') }}"
         data-navigate-track="reload" />
     <link id="color" rel="stylesheet" href="{{ asset('assets/admin_pannel/edmin/assets/css/color-1.css') }}"
         media="screen">
@@ -106,6 +107,10 @@
     <!-- Sidebar js-->
     <script src="{{ asset('assets/admin_pannel/edmin/assets/js/sidebar.js') }}"></script>
 
+    <!-- SweetAlerts js -->
+    <script src="https://larathemes.pixelstrap.com/edmin/assets/js/sweetalert/sweetalert2.min.js"></script>
+    <script src="https://larathemes.pixelstrap.com/edmin/assets/js/sweetalert/sweetalert-custom.js"></script>
+
     <script src="{{ asset('assets/admin_pannel/edmin/assets/js/datatable/datatables/jquery.dataTables.min.js') }}">
     </script>
     <script src="{{ asset('assets/admin_pannel/edmin/assets/js/datatable/datatables/datatable.custom.js') }}"></script>
@@ -118,7 +123,7 @@
     <!-- validation -->
     <script src="{{ asset('assets/admin_pannel/edmin/assets/js/jquery.validate.min.js') }}"></script>
 
-    <!-- customizer-->
+    <!-- customizer round -->
     <script src="{{ asset('assets/admin_pannel/edmin/assets/js/theme-customizer/customizer.js') }}"></script>
 
     <!-- toastr -->
@@ -136,8 +141,8 @@
                 toastr.options = {
                     "closeButton": false,
                     "progressBar": true,
-                    "extendedTimeOut": 0,
-                    "timeOut": 0,
+                    "extendedTimeOut": 3000,
+                    "timeOut": 1000,
                 };
 
                 switch (messageType) {
@@ -159,18 +164,22 @@
             });
         });
     </script>
-    {{-- toast message hide after 3 second --}}
     <script>
-        const toastElList = [].slice.call(document.querySelectorAll('.toast'));
-        const toastList = toastElList.map(function(toastEl) {
-            return new bootstrap.Toast(toastEl, {
-                delay: 3000
-            });
-        });
-        toastList.forEach(toast => toast.show());
+        (function() {
+            'use strict'
+            const forms = document.querySelectorAll('.needs-validation')
+            Array.from(forms).forEach(function(form) {
+                form.addEventListener('submit', function(event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+                    form.classList.add('was-validated')
+                }, false)
+            })
+        })()
     </script>
-
-
+    @yield('script')
 
 </body>
 

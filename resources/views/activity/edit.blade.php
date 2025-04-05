@@ -3,7 +3,7 @@
     <div class="container-fluid">
         <div class="row page-title">
             <div class="col-sm-6">
-                <h3>Edit Location</h3>
+                <h3>Edit Activity</h3>
             </div>
             <div class="col-sm-6">
                 <nav>
@@ -13,9 +13,9 @@
                                     <use href="{{ asset('assets/admin_pannel/edmin/assets/svg/iconly-sprite.svg#Home') }}">
                                     </use>
                                 </svg></a></li>
-                        <li class="breadcrumb-item active">Edit Location</li>
+                        <li class="breadcrumb-item active">Edit Activity</li>
                         <li class="ms-2">
-                            <a href="{{ url()->previous() }}" class="btn btn-secondary btn-sm" title="Back to location">
+                            <a href="{{ url()->previous() }}" class="btn btn-secondary btn-sm" title="Back to Activity">
                                 <i class="fa fa-arrow-left me-1"></i> Back
                             </a>
                         </li>
@@ -30,20 +30,17 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header pb-0">
-                        <h4>Location</h4>
+                        <h4>Activity</h4>
                     </div>
                     <div class="card-body">
                         <form class="theme-form row g-3 needs-validation custom-input" method="POST"
-                            action="{{ route('location.update', ['id' => $location->id]) }}" novalidate="">
+                            action="{{ route('activity.update', ['id' => $activity->id]) }}" novalidate="">
                             @csrf
                             @method('PUT')
                             <div class="col-md-4 position-relative">
                                 <label class="form-label" for="validationTooltip01">Title</label>
-                                <input class="form-control" id="validationTooltip01" type="text" placeholder="Location"
-                                    required="" name="name" value="{{ old('name', $location->name) }}">
-                                    <div class="invalid-tooltip">
-                                        Please enter a valid title.
-                                    </div>
+                                <input class="form-control" id="validationTooltip01" type="text" placeholder="Activity"
+                                    required="" name="name" value="{{ old('name', $activity->name) }}">
                             </div>
                             <div class="col-12">
                                 <button class="btn btn-primary" type="submit">Update</button>

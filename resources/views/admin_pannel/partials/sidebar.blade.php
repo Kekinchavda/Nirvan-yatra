@@ -4,53 +4,61 @@
     <div class="left-arrow" id="left-arrow">
         <svg class="feather">
             <use
-                href="https://larathemes.pixelstrap.com/edmin/assets/svg/feather-icons/dist/feather-sprite.svg#arrow-left">
+                href="{{ asset('assets/admin_pannel/edmin/assets/svg/feather-icons/dist/feather-sprite.svg#arrow-left') }}">
             </use>
         </svg>
     </div>
     <div id="sidebar-menu">
         <ul class="sidebar-menu" id="simple-bar">
-            <li class="sidebar-main-title">General</li>
+            {{-- dashboard menu --}}
             <li class="sidebar-list">
                 <svg class="pinned-icon">
-                    <use href="https://larathemes.pixelstrap.com/edmin/assets/svg/iconly-sprite.svg#Pin">
+                    <use href="{{ asset('assets/admin_pannel/edmin/assets/svg/iconly-sprite.svg#Pin') }}">
                     </use>
                 </svg>
                 <a class="sidebar-link" href="{{ route('dashboard') }}">
                     <svg class="stroke-icon">
-                        <use href="https://larathemes.pixelstrap.com/edmin/assets/svg/iconly-sprite.svg#Home">
+                        <use href="{{ asset('assets/admin_pannel/edmin/assets/svg/iconly-sprite.svg#Home') }}">
                         </use>
                     </svg><span>Dashboard</span>
-                    <svg class="feather">
-                        <use
-                            href="https://larathemes.pixelstrap.com/edmin/assets/svg/feather-icons/dist/feather-sprite.svg#chevron-right">
-                        </use>
-                    </svg>
                 </a>
             </li>
+            {{-- dashboard menu --}}
+
+            {{-- location menu --}}
             <li class="sidebar-list">
                 <svg class="pinned-icon">
-                    <use href="https://larathemes.pixelstrap.com/edmin/assets/svg/iconly-sprite.svg#Pin">
+                    <use href="{{ asset('assets/admin_pannel/edmin/assets/svg/iconly-sprite.svg#Pin') }}">
                     </use>
                 </svg>
                 <a class="sidebar-link" href="{{ route('location') }}">
                     <svg class="stroke-icon">
-                        <use href="https://larathemes.pixelstrap.com/edmin/assets/svg/iconly-sprite.svg#Document">
+                        <use href="{{ asset('assets/admin_pannel/edmin/assets/svg/iconly-sprite.svg#Location') }}">
                         </use>
                     </svg><span>Location</span>
-                    <svg class="feather">
-                        <use
-                            href="https://larathemes.pixelstrap.com/edmin/assets/svg/feather-icons/dist/feather-sprite.svg#chevron-right">
-                        </use>
-                    </svg>
                 </a>
             </li>
+            {{-- location menu --}}
+
+            {{-- activity menu --}}
+            <li class="sidebar-list">
+                <svg class="pinned-icon">
+                    <use href="{{ asset('assets/admin_pannel/edmin/assets/svg/iconly-sprite.svg#Travel') }}">
+                    </use>
+                </svg>
+                <a class="sidebar-link" href="{{ route('activity') }}">
+                    <i class="fa-solid fa-people-line fa-fw stroke-icon"></i>
+
+                    <span>Activity</span>
+                </a>
+            </li>
+            {{-- activity menu --}}
         </ul>
     </div>
     <div class="right-arrow" id="right-arrow">
         <svg class="feather">
             <use
-                href="https://larathemes.pixelstrap.com/edmin/assets/svg/feather-icons/dist/feather-sprite.svg#arrow-right">
+                href="{{ asset('assets/admin_pannel/edmin/assets/svg/feather-icons/dist/feather-sprite.svg#arrow-right') }}">
             </use>
         </svg>
     </div>
