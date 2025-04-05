@@ -1,4 +1,3 @@
-
 <section class="main-slider-one" id="home">
     <div class="main-slider-one__item">
         <div class="container">
@@ -8,8 +7,7 @@
                         <h5 class="main-slider-one__sub-title main-three bw-split-in-top">Explore Your</h5>
                         <!-- slider-sub-title -->
                         <h2 class="main-slider-one__title main-three bw-split-in-down"> Next Journey <br> <span>
-                                with </span> <br> <span
-                                style="font-family: 'Cinzel Decorative', serif;">Nirvan</span>
+                                with </span> <br> <span style="font-family: 'Cinzel Decorative', serif;">Nirvan</span>
                             <span style="font-family: 'Samarkan', sans-serif;">Yatra</span>
                         </h2>
                         <!-- slider-title -->
@@ -31,7 +29,8 @@
                 <div class="destinations-two__inner">
                     <div class="destinations-two__carousel gotur-owl__carousel gotur-owl__carousel--custom-nav gotur-owl__carousel--with-shadow owl-carousel owl-theme"
                         data-owl-nav-prev=".main-slider-one__carousel__nav--left"
-                        data-owl-nav-next=".main-slider-one__carousel__nav--right" data-owl-options='{
+                        data-owl-nav-next=".main-slider-one__carousel__nav--right"
+                        data-owl-options='{
                     "items": 1,
                     "margin": 30,
                     "loop": true,
@@ -58,8 +57,7 @@
                             <div class="destinations-card-two wow fadeInUp" data-wow-duration='1500ms'
                                 data-wow-delay='100ms'>
                                 <div class="destinations-card-two__thumb">
-                                    <img src="assets/images/main-slider/hero-1-1-image.jpg"
-                                        alt="destinations image">
+                                    <img src="assets/images/main-slider/hero-1-1-image.jpg" alt="destinations image">
                                 </div>
                                 <!-- /.destinations-card-two__thumb -->
                             </div>
@@ -70,8 +68,7 @@
                             <div class="destinations-card-two wow fadeInUp" data-wow-duration='1500ms'
                                 data-wow-delay='100ms'>
                                 <div class="destinations-card-two__thumb">
-                                    <img src="assets/images/main-slider/hero-1-2-image.jpg"
-                                        alt="destinations image">
+                                    <img src="assets/images/main-slider/hero-1-2-image.jpg" alt="destinations image">
                                 </div>
                                 <!-- /.destinations-card-two__thumb -->
                             </div>
@@ -82,8 +79,7 @@
                             <div class="destinations-card-two wow fadeInUp" data-wow-duration='1500ms'
                                 data-wow-delay='100ms'>
                                 <div class="destinations-card-two__thumb">
-                                    <img src="assets/images/main-slider/hero-1-3-image.jpg"
-                                        alt="destinations image">
+                                    <img src="assets/images/main-slider/hero-1-3-image.jpg" alt="destinations image">
                                 </div>
                                 <!-- /.destinations-card-two__thumb -->
                             </div>
@@ -94,8 +90,7 @@
                             <div class="destinations-card-two wow fadeInUp" data-wow-duration='1500ms'
                                 data-wow-delay='100ms'>
                                 <div class="destinations-card-two__thumb">
-                                    <img src="assets/images/main-slider/hero-1-1-image.jpg"
-                                        alt="destinations image">
+                                    <img src="assets/images/main-slider/hero-1-1-image.jpg" alt="destinations image">
                                 </div>
                                 <!-- /.destinations-card-two__thumb -->
                             </div>
@@ -106,8 +101,7 @@
                             <div class="destinations-card-two wow fadeInUp" data-wow-duration='1500ms'
                                 data-wow-delay='100ms'>
                                 <div class="destinations-card-two__thumb">
-                                    <img src="assets/images/main-slider/hero-1-2-image.jpg"
-                                        alt="destinations image">
+                                    <img src="assets/images/main-slider/hero-1-2-image.jpg" alt="destinations image">
                                 </div>
                                 <!-- /.destinations-card-two__thumb -->
                             </div>
@@ -118,8 +112,7 @@
                             <div class="destinations-card-two wow fadeInUp" data-wow-duration='1500ms'
                                 data-wow-delay='100ms'>
                                 <div class="destinations-card-two__thumb">
-                                    <img src="assets/images/main-slider/hero-1-3-image.jpg"
-                                        alt="destinations image">
+                                    <img src="assets/images/main-slider/hero-1-3-image.jpg" alt="destinations image">
                                 </div>
                                 <!-- /.destinations-card-two__thumb -->
                             </div>
@@ -140,8 +133,7 @@
         <!-- /.main-slider-one__dep -->
         <div class="main-slider-one__bottom__nav">
             <button class="main-slider-one__carousel__nav--left"><span class="icon-arrow-left"></span></button>
-            <button class="main-slider-one__carousel__nav--right"><span
-                    class="icon-arrow-right"></span></button>
+            <button class="main-slider-one__carousel__nav--right"><span class="icon-arrow-right"></span></button>
         </div>
         <div class="main-slider-one__action-form">
             <div class="container">
@@ -153,7 +145,7 @@
                                     <div class="banner-form__control banner-form__col--1">
                                         <i class="icon icon-location"></i>
                                         <label for="location">Location</label>
-                                        <select name="location" class="selectpicker" id="location">
+                                        {{-- <select name="location" class="selectpicker" id="location">
                                             <option value="select">Kerala</option>
                                             <option value="spain">Kedarnath</option>
                                             <option value="africa">Har Ki Dun</option>
@@ -162,6 +154,12 @@
                                             <option value="europe">Auli Badrinath</option>
                                             <option value="europe">Kokan</option>
                                             <option value="europe">Kolad Rafting</option>
+                                        </select> --}}
+                                        <select name="location" class="selectpicker" id="location">
+                                            {{-- <option value=""></option> --}}
+                                            @foreach ($locations as $location)
+                                                <option value="{{ $location->id }}">{{ $location->name }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                     <div class="banner-form__control banner-form__col--2">
@@ -179,12 +177,11 @@
                                             <option value="europe">Discovery</option>
                                         </select>
                                     </div>
-                                    <div
-                                        class="banner-form__control banner-form__control--date banner-form__col--3">
+                                    <div class="banner-form__control banner-form__control--date banner-form__col--3">
                                         <i class="icon icon-clock"></i>
                                         <label for="date">Activate Day</label>
-                                        <input class="gotur-multi-datepicker" id="date" type="text" name="date"
-                                            placeholder="Fev 5 - 5">
+                                        <input class="gotur-multi-datepicker" id="date" type="text"
+                                            name="date" placeholder="Fev 5 - 5">
                                     </div>
                                     <div class="banner-form__control banner-form__col--4">
                                         <i class="icon icon-group"></i>
