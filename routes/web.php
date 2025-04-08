@@ -3,7 +3,8 @@
 use App\Http\Controllers\{
     ActivityController,
     LandingPageController,
-    LocationController
+    LocationController,
+    ToursController
 };
 use Illuminate\Support\Facades\Route;
 
@@ -41,3 +42,11 @@ route::post('activity/store', [activityController::class, 'store'])->name('activ
 Route::get('activity/edit/{id}', [activityController::class, 'edit'])->name('activity.edit');
 Route::put('activity/update/{id}', [activityController::class, 'update'])->name('activity.update');
 Route::delete('activity/delete/{id}', [activityController::class, 'destroy'])->name('activity.delete');
+
+// tour details 
+route::get('tour', [ToursController::class, 'index'])->name('tour');
+route::get('tour/create', [ToursController::class, 'create'])->name('tour.create');
+route::post('tour/store', [ToursController::class, 'store'])->name('tour.store');
+Route::get('tour/edit/{id}', [ToursController::class, 'edit'])->name('tour.edit');
+Route::put('tour/update/{id}', [ToursController::class, 'update'])->name('tour.update');
+Route::delete('tour/delete/{id}', [ToursController::class, 'destroy'])->name('tour.delete');

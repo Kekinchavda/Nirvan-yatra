@@ -53,6 +53,18 @@
                 </a>
             </li>
             {{-- activity menu --}}
+            {{-- Tour Details menu --}}
+            <li class="sidebar-list">
+                <svg class="pinned-icon">
+                    <use href="{{ asset('assets/admin_pannel/edmin/assets/svg/iconly-sprite.svg#Travel') }}">
+                    </use>
+                </svg>
+                <a class="sidebar-link" href="{{ route('tour') }}">
+                    <i class="fa-solid fa-solid fa-map stroke-icon"></i>
+                    <span>Tour Details</span>
+                </a>
+            </li>
+            {{-- Tour Details menu --}}
         </ul>
     </div>
     <div class="right-arrow" id="right-arrow">

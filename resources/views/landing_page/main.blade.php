@@ -330,11 +330,11 @@
                 <!-- /.destination-filter__top -->
                 <div class="tabs-box">
                     <div class="destination-filter__btn tab-buttons">
-                        <button data-tab="#itemOne" class="tab-btn gotur-btn">Europe</button>
+                        {{-- <button data-tab="#itemOne" class="tab-btn gotur-btn">Europe</button>
                         <button data-tab="#itemTwo" class="tab-btn gotur-btn active-btn">Asia</button>
                         <button data-tab="#itemThree" class="tab-btn gotur-btn">Africa</button>
-                        <button data-tab="#itemFour" class="tab-btn gotur-btn">South America</button>
-                        <button data-tab="#itemFive" class="tab-btn gotur-btn">Australia</button>
+                        <button data-tab="#itemFour" class="tab-btn gotur-btn">South America</button> --}}
+                        <button data-tab="#itemFive" class="tab-btn gotur-btn active-btn">India</button>
                     </div>
                     <!-- /.tab-buttons -->
                     <div class="tabs-content">
@@ -1783,7 +1783,6 @@
             <!-- /.offer-one__element -->
         </section>
         <!-- /.offer-one -->
-
 
         <section class="testimonials-three testimonials-three--two section-space" id="testimonials">
             <div class="testimonials-three__bg"
