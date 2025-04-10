@@ -1,7 +1,7 @@
   <!-- tap to top starts-->
   <div class="tap-top">
       <svg class="feather">
-          <use href="{{ asset('assets/admin_pannel/edmin/assets/svg/feather-icons/dist/feather-sprite.svg#arrow-up')}}">
+          <use href="{{ asset('assets/admin_pannel/edmin/assets/svg/feather-icons/dist/feather-sprite.svg#arrow-up') }}">
           </use>
       </svg>
   </div>
@@ -139,13 +139,12 @@
                                           <use
                                               href="{{ asset('assets/admin_pannel/edmin/assets/svg/iconly-sprite.svg#Login') }}">
                                           </use>
-                                      </svg><a class="ms-2" href="https://larathemes.pixelstrap.com/edmin/logout"
+                                      </svg><a class="ms-2" href="{{ route('logout') }}"
                                           onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Log
                                           Out</a>
-                                      <form action="https://larathemes.pixelstrap.com/edmin/logout" method="POST"
-                                          class="d-none" id="logout-form">
-                                          <input type="hidden" name="_token"
-                                              value="XJwSbXZ8kCkZuLJg92i9gaxCd1AnV6Rt0qPJnGsq" autocomplete="off">
+                                      <form action="{{ route('logout') }}" method="POST" class="d-none"
+                                          id="logout-form">
+                                          @csrf
                                       </form>
                                   </li>
                               </ul>
