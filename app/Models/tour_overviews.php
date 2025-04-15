@@ -8,7 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class tour_overviews extends Model
 {
     use HasFactory;
-    protected $fillable = ['tour_id', 'overview'];
+
+    protected $fillable = ['tour_id', 'overview', 'highlights'];
+    protected $casts = [
+        'highlights' => 'array',
+    ];
 
     public function tour()
     {

@@ -13,8 +13,9 @@ return new class extends Migration {
         Schema::create('tour_plans', function (Blueprint $table) {
             $table->id();
             $table->foreignId('tour_id')->constrained()->onDelete('cascade');
-            $table->integer('day'); // Day number
-            $table->text('description'); // Activities planned for the day
+            $table->longText('itinerary'); // store itinerary
+            $table->string('pdf')->nullable(); // store itinerary
+            $table->softDeletes();
             $table->timestamps();
         });
     }

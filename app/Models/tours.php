@@ -8,19 +8,29 @@ use Illuminate\Database\Eloquent\Model;
 class tours extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'title',
+        'slug',
+        'location',
+        'activity_type',
+        'days',
+        'nights',
+        'rate',
+        'feature_image',
+    ];
     public function overview()
     {
-        return $this->hasOne(tour_overviews::class);
+        return $this->hasOne(tour_overviews::class, 'tour_id');
+    }
+
+    public function plan()
+    {
+        return $this->hasOne(tour_plans::class, 'tour_id');
     }
 
     public function amenities()
     {
-        return $this->hasMany(tour_amenities::class);
-    }
-
-    public function plans()
-    {
-        return $this->hasMany(tour_plans::class);
+        return $this->hasOne(tour_amenities::class, 'tour_id');
     }
 
 }

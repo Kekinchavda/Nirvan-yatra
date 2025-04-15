@@ -3,7 +3,7 @@
     <div class="container-fluid">
         <div class="row page-title">
             <div class="col-sm-6">
-                <h3>Create New Tour Package</h3>
+                <h3>Edit {{ $tour->title }} Details</h3>
             </div>
             <div class="col-sm-6 text-end">
                 <a href="{{ url()->previous() }}" class="btn btn-secondary btn-sm" title="Back to Activity">
@@ -61,9 +61,11 @@
                             </div>
 
                             <div class="col-12">
-                                <form method="POST" action="{{ route('tour.store') }}" enctype="multipart/form-data"
-                                    class="tab-content dark-field" id="horizontal-wizard-tabContent" novalidate="">
+                                <form method="POST" action="{{ route('tour.update', ['id' => $tour->id]) }}"
+                                    enctype="multipart/form-data" class="tab-content dark-field"
+                                    id="horizontal-wizard-tabContent" novalidate="">
                                     @csrf
+                                    @method('PUT')
 
                                     <!-- Step 1: Basic Info -->
                                     <div class="tab-pane fade show active" id="wizard-info" role="tabpanel">
@@ -72,22 +74,23 @@
                                                 <label class="form-label">Tour Title<span
                                                         class="font-danger">*</span></label>
                                                 <input type="text" name="tour_title" class="form-control"
-                                                    placeholder="Enter Tour Title" required>
-                                                <div class="valid-feedback">Looks good!</div>
-                                                <div class="invalid-tooltip">
-                                                    Please enter a valid title.
-                                                </div>
+                                                    placeholder="Enter Tour Title" required
+                                                    value="{{ old('tour_title', $tour->title) }}">
                                             </div>
                                             <div class="col-xl-4 col-sm-6">
                                                 <label class="form-label">Feature Image</label>
-                                                <input type="file" name="feature_image" class="form-control">
+                                                <input type="file" name="feature_image" class="form-control"
+                                                    value="{{ old('feature_image', $tour->feature_image) }}">
+                                                <a href="#" class="mt-5" data-bs-toggle="modal"
+                                                    data-bs-target="#imageModal">show image</a>
                                             </div>
                                             {{-- daily itinerary --}}
                                             <div class="col-xl-4 col-sm-6">
                                                 <label class="form-label">Tour Slug<span
                                                         class="font-danger">*</span></label>
                                                 <input type="text" name="slug" class="form-control"
-                                                    placeholder="Enter slug" required>
+                                                    placeholder="Enter slug" required
+                                                    value="{{ old('slug', $tour->slug) }}">
                                             </div>
                                             <div class="col-12 text-end">
                                                 <button type="button" class="btn btn-primary"
@@ -103,40 +106,67 @@
                                                 <label class="form-label">Location<span
                                                         class="font-danger">*</span></label>
                                                 <input type="text" name="location" class="form-control"
-                                                    placeholder="Enter Tour Location" required>
+                                                    placeholder="Enter Tour Location" required
+                                                    value="{{ old('location', $tour->location) }}">
                                             </div>
                                             <div class="col-xl-4 col-sm-6">
                                                 <label class="form-label">Activity<span
                                                         class="font-danger">*</span></label>
                                                 <input type="text" name="activity" class="form-control"
-                                                    placeholder="Enter Tour activity" required>
+                                                    placeholder="Enter Tour activity" required
+                                                    value="{{ old('activity_type', $tour->activity_type) }}">
                                             </div>
                                             <div class="col-xl-4 col-sm-6">
                                                 <label class="form-label">Days<span class="font-danger">*</span></label>
                                                 <input type="text" name="days" class="form-control"
-                                                    placeholder="Enter Tour Days" required>
+                                                    placeholder="Enter Tour Days" required
+                                                    value="{{ old('days', $tour->days) }}">
                                             </div>
                                             <div class="col-xl-6 col-sm-6">
                                                 <label class="form-label">Nights<span class="font-danger">*</span></label>
                                                 <input type="text" name="nights" class="form-control"
-                                                    placeholder="Enter Tour Nights" required>
+                                                    placeholder="Enter Tour Nights" required
+                                                    value="{{ old('nights', $tour->nights) }}">
                                             </div>
                                             <div class="col-xl-6 col-sm-6">
                                                 <label class="form-label">Trip Overview<span
                                                         class="font-danger">*</span></label>
-                                                <textarea name="overview" class="form-control" rows="1" placeholder="Enter trip overview"></textarea>
+                                                <textarea name="overview" class="form-control" rows="1" placeholder="Enter trip overview">{{ old('overview', $tour->overview ?? '') }}</textarea>
                                             </div>
                                             <div class="col-xl-6 col-sm-6">
                                                 <label class="form-label">Highlights</label>
                                                 <div id="highlight-wrapper">
-                                                    <div class="d-flex mb-2">
-                                                        <input type="text" name="highlight_list[]"
-                                                            class="form-control me-2" placeholder="Enter highlight">
-                                                        <button type="button" class="btn btn-success btn-sm"
-                                                            onclick="addHighlightField()">+</button>
-                                                    </div>
+                                                    @forelse ($overview->highlights as $index => $highlight)
+                                                        <div class="d-flex mb-2">
+                                                            <input type="text" name="highlight_list[]"
+                                                                class="form-control me-2" value="{{ $highlight }}"
+                                                                placeholder="Enter highlight">
+                                                            @if ($index === 0)
+                                                                <button type="button" class="btn btn-success btn-sm"
+                                                                    onclick="addHighlightField()">
+                                                                    +
+                                                                </button>
+                                                            @else
+                                                                <button type="button" class="btn btn-danger btn-sm"
+                                                                    onclick="removeHighlightField(this)">
+                                                                    −
+                                                                </button>
+                                                            @endif
+                                                        </div>
+                                                    @empty
+                                                        {{-- Default field if no highlights exist --}}
+                                                        <div class="d-flex mb-2">
+                                                            <input type="text" name="highlight_list[]"
+                                                                class="form-control me-2" placeholder="Enter highlight">
+                                                            <button type="button" class="btn btn-success btn-sm"
+                                                                onclick="addHighlightField()">
+                                                                +
+                                                            </button>
+                                                        </div>
+                                                    @endforelse
                                                 </div>
                                             </div>
+
 
                                             <div class="col-12 text-end">
                                                 <button type="button" class="btn btn-secondary me-2"
@@ -154,33 +184,68 @@
                                                 <label class="form-label">Tour Rate (₹)<span
                                                         class="font-danger">*</span></label>
                                                 <input type="number" name="tour_rate" class="form-control"
-                                                    placeholder="Enter total tour rate" required>
+                                                    placeholder="Enter total tour rate" required
+                                                    value="{{ old('rate', $tour->rate) }}">
                                             </div>
                                             <div class="col-xl-6 col-sm-6">
                                                 <label class="form-label">Included Amenities</label>
                                                 <div id="included-wrapper">
-                                                    <div class="d-flex mb-2">
-                                                        <input type="text" name="included_amenities[]"
-                                                            class="form-control me-2"
-                                                            placeholder="Enter included amenity">
-                                                        <button type="button" class="btn btn-success btn-sm"
-                                                            onclick="addAmenityField('included')">+</button>
-                                                    </div>
+                                                    @if (!empty($amenity->included_amenities))
+                                                        @foreach ($amenity->included_amenities as $index => $included)
+                                                            <div class="d-flex mb-2">
+                                                                <input type="text" name="included_amenities[]"
+                                                                    class="form-control me-2" value="{{ $included }}"
+                                                                    placeholder="Enter amenity">
+                                                                @if ($index === 0)
+                                                                    <button type="button" class="btn btn-success btn-sm"
+                                                                        onclick="addAmenityField('included')">+</button>
+                                                                @else
+                                                                    <button type="button" class="btn btn-danger btn-sm"
+                                                                        onclick="this.parentElement.remove()">−</button>
+                                                                @endif
+                                                            </div>
+                                                        @endforeach
+                                                    @else
+                                                        <div class="d-flex mb-2">
+                                                            <input type="text" name="included_amenities[]"
+                                                                class="form-control me-2" placeholder="Enter amenity">
+                                                            <button type="button" class="btn btn-success btn-sm"
+                                                                onclick="addAmenityField('included')">+</button>
+                                                        </div>
+                                                    @endif
                                                 </div>
                                             </div>
+
 
                                             <div class="col-xl-6 col-sm-6">
                                                 <label class="form-label">Not Included Amenities</label>
                                                 <div id="not-included-wrapper">
-                                                    <div class="d-flex mb-2">
-                                                        <input type="text" name="not_included_amenities[]"
-                                                            class="form-control me-2"
-                                                            placeholder="Enter not included amenity">
-                                                        <button type="button" class="btn btn-success btn-sm"
-                                                            onclick="addAmenityField('not-included')">+</button>
-                                                    </div>
+                                                    @if (!empty($amenity->not_included_amenities))
+                                                        @foreach ($amenity->not_included_amenities as $index => $notIncluded)
+                                                            <div class="d-flex mb-2">
+                                                                <input type="text" name="not_included_amenities[]"
+                                                                    class="form-control me-2" value="{{ $notIncluded }}"
+                                                                    placeholder="Enter amenity">
+                                                                @if ($index === 0)
+                                                                    <button type="button" class="btn btn-success btn-sm"
+                                                                        onclick="addAmenityField('not-included')">+</button>
+                                                                @else
+                                                                    <button type="button" class="btn btn-danger btn-sm"
+                                                                        onclick="this.parentElement.remove()">−</button>
+                                                                @endif
+                                                            </div>
+                                                        @endforeach
+                                                    @else
+                                                        <div class="d-flex mb-2">
+                                                            <input type="text" name="not_included_amenities[]"
+                                                                class="form-control me-2" placeholder="Enter amenity">
+                                                            <button type="button" class="btn btn-success btn-sm"
+                                                                onclick="addAmenityField('not-included')">+</button>
+                                                        </div>
+                                                    @endif
                                                 </div>
                                             </div>
+
                                             <div class="col-12 text-end mt-3">
                                                 <button type="button" class="btn btn-secondary me-2"
                                                     onclick="prevTab('TourDetails-wizard-tab')">Previous</button>
@@ -195,21 +260,55 @@
                                         <div class="row g-3">
 
                                             {{-- daily itinerary --}}
+                                            {{-- Daily Itinerary --}}
                                             <div class="row mt-3" id="itinerary-wrapper">
-                                                <div class="col-xl-4 day-itinerary" data-index="0">
-                                                    <div class="card p-2 mb-3 shadow-sm position-relative">
-                                                        <label class="form-label">Day 1 Title</label>
-                                                        <input type="text" name="itinerary[0][title]"
-                                                            class="form-control mb-2" placeholder="Enter title for Day 1">
-                                                        <label class="form-label">Details</label>
-                                                        <textarea id="editor-0" name="itinerary[0][details]" class="form-control itinerary-editor" rows="4"
-                                                            placeholder="Enter details for Day 1"></textarea>
+                                                @if (!empty($plan->itinerary))
+                                                    @foreach ($plan->itinerary as $index => $day)
+                                                        <div class="col-xl-4 day-itinerary"
+                                                            data-index="{{ $index }}">
+                                                            <div class="card p-2 mb-3 shadow-sm position-relative">
+                                                                @if ($index !== 0)
+                                                                    <button type="button"
+                                                                        class="btn-close position-absolute top-0 end-0 m-2"
+                                                                        aria-label="Close"
+                                                                        onclick="removeDayItinerary({{ $index }})"></button>
+                                                                @endif
+
+                                                                <label class="form-label">Day {{ $index + 1 }}
+                                                                    Title</label>
+                                                                <input type="text"
+                                                                    name="itinerary[{{ $index }}][title]"
+                                                                    class="form-control mb-2 day-title"
+                                                                    value="{{ $day['title'] }}"
+                                                                    placeholder="Enter title for Day {{ $index + 1 }}">
+
+                                                                <label class="form-label">Details</label>
+                                                                <textarea id="editor-{{ $index }}" name="itinerary[{{ $index }}][details]"
+                                                                    class="form-control itinerary-editor day-details" rows="4"
+                                                                    placeholder="Enter details for Day {{ $index + 1 }}">{{ $day['details'] }}</textarea>
+                                                            </div>
+                                                        </div>
+                                                    @endforeach
+                                                @else
+                                                    {{-- fallback Day 1 --}}
+                                                    <div class="col-xl-4 day-itinerary" data-index="0">
+                                                        <div class="card p-2 mb-3 shadow-sm position-relative">
+                                                            <label class="form-label">Day 1 Title</label>
+                                                            <input type="text" name="itinerary[0][title]"
+                                                                class="form-control mb-2 day-title"
+                                                                placeholder="Enter title for Day 1">
+
+                                                            <label class="form-label">Details</label>
+                                                            <textarea id="editor-0" name="itinerary[0][details]" class="form-control itinerary-editor day-details"
+                                                                rows="4" placeholder="Enter details for Day 1"></textarea>
+                                                        </div>
                                                     </div>
-                                                </div>
+                                                @endif
                                             </div>
 
                                             <button type="button" class="col-xl-4 btn btn-primary mt-3"
                                                 onclick="addDayItinerary()">+ Add Day</button>
+
                                             {{-- daily itinerary --}}
 
 
@@ -225,6 +324,17 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap Modal -->
+    <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <img src="{{ asset('storage/' . $tour->feature_image) }}" alt="{{ $tour->title }}"
+                        class="img-fluid rounded" />
                 </div>
             </div>
         </div>
@@ -251,8 +361,8 @@
             div.classList.add('d-flex', 'mb-2');
 
             div.innerHTML = `
-            <input type="text" name="highlight_list[]" class="form-control me-2" placeholder="Enter highlight">
-            <button type="button" class="btn btn-danger btn-sm" onclick="removeHighlightField(this)">−</button>`;
+        <input type="text" name="highlight_list[]" class="form-control me-2" placeholder="Enter highlight">
+        <button type="button" class="btn btn-danger btn-sm" onclick="removeHighlightField(this)">−</button>`;
 
             wrapper.appendChild(div);
         }
@@ -263,7 +373,6 @@
 
         function addAmenityField(type) {
             const wrapperId = type === 'included' ? 'included-wrapper' : 'not-included-wrapper';
-
             const wrapper = document.getElementById(wrapperId);
             const inputName = type === 'included' ? 'included_amenities[]' : 'not_included_amenities[]';
 
@@ -271,9 +380,8 @@
             div.classList.add('d-flex', 'mb-2');
 
             div.innerHTML = `
-            <input type="text" name="${inputName}" class="form-control me-2" placeholder="Enter amenity">
-            <button type="button" class="btn btn-danger btn-sm" onclick="this.parentElement.remove()">−</button>
-        `;
+        <input type="text" name="${inputName}" class="form-control me-2" placeholder="Enter amenity">
+        <button type="button" class="btn btn-danger btn-sm" onclick="this.parentElement.remove()">−</button>`;
 
             wrapper.appendChild(div);
         }
@@ -281,9 +389,8 @@
     <script src="https://cdn.ckeditor.com/4.25.1/standard/ckeditor.js"></script>
 
     <script>
-        let dayCount = 1; // Day 0 is already initialized on load
+        let dayCount = document.querySelectorAll('.day-itinerary').length || 1;
 
-        // Add new day
         function addDayItinerary() {
             const wrapper = document.getElementById('itinerary-wrapper');
 
@@ -295,20 +402,22 @@
 
             col.innerHTML = `
                 <div class="card p-2 mb-3 shadow-sm position-relative">
-        <button type="button" class="btn-close position-absolute top-0 end-0 m-2"
-            aria-label="Close" onclick="removeDayItinerary(${dayCount})"></button>
-
-        <label class="form-label">Day ${dayCount + 1} Title</label>
-        <input type="text" name="itinerary[${dayCount}][title]"
-            class="form-control mb-2" placeholder="Enter title for Day ${dayCount + 1}">
-
-        <label class="form-label">Details</label>
-        <textarea id="${editorId}" name="itinerary[${dayCount}][details]" class="form-control itinerary-editor"
-            rows="4" placeholder="Enter details for Day ${dayCount + 1}"></textarea>
-        </div>`;
+                    <button type="button" class="btn-close position-absolute top-0 end-0 m-2"
+                        aria-label="Close" onclick="removeDayItinerary(${dayCount})"></button>
+    
+                    <label class="form-label">Day ${dayCount + 1} Title</label>
+                    <input type="text" name="itinerary[${dayCount}][title]"
+                        class="form-control mb-2 day-title" placeholder="Enter title for Day ${dayCount + 1}">
+    
+                    <label class="form-label">Details</label>
+                    <textarea id="${editorId}" name="itinerary[${dayCount}][details]"
+                        class="form-control itinerary-editor day-details" rows="4"
+                        placeholder="Enter details for Day ${dayCount + 1}"></textarea>
+                </div>`;
 
             wrapper.appendChild(col);
 
+            // Wait for DOM update, then apply CKEditor
             setTimeout(() => {
                 CKEDITOR.replace(editorId);
             }, 100);
@@ -316,7 +425,6 @@
             dayCount++;
         }
 
-        // Remove day
         function removeDayItinerary(index) {
             if (index === 0) {
                 alert("Day 1 cannot be removed.");
@@ -342,55 +450,50 @@
             items.forEach((item, i) => {
                 item.dataset.index = i;
 
-                const titleInput = item.querySelector("input.day-title");
-                const detailTextarea = item.querySelector("textarea.day-details");
+                const input = item.querySelector('input.day-title');
+                const textarea = item.querySelector('textarea.day-details');
                 const labels = item.querySelectorAll('label');
 
-                // Update label text
                 if (labels.length > 0) labels[0].innerText = `Day ${i + 1} Title`;
                 if (labels.length > 1) labels[1].innerText = `Details`;
 
-                // Update name and placeholder
-                if (titleInput) {
-                    titleInput.name = `itinerary[${i}][title]`;
-                    titleInput.placeholder = `Enter title for Day ${i + 1}`;
+                if (input) {
+                    input.name = `itinerary[${i}][title]`;
+                    input.placeholder = `Enter title for Day ${i + 1}`;
                 }
 
-                if (detailTextarea) {
+                if (textarea) {
+                    const oldId = textarea.id;
                     const newId = `editor-${i}`;
 
-                    // Destroy old instance if it exists
-                    if (detailTextarea.id && CKEDITOR.instances[detailTextarea.id]) {
-                        CKEDITOR.instances[detailTextarea.id].destroy(true);
+                    if (CKEDITOR.instances[oldId]) {
+                        CKEDITOR.instances[oldId].destroy(true);
                     }
 
-                    // Update ID and name
-                    detailTextarea.id = newId;
-                    detailTextarea.name = `itinerary[${i}][details]`;
-                    detailTextarea.placeholder = `Enter details for Day ${i + 1}`;
+                    textarea.id = newId;
+                    textarea.name = `itinerary[${i}][details]`;
+                    textarea.placeholder = `Enter details for Day ${i + 1}`;
 
-                    // Wait for DOM update, then safely create new CKEditor
-                    requestAnimationFrame(() => {
-                        if (document.getElementById(newId)) {
-                            CKEDITOR.replace(newId);
-                        }
-                    });
+                    setTimeout(() => {
+                        CKEDITOR.replace(newId);
+                    }, 100);
                 }
 
-                // Update remove button
                 const closeBtn = item.querySelector('button.btn-close');
                 if (closeBtn) {
                     closeBtn.setAttribute("onclick", `removeDayItinerary(${i})`);
                 }
             });
 
-            // Update global day count
             dayCount = items.length;
         }
 
-        // Initialize Day 1 on load
         document.addEventListener("DOMContentLoaded", function() {
-            CKEDITOR.replace('editor-0');
+            document.querySelectorAll(".itinerary-editor").forEach(el => {
+                CKEDITOR.replace(el.id);
+            });
+
+            dayCount = document.querySelectorAll('.day-itinerary').length;
         });
     </script>
 @endsection

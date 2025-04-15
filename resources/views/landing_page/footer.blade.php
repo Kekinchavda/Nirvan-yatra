@@ -3,7 +3,7 @@
         <div class="container">
             <div class="main-footer__top__inner wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="200ms">
                 <div class="footer-widget__logo logo-retina">
-                    <a href="index.html"><img src="assets/images/logo-light.svg" width="158" height="45"
+                    <a href="index.html"><img src="{{ asset('assets/images/logo-light.svg') }}" width="158" height="45"
                             alt="gotur logo"></a>
                 </div>
                 <!-- /.footer-widget__logo -->

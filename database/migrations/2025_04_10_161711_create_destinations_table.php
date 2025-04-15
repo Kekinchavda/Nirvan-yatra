@@ -10,11 +10,9 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('tour_amenities', function (Blueprint $table) {
+        Schema::create('destinations', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('tour_id')->constrained()->onDelete('cascade');
-            $table->string('included_amenities');
-            $table->string('not_included_amenities');
+            $table->string('feature_image');
             $table->softDeletes();
             $table->timestamps();
         });
@@ -25,6 +23,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('tour_amenities');
+        Schema::dropIfExists('destinations');
     }
 };

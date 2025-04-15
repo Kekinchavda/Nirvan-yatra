@@ -13,7 +13,9 @@ return new class extends Migration {
         Schema::create('tour_overviews', function (Blueprint $table) {
             $table->id();
             $table->foreignId('tour_id')->constrained()->onDelete('cascade');
-            $table->text('overview'); // Description of the tour
+            $table->longText('overview');
+            $table->longText('highlights');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

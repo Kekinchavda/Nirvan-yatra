@@ -338,88 +338,7 @@
                     </div>
                     <!-- /.tab-buttons -->
                     <div class="tabs-content">
-                        <div class="item tab" id="itemOne">
-                            <div class="row gutter-y-20 gutter-x-20">
-                                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                                    <div class="destination-card-one wow fadeInUp" data-wow-duration='1500ms'
-                                        data-wow-delay='100ms'>
-                                        <div class="destination-card-one__thumb">
-                                            <img src="assets/images/destination/destination-1-1.jpg"
-                                                alt="destination">
-                                            <a href="" class="destination-card-one__overly"></a>
-                                        </div>
-                                        <!-- /.destination-card-one__thumb -->
-                                        <div class="destination-card-one__content">
-                                            <h3 class="destination-card-one__title"><a
-                                                    href="destination-details.html">Bangkok</a></h3>
-                                            <!-- /.destination-card-one__title -->
-                                        </div>
-                                        <!-- /.destination-one__content -->
-                                    </div>
-                                    <!-- /.destination-one -->
-                                </div>
-                                <!-- /.col-xl-3 col-lg-4 col-md-4 col-sm-6 -->
-                                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                                    <div class="destination-card-one wow fadeInUp" data-wow-duration='1500ms'
-                                        data-wow-delay='300ms'>
-                                        <div class="destination-card-one__thumb">
-                                            <img src="assets/images/destination/destination-1-2.jpg"
-                                                alt="destination">
-                                            <a href="" class="destination-card-one__overly"></a>
-                                        </div>
-                                        <!-- /.destination-card-one__thumb -->
-                                        <div class="destination-card-one__content">
-                                            <h3 class="destination-card-one__title"><a
-                                                    href="destination-details.html">Tokyo</a></h3>
-                                            <!-- /.destination-card-one__title -->
-                                        </div>
-                                        <!-- /.destination-one__content -->
-                                    </div>
-                                    <!-- /.destination-one -->
-                                </div>
-                                <!-- /.col-xl-3 col-lg-4 col-md-4 col-sm-6 -->
-                                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                                    <div class="destination-card-one wow fadeInUp" data-wow-duration='1500ms'
-                                        data-wow-delay='500ms'>
-                                        <div class="destination-card-one__thumb">
-                                            <img src="assets/images/destination/destination-1-3.jpg"
-                                                alt="destination">
-                                            <a href="" class="destination-card-one__overly"></a>
-                                        </div>
-                                        <!-- /.destination-card-one__thumb -->
-                                        <div class="destination-card-one__content">
-                                            <h3 class="destination-card-one__title"><a
-                                                    href="destination-details.html">Kashmir</a></h3>
-                                            <!-- /.destination-card-one__title -->
-                                        </div>
-                                        <!-- /.destination-one__content -->
-                                    </div>
-                                    <!-- /.destination-one -->
-                                </div>
-                                <!-- /.col-xl-3 col-lg-4 col-md-4 col-sm-6 -->
-                                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                                    <div class="destination-card-one wow fadeInUp" data-wow-duration='1500ms'
-                                        data-wow-delay='600ms'>
-                                        <div class="destination-card-one__thumb">
-                                            <img src="assets/images/destination/destination-1-4.jpg"
-                                                alt="destination">
-                                            <a href="" class="destination-card-one__overly"></a>
-                                        </div>
-                                        <!-- /.destination-card-one__thumb -->
-                                        <div class="destination-card-one__content">
-                                            <h3 class="destination-card-one__title"><a
-                                                    href="destination-details.html">Indonesia</a></h3>
-                                            <!-- /.destination-card-one__title -->
-                                        </div>
-                                        <!-- /.destination-one__content -->
-                                    </div>
-                                    <!-- /.destination-one -->
-                                </div>
-                                <!-- /.col-xl-3 col-lg-4 col-md-4 col-sm-6 -->
-                            </div>
-                            <!-- /.row -->
-                        </div>
-                        <!-- /.item -->
+
                         <div class="item tab active-tab" id="itemTwo">
                             <div class="row gutter-y-20 gutter-x-20">
                                 <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
@@ -501,267 +420,19 @@
                             </div>
                             <!-- /.row -->
                         </div>
-                        <!-- /.item -->
-                        <div class="item tab" id="itemThree">
-                            <div class="row gutter-y-20 gutter-x-20">
-                                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                                    <div class="destination-card-one wow fadeInUp" data-wow-duration='1500ms'
-                                        data-wow-delay='100ms'>
-                                        <div class="destination-card-one__thumb">
-                                            <img src="assets/images/destination/destination-1-1.jpg"
-                                                alt="destination">
-                                            <a href="" class="destination-card-one__overly"></a>
-                                        </div>
-                                        <!-- /.destination-card-one__thumb -->
-                                        <div class="destination-card-one__content">
-                                            <h3 class="destination-card-one__title"><a
-                                                    href="destination-details.html">Bangkok</a></h3>
-                                            <!-- /.destination-card-one__title -->
-                                        </div>
-                                        <!-- /.destination-one__content -->
-                                    </div>
-                                    <!-- /.destination-one -->
-                                </div>
-                                <!-- /.col-xl-3 col-lg-4 col-md-4 col-sm-6 -->
-                                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                                    <div class="destination-card-one wow fadeInUp" data-wow-duration='1500ms'
-                                        data-wow-delay='300ms'>
-                                        <div class="destination-card-one__thumb">
-                                            <img src="assets/images/destination/destination-1-2.jpg"
-                                                alt="destination">
-                                            <a href="" class="destination-card-one__overly"></a>
-                                        </div>
-                                        <!-- /.destination-card-one__thumb -->
-                                        <div class="destination-card-one__content">
-                                            <h3 class="destination-card-one__title"><a
-                                                    href="destination-details.html">Tokyo</a></h3>
-                                            <!-- /.destination-card-one__title -->
-                                        </div>
-                                        <!-- /.destination-one__content -->
-                                    </div>
-                                    <!-- /.destination-one -->
-                                </div>
-                                <!-- /.col-xl-3 col-lg-4 col-md-4 col-sm-6 -->
-                                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                                    <div class="destination-card-one wow fadeInUp" data-wow-duration='1500ms'
-                                        data-wow-delay='500ms'>
-                                        <div class="destination-card-one__thumb">
-                                            <img src="assets/images/destination/destination-1-3.jpg"
-                                                alt="destination">
-                                            <a href="" class="destination-card-one__overly"></a>
-                                        </div>
-                                        <!-- /.destination-card-one__thumb -->
-                                        <div class="destination-card-one__content">
-                                            <h3 class="destination-card-one__title"><a
-                                                    href="destination-details.html">Kashmir</a></h3>
-                                            <!-- /.destination-card-one__title -->
-                                        </div>
-                                        <!-- /.destination-one__content -->
-                                    </div>
-                                    <!-- /.destination-one -->
-                                </div>
-                                <!-- /.col-xl-3 col-lg-4 col-md-4 col-sm-6 -->
-                                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                                    <div class="destination-card-one wow fadeInUp" data-wow-duration='1500ms'
-                                        data-wow-delay='600ms'>
-                                        <div class="destination-card-one__thumb">
-                                            <img src="assets/images/destination/destination-1-4.jpg"
-                                                alt="destination">
-                                            <a href="" class="destination-card-one__overly"></a>
-                                        </div>
-                                        <!-- /.destination-card-one__thumb -->
-                                        <div class="destination-card-one__content">
-                                            <h3 class="destination-card-one__title"><a
-                                                    href="destination-details.html">Indonesia</a></h3>
-                                            <!-- /.destination-card-one__title -->
-                                        </div>
-                                        <!-- /.destination-one__content -->
-                                    </div>
-                                    <!-- /.destination-one -->
-                                </div>
-                                <!-- /.col-xl-3 col-lg-4 col-md-4 col-sm-6 -->
-                            </div>
-                            <!-- /.row -->
-                        </div>
-                        <!-- /.item -->
-                        <div class="item tab" id="itemFour">
-                            <div class="row gutter-y-20 gutter-x-20">
-                                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                                    <div class="destination-card-one wow fadeInUp" data-wow-duration='1500ms'
-                                        data-wow-delay='100ms'>
-                                        <div class="destination-card-one__thumb">
-                                            <img src="assets/images/destination/destination-1-1.jpg"
-                                                alt="destination">
-                                            <a href="" class="destination-card-one__overly"></a>
-                                        </div>
-                                        <!-- /.destination-card-one__thumb -->
-                                        <div class="destination-card-one__content">
-                                            <h3 class="destination-card-one__title"><a
-                                                    href="destination-details.html">Bangkok</a></h3>
-                                            <!-- /.destination-card-one__title -->
-                                        </div>
-                                        <!-- /.destination-one__content -->
-                                    </div>
-                                    <!-- /.destination-one -->
-                                </div>
-                                <!-- /.col-xl-3 col-lg-4 col-md-4 col-sm-6 -->
-                                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                                    <div class="destination-card-one wow fadeInUp" data-wow-duration='1500ms'
-                                        data-wow-delay='300ms'>
-                                        <div class="destination-card-one__thumb">
-                                            <img src="assets/images/destination/destination-1-2.jpg"
-                                                alt="destination">
-                                            <a href="" class="destination-card-one__overly"></a>
-                                        </div>
-                                        <!-- /.destination-card-one__thumb -->
-                                        <div class="destination-card-one__content">
-                                            <h3 class="destination-card-one__title"><a
-                                                    href="destination-details.html">Tokyo</a></h3>
-                                            <!-- /.destination-card-one__title -->
-                                        </div>
-                                        <!-- /.destination-one__content -->
-                                    </div>
-                                    <!-- /.destination-one -->
-                                </div>
-                                <!-- /.col-xl-3 col-lg-4 col-md-4 col-sm-6 -->
-                                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                                    <div class="destination-card-one wow fadeInUp" data-wow-duration='1500ms'
-                                        data-wow-delay='500ms'>
-                                        <div class="destination-card-one__thumb">
-                                            <img src="assets/images/destination/destination-1-3.jpg"
-                                                alt="destination">
-                                            <a href="" class="destination-card-one__overly"></a>
-                                        </div>
-                                        <!-- /.destination-card-one__thumb -->
-                                        <div class="destination-card-one__content">
-                                            <h3 class="destination-card-one__title"><a
-                                                    href="destination-details.html">Kashmir</a></h3>
-                                            <!-- /.destination-card-one__title -->
-                                        </div>
-                                        <!-- /.destination-one__content -->
-                                    </div>
-                                    <!-- /.destination-one -->
-                                </div>
-                                <!-- /.col-xl-3 col-lg-4 col-md-4 col-sm-6 -->
-                                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                                    <div class="destination-card-one wow fadeInUp" data-wow-duration='1500ms'
-                                        data-wow-delay='600ms'>
-                                        <div class="destination-card-one__thumb">
-                                            <img src="assets/images/destination/destination-1-4.jpg"
-                                                alt="destination">
-                                            <a href="" class="destination-card-one__overly"></a>
-                                        </div>
-                                        <!-- /.destination-card-one__thumb -->
-                                        <div class="destination-card-one__content">
-                                            <h3 class="destination-card-one__title"><a
-                                                    href="destination-details.html">Indonesia</a></h3>
-                                            <!-- /.destination-card-one__title -->
-                                        </div>
-                                        <!-- /.destination-one__content -->
-                                    </div>
-                                    <!-- /.destination-one -->
-                                </div>
-                                <!-- /.col-xl-3 col-lg-4 col-md-4 col-sm-6 -->
-                            </div>
-                            <!-- /.row -->
-                        </div>
-                        <!-- /.item -->
-                        <div class="item tab" id="itemFive">
-                            <div class="row gutter-y-20 gutter-x-20">
-                                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                                    <div class="destination-card-one wow fadeInUp" data-wow-duration='1500ms'
-                                        data-wow-delay='100ms'>
-                                        <div class="destination-card-one__thumb">
-                                            <img src="assets/images/destination/destination-1-1.jpg"
-                                                alt="destination">
-                                            <a href="" class="destination-card-one__overly"></a>
-                                        </div>
-                                        <!-- /.destination-card-one__thumb -->
-                                        <div class="destination-card-one__content">
-                                            <h3 class="destination-card-one__title"><a
-                                                    href="destination-details.html">Bangkok</a></h3>
-                                            <!-- /.destination-card-one__title -->
-                                        </div>
-                                        <!-- /.destination-one__content -->
-                                    </div>
-                                    <!-- /.destination-one -->
-                                </div>
-                                <!-- /.col-xl-3 col-lg-4 col-md-4 col-sm-6 -->
-                                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                                    <div class="destination-card-one wow fadeInUp" data-wow-duration='1500ms'
-                                        data-wow-delay='300ms'>
-                                        <div class="destination-card-one__thumb">
-                                            <img src="assets/images/destination/destination-1-2.jpg"
-                                                alt="destination">
-                                            <a href="" class="destination-card-one__overly"></a>
-                                        </div>
-                                        <!-- /.destination-card-one__thumb -->
-                                        <div class="destination-card-one__content">
-                                            <h3 class="destination-card-one__title"><a
-                                                    href="destination-details.html">Tokyo</a></h3>
-                                            <!-- /.destination-card-one__title -->
-                                        </div>
-                                        <!-- /.destination-one__content -->
-                                    </div>
-                                    <!-- /.destination-one -->
-                                </div>
-                                <!-- /.col-xl-3 col-lg-4 col-md-4 col-sm-6 -->
-                                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                                    <div class="destination-card-one wow fadeInUp" data-wow-duration='1500ms'
-                                        data-wow-delay='500ms'>
-                                        <div class="destination-card-one__thumb">
-                                            <img src="assets/images/destination/destination-1-3.jpg"
-                                                alt="destination">
-                                            <a href="" class="destination-card-one__overly"></a>
-                                        </div>
-                                        <!-- /.destination-card-one__thumb -->
-                                        <div class="destination-card-one__content">
-                                            <h3 class="destination-card-one__title"><a
-                                                    href="destination-details.html">Kashmir</a></h3>
-                                            <!-- /.destination-card-one__title -->
-                                        </div>
-                                        <!-- /.destination-one__content -->
-                                    </div>
-                                    <!-- /.destination-one -->
-                                </div>
-                                <!-- /.col-xl-3 col-lg-4 col-md-4 col-sm-6 -->
-                                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                                    <div class="destination-card-one wow fadeInUp" data-wow-duration='1500ms'
-                                        data-wow-delay='600ms'>
-                                        <div class="destination-card-one__thumb">
-                                            <img src="assets/images/destination/destination-1-4.jpg"
-                                                alt="destination">
-                                            <a href="" class="destination-card-one__overly"></a>
-                                        </div>
-                                        <!-- /.destination-card-one__thumb -->
-                                        <div class="destination-card-one__content">
-                                            <h3 class="destination-card-one__title"><a
-                                                    href="destination-details.html">Indonesia</a></h3>
-                                            <!-- /.destination-card-one__title -->
-                                        </div>
-                                        <!-- /.destination-one__content -->
-                                    </div>
-                                    <!-- /.destination-one -->
-                                </div>
-                                <!-- /.col-xl-3 col-lg-4 col-md-4 col-sm-6 -->
-                            </div>
-                            <!-- /.row -->
-                        </div>
-                        <!-- /.item -->
+
                     </div>
-                    <!-- /.tabs-content -->
+                    <!-- /.tabs-box -->
                 </div>
-                <!-- /.tabs-box -->
-            </div>
-            <!-- /.container -->
-            <div class="destination-filter__element">
-                <img src="{{ asset('assets/images/shapes/plan.png') }}" alt>
-            </div>
-            <!-- /.destination-filter__element -->
-            <div class="destination-filter__element-two">
-                <img src="{{ asset('assets/images/shapes/monjil.png') }}" alt>
-            </div>
-            <!-- /.destination-filter__element -->
+                <!-- /.container -->
+                <div class="destination-filter__element">
+                    <img src="{{ asset('assets/images/shapes/plan.png') }}" alt>
+                </div>
+                <!-- /.destination-filter__element -->
+                <div class="destination-filter__element-two">
+                    <img src="{{ asset('assets/images/shapes/monjil.png') }}" alt>
+                </div>
+                <!-- /.destination-filter__element -->
         </section>
         <!-- /.destination-filter -->
 
@@ -930,25 +601,26 @@
                         }
                     }
                 }'>
-                        <div class="item">
-                            <div class="listing-card-four wow fadeInUp" data-wow-duration='1500ms'
-                                data-wow-delay='100ms'>
-                                <div class="listing-card-four__image">
-                                    <img src="{{ asset('assets/images/blog/listing-list-4-') }}1.jpg"
-                                        alt="All Inclusive Ultimate Circle Island Day with Lunch">
-                                    <div class="listing-card-four__btn-group">
+                        @foreach ($tours as $tour)
+                            <div class="item">
+                                <div class="listing-card-four wow fadeInUp" data-wow-duration='1500ms'
+                                    data-wow-delay='100ms'>
+                                    <div class="listing-card-four__image">
+                                        <img src="{{ asset('storage/' . $tour->feature_image) }}"
+                                            alt="All Inclusive Ultimate Circle Island Day with Lunch">
+                                        <div class="listing-card-four__btn-group">
 
 
-                                        <div class="listing-card-four__featured">Featured</div>
-                                        <!-- /.listing-card-four__featured -->
+                                            <div class="listing-card-four__featured">Featured</div>
+                                            <!-- /.listing-card-four__featured -->
 
-                                    </div>
-                                    <!-- /.listing-card-four__btn-group -->
-                                    <div class="listing-card-four__btns">
-                                        <a href="#"><i class="far fa-heart"></i></a>
-                                        <div class="listing-card-four__btns__hover">
-                                            <a href="#" class="listing-card-four__popup card__popup"
-                                                data-gallery-options='{
+                                        </div>
+                                        <!-- /.listing-card-four__btn-group -->
+                                        <div class="listing-card-four__btns">
+                                            <a href="#"><i class="far fa-heart"></i></a>
+                                            <div class="listing-card-four__btns__hover">
+                                                <a href="#" class="listing-card-four__popup card__popup"
+                                                    data-gallery-options='{
                     "items": [
                         {
                             "src": "assets/images/blog/listing-1-1.jpg"
@@ -965,717 +637,67 @@
                     },
                     "type": "image"
                 }'>
-                                                <span class="icon-image"></span>
-                                            </a>
-                                            <a class="video-popup"
-                                                href="https://www.youtube.com/watch?v=0MuL8fd3pb8"><span
-                                                    class="icon-video"></span></a>
+                                                    <span class="icon-image"></span>
+                                                </a>
+                                                <a class="video-popup"
+                                                    href="https://www.youtube.com/watch?v=0MuL8fd3pb8"><span
+                                                        class="icon-video"></span></a>
+                                            </div>
+                                            <!-- /.listing-card-four__btns__hover -->
                                         </div>
-                                        <!-- /.listing-card-four__btns__hover -->
+                                        <ul class="listing-card-four__meta list-unstyled">
+                                            <li>
+                                                <a href="{{ route('tour.details', $tour->slug) }}"> <span
+                                                        class="listing-card-four__meta__icon"> <i
+                                                            class="icon-pin1"></i>
+                                                    </span>{{ $tour->location }}</a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ route('tour.details', $tour->slug) }}"> <span
+                                                        class="listing-card-four__meta__icon"> <i
+                                                            class="icon-calendar"></i>
+                                                    </span>{{ $tour->days }} Days, {{ $tour->nights }} Night</a>
+                                            </li>
+                                        </ul>
+                                        <!-- /.listing-card-four__meta -->
+                                        <a href="{{ route('tour.details', $tour->slug) }}"
+                                            class="listing-card-four__image__overly"></a>
                                     </div>
-                                    <ul class="listing-card-four__meta list-unstyled">
-                                        <li>
-                                            <a href="tour-listing-details-2.html"> <span
-                                                    class="listing-card-four__meta__icon"> <i class="icon-pin1"></i>
-                                                </span>Slingerland</a>
-                                        </li>
-                                        <li>
-                                            <a href="tour-listing-details-2.html"> <span
-                                                    class="listing-card-four__meta__icon"> <i
-                                                        class="icon-calendar"></i>
-                                                </span>6 Days, 3 Night</a>
-                                        </li>
-                                    </ul>
-                                    <!-- /.listing-card-four__meta -->
-                                    <a href="tour-listing-details-2.html"
-                                        class="listing-card-four__image__overly"></a>
-                                </div>
-                                <!-- /.listing-card-four__image -->
-                                <div class="listing-card-four__content">
-                                    <div class="listing-card-four__rating">
-                                        <span>(10 Review)</span>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                    </div>
-                                    <!-- /.listing-card-four__rating -->
-                                    <h3 class="listing-card-four__title"><a href="tour-listing-details-2.html">All
-                                            Inclusive Ultimate Circle Island Day with Lunch</a></h3>
-                                    <!-- /.listing-card-four__title -->
+                                    <!-- /.listing-card-four__image -->
+                                    <div class="listing-card-four__content">
+                                        <div class="listing-card-four__rating">
+                                            <span>(10 Review)</span>
+                                            <i class="icon-star"></i>
+                                            <i class="icon-star"></i>
+                                            <i class="icon-star"></i>
+                                            <i class="icon-star"></i>
+                                            <i class="icon-star"></i>
+                                        </div>
+                                        <!-- /.listing-card-four__rating -->
+                                        <h3 class="listing-card-four__title"><a
+                                                href="{{ route('tour.details', $tour->slug) }}">{{ $tour->title }}</a></h3>
+                                        <!-- /.listing-card-four__title -->
 
-                                    <div class="listing-card-four__content__btn">
-                                        <div class="listing-card-four__price">
-                                            <span class="listing-card-four__price__sub">Per Day</span>
-                                            <span class="listing-card-four__price__number">$59.00</span>
+                                        <div class="listing-card-four__content__btn">
+                                            <div class="listing-card-four__price">
+                                                <span class="listing-card-four__price__sub">Rate</span>
+                                                <span class="listing-card-four__price__number">₹
+                                                    {{ $tour->tour_rate }}</span>
+                                            </div>
+                                            <!-- /.listing-card-four__price -->
+                                            <a href="{{ route('tour.details', $tour->slug) }}"
+                                                class="listing-card-four__btn gotur-btn">
+                                                Book Now <span class="icon"><i class="icon-right"></i> </span></a>
                                         </div>
-                                        <!-- /.listing-card-four__price -->
-                                        <a href="tour-listing-details-2.html"
-                                            class="listing-card-four__btn gotur-btn">
-                                            Book Now <span class="icon"><i class="icon-right"></i> </span></a>
+                                        <!-- /.listing-card-four__content__btn -->
                                     </div>
-                                    <!-- /.listing-card-four__content__btn -->
+                                    <!-- /.listing-card-four__content -->
                                 </div>
-                                <!-- /.listing-card-four__content -->
+                                <!-- /.listing-card-four -->
                             </div>
-                            <!-- /.listing-card-four -->
-                        </div>
-                        <!-- /.item -->
-                        <div class="item">
-                            <div class="listing-card-four wow fadeInUp" data-wow-duration='1500ms'
-                                data-wow-delay='100ms'>
-                                <div class="listing-card-four__image">
-                                    <img src="assets/images/blog/listing-list-4-2.jpg"
-                                        alt="Molokini and Turtle Town Snorkeling Adventure Aboard">
-                                    <div class="listing-card-four__btn-group">
+                            <!-- /.item -->
+                        @endforeach
 
-                                        <div class="listing-card-four__discount">-40% Off</div>
-                                        <!-- /.listing-card-four__discount -->
-
-
-                                        <div class="listing-card-four__featured">Featured</div>
-                                        <!-- /.listing-card-four__featured -->
-
-                                    </div>
-                                    <!-- /.listing-card-four__btn-group -->
-                                    <div class="listing-card-four__btns">
-                                        <a href="#"><i class="far fa-heart"></i></a>
-                                        <div class="listing-card-four__btns__hover">
-                                            <a href="#" class="listing-card-four__popup card__popup"
-                                                data-gallery-options='{
-                    "items": [
-                        {
-                            "src": "assets/images/blog/listing-1-1.jpg"
-                        },
-                        {
-                            "src": "assets/images/blog/listing-1-2.jpg"
-                        },
-                        {
-                            "src": "assets/images/blog/listing-1-3.jpg"
-                        }
-                    ],
-                    "gallery": {
-                        "enabled": true
-                    },
-                    "type": "image"
-                }'>
-                                                <span class="icon-image"></span>
-                                            </a>
-                                            <a class="video-popup"
-                                                href="https://www.youtube.com/watch?v=0MuL8fd3pb8"><span
-                                                    class="icon-video"></span></a>
-                                        </div>
-                                        <!-- /.listing-card-four__btns__hover -->
-                                    </div>
-                                    <ul class="listing-card-four__meta list-unstyled">
-                                        <li>
-                                            <a href="tour-listing-details-2.html"> <span
-                                                    class="listing-card-four__meta__icon"> <i class="icon-pin1"></i>
-                                                </span>Slingerland</a>
-                                        </li>
-                                        <li>
-                                            <a href="tour-listing-details-2.html"> <span
-                                                    class="listing-card-four__meta__icon"> <i
-                                                        class="icon-calendar"></i>
-                                                </span>6 Days, 3 Night</a>
-                                        </li>
-                                    </ul>
-                                    <!-- /.listing-card-four__meta -->
-                                    <a href="tour-listing-details-2.html"
-                                        class="listing-card-four__image__overly"></a>
-                                </div>
-                                <!-- /.listing-card-four__image -->
-                                <div class="listing-card-four__content">
-                                    <div class="listing-card-four__rating">
-                                        <span>(10 Review)</span>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                    </div>
-                                    <!-- /.listing-card-four__rating -->
-                                    <h3 class="listing-card-four__title"><a
-                                            href="tour-listing-details-2.html">Molokini
-                                            and Turtle Town Snorkeling Adventure Aboard</a></h3>
-                                    <!-- /.listing-card-four__title -->
-
-                                    <div class="listing-card-four__content__btn">
-                                        <div class="listing-card-four__price">
-                                            <span class="listing-card-four__price__sub">Per Day</span>
-                                            <span class="listing-card-four__price__number">$59.00</span>
-                                        </div>
-                                        <!-- /.listing-card-four__price -->
-                                        <a href="tour-listing-details-2.html"
-                                            class="listing-card-four__btn gotur-btn">
-                                            Book Now <span class="icon"><i class="icon-right"></i> </span></a>
-                                    </div>
-                                    <!-- /.listing-card-four__content__btn -->
-                                </div>
-                                <!-- /.listing-card-four__content -->
-                            </div>
-                            <!-- /.listing-card-four -->
-                        </div>
-                        <!-- /.item -->
-                        <div class="item">
-                            <div class="listing-card-four wow fadeInUp" data-wow-duration='1500ms'
-                                data-wow-delay='100ms'>
-                                <div class="listing-card-four__image">
-                                    <img src="assets/images/blog/listing-list-4-3.jpg"
-                                        alt="All Inclusive Ultimate Circle Island Day with Lunch">
-                                    <div class="listing-card-four__btn-group">
-
-
-                                        <div class="listing-card-four__featured">Featured</div>
-                                        <!-- /.listing-card-four__featured -->
-
-                                    </div>
-                                    <!-- /.listing-card-four__btn-group -->
-                                    <div class="listing-card-four__btns">
-                                        <a href="#"><i class="far fa-heart"></i></a>
-                                        <div class="listing-card-four__btns__hover">
-                                            <a href="#" class="listing-card-four__popup card__popup"
-                                                data-gallery-options='{
-                    "items": [
-                        {
-                            "src": "assets/images/blog/listing-1-1.jpg"
-                        },
-                        {
-                            "src": "assets/images/blog/listing-1-2.jpg"
-                        },
-                        {
-                            "src": "assets/images/blog/listing-1-3.jpg"
-                        }
-                    ],
-                    "gallery": {
-                        "enabled": true
-                    },
-                    "type": "image"
-                }'>
-                                                <span class="icon-image"></span>
-                                            </a>
-                                            <a class="video-popup"
-                                                href="https://www.youtube.com/watch?v=0MuL8fd3pb8"><span
-                                                    class="icon-video"></span></a>
-                                        </div>
-                                        <!-- /.listing-card-four__btns__hover -->
-                                    </div>
-                                    <ul class="listing-card-four__meta list-unstyled">
-                                        <li>
-                                            <a href="tour-listing-details-2.html"> <span
-                                                    class="listing-card-four__meta__icon"> <i class="icon-pin1"></i>
-                                                </span>Slingerland</a>
-                                        </li>
-                                        <li>
-                                            <a href="tour-listing-details-2.html"> <span
-                                                    class="listing-card-four__meta__icon"> <i
-                                                        class="icon-calendar"></i>
-                                                </span>6 Days, 3 Night</a>
-                                        </li>
-                                    </ul>
-                                    <!-- /.listing-card-four__meta -->
-                                    <a href="tour-listing-details-2.html"
-                                        class="listing-card-four__image__overly"></a>
-                                </div>
-                                <!-- /.listing-card-four__image -->
-                                <div class="listing-card-four__content">
-                                    <div class="listing-card-four__rating">
-                                        <span>(10 Review)</span>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                    </div>
-                                    <!-- /.listing-card-four__rating -->
-                                    <h3 class="listing-card-four__title"><a href="tour-listing-details-2.html">All
-                                            Inclusive Ultimate Circle Island Day with Lunch</a></h3>
-                                    <!-- /.listing-card-four__title -->
-
-                                    <div class="listing-card-four__content__btn">
-                                        <div class="listing-card-four__price">
-                                            <span class="listing-card-four__price__sub">Per Day</span>
-                                            <span class="listing-card-four__price__number">$59.00</span>
-                                        </div>
-                                        <!-- /.listing-card-four__price -->
-                                        <a href="tour-listing-details-2.html"
-                                            class="listing-card-four__btn gotur-btn">
-                                            Book Now <span class="icon"><i class="icon-right"></i> </span></a>
-                                    </div>
-                                    <!-- /.listing-card-four__content__btn -->
-                                </div>
-                                <!-- /.listing-card-four__content -->
-                            </div>
-                            <!-- /.listing-card-four -->
-                        </div>
-                        <!-- /.item -->
-                        <div class="item">
-                            <div class="listing-card-four wow fadeInUp" data-wow-duration='1500ms'
-                                data-wow-delay='100ms'>
-                                <div class="listing-card-four__image">
-                                    <img src="assets/images/blog/listing-list-4-4.jpg"
-                                        alt="Molokini and Turtle Town Snorkeling Adventure Aboard">
-                                    <div class="listing-card-four__btn-group">
-
-
-                                        <div class="listing-card-four__featured">Featured</div>
-                                        <!-- /.listing-card-four__featured -->
-
-                                    </div>
-                                    <!-- /.listing-card-four__btn-group -->
-                                    <div class="listing-card-four__btns">
-                                        <a href="#"><i class="far fa-heart"></i></a>
-                                        <div class="listing-card-four__btns__hover">
-                                            <a href="#" class="listing-card-four__popup card__popup"
-                                                data-gallery-options='{
-                    "items": [
-                        {
-                            "src": "assets/images/blog/listing-1-1.jpg"
-                        },
-                        {
-                            "src": "assets/images/blog/listing-1-2.jpg"
-                        },
-                        {
-                            "src": "assets/images/blog/listing-1-3.jpg"
-                        }
-                    ],
-                    "gallery": {
-                        "enabled": true
-                    },
-                    "type": "image"
-                }'>
-                                                <span class="icon-image"></span>
-                                            </a>
-                                            <a class="video-popup"
-                                                href="https://www.youtube.com/watch?v=0MuL8fd3pb8"><span
-                                                    class="icon-video"></span></a>
-                                        </div>
-                                        <!-- /.listing-card-four__btns__hover -->
-                                    </div>
-                                    <ul class="listing-card-four__meta list-unstyled">
-                                        <li>
-                                            <a href="tour-listing-details-2.html"> <span
-                                                    class="listing-card-four__meta__icon"> <i class="icon-pin1"></i>
-                                                </span>Slingerland</a>
-                                        </li>
-                                        <li>
-                                            <a href="tour-listing-details-2.html"> <span
-                                                    class="listing-card-four__meta__icon"> <i
-                                                        class="icon-calendar"></i>
-                                                </span>6 Days, 3 Night</a>
-                                        </li>
-                                    </ul>
-                                    <!-- /.listing-card-four__meta -->
-                                    <a href="tour-listing-details-2.html"
-                                        class="listing-card-four__image__overly"></a>
-                                </div>
-                                <!-- /.listing-card-four__image -->
-                                <div class="listing-card-four__content">
-                                    <div class="listing-card-four__rating">
-                                        <span>(10 Review)</span>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                    </div>
-                                    <!-- /.listing-card-four__rating -->
-                                    <h3 class="listing-card-four__title"><a
-                                            href="tour-listing-details-2.html">Molokini
-                                            and Turtle Town Snorkeling Adventure Aboard</a></h3>
-                                    <!-- /.listing-card-four__title -->
-
-                                    <div class="listing-card-four__content__btn">
-                                        <div class="listing-card-four__price">
-                                            <span class="listing-card-four__price__sub">Per Day</span>
-                                            <span class="listing-card-four__price__number">$59.00</span>
-                                        </div>
-                                        <!-- /.listing-card-four__price -->
-                                        <a href="tour-listing-details-2.html"
-                                            class="listing-card-four__btn gotur-btn">
-                                            Book Now <span class="icon"><i class="icon-right"></i> </span></a>
-                                    </div>
-                                    <!-- /.listing-card-four__content__btn -->
-                                </div>
-                                <!-- /.listing-card-four__content -->
-                            </div>
-                            <!-- /.listing-card-four -->
-                        </div>
-                        <!-- /.item -->
-                        <div class="item">
-                            <div class="listing-card-four wow fadeInUp" data-wow-duration='1500ms'
-                                data-wow-delay='100ms'>
-                                <div class="listing-card-four__image">
-                                    <img src="assets/images/blog/listing-list-4-1.jpg"
-                                        alt="All Inclusive Ultimate Circle Island Day with Lunch">
-                                    <div class="listing-card-four__btn-group">
-
-
-                                        <div class="listing-card-four__featured">Featured</div>
-                                        <!-- /.listing-card-four__featured -->
-
-                                    </div>
-                                    <!-- /.listing-card-four__btn-group -->
-                                    <div class="listing-card-four__btns">
-                                        <a href="#"><i class="far fa-heart"></i></a>
-                                        <div class="listing-card-four__btns__hover">
-                                            <a href="#" class="listing-card-four__popup card__popup"
-                                                data-gallery-options='{
-                    "items": [
-                        {
-                            "src": "assets/images/blog/listing-1-1.jpg"
-                        },
-                        {
-                            "src": "assets/images/blog/listing-1-2.jpg"
-                        },
-                        {
-                            "src": "assets/images/blog/listing-1-3.jpg"
-                        }
-                    ],
-                    "gallery": {
-                        "enabled": true
-                    },
-                    "type": "image"
-                }'>
-                                                <span class="icon-image"></span>
-                                            </a>
-                                            <a class="video-popup"
-                                                href="https://www.youtube.com/watch?v=0MuL8fd3pb8"><span
-                                                    class="icon-video"></span></a>
-                                        </div>
-                                        <!-- /.listing-card-four__btns__hover -->
-                                    </div>
-                                    <ul class="listing-card-four__meta list-unstyled">
-                                        <li>
-                                            <a href="tour-listing-details-2.html"> <span
-                                                    class="listing-card-four__meta__icon"> <i class="icon-pin1"></i>
-                                                </span>Slingerland</a>
-                                        </li>
-                                        <li>
-                                            <a href="tour-listing-details-2.html"> <span
-                                                    class="listing-card-four__meta__icon"> <i
-                                                        class="icon-calendar"></i>
-                                                </span>6 Days, 3 Night</a>
-                                        </li>
-                                    </ul>
-                                    <!-- /.listing-card-four__meta -->
-                                    <a href="tour-listing-details-2.html"
-                                        class="listing-card-four__image__overly"></a>
-                                </div>
-                                <!-- /.listing-card-four__image -->
-                                <div class="listing-card-four__content">
-                                    <div class="listing-card-four__rating">
-                                        <span>(10 Review)</span>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                    </div>
-                                    <!-- /.listing-card-four__rating -->
-                                    <h3 class="listing-card-four__title"><a href="tour-listing-details-2.html">All
-                                            Inclusive Ultimate Circle Island Day with Lunch</a></h3>
-                                    <!-- /.listing-card-four__title -->
-
-                                    <div class="listing-card-four__content__btn">
-                                        <div class="listing-card-four__price">
-                                            <span class="listing-card-four__price__sub">Per Day</span>
-                                            <span class="listing-card-four__price__number">$59.00</span>
-                                        </div>
-                                        <!-- /.listing-card-four__price -->
-                                        <a href="tour-listing-details-2.html"
-                                            class="listing-card-four__btn gotur-btn">
-                                            Book Now <span class="icon"><i class="icon-right"></i> </span></a>
-                                    </div>
-                                    <!-- /.listing-card-four__content__btn -->
-                                </div>
-                                <!-- /.listing-card-four__content -->
-                            </div>
-                            <!-- /.listing-card-four -->
-                        </div>
-                        <!-- /.item -->
-                        <div class="item">
-                            <div class="listing-card-four wow fadeInUp" data-wow-duration='1500ms'
-                                data-wow-delay='100ms'>
-                                <div class="listing-card-four__image">
-                                    <img src="assets/images/blog/listing-list-4-2.jpg"
-                                        alt="Molokini and Turtle Town Snorkeling Adventure Aboard">
-                                    <div class="listing-card-four__btn-group">
-
-                                        <div class="listing-card-four__discount">-40% Off</div>
-                                        <!-- /.listing-card-four__discount -->
-
-
-                                        <div class="listing-card-four__featured">Featured</div>
-                                        <!-- /.listing-card-four__featured -->
-
-                                    </div>
-                                    <!-- /.listing-card-four__btn-group -->
-                                    <div class="listing-card-four__btns">
-                                        <a href="#"><i class="far fa-heart"></i></a>
-                                        <div class="listing-card-four__btns__hover">
-                                            <a href="#" class="listing-card-four__popup card__popup"
-                                                data-gallery-options='{
-                    "items": [
-                        {
-                            "src": "assets/images/blog/listing-1-1.jpg"
-                        },
-                        {
-                            "src": "assets/images/blog/listing-1-2.jpg"
-                        },
-                        {
-                            "src": "assets/images/blog/listing-1-3.jpg"
-                        }
-                    ],
-                    "gallery": {
-                        "enabled": true
-                    },
-                    "type": "image"
-                }'>
-                                                <span class="icon-image"></span>
-                                            </a>
-                                            <a class="video-popup"
-                                                href="https://www.youtube.com/watch?v=0MuL8fd3pb8"><span
-                                                    class="icon-video"></span></a>
-                                        </div>
-                                        <!-- /.listing-card-four__btns__hover -->
-                                    </div>
-                                    <ul class="listing-card-four__meta list-unstyled">
-                                        <li>
-                                            <a href="tour-listing-details-2.html"> <span
-                                                    class="listing-card-four__meta__icon"> <i class="icon-pin1"></i>
-                                                </span>Slingerland</a>
-                                        </li>
-                                        <li>
-                                            <a href="tour-listing-details-2.html"> <span
-                                                    class="listing-card-four__meta__icon"> <i
-                                                        class="icon-calendar"></i>
-                                                </span>6 Days, 3 Night</a>
-                                        </li>
-                                    </ul>
-                                    <!-- /.listing-card-four__meta -->
-                                    <a href="tour-listing-details-2.html"
-                                        class="listing-card-four__image__overly"></a>
-                                </div>
-                                <!-- /.listing-card-four__image -->
-                                <div class="listing-card-four__content">
-                                    <div class="listing-card-four__rating">
-                                        <span>(10 Review)</span>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                    </div>
-                                    <!-- /.listing-card-four__rating -->
-                                    <h3 class="listing-card-four__title"><a
-                                            href="tour-listing-details-2.html">Molokini
-                                            and Turtle Town Snorkeling Adventure Aboard</a></h3>
-                                    <!-- /.listing-card-four__title -->
-
-                                    <div class="listing-card-four__content__btn">
-                                        <div class="listing-card-four__price">
-                                            <span class="listing-card-four__price__sub">Per Day</span>
-                                            <span class="listing-card-four__price__number">$59.00</span>
-                                        </div>
-                                        <!-- /.listing-card-four__price -->
-                                        <a href="tour-listing-details-2.html"
-                                            class="listing-card-four__btn gotur-btn">
-                                            Book Now <span class="icon"><i class="icon-right"></i> </span></a>
-                                    </div>
-                                    <!-- /.listing-card-four__content__btn -->
-                                </div>
-                                <!-- /.listing-card-four__content -->
-                            </div>
-                            <!-- /.listing-card-four -->
-                        </div>
-                        <!-- /.item -->
-                        <div class="item">
-                            <div class="listing-card-four wow fadeInUp" data-wow-duration='1500ms'
-                                data-wow-delay='100ms'>
-                                <div class="listing-card-four__image">
-                                    <img src="assets/images/blog/listing-list-4-3.jpg"
-                                        alt="All Inclusive Ultimate Circle Island Day with Lunch">
-                                    <div class="listing-card-four__btn-group">
-
-
-                                        <div class="listing-card-four__featured">Featured</div>
-                                        <!-- /.listing-card-four__featured -->
-
-                                    </div>
-                                    <!-- /.listing-card-four__btn-group -->
-                                    <div class="listing-card-four__btns">
-                                        <a href="#"><i class="far fa-heart"></i></a>
-                                        <div class="listing-card-four__btns__hover">
-                                            <a href="#" class="listing-card-four__popup card__popup"
-                                                data-gallery-options='{
-                    "items": [
-                        {
-                            "src": "assets/images/blog/listing-1-1.jpg"
-                        },
-                        {
-                            "src": "assets/images/blog/listing-1-2.jpg"
-                        },
-                        {
-                            "src": "assets/images/blog/listing-1-3.jpg"
-                        }
-                    ],
-                    "gallery": {
-                        "enabled": true
-                    },
-                    "type": "image"
-                }'>
-                                                <span class="icon-image"></span>
-                                            </a>
-                                            <a class="video-popup"
-                                                href="https://www.youtube.com/watch?v=0MuL8fd3pb8"><span
-                                                    class="icon-video"></span></a>
-                                        </div>
-                                        <!-- /.listing-card-four__btns__hover -->
-                                    </div>
-                                    <ul class="listing-card-four__meta list-unstyled">
-                                        <li>
-                                            <a href="tour-listing-details-2.html"> <span
-                                                    class="listing-card-four__meta__icon"> <i class="icon-pin1"></i>
-                                                </span>Slingerland</a>
-                                        </li>
-                                        <li>
-                                            <a href="tour-listing-details-2.html"> <span
-                                                    class="listing-card-four__meta__icon"> <i
-                                                        class="icon-calendar"></i>
-                                                </span>6 Days, 3 Night</a>
-                                        </li>
-                                    </ul>
-                                    <!-- /.listing-card-four__meta -->
-                                    <a href="tour-listing-details-2.html"
-                                        class="listing-card-four__image__overly"></a>
-                                </div>
-                                <!-- /.listing-card-four__image -->
-                                <div class="listing-card-four__content">
-                                    <div class="listing-card-four__rating">
-                                        <span>(10 Review)</span>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                    </div>
-                                    <!-- /.listing-card-four__rating -->
-                                    <h3 class="listing-card-four__title"><a href="tour-listing-details-2.html">All
-                                            Inclusive Ultimate Circle Island Day with Lunch</a></h3>
-                                    <!-- /.listing-card-four__title -->
-
-                                    <div class="listing-card-four__content__btn">
-                                        <div class="listing-card-four__price">
-                                            <span class="listing-card-four__price__sub">Per Day</span>
-                                            <span class="listing-card-four__price__number">$59.00</span>
-                                        </div>
-                                        <!-- /.listing-card-four__price -->
-                                        <a href="tour-listing-details-2.html"
-                                            class="listing-card-four__btn gotur-btn">
-                                            Book Now <span class="icon"><i class="icon-right"></i> </span></a>
-                                    </div>
-                                    <!-- /.listing-card-four__content__btn -->
-                                </div>
-                                <!-- /.listing-card-four__content -->
-                            </div>
-                            <!-- /.listing-card-four -->
-                        </div>
-                        <!-- /.item -->
-                        <div class="item">
-                            <div class="listing-card-four wow fadeInUp" data-wow-duration='1500ms'
-                                data-wow-delay='100ms'>
-                                <div class="listing-card-four__image">
-                                    <img src="assets/images/blog/listing-list-4-4.jpg"
-                                        alt="Molokini and Turtle Town Snorkeling Adventure Aboard">
-                                    <div class="listing-card-four__btn-group">
-
-
-                                        <div class="listing-card-four__featured">Featured</div>
-                                        <!-- /.listing-card-four__featured -->
-
-                                    </div>
-                                    <!-- /.listing-card-four__btn-group -->
-                                    <div class="listing-card-four__btns">
-                                        <a href="#"><i class="far fa-heart"></i></a>
-                                        <div class="listing-card-four__btns__hover">
-                                            <a href="#" class="listing-card-four__popup card__popup"
-                                                data-gallery-options='{
-                    "items": [
-                        {
-                            "src": "assets/images/blog/listing-1-1.jpg"
-                        },
-                        {
-                            "src": "assets/images/blog/listing-1-2.jpg"
-                        },
-                        {
-                            "src": "assets/images/blog/listing-1-3.jpg"
-                        }
-                    ],
-                    "gallery": {
-                        "enabled": true
-                    },
-                    "type": "image"
-                }'>
-                                                <span class="icon-image"></span>
-                                            </a>
-                                            <a class="video-popup"
-                                                href="https://www.youtube.com/watch?v=0MuL8fd3pb8"><span
-                                                    class="icon-video"></span></a>
-                                        </div>
-                                        <!-- /.listing-card-four__btns__hover -->
-                                    </div>
-                                    <ul class="listing-card-four__meta list-unstyled">
-                                        <li>
-                                            <a href="tour-listing-details-2.html"> <span
-                                                    class="listing-card-four__meta__icon"> <i class="icon-pin1"></i>
-                                                </span>Slingerland</a>
-                                        </li>
-                                        <li>
-                                            <a href="tour-listing-details-2.html"> <span
-                                                    class="listing-card-four__meta__icon"> <i
-                                                        class="icon-calendar"></i>
-                                                </span>6 Days, 3 Night</a>
-                                        </li>
-                                    </ul>
-                                    <!-- /.listing-card-four__meta -->
-                                    <a href="tour-listing-details-2.html"
-                                        class="listing-card-four__image__overly"></a>
-                                </div>
-                                <!-- /.listing-card-four__image -->
-                                <div class="listing-card-four__content">
-                                    <div class="listing-card-four__rating">
-                                        <span>(10 Review)</span>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                    </div>
-                                    <!-- /.listing-card-four__rating -->
-                                    <h3 class="listing-card-four__title"><a
-                                            href="tour-listing-details-2.html">Molokini
-                                            and Turtle Town Snorkeling Adventure Aboard</a></h3>
-                                    <!-- /.listing-card-four__title -->
-
-                                    <div class="listing-card-four__content__btn">
-                                        <div class="listing-card-four__price">
-                                            <span class="listing-card-four__price__sub">Per Day</span>
-                                            <span class="listing-card-four__price__number">$59.00</span>
-                                        </div>
-                                        <!-- /.listing-card-four__price -->
-                                        <a href="tour-listing-details-2.html"
-                                            class="listing-card-four__btn gotur-btn">
-                                            Book Now <span class="icon"><i class="icon-right"></i> </span></a>
-                                    </div>
-                                    <!-- /.listing-card-four__content__btn -->
-                                </div>
-                                <!-- /.listing-card-four__content -->
-                            </div>
-                            <!-- /.listing-card-four -->
-                        </div>
-                        <!-- /.item -->
                     </div>
                     <!-- /.feature-package__carousel -->
                 </div>

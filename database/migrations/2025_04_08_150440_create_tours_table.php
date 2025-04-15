@@ -13,10 +13,14 @@ return new class extends Migration {
         Schema::create('tours', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('slug')->unique();
+            $table->string('location');
+            $table->string('activity_type');
             $table->integer('days');
             $table->integer('nights');
-            $table->decimal('price', 10, 2);
-            $table->string('feature_image'); // Store image path
+            $table->decimal('rate');
+            $table->string('feature_image')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

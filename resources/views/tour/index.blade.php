@@ -44,51 +44,65 @@
                                     <tr>
                                         <th>Sr No.</th>
                                         <th>Title</th>
+                                        <th>Slug</th>
                                         <th>Feature Image</th>
                                         <th>Location</th>
                                         <th>Days</th>
-                                        <th>Night</th>
-                                        <th>Tour Detail</th>
-                                        {{-- <th>Per Day Rate</th> --}}
-                                        <th>Tour Rate</th>
-                                        <th>Overview of Trip</th>
-                                        <th>Reviews</th>
-                                        <th>Highlight List</th>
-                                        <th>Tour Amenities</th>
-                                        <th>Tour Plan</th>
-                                        <th>Related Tour List</th>
-                                        <!-- <th>Add a Review</th> -->
+                                        <th>Nights</th>
+                                        <th>Rate</th>
                                         <th>Action</th>
                                     </tr>
-                                </thead>                                
+                                </thead>
                                 <tbody>
-                                    @if (isset($activities))
-                                        @foreach ($activities as $activity)
-                                            <tr>
-                                                <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $activity->name }}</td>
-                                                <td>
-                                                    <ul class="action">
-                                                        <li class="edit"><a
-                                                                href="{{ route('activity.edit', ['id' => $activity->id]) }}"><i
-                                                                    class="icon-pencil-alt"></i></a>
-                                                        </li>
-                                                        <li class="delete">
-                                                            <form action="{{ route('activity.delete', $activity->id) }}"
-                                                                method="POST" class="delete-form d-inline">
-                                                                @csrf
-                                                                @method('DELETE')
-                                                                <button type="button" class="btn-delete"
-                                                                    style="border: none; background: none; padding: 0; color: inherit; cursor: pointer;">
-                                                                    <i class="icon-trash"></i>
-                                                                </button>
-                                                            </form>
-                                                        </li>
-                                                    </ul>
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                    @endif
+                                    @foreach ($tours as $index => $tour)
+                                        <tr>
+                                            <td>{{ $index + 1 }}</td>
+                                            <td
+                                                style="width: 200px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                                                {{ $tour->title }}</td>
+                                            <td
+                                                style="width: 200px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                                                {{ $tour->slug }}</td>
+                                            <td>
+                                                @if ($tour->feature_image)
+                                                    <img src="{{ asset('storage/' . $tour->feature_image) }}" width="100"
+                                                        alt="Image">
+                                                @else
+                                                    N/A
+                                                @endif
+                                            </td>
+                                            <td>{{ $tour->location }}</td>
+                                            <td>{{ $tour->days }}</td>
+                                            <td>{{ $tour->nights }}</td>
+                                            <td>₹{{ $tour->rate }}</td>
+                                            <td>
+                                                <ul class="action">
+                                                    <li class="edit" style="margin-right: 10px;">
+                                                        <a href="{{ route('tour.edit', ['id' => $tour->id]) }}">
+                                                            <i class="icon-pencil-alt"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li class="delete" style="margin-right: 10px;">
+                                                        <form action="{{ route('tour.delete', $tour->id) }}" method="POST"
+                                                            class="delete-form d-inline">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button type="button" class="btn-delete"
+                                                                style="border: none; background: none; padding: 0; color: inherit; cursor: pointer;">
+                                                                <i class="icon-trash"></i>
+                                                            </button>
+                                                        </form>
+                                                    </li>
+                                                    <li class="view show-tour-view">
+                                                        <a data-bs-toggle="modal" class="cursor-pointer"
+                                                            data-bs-target=".show-data-of-tour-modal-xl">
+                                                            <i class="icon-eye"></i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -100,6 +114,168 @@
         <!-- Scroll - vertical dynamic Ends-->
     </div>
     <!-- Container-fluid starts-->
+    {{-- modal for show data of tour --}}
+    <div class="modal fade show-data-of-tour-modal-xl" tabindex="-1" aria-labelledby="myLargeModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h5 class="modal-title" id="myLargeModalLabel">{{ $tour->title }}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <!-- Modal Body -->
+
+                <div class="modal-body dark-modal">
+                    <table class="table table-bordered">
+                        <tbody>
+                            <!-- Title -->
+                            <tr>
+                                <th width="30%">Title</th>
+                                <td>{{ $tour->title }}</td>
+                            </tr>
+
+                            <!-- Slug -->
+                            <tr>
+                                <th>Slug</th>
+                                <td>{{ $tour->slug }}</td>
+                            </tr>
+
+                            <!-- Location -->
+                            <tr>
+                                <th>Location</th>
+                                <td>{{ $tour->location }}</td>
+                            </tr>
+
+                            <!-- Activity -->
+                            <tr>
+                                <th>Activity</th>
+                                <td>{{ trim($tour->activity_type, '"') }}</td>
+                            </tr>
+
+                            <!-- Duration -->
+                            <tr>
+                                <th>Duration</th>
+                                <td>{{ $tour->days }} days / {{ $tour->nights }} nights</td>
+                            </tr>
+
+                            <!-- Overview -->
+                            <tr>
+                                <th>Overview</th>
+                                <td>
+                                    {{ $tour->overview->overview }}
+                                </td>
+                            </tr>
+
+                            <!-- Highlights -->
+                            <tr>
+                                <th>Highlights</th>
+                                <td>
+                                    @if (!empty($tour->overview->highlights))
+                                        <ol>
+                                            @foreach ($tour->overview->highlights as $highlight)
+                                                <li>{{ $highlight }}</li>
+                                            @endforeach
+                                        </ol>
+                                    @else
+                                        <p>No highlights available</p>
+                                    @endif
+                                </td>
+                            </tr>
+
+                            <!-- Tour Rate -->
+                            <tr>
+                                <th>Tour Rate</th>
+                                <td>₹ {{ $tour->rate }}</td>
+                            </tr>
+
+                            <!-- Itinerary -->
+                            <tr>
+                                <th>Itinerary</th>
+                                <td>
+                                    <div class="accordion" id="itineraryAccordion">
+                                        @if (!empty($tour->plan->itinerary))
+                                            @foreach ($tour->plan->itinerary as $index => $itinerary)
+                                                <div class="accordion-item">
+                                                    <h2 class="accordion-header" id="heading{{ $index }}">
+                                                        <button class="accordion-button collapsed" type="button"
+                                                            data-bs-toggle="collapse"
+                                                            data-bs-target="#collapse{{ $index }}"
+                                                            aria-expanded="false"
+                                                            aria-controls="collapse{{ $index }}">
+                                                            Day {{ $index + 1 }}: {{ $itinerary['title'] }}
+                                                        </button>
+                                                    </h2>
+                                                    <div id="collapse{{ $index }}"
+                                                        class="accordion-collapse collapse"
+                                                        aria-labelledby="heading{{ $index }}"
+                                                        data-bs-parent="#itineraryAccordion">
+                                                        <div class="accordion-body">
+                                                            {!! $itinerary['details'] !!}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endforeach
+                                        @else
+                                            <p>No itinerary available</p>
+                                        @endif
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- Included Amenities -->
+                            <tr>
+                                <th>Included Amenities</th>
+                                <td>
+                                    @if (!empty($tour->amenities->included_amenities))
+                                        <ol>
+                                            @foreach ($tour->amenities->included_amenities as $included_amenities)
+                                                <li>{{ $included_amenities }}</li>
+                                            @endforeach
+                                        </ol>
+                                    @else
+                                        <p>No highlights available</p>
+                                    @endif
+                                </td>
+                            </tr>
+
+                            <!-- Not Included Amenities -->
+                            <tr>
+                                <th>Not Included Amenities</th>
+                                <td>
+                                    @if (!empty($tour->amenities->not_included_amenities))
+                                        <ol>
+                                            @foreach ($tour->amenities->not_included_amenities as $not_included_amenities)
+                                                <li>{{ $not_included_amenities }}</li>
+                                            @endforeach
+                                        </ol>
+                                    @else
+                                        <p>No highlights available</p>
+                                    @endif
+                                </td>
+                            </tr>
+
+                            <!-- Feature Image -->
+                            <tr>
+                                <th>Feature Image</th>
+                                <td>
+                                    @if ($tour->feature_image)
+                                        <img src="{{ asset('storage/' . $tour->feature_image) }}" alt="Feature Image"
+                                            class="img-fluid" style="max-width: 200px;">
+                                    @else
+                                        <p>No feature image available</p>
+                                    @endif
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Modal Body -->
+            </div>
+        </div>
+    </div>
+    {{-- modal for show data of tour --}}
 @endsection
 
 @section('script')

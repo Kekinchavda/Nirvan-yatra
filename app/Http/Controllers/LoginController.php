@@ -31,7 +31,7 @@ class LoginController extends Controller
             'password' => ['required', 'string', 'min:8'],
         ]);
 
-        // ✅ Use default 'web' guard (no need to specify it)
+        // Use default 'web' guard (no need to specify it)
         if (Auth::attempt($credentials, $request->boolean('remember'))) {
             $request->session()->regenerate();
 
@@ -59,6 +59,6 @@ class LoginController extends Controller
         $request->session()->regenerateToken();
 
         return redirect()->route('login')->with("message", "Activity created successfully")->with('type', 'success');
-        
+
     }
 }

@@ -1,0 +1,11 @@
+.cke_notification_warning {
+    display: none;
+}
+
+ul.action li {
+    margin-right: 10px;
+}
+
+.show-tour-view {
+    cursor: pointer;
+}

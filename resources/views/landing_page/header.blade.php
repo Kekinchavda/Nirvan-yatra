@@ -44,14 +44,13 @@
     <div class="container-fluid">
         <div class="main-header__inner">
             <div class="main-header__logo logo-retina">
-                <a href="#"><img src="assets/images/logo-dark.png" width="165" height="45"
+                <a href="#"><img src="{{ asset('assets/images/logo-dark.png') }}" width="165" height="45"
                         alt="nirvan_yatra logo"></a>
             </div>
             <!-- /.main-header__logo -->
             <div class="main-header__right">
                 <nav class="main-header__nav main-menu">
                     <ul class="main-menu__list">
-
                         <li class="dropdown megamenu">
                             <a href="index.html">Home</a>
                             <ul>
@@ -348,8 +347,8 @@
                     <a href="#" class="search-toggler main-header__info__item"> <i
                             class="icon-search-interface-symbol" aria-hidden="true"></i> <span
                             class="sr-only">Search</span> </a>
-                    <a href="cart.html" class="main-header__info__item"> <i class="icon-shopping-carts"
-                            aria-hidden="true"></i> <span class="sr-only">Cart</span> </a>
+                    {{-- <a href="cart.html" class="main-header__info__item"> <i class="icon-shopping-carts"
+                            aria-hidden="true"></i> <span class="sr-only">Cart</span> </a> --}}
                 </div>
                 <div class="main-header__btn-popup main-header__element__btn">
                     <i class="icon-menu-bar"></i>

@@ -39,12 +39,14 @@
     <script src="{{ asset('assets/admin_pannel/edmin/assets/js/scrollbar/simplebar.js') }}"></script>
     <script src="{{ asset('assets/admin_pannel/edmin/assets/js/scrollbar/custom.js') }}"></script>
     <script src="{{ asset('assets/admin_pannel/edmin/assets/js/select2/select2.full.min.js') }}"></script>
+   
+
 
     <!-- validation -->
     <script src="{{ asset('assets/admin_pannel/edmin/assets/js/jquery.validate.min.js') }}"></script>
 
     <!-- customizer round -->
-    <script src="{{ asset('assets/admin_pannel/edmin/assets/js/theme-customizer/customizer.js') }}"></script>
+    {{-- <script src="{{ asset('assets/admin_pannel/edmin/assets/js/theme-customizer/customizer.js') }}"></script> --}}
 
     <!-- toastr -->
     <script src="{{ asset('assets/admin_pannel/edmin/assets/js/toastr.min.js') }}"></script>

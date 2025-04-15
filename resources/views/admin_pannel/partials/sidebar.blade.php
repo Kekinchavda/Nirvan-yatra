@@ -53,6 +53,7 @@
                 </a>
             </li>
             {{-- activity menu --}}
+
             {{-- Tour Details menu --}}
             <li class="sidebar-list">
                 <svg class="pinned-icon">
@@ -65,6 +66,49 @@
                 </a>
             </li>
             {{-- Tour Details menu --}}
+
+            {{-- Destination menu --}}
+            <li class="sidebar-list">
+                <svg class="pinned-icon">
+                    <use href="{{ asset('assets/admin_pannel/edmin/assets/svg/iconly-sprite.svg#Travel') }}">
+                    </use>
+                </svg>
+                <a class="sidebar-link" href="{{ route('destination') }}">
+                    <i class="fa-solid fa-solid fa-map stroke-icon"></i>
+                    <span>Destination Details</span>
+                </a>
+            </li>
+            {{-- Destination menu --}}
+
+            {{-- trip details menu --}}
+            <li class="sidebar-list">
+                <a class="sidebar-link" href="javascript:void(0)">
+                    <svg class="stroke-icon">
+                        <use href="{{ asset('assets/admin_pannel/edmin/assets/svg/iconly-sprite.svg#Profile') }}">
+                        </use>
+                    </svg><span>Users</span>
+                    <svg class="feather">
+                        <use
+                            href="{{ asset('assets/admin_pannel/edmin/assets/svg/feather-icons/dist/feather-sprite.svg#chevron-right') }}">
+                        </use>
+                    </svg></a>
+                <ul class="sidebar-submenu" style="display: none;">
+                    <li><a href="{{ asset('assets/admin_pannel/edmin/admin/profile') }}">
+                            <svg class="svg-menu">
+                                <use
+                                    href="{{ asset('assets/admin_pannel/edmin/assets/svg/iconly-sprite.svg#right-3') }}">
+                                </use>
+                            </svg>User Profile</a></li>
+                    <li><a href="{{ asset('assets/admin_pannel/edmin/admin/cards') }}">
+                            <svg class="svg-menu">
+                                <use
+                                    href="{{ asset('assets/admin_pannel/edmin/assets/svg/iconly-sprite.svg#right-3') }}">
+                                </use>
+                            </svg>User Cards</a></li>
+                </ul>
+            </li>
+            {{-- trip details menu --}}
+
         </ul>
     </div>
     <div class="right-arrow" id="right-arrow">

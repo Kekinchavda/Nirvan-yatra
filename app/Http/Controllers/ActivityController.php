@@ -102,26 +102,26 @@ class ActivityController extends Controller
      * Remove the specified resource from storage.
      */
     public function destroy($id)
-    { 
+    {
         try {
-        $activity = Activity::findOrFail($id);
-        $activity->delete(); // Soft delete happens here
-        return redirect()->route('activity')->with([
-            'message' => 'Activity deleted successfully.',
-            'type' => 'success'
-        ]);
-    } catch (ModelNotFoundException $e) {
-        Log::error("Delete failed. activity not found with ID: $id", ['error' => $e->getMessage()]);
-        return redirect()->route(route: 'activity')->with([
-            'message' => 'Activity not found.',
-            'type' => 'error'
-        ]);
-    } catch (Exception $e) {
-        Log::error("Unexpected error occurred while deleting activity ID: $id", ['error' => $e->getMessage()]);
-        return redirect()->route('activity')->with([
-            'message' => 'Something went wrong. Please try again later.',
-            'type' => 'error'
-        ]);
-    }
+            $activity = Activity::findOrFail($id);
+            $activity->delete(); // Soft delete happens here
+            return redirect()->route('activity')->with([
+                'message' => 'Activity deleted successfully.',
+                'type' => 'success'
+            ]);
+        } catch (ModelNotFoundException $e) {
+            Log::error("Delete failed. activity not found with ID: $id", ['error' => $e->getMessage()]);
+            return redirect()->route(route: 'activity')->with([
+                'message' => 'Activity not found.',
+                'type' => 'error'
+            ]);
+        } catch (Exception $e) {
+            Log::error("Unexpected error occurred while deleting activity ID: $id", ['error' => $e->getMessage()]);
+            return redirect()->route('activity')->with([
+                'message' => 'Something went wrong. Please try again later.',
+                'type' => 'error'
+            ]);
+        }
     }
 }

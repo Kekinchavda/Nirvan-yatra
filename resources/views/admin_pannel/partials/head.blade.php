@@ -56,4 +56,8 @@
 
     <!-- Toastr css -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/admin_pannel/edmin/assets/css/vendors/toastr.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/admin_pannel/edmin/assets/css/style.css') }}">
+    <script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
+    {{-- <script src="https://cdn.ckeditor.com/4.25.1-lts/standard/ckeditor.js"></script> --}}
+
 </head>
