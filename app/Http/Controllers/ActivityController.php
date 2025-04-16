@@ -34,7 +34,7 @@ class ActivityController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|max:30|unique:activities,name',
+            'title' => 'required|string|max:30|unique:activities,name',
         ]);
 
         try {
@@ -90,7 +90,10 @@ class ActivityController extends Controller
     public function update(Request $request, $id)
     {
         $activity = Activity::findOrFail($id);
-        $activity->name = $request->name;
+        $request->validate([
+            'title' => 'required|string|max:30|unique:locations,name,' . $activity->id,
+        ]);
+        $activity->name = $request->title;
         $activity->status = $request->status ?? 1;
         $activity->save();
 

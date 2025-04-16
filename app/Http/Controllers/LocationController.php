@@ -85,7 +85,6 @@ class LocationController extends Controller
                 'type' => 'error'
             ]);
         }
-
     }
 
     /**
@@ -94,6 +93,9 @@ class LocationController extends Controller
     public function update(Request $request, $id)
     {
         $location = Location::findOrFail($id);
+        $request->validate([
+            'name' => 'required|string|max:30|unique:locations,name,' . $location->id,
+        ]);
         $location->name = $request->name;
         $location->status = $request->status ?? 1;
         $location->save();

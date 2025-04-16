@@ -39,10 +39,13 @@
                             <div class="col-md-4 position-relative">
                                 <label class="form-label" for="validationTooltip01">Title</label>
                                 <input class="form-control" id="validationTooltip01" type="text"
-                                    placeholder="Activities Type" required name="name" value="{{ old('name') }}">
+                                    placeholder="Activities Type" required name="title" value="{{ old('title') }}">
                                 <div class="invalid-tooltip">
                                     Please enter a valid title.
                                 </div>
+                                @error('title')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
                             </div>
                             <div class="col-12">
                                 <button class="btn btn-primary" type="submit">Submit</button>

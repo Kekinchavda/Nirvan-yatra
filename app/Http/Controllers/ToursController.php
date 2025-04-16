@@ -60,13 +60,19 @@ class ToursController extends Controller
             'days' => 'required|integer|min:1',
             'nights' => 'required|integer|min:1',
             'overview' => 'required',
-            'highlight_list' => 'required',
+            'highlight_list' => 'required|array|min:1',
+            'highlight_list.*' => 'required|string',
             'tour_rate' => 'required|numeric|min:0',
-            'itinerary' => 'required',
-            'included_amenities' => 'required',
-            'not_included_amenities' => 'required',
+            'included_amenities' => 'required|array|min:1',
+            'included_amenities.*' => 'required|string',
+            'not_included_amenities' => 'required|array|min:1',
+            'not_included_amenities.*' => 'required|string',
             'feature_image' => 'required|image',
+            // 'itinerary' => 'required',
+            'itinerary.*.title' => 'required|string|max:255',  // Ensure title is required and is a string
+            'itinerary.*.details' => 'required|string',         // Ensure details are required and are a string    
         ]);
+
 
         // Step 2: Upload media
         $imagePath = $request->file('feature_image')->store('uploads/tours', 'public');
@@ -162,10 +168,13 @@ class ToursController extends Controller
             'overview' => 'required',
             'highlight_list' => 'required',
             'tour_rate' => 'required|numeric|min:0',
-            'itinerary' => 'required',
             'included_amenities' => 'required',
             'not_included_amenities' => 'required',
             'feature_image' => 'image',
+            // 'itinerary' => 'required',
+            'itinerary.*.title' => 'required|string|max:255',  // Ensure title is required and is a string
+            'itinerary.*.details' => 'required|string',         // Ensure details are required and are a string
+
         ]);
         // Update image if uploaded
         $imagePath = $tour->feature_image;

@@ -46,6 +46,9 @@
                                 <div class="invalid-tooltip">
                                     Please enter a valid title.
                                 </div>
+                                @error('name')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
                             </div>
                             <div class="col-12">
                                 <button class="btn btn-primary" type="submit">Submit</button>

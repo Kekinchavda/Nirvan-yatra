@@ -77,6 +77,10 @@
                                                     placeholder="Enter Tour Title" required
                                                     value="{{ old('tour_title', $tour->title) }}">
                                             </div>
+                                            @error('tour_title')
+                                                <small class="text-danger">{{ $message }}</small>
+                                            @enderror
+
                                             <div class="col-xl-4 col-sm-6">
                                                 <label class="form-label">Feature Image</label>
                                                 <input type="file" name="feature_image" class="form-control"
@@ -84,6 +88,9 @@
                                                 <a href="#" class="mt-5" data-bs-toggle="modal"
                                                     data-bs-target="#imageModal">show image</a>
                                             </div>
+                                            @error('feature_image')
+                                                <small class="text-danger">{{ $message }}</small>
+                                            @enderror
                                             {{-- daily itinerary --}}
                                             <div class="col-xl-4 col-sm-6">
                                                 <label class="form-label">Tour Slug<span
@@ -92,6 +99,9 @@
                                                     placeholder="Enter slug" required
                                                     value="{{ old('slug', $tour->slug) }}">
                                             </div>
+                                            @error('slug')
+                                                <small class="text-danger">{{ $message }}</small>
+                                            @enderror
                                             <div class="col-12 text-end">
                                                 <button type="button" class="btn btn-primary"
                                                     onclick="nextTab('TourDetails-wizard-tab')">Continue</button>

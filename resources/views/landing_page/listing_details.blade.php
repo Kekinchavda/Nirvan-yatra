@@ -144,7 +144,7 @@
                             <div class="tour-listing-details__info-area__content">
                                 <h5 class="tour-listing-details__info-area__title">Activities Type</h5>
                                 <!-- /.tour-listing-details__info-area__title -->
-                                <p class="tour-listing-details__info-area__text">Adventure</p>
+                                <p class="tour-listing-details__info-area__text">{{ $slugData->activity_type }}</p>
                                 <!-- /.tour-listing-details__info-area__text -->
                             </div><!-- /.tour-listing-details__info-area__content -->
                         </li>
@@ -191,71 +191,84 @@
                                 data-wow-duration='1500ms' data-wow-delay='500ms'>
                                 <h4 class="tour-listing-details__title">Highlight List</h4>
                                 <!-- /.tour-listing-details__title -->
-                                <ul class="tour-listing-details__content__list">
-                                    <li><i class="icon-check-star"></i> Duis ultricies sapien a volutpat varius.</li>
-                                    <li><i class="icon-check-star"></i> Duis ultricies sapien a volutpat varius</li>
-                                    <li><i class="icon-check-star"></i> Nunc in quam in quam placerat rhoncus quis
-                                    </li>
-                                    <li><i class="icon-check-star"></i> Laoreet sagittis posuere, dolor nibh imperdiet
-                                    </li>
-                                    <li><i class="icon-check-star"></i> Condimentum lacinia nisl vitae vehicula. </li>
-                                    <li><i class="icon-check-star"></i> Duis ultricies sapien a volutpat varius.</li>
-                                    <li><i class="icon-check-star"></i> Duis ultricies sapien a volutpat varius</li>
-                                    <li><i class="icon-check-star"></i> Nunc in quam in quam placerat rhoncus quis
-                                    </li>
-                                    <li><i class="icon-check-star"></i> Laoreet sagittis posuere, dolor nibh imperdiet
-                                    </li>
-                                    <li><i class="icon-check-star"></i> Condimentum lacinia nisl vitae vehicula. </li>
-                                </ul><!-- /.tour-listing-details__content__list -->
+                                {{-- @dd(is_array($slugData->overview->highlights)) --}}
+                                @if (!empty($slugData->overview->highlights) && is_array($slugData->overview->highlights))
+                                    <ul class="tour-listing-details__content__list">
+                                        @foreach ($slugData->overview->highlights as $highlight)
+                                            <li><i class="icon-check-star"></i> {{ $highlight }}</li>
+                                        @endforeach
+                                    </ul>
+                                @else
+                                    <p>No highlights available.</p>
+                                @endif
+
+                                <!-- /.tour-listing-details__content__list -->
                             </div><!-- /.tour-listing-details__content__item -->
                             <div class="tour-listing-details__content__item tour-listing-details__amenities wow fadeInUp"
                                 data-wow-duration='1500ms' data-wow-delay='500ms'>
                                 <h4 class="tour-listing-details__title">Tour Amenities</h4>
                                 <!-- /.tour-listing-details__title -->
                                 <div class="tour-listing-details__amenities__inner">
-                                    <ul class="tour-listing-details__amenities__list">
-                                        <li><i class="fas fa-check"></i> Cruise Dinner & Music Event</li>
-                                        <li><i class="fas fa-check"></i> Pick and Drop Services</li>
-                                        <li><i class="fas fa-check"></i> Additional Services</li>
-                                        <li><i class="fas fa-check"></i> Specialized bilingual guide</li>
-                                    </ul><!-- /.tour-listing-details__content__amenities__list -->
-                                    <ul
-                                        class="tour-listing-details__amenities__list tour-listing-details__amenities__list--two">
-                                        <li><i class="fas fa-times"></i> Specialized bilingual guide</li>
-                                        <li><i class="fas fa-times"></i> Additional Services</li>
-                                        <li><i class="fas fa-times"></i> Pick and Drop Services</li>
-                                        <li><i class="fas fa-times"></i> Food and Drinks</li>
-                                    </ul><!-- /.tour-listing-details__content__amenities__list -->
-                                </div><!-- /.tour-listing-details__amenities__inner -->
-                            </div><!-- / -->
+                                    {{-- Included Amenities --}}
+                                    @if (!empty($slugData->amenities->included_amenities) && is_array($slugData->amenities->included_amenities))
+                                        <ul class="tour-listing-details__amenities__list">
+                                            @foreach ($slugData->amenities->included_amenities as $item)
+                                                <li><i class="icon-check-star"></i> {{ $item }}</li>
+                                            @endforeach
+                                        </ul>
+                                    @endif
+
+                                    {{-- Not Included Amenities --}}
+                                    @if (!empty($slugData->amenities->not_included_amenities) && is_array($slugData->amenities->not_included_amenities))
+                                        <ul
+                                            class="tour-listing-details__amenities__list tour-listing-details__amenities__list--two">
+                                            @foreach ($slugData->amenities->not_included_amenities as $item)
+                                                <li><i class="fas fa-times"></i> {{ $item }}</li>
+                                            @endforeach
+                                        </ul>
+                                    @endif
+
+                                    {{-- Fallback if both are empty --}}
+                                    @if (empty($slugData->amenities->included_amenities) && empty($slugData->amenities->not_included_amenities))
+                                        <p>No Amenities available.</p>
+                                    @endif
+                                </div>
+                                <!-- /.tour-listing-details__amenities__inner -->
+                            </div>
+
+                            <!-- image -->
                             <div class="tour-listing-details__content__item tour-listing-details__thumb wow fadeInUp"
                                 data-wow-duration='1500ms' data-wow-delay='500ms'>
                                 <div class="row gutter-y-20">
                                     <div class="col-md-6">
                                         <div class="tour-listing-details__thumb__item">
-                                            <img src="assets/images/resources/tour-listing-details-1-3.jpg"
+                                            <img src="{{ asset('assets/images/resources/tour-listing-details-1-3.jpg') }}"
                                                 alt="tour-listing-details">
                                         </div><!-- /.tour-listing-details__thumb__item -->
                                     </div><!-- /.col-md-6 -->
                                     <div class="col-md-6">
                                         <div class="tour-listing-details__thumb__item">
-                                            <img src="assets/images/resources/tour-listing-details-1-4.jpg"
+                                            <img src="{{ asset('assets/images/resources/tour-listing-details-1-4.jpg') }}"
                                                 alt="tour-listing-details">
                                         </div><!-- /.tour-listing-details__thumb__item -->
                                     </div><!-- /.col-md-6 -->
                                 </div><!-- /.row -->
-                            </div><!-- / -->
+                            </div>
+                            <!-- image -->
+
                             <div class="tour-listing-details__content__item tour-listing-details__ture-plan">
                                 <h4 class="tour-listing-details__title">Tour Plan</h4>
                                 <!-- /.tour-listing-details__title -->
-                                <div class="faq-page__accordion faq-accordion gotur-accordion"
+                                {{-- <div class="faq-page__accordion faq-accordion gotur-accordion"
                                     data-grp-name="gotur-accordion">
                                     <div class="accordion wow fadeInUp" data-wow-duration='1500ms'
                                         data-wow-delay='500ms'>
                                         <div class="accordion-title">
-                                            <h4 class="accordion-title__text"> How long should a business plan be<span
-                                                    class="accordion-title__icon"></span></h4>
-                                        </div><!-- /.accordian-title -->
+                                            <h4 class="accordion-title__text"> How long should a business plan be
+                                                <span class="accordion-title__icon"></span>
+                                            </h4>
+                                        </div>
+                                        <!-- /.accordian-title -->
                                         <div class="accordion-content">
                                             <div class="inner">
                                                 <p class="inner__text">Nulla facilisi. Vestibulum tristique sem in eros
@@ -264,7 +277,8 @@
                                                     nibh mattis in. Sed a massa eget lacus consequat auctor.</p>
                                             </div><!-- /.accordian-content -->
                                         </div>
-                                    </div><!-- /.accordian-item -->
+                                    </div>
+                                    <!-- /.accordian-item -->
                                     <div class="accordion active wow fadeInUp" data-wow-duration='1500ms'
                                         data-wow-delay='500ms'>
                                         <div class="accordion-title">
@@ -310,8 +324,32 @@
                                             </div><!-- /.accordian-content -->
                                         </div>
                                     </div><!-- /.accordian-item -->
+                                </div> --}}
+                                <div class="faq-page__accordion faq-accordion gotur-accordion"
+                                    data-grp-name="gotur-accordion">
+                                    @if (!empty($slugData->plan->itinerary) && is_array($slugData->plan->itinerary))
+                                        @foreach ($slugData->plan->itinerary as $index => $item)
+                                            <div class="accordion {{ $index === 0 ? 'active' : '' }} wow fadeInUp"
+                                                data-wow-duration="1500ms" data-wow-delay="500ms">
+                                                <div class="accordion-title">
+                                                    <h4 class="accordion-title__text">
+                                                        {{ $item['title'] ?? 'Untitled' }}
+                                                        <span class="accordion-title__icon"></span>
+                                                    </h4>
+                                                </div>
+                                                <div class="accordion-content">
+                                                    <div class="inner">
+                                                        <p class="inner__text">{!! $item['details'] ?? 'No description provided.' !!}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    @else
+                                        <p>No tour plan available.</p>
+                                    @endif
                                 </div>
-                            </div><!-- /.tour-listing-details__content__item -->
+                            </div>
+                            <!-- /.tour-listing-details__content__item -->
                             <div class="tour-listing-details__content__item tour-listing-details__ture-list">
                                 <h4 class="tour-listing-details__title">Related Tour List</h4>
                                 <!-- /.tour-listing-details__title -->
@@ -334,22 +372,22 @@
                                                     <div class="listing-card-four__btns__hover">
                                                         <a href="#" class="listing-card-four__popup card__popup"
                                                             data-gallery-options='{
-            "items": [
-                {
-                    "src": "assets/images/blog/listing-1-1.jpg"
-                },
-                {
-                    "src": "assets/images/blog/listing-1-2.jpg"
-                },
-                {
-                    "src": "assets/images/blog/listing-1-3.jpg"
-                }
-            ],
-            "gallery": {
-                "enabled": true
-            },
-            "type": "image"
-        }'>
+                                                                                    "items": [
+                                                                                        {
+                                                                                            "src": "assets/images/blog/listing-1-1.jpg"
+                                                                                        },
+                                                                                        {
+                                                                                            "src": "assets/images/blog/listing-1-2.jpg"
+                                                                                        },
+                                                                                        {
+                                                                                            "src": "assets/images/blog/listing-1-3.jpg"
+                                                                                        }
+                                                                                    ],
+                                                                                    "gallery": {
+                                                                                        "enabled": true
+                                                                                    },
+                                                                                    "type": "image"
+                                                                                }'>
                                                             <span class="icon-image"></span>
                                                         </a>
                                                         <a class="video-popup"

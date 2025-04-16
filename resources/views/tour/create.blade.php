@@ -62,7 +62,7 @@
 
                             <div class="col-12">
                                 <form method="POST" action="{{ route('tour.store') }}" enctype="multipart/form-data"
-                                    class="tab-content dark-field" id="horizontal-wizard-tabContent" novalidate="">
+                                    class="tab-content dark-field" id="horizontal-wizard-tabContent" novalidate>
                                     @csrf
 
                                     <!-- Step 1: Basic Info -->
@@ -77,10 +77,16 @@
                                                 <div class="invalid-tooltip">
                                                     Please enter a valid title.
                                                 </div>
+                                                @error('tour_title')
+                                                    <small class="text-danger">{{ $message }}</small>
+                                                @enderror
                                             </div>
                                             <div class="col-xl-4 col-sm-6">
                                                 <label class="form-label">Feature Image</label>
                                                 <input type="file" name="feature_image" class="form-control">
+                                                @error('feature_image')
+                                                    <small class="text-danger">{{ $message }}</small>
+                                                @enderror
                                             </div>
                                             {{-- daily itinerary --}}
                                             <div class="col-xl-4 col-sm-6">
@@ -88,6 +94,9 @@
                                                         class="font-danger">*</span></label>
                                                 <input type="text" name="slug" class="form-control"
                                                     placeholder="Enter slug" required>
+                                                @error('slug')
+                                                    <small class="text-danger">{{ $message }}</small>
+                                                @enderror
                                             </div>
                                             <div class="col-12 text-end">
                                                 <button type="button" class="btn btn-primary"
@@ -104,27 +113,42 @@
                                                         class="font-danger">*</span></label>
                                                 <input type="text" name="location" class="form-control"
                                                     placeholder="Enter Tour Location" required>
+                                                @error('location')
+                                                    <small class="text-danger">{{ $message }}</small>
+                                                @enderror
                                             </div>
                                             <div class="col-xl-4 col-sm-6">
                                                 <label class="form-label">Activity<span
                                                         class="font-danger">*</span></label>
                                                 <input type="text" name="activity" class="form-control"
                                                     placeholder="Enter Tour activity" required>
+                                                @error('activity')
+                                                    <small class="text-danger">{{ $message }}</small>
+                                                @enderror
                                             </div>
                                             <div class="col-xl-4 col-sm-6">
                                                 <label class="form-label">Days<span class="font-danger">*</span></label>
                                                 <input type="text" name="days" class="form-control"
                                                     placeholder="Enter Tour Days" required>
+                                                @error('days')
+                                                    <small class="text-danger">{{ $message }}</small>
+                                                @enderror
                                             </div>
                                             <div class="col-xl-6 col-sm-6">
                                                 <label class="form-label">Nights<span class="font-danger">*</span></label>
                                                 <input type="text" name="nights" class="form-control"
                                                     placeholder="Enter Tour Nights" required>
+                                                @error('nights')
+                                                    <small class="text-danger">{{ $message }}</small>
+                                                @enderror
                                             </div>
                                             <div class="col-xl-6 col-sm-6">
                                                 <label class="form-label">Trip Overview<span
                                                         class="font-danger">*</span></label>
                                                 <textarea name="overview" class="form-control" rows="1" placeholder="Enter trip overview"></textarea>
+                                                @error('overview')
+                                                    <small class="text-danger">{{ $message }}</small>
+                                                @enderror
                                             </div>
                                             <div class="col-xl-6 col-sm-6">
                                                 <label class="form-label">Highlights</label>
@@ -135,6 +159,15 @@
                                                         <button type="button" class="btn btn-success btn-sm"
                                                             onclick="addHighlightField()">+</button>
                                                     </div>
+                                                    @error('highlight_list')
+                                                        <small class="text-danger d-block">{{ $message }}</small>
+                                                    @enderror
+
+                                                    @foreach ($errors->get('highlight_list.*') as $messages)
+                                                        @foreach ($messages as $msg)
+                                                            <small class="text-danger d-block">{{ $msg }}</small>
+                                                        @endforeach
+                                                    @endforeach
                                                 </div>
                                             </div>
 
@@ -155,6 +188,9 @@
                                                         class="font-danger">*</span></label>
                                                 <input type="number" name="tour_rate" class="form-control"
                                                     placeholder="Enter total tour rate" required>
+                                                @error('tour_rate')
+                                                    <small class="text-danger d-block">{{ $message }}</small>
+                                                @enderror
                                             </div>
                                             <div class="col-xl-6 col-sm-6">
                                                 <label class="form-label">Included Amenities</label>
@@ -166,6 +202,15 @@
                                                         <button type="button" class="btn btn-success btn-sm"
                                                             onclick="addAmenityField('included')">+</button>
                                                     </div>
+                                                    @error('included_amenities')
+                                                        <small class="text-danger d-block">{{ $message }}</small>
+                                                    @enderror
+
+                                                    @foreach ($errors->get('included_amenities.*') as $messages)
+                                                        @foreach ($messages as $msg)
+                                                            <small class="text-danger d-block">{{ $msg }}</small>
+                                                        @endforeach
+                                                    @endforeach
                                                 </div>
                                             </div>
 
@@ -179,6 +224,15 @@
                                                         <button type="button" class="btn btn-success btn-sm"
                                                             onclick="addAmenityField('not-included')">+</button>
                                                     </div>
+                                                    @error('not_included_amenities')
+                                                        <small class="text-danger d-block">{{ $message }}</small>
+                                                    @enderror
+
+                                                    @foreach ($errors->get('not_included_amenities.*') as $messages)
+                                                        @foreach ($messages as $msg)
+                                                            <small class="text-danger d-block">{{ $msg }}</small>
+                                                        @endforeach
+                                                    @endforeach
                                                 </div>
                                             </div>
                                             <div class="col-12 text-end mt-3">
@@ -211,6 +265,29 @@
                                             <button type="button" class="col-xl-4 btn btn-primary mt-3"
                                                 onclick="addDayItinerary()">+ Add Day</button>
                                             {{-- daily itinerary --}}
+                                            @foreach ($errors->get('itinerary.*.title') as $index => $messages)
+                                                @foreach ($messages as $message)
+                                                    <div class="text-danger d-block">
+                                                        <ul>
+                                                            <li>{{ $message }}</li>
+                                                        </ul>
+                                                    </div>
+                                                @endforeach
+                                            @endforeach
+
+
+                                            @foreach ($errors->get('itinerary.*.details') as $index => $messages)
+                                                @foreach ($messages as $message)
+                                                    @if ($loop->parent->index == $index)
+                                                        <div class="text-danger d-block">
+                                                            <ul>
+                                                                <li>{{ $message }}</li>
+                                                            </ul>
+                                                        </div>
+                                                    @endif
+                                                @endforeach
+                                            @endforeach
+
 
 
                                             <div class="col-12 text-end mt-3">
