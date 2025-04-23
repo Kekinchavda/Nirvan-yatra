@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Activity;
-use App\Models\Destination;
-use App\Models\Location;
-use App\Models\tour_amenities;
-use App\Models\tour_overviews;
-use App\Models\tour_plans;
-use App\Models\tours;
-use Illuminate\Http\Request;
+use App\Models\{
+    Activity,
+    Destination,
+    Location,
+    Logo,
+    tours
+};
+
 
 class LandingPageController extends Controller
 {
@@ -19,15 +19,10 @@ class LandingPageController extends Controller
         $activitys = Activity::all();
         $destinations = Destination::all();
         $tours = tours::all();
-        return view("landing_page.main", compact('locations', 'activitys', 'destinations', 'tours'));
+        $logo = Logo::first(); // assuming only one logo record
+        return view("landing_page.main_app", compact('locations', 'activitys', 'destinations', 'tours', 'logo'));
     }
-    // public function show($slug)
-    // {
-    //     $slugData = tours::with('overview', 'plan', 'amenities')->where('slug', $slug)->firstOrFail();
 
-
-    //     return view('landing_page.listing_details', compact('slugData'));
-    // }
     public function show($slug)
     {
         $slugData = tours::with('overview', 'plan', 'amenities')->where('slug', $slug)->firstOrFail();
@@ -59,7 +54,18 @@ class LandingPageController extends Controller
             ? json_decode($slugData->activity_type, true) ?? []
             : ($slugData->activity_type ?? []);
 
-        return view('landing_page.listing_details', compact('slugData'));
+        $logo = Logo::first(); // assuming only one logo record
+        return view('landing_page.listing_details', compact('slugData', 'logo'));
+    }
+
+    public function list()
+    {
+        $logo = Logo::first(); // assuming only one logo record
+        $locations = Location::all();
+        $activitys = Activity::all();
+        // $tours = tours::all();
+        $tours = tours::paginate(1); // 6 items per page
+        return view("landing_page.list", compact("logo", "locations", "activitys", "tours"));
     }
 
 }

@@ -1,4 +1,5 @@
 @include('admin_pannel.partials.head')
+
 <body>
 
     @include('admin_pannel.partials.header')
@@ -31,15 +32,14 @@
     <script src="https://larathemes.pixelstrap.com/edmin/assets/js/sweetalert/sweetalert2.min.js"></script>
     <script src="https://larathemes.pixelstrap.com/edmin/assets/js/sweetalert/sweetalert-custom.js"></script>
 
-    <script src="{{ asset('assets/admin_pannel/edmin/assets/js/datatable/datatables/jquery.dataTables.min.js') }}">
-    </script>
+    <script src="{{ asset('assets/admin_pannel/edmin/assets/js/datatable/datatables/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('assets/admin_pannel/edmin/assets/js/datatable/datatables/datatable.custom.js') }}"></script>
 
     <!-- scrollbar js-->
     <script src="{{ asset('assets/admin_pannel/edmin/assets/js/scrollbar/simplebar.js') }}"></script>
     <script src="{{ asset('assets/admin_pannel/edmin/assets/js/scrollbar/custom.js') }}"></script>
     <script src="{{ asset('assets/admin_pannel/edmin/assets/js/select2/select2.full.min.js') }}"></script>
-   
+
 
 
     <!-- validation -->

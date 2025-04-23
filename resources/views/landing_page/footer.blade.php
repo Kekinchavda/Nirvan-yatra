@@ -3,8 +3,8 @@
         <div class="container">
             <div class="main-footer__top__inner wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="200ms">
                 <div class="footer-widget__logo logo-retina">
-                    <a href="index.html"><img src="{{ asset('assets/images/logo-light.svg') }}" width="158" height="45"
-                            alt="gotur logo"></a>
+                    <a href="index.html"><img src="{{ asset('storage/' . $logo->footer_logo) }}" width="170"
+                            height="70" alt="gotur logo"></a>
                 </div>
                 <!-- /.footer-widget__logo -->
                 <ul class="list-unstyled footer-widget__list">
@@ -54,14 +54,16 @@
                             alteration in some form by injected humour, or</p>
                         <!-- /.footer-widget__about-text -->
                         <div class="footer-widget__social">
-                            <a href="https://facebook.com"> <i class="icon-facebook" aria-hidden="true"></i>
-                                <span class="sr-only">Facebook</span></a>
-                            <a href="https://twitter.com"> <i class="fab fa-twitter" aria-hidden="true"></i>
-                                <span class="sr-only">Twitter</span></a>
-                            <a href="https://instagram.com"> <i class="fab fa-instagram" aria-hidden="true"></i>
-                                <span class="sr-only">Linked In</span></a>
-                            <a href="https://youtube.com"> <i class="icon-youtube" aria-hidden="true"></i> <span
-                                    class="sr-only">Youtube</span></a>
+                            <a
+                                href="https://www.facebook.com/people/Nirvan-Yatra/pfbid0krPrHBpyn1i5nVEg7DLHUP7PtEguayNtvkfv3VjhGBGHSGfRwxRTxeFG7uLy2qRol/">
+                                <i class="icon-facebook" aria-hidden="true"></i> <span
+                                    class="sr-only">Facebook</span></a>
+                            <a href="https://x.com/NirvanYatra"> <i class="icon-twitter" aria-hidden="true"></i> <span
+                                    class="sr-only">Twitter</span></a>
+                            <a href="https://www.linkedin.com/company/nirvan-yatra/"> <i class="icon-linkedin"
+                                    aria-hidden="true"></i> <span class="sr-only">Linked In</span></a>
+                            <a href="https://youtube.com/@nirvanyatra?si=anHcLrB5A-HE85cI"> <i class="icon-youtube"
+                                    aria-hidden="true"></i> <span class="sr-only">Youtube</span></a>
                         </div>
                         <!-- /.footer-widget__social -->
                     </div>
@@ -71,7 +73,7 @@
 
                 <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="200ms">
                     <div class="footer-widget footer-widget--links">
-                        <h2 class="footer-widget__title">Destinations</h2>
+                        {{-- <h2 class="footer-widget__title">Destinations</h2>
                         <!-- /.footer-widget__title -->
                         <ul class="list-unstyled footer-widget__links">
                             <li><a href="destination-details.html">India</a></li>
@@ -79,7 +81,7 @@
                             <li><a href="destination-details.html">San Franc Rica</a></li>
                             <li><a href="destination-details.html">New York</a></li>
                             <li><a href="destination-details.html">Tokyo</a></li>
-                        </ul>
+                        </ul> --}}
                         <!-- /.list-unstyled footer-widget__links -->
                     </div>
                     <!-- /.footer-widget -->
@@ -88,7 +90,7 @@
 
                 <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="400ms">
                     <div class="footer-widget footer-widget--post">
-                        <h2 class="footer-widget__title">useful links</h2>
+                        {{-- <h2 class="footer-widget__title">useful links</h2>
                         <!-- /.footer-widget__title -->
                         <ul class="list-unstyled footer-widget__links">
                             <li><a href="about.html">About Us</a></li>
@@ -96,7 +98,7 @@
                             <li><a href="blog-grid.html">News & blog</a></li>
                             <li><a href="team.html">Meet the Guide</a></li>
                             <li><a href="contact.html">Contacts</a></li>
-                        </ul>
+                        </ul> --}}
                         <!-- /.list-unstyled footer-widget__links -->
                     </div>
                     <!-- /.footer-widget -->
@@ -104,7 +106,7 @@
                 <!-- /.col-lg-6 -->
 
                 <div class="col-md-6 col-lg-5 col-xl-3 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="600ms">
-                    <div class="footer-widget footer-widget--contact">
+                    {{-- <div class="footer-widget footer-widget--contact">
                         <h2 class="footer-widget__title">Newsletter</h2>
                         <!-- /.footer-widget__title -->
                         <p class="footer-widget__contact-text">Sign up to searing weekly newsletter to get the
@@ -125,7 +127,7 @@
                         <!-- /.footer-widget__newsletter mc-form -->
                         <div class="mc-form__response"></div>
                         <!-- /.mc-form__response -->
-                    </div>
+                    </div> --}}
                     <!-- /.footer-widget -->
                 </div>
                 <!-- /.col-lg-5 -->

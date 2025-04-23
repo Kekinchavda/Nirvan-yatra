@@ -21,14 +21,15 @@
                 </div>
                 <!-- /.top-one__info__item -->
                 <div class="top-one__social">
-                    <a href="https://facebook.com"> <i class="icon-facebook" aria-hidden="true"></i> <span
-                            class="sr-only">Facebook</span></a>
-                    <a href="https://twitter.com"> <i class="icon-twitter" aria-hidden="true"></i> <span
+                    <a
+                        href="https://www.facebook.com/people/Nirvan-Yatra/pfbid0krPrHBpyn1i5nVEg7DLHUP7PtEguayNtvkfv3VjhGBGHSGfRwxRTxeFG7uLy2qRol/">
+                        <i class="icon-facebook" aria-hidden="true"></i> <span class="sr-only">Facebook</span></a>
+                    <a href="https://x.com/NirvanYatra"> <i class="icon-twitter" aria-hidden="true"></i> <span
                             class="sr-only">Twitter</span></a>
-                    <a href="https://instagram.com"> <i class="icon-linkedin" aria-hidden="true"></i> <span
-                            class="sr-only">Linked In</span></a>
-                    <a href="https://youtube.com"> <i class="icon-youtube" aria-hidden="true"></i> <span
-                            class="sr-only">Youtube</span></a>
+                    <a href="https://www.linkedin.com/company/nirvan-yatra/"> <i class="icon-linkedin"
+                            aria-hidden="true"></i> <span class="sr-only">Linked In</span></a>
+                    <a href="https://youtube.com/@nirvanyatra?si=anHcLrB5A-HE85cI"> <i class="icon-youtube"
+                            aria-hidden="true"></i> <span class="sr-only">Youtube</span></a>
                 </div>
                 <!-- /.top-one__social -->
             </div>
@@ -44,7 +45,7 @@
     <div class="container-fluid">
         <div class="main-header__inner">
             <div class="main-header__logo logo-retina">
-                <a href="#"><img src="{{ asset('assets/images/logo-dark.png') }}" width="165" height="45"
+                <a href="#"><img src="{{ asset('storage/' . $logo->header_logo) }}" width="170" height="70"
                         alt="nirvan_yatra logo"></a>
             </div>
             <!-- /.main-header__logo -->

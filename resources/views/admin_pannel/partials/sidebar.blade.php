@@ -69,19 +69,19 @@
 
             {{-- Destination menu --}}
             <li class="sidebar-list">
-                <svg class="pinned-icon">
+                {{-- <svg class="pinned-icon">
                     <use href="{{ asset('assets/admin_pannel/edmin/assets/svg/iconly-sprite.svg#Travel') }}">
                     </use>
-                </svg>
-                <a class="sidebar-link" href="{{ route('destination') }}">
+                </svg> --}}
+                <a class="sidebar-link" href="{{ route('logo') }}">
                     <i class="fa-solid fa-solid fa-map stroke-icon"></i>
-                    <span>Destination Details</span>
+                    <span>Logo</span>
                 </a>
             </li>
             {{-- Destination menu --}}
 
             {{-- trip details menu --}}
-            <li class="sidebar-list">
+            {{-- <li class="sidebar-list">
                 <a class="sidebar-link" href="javascript:void(0)">
                     <svg class="stroke-icon">
                         <use href="{{ asset('assets/admin_pannel/edmin/assets/svg/iconly-sprite.svg#Profile') }}">
@@ -106,7 +106,7 @@
                                 </use>
                             </svg>User Cards</a></li>
                 </ul>
-            </li>
+            </li> --}}
             {{-- trip details menu --}}
 
         </ul>

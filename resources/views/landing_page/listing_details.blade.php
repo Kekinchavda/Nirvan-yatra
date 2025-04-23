@@ -65,7 +65,7 @@
             <!-- /.page-header__bg -->
             <div class="container">
                 <div class="page-header__content">
-                    <h2 class="page-header__title bw-split-in-right">Tour Listing Details 02</h2>
+                    <h2 class="page-header__title bw-split-in-right">{{ $slugData->title }}</h2>
                     <ul class="gotur-breadcrumb list-unstyled">
                         <li><a href="index.html">Home</a></li>
                         <li><span>Tour Listing Details 02</span></li>
@@ -93,7 +93,8 @@
                                 </div>
                                 <div class="tour-listing-details__destination__posted">
                                     <i class="icon-pin1"></i>
-                                    <p class="tour-listing-details__destination__posted-text">Japan</p>
+                                    <p class="tour-listing-details__destination__posted-text">{{ $slugData->location }}
+                                    </p>
                                 </div><!-- / -->
                             </div><!-- /.tour-listing-details__destination__revue -->
                         </div><!-- /.tour-listing-details__destination__left -->
@@ -171,7 +172,7 @@
                             </div><!-- /.tour-listing-details__info-area__content -->
                         </li>
                         <li>
-                            <a href="checkout.html" class="gotur-btn">₹{{ $slugData->tour_rate }}/ Per Person</a>
+                            <a href="checkout.html" class="gotur-btn">₹{{ $slugData->rate }}/ Per Person</a>
                         </li>
                     </ul><!-- /.tour-listing-details__info-area__info -->
                 </div><!-- /.container -->
@@ -358,7 +359,7 @@
                                         <div class="listing-card-four wow fadeInUp" data-wow-duration='1500ms'
                                             data-wow-delay='100ms'>
                                             <div class="listing-card-four__image">
-                                                <img src="assets/images/blog/listing-list-4-1.jpg"
+                                                <img src="{{ asset('assets/images/blog/listing-list-4-1.jpg') }}"
                                                     alt="All Inclusive Ultimate Circle Island Day with Lunch">
                                                 <div class="listing-card-four__btn-group">
 
@@ -441,13 +442,12 @@
                                         <div class="listing-card-four wow fadeInUp" data-wow-duration='1500ms'
                                             data-wow-delay='300ms'>
                                             <div class="listing-card-four__image">
-                                                <img src="assets/images/blog/listing-list-4-2.jpg"
+                                                <img src="{{ asset('assets/images/blog/listing-list-4-2.jpg') }}"
                                                     alt="Molokini and Turtle Town Snorkeling Adventure Aboard">
                                                 <div class="listing-card-four__btn-group">
 
                                                     <div class="listing-card-four__discount">-30% Off</div>
                                                     <!-- /.listing-card-four__discount -->
-
 
                                                     <div class="listing-card-four__featured">Featured</div>
                                                     <!-- /.listing-card-four__featured -->

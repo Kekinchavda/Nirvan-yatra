@@ -21092,4 +21092,13 @@ body.boxed-wrapper .testimonials-three__inner {
     margin-right: -250px;
 }
 
+.preloader__image {
+    background-image: url('{{ asset('assets/images/logo/logo-dark.png') }}');
+    width: 200px;  /* Your desired width */
+    height: 200px; /* Your desired height */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0 auto; /* Center the image */
+}
 /*# sourceMappingURL=gotur.css.map */

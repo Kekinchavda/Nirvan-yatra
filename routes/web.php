@@ -6,6 +6,7 @@ use App\Http\Controllers\{
     LandingPageController,
     LocationController,
     LoginController,
+    LogoController,
     ToursController
 };
 use Illuminate\Support\Facades\Route;
@@ -21,7 +22,8 @@ Route::get('/', [LandingPageController::class, 'index'])->name('landingaPage');
 Route::get('/admin', function () {
     return view('admin_pannel.layout.app');
 })->name('admin');
-Route::get('/tours/{slug}', [LandingPageController::class, 'show'])->name('tour.details');
+Route::get('/tours/{slug}', [LandingPageController::class, 'show'])->name(name: 'tour.details');
+Route::get('/tour/list', [LandingPageController::class, 'list'])->name('tour.list');
 
 
 // Login routes should NOT be under auth middleware
@@ -69,4 +71,6 @@ Route::middleware('auth')->group(function () {
     Route::put('destination/update/{id}', [DestinationController::class, 'update'])->name('destination.update');
     Route::delete('destination/delete/{id}', [DestinationController::class, 'destroy'])->name('destination.delete');
 
+    Route::get('logo', [LogoController::class, 'index'])->name('logo');
+    Route::post('logo', [LogoController::class, 'storeOrUpdate'])->name('logo.storeOrUpdate');
 });
