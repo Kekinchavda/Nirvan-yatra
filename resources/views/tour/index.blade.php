@@ -59,10 +59,12 @@
                                             <td>{{ $index + 1 }}</td>
                                             <td
                                                 style="width: 200px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
-                                                {{ $tour->title }}</td>
+                                                {{ $tour->title }}
+                                            </td>
                                             <td
                                                 style="width: 200px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
-                                                {{ $tour->slug }}</td>
+                                                {{ $tour->slug }}
+                                            </td>
                                             <td>
                                                 @if ($tour->feature_image)
                                                     <img src="{{ asset('storage/' . $tour->feature_image) }}" width="100"
@@ -115,13 +117,12 @@
     </div>
     <!-- Container-fluid starts-->
     {{-- modal for show data of tour --}}
-    <div class="modal fade show-data-of-tour-modal-xl" tabindex="-1" aria-labelledby="myLargeModalLabel"
-        aria-hidden="true">
+    <div class="modal fade show-data-of-tour-modal-xl" tabindex="-1" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <!-- Modal Header -->
                 <div class="modal-header">
-                    <h5 class="modal-title" id="myLargeModalLabel">{{ $tour->title }}</h5>
+                    <h5 class="modal-title" id="myLargeModalLabel">@if(isset($tour)){{ $tour->title }}@endif</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
@@ -133,38 +134,38 @@
                             <!-- Title -->
                             <tr>
                                 <th width="30%">Title</th>
-                                <td>{{ $tour->title }}</td>
+                                <td>@if(isset($tour)){{ $tour->title }}@endif</td>
                             </tr>
 
                             <!-- Slug -->
                             <tr>
                                 <th>Slug</th>
-                                <td>{{ $tour->slug }}</td>
+                                <td>@if(isset($tour)){{ $tour->slug }}@endif</td>
                             </tr>
 
                             <!-- Location -->
                             <tr>
                                 <th>Location</th>
-                                <td>{{ $tour->location }}</td>
+                                <td>@if(isset($tour)){{ $tour->location }}@endif</td>
                             </tr>
 
                             <!-- Activity -->
                             <tr>
                                 <th>Activity</th>
-                                <td>{{ trim($tour->activity_type, '"') }}</td>
+                                <td>@if(isset($tour)){{ trim($tour->activity_type, '"') }}@endif</td>
                             </tr>
 
                             <!-- Duration -->
                             <tr>
                                 <th>Duration</th>
-                                <td>{{ $tour->days }} days / {{ $tour->nights }} nights</td>
+                                <td>@if(isset($tour)){{ $tour->days }} days / {{ $tour->nights }} nights @endif</td>
                             </tr>
 
                             <!-- Overview -->
                             <tr>
                                 <th>Overview</th>
                                 <td>
-                                    {{ $tour->overview->overview }}
+                                    @if(isset($tour)){{ $tour->overview->overview }}@endif
                                 </td>
                             </tr>
 
@@ -172,14 +173,16 @@
                             <tr>
                                 <th>Highlights</th>
                                 <td>
-                                    @if (!empty($tour->overview->highlights))
-                                        <ol>
-                                            @foreach ($tour->overview->highlights as $highlight)
-                                                <li>{{ $highlight }}</li>
-                                            @endforeach
-                                        </ol>
-                                    @else
-                                        <p>No highlights available</p>
+                                    @if(isset($tour))
+                                        @if (!empty($tour->overview->highlights))
+                                            <ol>
+                                                @foreach ($tour->overview->highlights as $highlight)
+                                                    <li>{{ $highlight }}</li>
+                                                @endforeach
+                                            </ol>
+                                        @else
+                                            <p>No highlights available</p>
+                                        @endif
                                     @endif
                                 </td>
                             </tr>
@@ -187,7 +190,7 @@
                             <!-- Tour Rate -->
                             <tr>
                                 <th>Tour Rate</th>
-                                <td>₹ {{ $tour->rate }}</td>
+                                <td>@if(isset($tour))₹ {{ $tour->rate }}@endif</td>
                             </tr>
 
                             <!-- Itinerary -->
@@ -195,30 +198,28 @@
                                 <th>Itinerary</th>
                                 <td>
                                     <div class="accordion" id="itineraryAccordion">
-                                        @if (!empty($tour->plan->itinerary))
-                                            @foreach ($tour->plan->itinerary as $index => $itinerary)
-                                                <div class="accordion-item">
-                                                    <h2 class="accordion-header" id="heading{{ $index }}">
-                                                        <button class="accordion-button collapsed" type="button"
-                                                            data-bs-toggle="collapse"
-                                                            data-bs-target="#collapse{{ $index }}"
-                                                            aria-expanded="false"
-                                                            aria-controls="collapse{{ $index }}">
-                                                            Day {{ $index + 1 }}: {{ $itinerary['title'] }}
-                                                        </button>
-                                                    </h2>
-                                                    <div id="collapse{{ $index }}"
-                                                        class="accordion-collapse collapse"
-                                                        aria-labelledby="heading{{ $index }}"
-                                                        data-bs-parent="#itineraryAccordion">
-                                                        <div class="accordion-body">
-                                                            {!! $itinerary['details'] !!}
+                                        @if(isset($tour))
+                                            @if (!empty($tour->plan->itinerary))
+                                                @foreach ($tour->plan->itinerary as $index => $itinerary)
+                                                    <div class="accordion-item">
+                                                        <h2 class="accordion-header" id="heading{{ $index }}">
+                                                            <button class="accordion-button collapsed" type="button"
+                                                                data-bs-toggle="collapse" data-bs-target="#collapse{{ $index }}"
+                                                                aria-expanded="false" aria-controls="collapse{{ $index }}">
+                                                                Day {{ $index + 1 }}: {{ $itinerary['title'] }}
+                                                            </button>
+                                                        </h2>
+                                                        <div id="collapse{{ $index }}" class="accordion-collapse collapse"
+                                                            aria-labelledby="heading{{ $index }}" data-bs-parent="#itineraryAccordion">
+                                                            <div class="accordion-body">
+                                                                {!! $itinerary['details'] !!}
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            @endforeach
-                                        @else
-                                            <p>No itinerary available</p>
+                                                @endforeach
+                                            @else
+                                                <p>No itinerary available</p>
+                                            @endif
                                         @endif
                                     </div>
                                 </td>
@@ -228,14 +229,16 @@
                             <tr>
                                 <th>Included Amenities</th>
                                 <td>
-                                    @if (!empty($tour->amenities->included_amenities))
-                                        <ol>
-                                            @foreach ($tour->amenities->included_amenities as $included_amenities)
-                                                <li>{{ $included_amenities }}</li>
-                                            @endforeach
-                                        </ol>
-                                    @else
-                                        <p>No highlights available</p>
+                                    @if(isset($tour))
+                                        @if (!empty($tour->amenities->included_amenities))
+                                            <ol>
+                                                @foreach ($tour->amenities->included_amenities as $included_amenities)
+                                                    <li>{{ $included_amenities }}</li>
+                                                @endforeach
+                                            </ol>
+                                        @else
+                                            <p>No highlights available</p>
+                                        @endif
                                     @endif
                                 </td>
                             </tr>
@@ -260,11 +263,14 @@
                             <tr>
                                 <th>Feature Image</th>
                                 <td>
-                                    @if ($tour->feature_image)
-                                        <img src="{{ asset('storage/' . $tour->feature_image) }}" alt="Feature Image"
-                                            class="img-fluid" style="max-width: 200px;">
-                                    @else
-                                        <p>No feature image available</p>
+                                    @if(isset($tour))
+
+                                        @if ($tour->feature_image)
+                                            <img src="{{ asset('storage/' . $tour->feature_image) }}" alt="Feature Image"
+                                                class="img-fluid" style="max-width: 200px;">
+                                        @else
+                                            <p>No feature image available</p>
+                                        @endif
                                     @endif
                                 </td>
                             </tr>
@@ -280,7 +286,7 @@
 
 @section('script')
     <script>
-        $('.btn-delete').on('click', function(e) {
+        $('.btn-delete').on('click', function (e) {
             e.preventDefault();
             var form = $(this).closest('form');
             Swal.fire({

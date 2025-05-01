@@ -39,7 +39,7 @@ class ActivityController extends Controller
 
         try {
             $activity = new Activity();
-            $activity->name = $request->name;
+            $activity->name = $request->title;
             $activity->save();
             return redirect()->route("activity")->with("message", "Activity created successfully")->with('type', 'success');
         } catch (\Exception $e) {

@@ -22,7 +22,7 @@
                         <!-- /.footer-widget__list__icon -->
                         <div class="footer-widget__list__content">
                             <span class="footer-widget__list__subtitle">call agent</span>
-                            <a href="tel:+917083604645">+91 70836 04645</a>
+                            <a href="tel:+919011011366">+91 90110 11366</a>
                         </div>
                         <!-- /.footer-widget__list__content -->
                     </li>

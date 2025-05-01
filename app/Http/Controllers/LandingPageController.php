@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\{
     Activity,
+    ContactForm,
     Destination,
     Location,
     Logo,
     tours
 };
+use Illuminate\Http\Request;
 
 
 class LandingPageController extends Controller
@@ -66,6 +68,34 @@ class LandingPageController extends Controller
         // $tours = tours::all();
         $tours = tours::paginate(1); // 6 items per page
         return view("landing_page.list", compact("logo", "locations", "activitys", "tours"));
+    }
+    public function contactUs()
+    {
+        $logo = Logo::first(); // assuming only one logo record
+
+        return view("landing_page.contact_us", compact("logo"));
+    }
+
+    public function contactUsForm(Request $request)
+    {
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'message' => 'required|string|max:2000'
+        ]);
+
+        // Process the data (send email, save to DB, etc.)
+        // Mail::to('your@email.com')->send(new ContactFormMail($validated));
+        $contact = new ContactForm;
+        $contact->name = $validated['name'];
+        $contact->email = $validated['email'];
+        $contact->message = $validated['message'];
+        $contact->save();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Thank you! Your message has been sent successfully.'
+        ]);
     }
 
 }

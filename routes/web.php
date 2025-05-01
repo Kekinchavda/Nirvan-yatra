@@ -24,6 +24,8 @@ Route::get('/admin', function () {
 })->name('admin');
 Route::get('/tours/{slug}', [LandingPageController::class, 'show'])->name(name: 'tour.details');
 Route::get('/tour/list', [LandingPageController::class, 'list'])->name('tour.list');
+Route::get('/contact-us', [LandingPageController::class, 'contactUs'])->name('contactUs');
+Route::post('/contact-us-form', [LandingPageController::class, 'contactUsForm'])->name('contactUsForm');
 
 
 // Login routes should NOT be under auth middleware
