@@ -50,7 +50,8 @@
     <div class="custom-cursor__cursor-two"></div>
 
     <div class="preloader">
-        <div class="preloader__image" style="background-image: url('{{ asset('assets/images/logo/logo-dark.png') }}');"></div>
+        <div class="preloader__image" style="background-image: url('{{ asset('assets/images/logo/logo-dark.png') }}');">
+        </div>
     </div>
     <!-- /.preloader -->
     <div class="page-wrapper">
@@ -72,8 +73,8 @@
         <div class="header-right-sidebar__content">
             <span class="header-right-sidebar__close header-right-sidebar__toggler"><i class="fa fa-times"></i></span>
             <div class="header-right-sidebar__logo-box">
-                <a href="index.html" aria-label="logo image"> <img src="assets/images/logo-landing.png" width="158"
-                        alt="gotur"> </a>
+                <a href="index.html" aria-label="logo image"> <img src="{{ asset('assets/images/logo/logo-dark.png') }}"
+                        width="158" alt="gotur"> </a>
             </div>
             <div class="header-right-sidebar__container">
                 <div class="header-right-sidebar__container__about wow fadeInUp" data-wow-duration='1500ms'
@@ -93,7 +94,7 @@
                             </div>
                             <div class="header-right-sidebar__container__list__content">
                                 <span class="header-right-sidebar__container__list__title">send email</span>
-                                <a href="">info@company.com</a>
+                                <a href="mailto:nirvanyatra@gmail.com">nirvanyatra@gmail.com</a>
                             </div>
                         </li>
                         <li class="header-right-sidebar__container__list__item wow fadeInUp" data-wow-duration='1500ms'
@@ -103,7 +104,7 @@
                             </div>
                             <div class="header-right-sidebar__container__list__content">
                                 <span class="header-right-sidebar__container__list__title">call agent</span>
-                                <a href="tel:+917083604645">+91 70836 04645</a>
+                                <a href="tel:+919011011366">+91 90110 11366</a>
                             </div>
                         </li>
                         <li class="header-right-sidebar__container__list__item wow fadeInUp" data-wow-duration='1500ms'
@@ -113,19 +114,10 @@
                             </div>
                             <div class="header-right-sidebar__container__list__content">
                                 <span class="header-right-sidebar__container__list__title">opening time</span>
-                                <p>Hours: Mon-Fri: 8am – 7pm</p>
+                                <p>Hours: Mon-Sun: 8am – 8pm</p>
                             </div>
                         </li>
                     </ul>
-                </div>
-                <div class="header-right-sidebar__container__newsletter-box wow fadeInUp" data-wow-duration='1500ms'
-                    data-wow-delay='900ms'>
-                    <h3 class="header-right-sidebar__container__title">get notification</h3>
-                    <form action="#" data-url="MAILCHIMP_FORM_URL" class="newsletter-box mc-form">
-                        <input type="email" name="EMAIL" placeholder="Email">
-                        <button type="submit" class="gotur-btn gotur-btn--base">subscribe now</button>
-                    </form>
-                    <div class="mc-form__response"></div>
                 </div>
             </div>
         </div>

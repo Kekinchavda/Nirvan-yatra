@@ -66,7 +66,7 @@ class LandingPageController extends Controller
         $locations = Location::all();
         $activitys = Activity::all();
         // $tours = tours::all();
-        $tours = tours::paginate(1); // 6 items per page
+        $tours = tours::paginate(6); // 6 items per page
         return view("landing_page.list", compact("logo", "locations", "activitys", "tours"));
     }
     public function contactUs()

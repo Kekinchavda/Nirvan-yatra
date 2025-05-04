@@ -7,8 +7,7 @@
                         <h5 class="main-slider-one__sub-title main-three bw-split-in-top">Explore Your</h5>
                         <!-- slider-sub-title -->
                         <h2 class="main-slider-one__title main-three bw-split-in-down"> Next Journey <br> <span>
-                                with </span> <br> <span style="font-family: 'Cinzel Decorative', serif;">Nirvan</span>
-                            <span style="font-family: 'Samarkan', sans-serif;">Yatra</span>
+                                with </span> <br> <span>Nirvan Yatra</span>
                         </h2>
                         <!-- slider-title -->
                         <p class="main-slider-one__text main-three bw-split-in-down">Reconnect with nature and
@@ -29,8 +28,7 @@
                 <div class="destinations-two__inner">
                     <div class="destinations-two__carousel gotur-owl__carousel gotur-owl__carousel--custom-nav gotur-owl__carousel--with-shadow owl-carousel owl-theme"
                         data-owl-nav-prev=".main-slider-one__carousel__nav--left"
-                        data-owl-nav-next=".main-slider-one__carousel__nav--right"
-                        data-owl-options='{
+                        data-owl-nav-next=".main-slider-one__carousel__nav--right" data-owl-options='{
                     "items": 1,
                     "margin": 30,
                     "loop": true,
@@ -180,12 +178,12 @@
                                             @endforeach
                                         </select>
                                     </div>
-                                    <div class="banner-form__control banner-form__control--date banner-form__col--3">
+                                    {{-- <div class="banner-form__control banner-form__control--date banner-form__col--3">
                                         <i class="icon icon-clock"></i>
                                         <label for="date">Activate Day</label>
-                                        <input class="gotur-multi-datepicker" id="date" type="text"
-                                            name="date" placeholder="Fev 5 - 5">
-                                    </div>
+                                        <input class="gotur-multi-datepicker" id="date" type="text" name="date"
+                                            placeholder="Fev 5 - 5">
+                                    </div> --}}
                                     <div class="banner-form__control banner-form__col--4">
                                         <i class="icon icon-group"></i>
                                         <!-- / -->
@@ -193,8 +191,7 @@
                                         <button type="button" class="banner-form__qty-minus sub">
                                             <i class="icon-down-arrow"></i>
                                         </button>
-                                        <input id="guests" type="number" value="2" name="guests"
-                                            placeholder="2">
+                                        <input id="guests" type="number" value="2" name="guests" placeholder="2">
                                         <button type="button" class="banner-form__qty-plus add">
                                             <i class="icon-down-arrow"></i>
                                         </button>

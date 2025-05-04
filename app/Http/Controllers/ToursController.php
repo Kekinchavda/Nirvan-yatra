@@ -51,6 +51,7 @@ class ToursController extends Controller
      */
     public function store(Request $request)
     {
+
         // Step 1: Validate input
         $request->validate([
             'tour_title' => 'required|string|max:255',
@@ -72,7 +73,6 @@ class ToursController extends Controller
             'itinerary.*.title' => 'required|string|max:255',  // Ensure title is required and is a string
             'itinerary.*.details' => 'required|string',         // Ensure details are required and are a string    
         ]);
-
 
         // Step 2: Upload media
         $imagePath = $request->file('feature_image')->store('uploads/tours', 'public');
@@ -226,8 +226,29 @@ class ToursController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(tours $tours)
+    public function destroy($id)
     {
-        //
+        try {
+            // Find the tour and delete related data
+            $tour = tours::findOrFail($id);
+
+            // Delete related records in associated tables
+            tour_overviews::where('tour_id', $tour->id)->delete();
+            tour_plans::where('tour_id', $tour->id)->delete();
+            tour_amenities::where('tour_id', $tour->id)->delete();
+
+            // Optionally delete the feature image file if it exists
+            if (file_exists(storage_path('app/public/' . $tour->feature_image))) {
+                unlink(storage_path('app/public/' . $tour->feature_image));
+            }
+
+            // Delete the main tour record
+            $tour->delete();
+
+            return redirect()->route('tour')->with('message', 'Tour Package deleted successfully!')->with('type', 'success');
+        } catch (\Exception $e) {
+            return redirect()->route('tour')->with('message', 'Error: ' . $e->getMessage())->with('type', 'error');
+        }
     }
+
 }

@@ -3,8 +3,9 @@
         <div class="container">
             <div class="main-footer__top__inner wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="200ms">
                 <div class="footer-widget__logo logo-retina">
-                    <a href="index.html"><img src="{{ asset('storage/' . $logo->footer_logo) }}" width="170"
-                            height="70" alt="gotur logo"></a>
+                    <a href="index.html"><img src="{{ !empty($logo->footer_logo) && file_exists(public_path('storage/' . $logo->footer_logo))
+    ? asset('storage/' . $logo->footer_logo)
+    : asset('assets/images/logo/logo.dark.png') }}" width="170" height="70" alt="gotur logo"></a>
                 </div>
                 <!-- /.footer-widget__logo -->
                 <ul class="list-unstyled footer-widget__list">
@@ -31,7 +32,7 @@
                         <!-- /.footer-widget__list__icon -->
                         <div class="footer-widget__list__content">
                             <span class="footer-widget__list__subtitle">opening time</span>
-                            <p>Hours: Mon-Fri: 8am – 7pm</p>
+                            <p>Hours: Mon-Sun: 8am – 8pm</p>
                         </div>
                         <!-- /.footer-widget__list__content -->
                     </li>
@@ -46,12 +47,12 @@
     <div class="main-footer__middle">
         <div class="container">
             <div class="row gutter-y-40">
-                <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="00ms">
+                <div class="wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="00ms">
                     <div class="footer-widget footer-widget--about">
-                        <h2 class="footer-widget__title">about Nirvan Yatra</h2>
+                        <h2 class="footer-widget__title">Follow us for more updates</h2>
                         <!-- /.footer-widget__title -->
-                        <p class="footer-widget__about-text">available, but the majority have suffered
-                            alteration in some form by injected humour, or</p>
+                        {{-- <p class="footer-widget__about-text">available, but the majority have suffered
+                            alteration in some form by injected humour, or</p> --}}
                         <!-- /.footer-widget__about-text -->
                         <div class="footer-widget__social">
                             <a
@@ -64,6 +65,11 @@
                                     aria-hidden="true"></i> <span class="sr-only">Linked In</span></a>
                             <a href="https://youtube.com/@nirvanyatra?si=anHcLrB5A-HE85cI"> <i class="icon-youtube"
                                     aria-hidden="true"></i> <span class="sr-only">Youtube</span></a>
+                            <a href="https://www.instagram.com/nirvan.yatra?igsh=MXJjdWc0djczem02Mw==" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-instagram" aria-hidden="true"></i>
+                                <span class="sr-only">Instagram</span>
+                            </a>
+
                         </div>
                         <!-- /.footer-widget__social -->
                     </div>

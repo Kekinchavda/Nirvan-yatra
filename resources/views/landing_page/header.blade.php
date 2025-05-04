@@ -45,8 +45,9 @@
     <div class="container-fluid">
         <div class="main-header__inner">
             <div class="main-header__logo logo-retina">
-                <a href="{{ route('landingaPage') }}"><img src="{{ asset('storage/' . $logo->header_logo) }}"
-                        width="170" height="70" alt="nirvan_yatra logo"></a>
+                <a href="{{ route('landingaPage') }}"><img src="{{ !empty($logo->header_logo) && file_exists(public_path('storage/' . $logo->header_logo))
+    ? asset('storage/' . $logo->header_logo)
+    : asset('assets/images/logo/logo.dark.png') }}" width="170" height="70" alt="nirvan_yatra logo"></a>
             </div>
             <!-- /.main-header__logo -->
             <div class="main-header__right">
@@ -61,7 +62,7 @@
                         </li>
 
                         <li>
-                            <a href="#">Tour Listing</a>
+                            <a href="{{ route('tour.list') }}">Tour Listing</a>
                         </li>
                         <li>
                             <a href="{{ route('contactUs') }}">Contact Us</a>
@@ -73,8 +74,11 @@
                     <i class="icon-menu-bar"></i>
                 </div>
                 <!-- /.mobile-nav__toggler -->
-                <a href="contact.html" class="gotur-btn main-header__btn">get in touch <i
-                        class="icon-paper-plane"></i></a>
+                <a href="https://wa.me/919011011366?text=I'm%20inquiring%20about%20the%20Tour%20Package" target="_blank"
+                    class="gotur-btn main-header__btn">
+                    get in touch <i class="icon-paper-plane"></i>
+                </a>
+
                 <div class="mobile-nav__btn mobile-nav__toggler">
                     <span></span>
                     <span></span>

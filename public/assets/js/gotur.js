@@ -1,4 +1,4 @@
-(function($) {
+(function ($) {
     "use strict";
 
     /*-- Checkout Accoradin --*/
@@ -9,7 +9,7 @@
         $(".checkout-page__payment__item--active")
             .find(".checkout-page__payment__content")
             .show();
-        $(".checkout-page__payment__title").on("click", function(e) {
+        $(".checkout-page__payment__title").on("click", function (e) {
             e.preventDefault();
             $(this)
                 .parents(".checkout-page__payment")
@@ -31,7 +31,7 @@
     }
 
     // toggle password
-    $(".toggle-password").on("click", function() {
+    $(".toggle-password").on("click", function () {
         $(this).toggleClass("fa-eye fa-eye-slash");
         var input = $(".login-page__password");
         if (input.attr("type") == "password") {
@@ -43,19 +43,19 @@
 
     // Date Picker
     if ($(".gotur-datepicker").length) {
-        $(".gotur-datepicker").each(function() {
+        $(".gotur-datepicker").each(function () {
             $(this).datepicker();
         });
     }
 
     // Multi Date Picker
     if ($(".gotur-multi-datepicker").length) {
-        $(".gotur-multi-datepicker").each(function() {
+        $(".gotur-multi-datepicker").each(function () {
             let self = $(this);
             self.daterangepicker({
                 autoUpdateInput: false
             });
-            self.on("apply.daterangepicker", function(ev, picker) {
+            self.on("apply.daterangepicker", function (ev, picker) {
                 $(this).val(
                     picker.startDate.format("D MMM YY") +
                     " - " +
@@ -68,20 +68,20 @@
     // Popular Causes Progress Bar
     if ($(".count-bar").length) {
         $(".count-bar").appear(
-            function() {
+            function () {
                 var el = $(this);
                 var percent = el.data("percent");
                 $(el).css("width", percent).addClass("counted");
             }, {
-                accY: -50,
-            }
+            accY: -50,
+        }
         );
     }
 
     //Fact Counter + Text Count
     if ($(".count-box").length) {
         $(".count-box").appear(
-            function() {
+            function () {
                 var $t = $(this),
                     n = $t.find(".count-text").attr("data-stop"),
                     r = parseInt($t.find(".count-text").attr("data-speed"), 10);
@@ -95,17 +95,17 @@
                     }, {
                         duration: r,
                         easing: "linear",
-                        step: function() {
+                        step: function () {
                             $t.find(".count-text").text(Math.floor(this.countNum));
                         },
-                        complete: function() {
+                        complete: function () {
                             $t.find(".count-text").text(this.countNum);
                         },
                     });
                 }
             }, {
-                accY: 0,
-            }
+            accY: 0,
+        }
         );
     }
 
@@ -115,25 +115,25 @@
         var cursorinner = document.querySelector(".custom-cursor__cursor-two");
         var a = document.querySelectorAll("a");
 
-        document.addEventListener("mousemove", function(e) {
+        document.addEventListener("mousemove", function (e) {
             var x = e.clientX;
             var y = e.clientY;
             cursor.style.transform = `translate3d(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%), 0)`;
         });
 
-        document.addEventListener("mousemove", function(e) {
+        document.addEventListener("mousemove", function (e) {
             var x = e.clientX;
             var y = e.clientY;
             cursorinner.style.left = x + "px";
             cursorinner.style.top = y + "px";
         });
 
-        document.addEventListener("mousedown", function() {
+        document.addEventListener("mousedown", function () {
             cursor.classList.add("click");
             cursorinner.classList.add("custom-cursor__innerhover");
         });
 
-        document.addEventListener("mouseup", function() {
+        document.addEventListener("mouseup", function () {
             cursor.classList.remove("click");
             cursorinner.classList.remove("custom-cursor__innerhover");
         });
@@ -166,12 +166,12 @@
                     required: true,
                 },
             },
-            submitHandler: function(form) {
+            submitHandler: function (form) {
                 // sending value with ajax request
                 $.post(
                     $(form).attr("action"),
                     $(form).serialize(),
-                    function(response) {
+                    function (response) {
                         $(form).parent().find(".result").append(response);
                         $(form).find('input[type="text"]').val("");
                         $(form).find('input[type="email"]').val("");
@@ -185,16 +185,16 @@
 
     // mailchimp form
     if ($(".mc-form").length) {
-        $(".mc-form").each(function() {
+        $(".mc-form").each(function () {
             var Self = $(this);
             var mcURL = Self.data("url");
             var mcResp = Self.parent().find(".mc-form__response");
 
             Self.ajaxChimp({
                 url: mcURL,
-                callback: function(resp) {
+                callback: function (resp) {
                     // appending response
-                    mcResp.append(function() {
+                    mcResp.append(function () {
                         return '<p class="mc-message">' + resp.msg + "</p>";
                     });
                     // making things based on response
@@ -231,7 +231,7 @@
 
     if ($(".img-popup").length) {
         var groups = {};
-        $(".img-popup").each(function() {
+        $(".img-popup").each(function () {
             var id = parseInt($(this).attr("data-group"), 10);
 
             if (!groups[id]) {
@@ -241,7 +241,7 @@
             groups[id].push(this);
         });
 
-        $.each(groups, function() {
+        $.each(groups, function () {
             $(this).magnificPopup({
                 type: "image",
                 closeOnContentClick: true,
@@ -254,7 +254,7 @@
     }
 
     let solinomImagePopupGallery = $(".card__popup");
-    solinomImagePopupGallery.each(function() {
+    solinomImagePopupGallery.each(function () {
         let elm = $(this);
         let options = elm.data("gallery-options");
         let imageGallery = elm.magnificPopup(
@@ -265,14 +265,14 @@
     function dynamicCurrentMenuClass(selector) {
         let FileName = window.location.href.split("/").reverse()[0];
 
-        selector.find("li").each(function() {
+        selector.find("li").each(function () {
             let anchor = $(this).find("a");
             if ($(anchor).attr("href") == FileName) {
                 $(this).addClass("current");
             }
         });
         // if any li has .current elmnt add class
-        selector.children("li").each(function() {
+        selector.children("li").each(function () {
             if ($(this).find(".current").length) {
                 $(this).addClass("current");
             }
@@ -312,15 +312,15 @@
         let dropdownAnchor = $(
             ".mobile-nav__container .main-menu__list .dropdown > a"
         );
-        dropdownAnchor.each(function() {
+        dropdownAnchor.each(function () {
             let self = $(this);
             let toggleBtn = document.createElement("BUTTON");
             toggleBtn.setAttribute("aria-label", "dropdown toggler");
             toggleBtn.innerHTML = "<i class='fa fa-angle-down'></i>";
-            self.append(function() {
+            self.append(function () {
                 return toggleBtn;
             });
-            self.find("button").on("click", function(e) {
+            self.find("button").on("click", function (e) {
                 e.preventDefault();
                 let self = $(this);
                 self.toggleClass("expanded");
@@ -331,7 +331,7 @@
     }
 
     if ($(".main-header__element__btn").length) {
-        $(".main-header__element__btn").on("click", function(e) {
+        $(".main-header__element__btn").on("click", function (e) {
             e.preventDefault();
             $(".header-right-sidebar").addClass("isActive");
             $("body").addClass("locked");
@@ -339,7 +339,7 @@
     }
 
     if ($(".header-right-sidebar__toggler").length) {
-        $(".header-right-sidebar__toggler").on("click", function(e) {
+        $(".header-right-sidebar__toggler").on("click", function (e) {
             e.preventDefault();
             $(".header-right-sidebar").removeClass("isActive");
             $("body").removeClass("locked");
@@ -347,19 +347,19 @@
     }
 
     //Show Popup menu
-    $(document).on("click", ".megamenu-clickable--toggler > a", function(e) {
+    $(document).on("click", ".megamenu-clickable--toggler > a", function (e) {
         $("body").toggleClass("megamenu-popup-active");
         $(this).parent().find("ul").toggleClass("megamenu-clickable--active");
         e.preventDefault();
     });
-    $(document).on("click", ".megamenu-clickable--close", function(e) {
+    $(document).on("click", ".megamenu-clickable--close", function (e) {
         $("body").removeClass("megamenu-popup-active");
         $(".megamenu-clickable--active").removeClass("megamenu-clickable--active");
         e.preventDefault();
     });
 
     if ($(".mobile-nav__toggler").length) {
-        $(".mobile-nav__toggler").on("click", function(e) {
+        $(".mobile-nav__toggler").on("click", function (e) {
             e.preventDefault();
             $(".mobile-nav__wrapper").toggleClass("expanded");
             $("body").toggleClass("locked");
@@ -367,7 +367,7 @@
     }
 
     if ($(".search-toggler").length) {
-        $(".search-toggler").on("click", function(e) {
+        $(".search-toggler").on("click", function (e) {
             e.preventDefault();
             $(".search-popup").toggleClass("active");
             $(".mobile-nav__wrapper").removeClass("expanded");
@@ -388,17 +388,17 @@
     //accordion
     if ($(".gotur-accordion").length) {
         var accordionGrp = $(".gotur-accordion");
-        accordionGrp.each(function() {
+        accordionGrp.each(function () {
             var accordionName = $(this).data("grp-name");
             var Self = $(this);
             var accordion = Self.find(".accordion");
             Self.addClass(accordionName);
             Self.find(".accordion .accordion-content").hide();
             Self.find(".accordion.active").find(".accordion-content").show();
-            accordion.each(function() {
+            accordion.each(function () {
                 $(this)
                     .find(".accordion-title")
-                    .on("click", function() {
+                    .on("click", function () {
                         if ($(this).parent().hasClass("active") === false) {
                             $(".gotur-accordion." + accordionName)
                                 .find(".accordion")
@@ -415,7 +415,7 @@
         });
     }
 
-    $(".add").on("click", function() {
+    $(".add").on("click", function () {
         if ($(this).prev().val() < 999) {
             $(this)
                 .prev()
@@ -423,17 +423,17 @@
         }
     });
 
-    $(".sub").on("click", function() {
+    $(".sub").on("click", function () {
         if ($(this).next().val() > 0) {
             if ($(this).next().val() > 0)
                 $(this)
-                .next()
-                .val(+$(this).next().val() - 1);
+                    .next()
+                    .val(+$(this).next().val() - 1);
         }
     });
 
     if ($(".tabs-box").length) {
-        $(".tabs-box .tab-buttons .tab-btn").on("click", function(e) {
+        $(".tabs-box .tab-buttons .tab-btn").on("click", function (e) {
             e.preventDefault();
             var target = $($(this).attr("data-tab"));
 
@@ -466,29 +466,29 @@
         // owl slider
         let goturowlCarousel = $(".gotur-owl__carousel");
         if (goturowlCarousel.length) {
-            goturowlCarousel.each(function() {
+            goturowlCarousel.each(function () {
                 let elm = $(this);
                 let options = elm.data("owl-options");
                 let thmOwlCarousel = elm.owlCarousel(
                     "object" === typeof options ? options : JSON.parse(options)
                 );
-                elm.find("button").each(function() {
+                elm.find("button").each(function () {
                     $(this).attr("aria-label", "carousel button");
                 });
             });
         }
         let goturowlCarouselNav = $(".gotur-owl__carousel--custom-nav");
         if (goturowlCarouselNav.length) {
-            goturowlCarouselNav.each(function() {
+            goturowlCarouselNav.each(function () {
                 let elm = $(this);
                 let owlNavPrev = elm.data("owl-nav-prev");
                 let owlNavNext = elm.data("owl-nav-next");
-                $(owlNavPrev).on("click", function(e) {
+                $(owlNavPrev).on("click", function (e) {
                     elm.trigger("prev.owl.carousel");
                     e.preventDefault();
                 });
 
-                $(owlNavNext).on("click", function(e) {
+                $(owlNavNext).on("click", function (e) {
                     elm.trigger("next.owl.carousel");
                     e.preventDefault();
                 });
@@ -497,7 +497,7 @@
 
         let goturowlCarouselWithCounter = $(".gotur-owl__carousel--with-counter");
         if (goturowlCarouselWithCounter.length) {
-            goturowlCarouselWithCounter.each(function() {
+            goturowlCarouselWithCounter.each(function () {
                 let elm = $(this);
                 let options = elm.data("owl-options");
 
@@ -507,7 +507,7 @@
                     return num;
                 }
                 elm
-                    .on("initialized.owl.carousel", function(event) {
+                    .on("initialized.owl.carousel", function (event) {
                         var idx = event.item.index;
                         var carousel = event.relatedTarget;
                         var carouselCount = carousel.items().length;
@@ -531,7 +531,7 @@
                     .owlCarousel(
                         "object" === typeof options ? options : JSON.parse(options)
                     )
-                    .on("changed.owl.carousel", function(event) {
+                    .on("changed.owl.carousel", function (event) {
                         var carousel = event.relatedTarget;
                         elm
                             .find(".gotur-owl__carousel__counter__current")
@@ -547,7 +547,7 @@
         // slick slider
         let hiredotsslickCarousel = $(".gotur-slick__carousel");
         if (hiredotsslickCarousel.length) {
-            hiredotsslickCarousel.each(function() {
+            hiredotsslickCarousel.each(function () {
                 let elm = $(this);
                 let options = elm.data("slick-options");
                 let hiredotsslickCarousel = elm.slick(
@@ -572,7 +572,7 @@
     function SmoothMenuScroll() {
         var anchor = $(".scrollToLink");
         if (anchor.length) {
-            anchor.children("a").bind("click", function(event) {
+            anchor.children("a").bind("click", function (event) {
                 if ($(window).scrollTop() > 10) {
                     var headerH = "0";
                 } else {
@@ -582,8 +582,8 @@
                 $("html, body")
                     .stop()
                     .animate({
-                            scrollTop: $(target.attr("href")).offset().top - headerH + "px",
-                        },
+                        scrollTop: $(target.attr("href")).offset().top - headerH + "px",
+                    },
                         900,
                         "easeInOutExpo"
                     );
@@ -602,9 +602,9 @@
         var windscroll = $(window).scrollTop();
         if (windscroll >= 117) {
             var menuAnchor = $(".one-page-scroll-menu .scrollToLink").children("a");
-            menuAnchor.each(function() {
+            menuAnchor.each(function () {
                 var sections = $(this).attr("href");
-                $(sections).each(function() {
+                $(sections).each(function () {
                     if ($(this).offset().top <= windscroll + 100) {
                         var Sectionid = $(sections).attr("id");
                         $(".one-page-scroll-menu").find("li").removeClass("current");
@@ -633,7 +633,7 @@
     function wallox_cuved_circle() {
         let circleTypeElm = $(".curved-circle__item");
         if (circleTypeElm.length) {
-            circleTypeElm.each(function() {
+            circleTypeElm.each(function () {
                 let elm = $(this);
                 let options = elm.data("circle-text-options");
                 elm.circleType(
@@ -648,7 +648,7 @@
         var lastScrollTop = 0;
         window.addEventListener(
             "scroll",
-            function() {
+            function () {
                 var st = window.pageYOffset || document.documentElement.scrollTop;
                 if (st > 500) {
                     if (st > lastScrollTop) {
@@ -671,7 +671,7 @@
     function gotur_cuved_circle() {
         let circleTypeElm = $(".curved-circle__item");
         if (circleTypeElm.length) {
-            circleTypeElm.each(function() {
+            circleTypeElm.each(function () {
                 let elm = $(this);
                 let options = elm.data("circle-text-options");
                 elm.circleType(
@@ -686,19 +686,19 @@
         if ($(".price-ranger").length) {
             $(".price-ranger #slider-range").slider({
                 range: true,
-                min: 50,
-                max: 1000,
-                values: [11, 500],
-                slide: function(event, ui) {
-                    $(".price-ranger .ranger-min-max-block .min").val("$" + ui.values[0]);
-                    $(".price-ranger .ranger-min-max-block .max").val("$" + ui.values[1]);
+                min: 1000,
+                max: 50000,
+                values: [1000, 30000],
+                slide: function (event, ui) {
+                    $(".price-ranger .ranger-min-max-block .min").val("₹" + ui.values[0]);
+                    $(".price-ranger .ranger-min-max-block .max").val("₹" + ui.values[1]);
                 },
             });
             $(".price-ranger .ranger-min-max-block .min").val(
-                "$" + $(".price-ranger #slider-range").slider("values", 0)
+                "₹" + $(".price-ranger #slider-range").slider("values", 0)
             );
             $(".price-ranger .ranger-min-max-block .max").val(
-                "$" + $(".price-ranger #slider-range").slider("values", 1)
+                "₹" + $(".price-ranger #slider-range").slider("values", 1)
             );
         }
     }
@@ -708,19 +708,19 @@
         if ($(".price-ranger-two").length) {
             $("#slider-range-two").slider({
                 range: true,
-                min: 0,
-                max: 500,
-                values: [150, 300],
-                create: function(event, ui) {
+                min: 1000,
+                max: 50000,
+                values: [15000, 30000],
+                create: function (event, ui) {
                     $('.price-ranger-two').find('.ui-slider-handle').append("<span class='value'></span>");
                     $('.price-ranger-two').find('.ui-slider-handle').append("<span class='value-two'></span>");
-                    $('.price-ranger-two').find('.value').html('150');
-                    $('.price-ranger-two').find('.value-two').html('300');
+                    $('.price-ranger-two').find('.value').html('₹15000');
+                    $('.price-ranger-two').find('.value-two').html('₹30000');
                 },
 
-                slide: function(event, ui) {
-                    $('.price-ranger-two').find('.value').html("$" + ui.values[0]);
-                    $('.price-ranger-two').find('.value-two').html("$" + ui.values[1]);
+                slide: function (event, ui) {
+                    $('.price-ranger-two').find('.value').html("₹" + ui.values[0]);
+                    $('.price-ranger-two').find('.value-two').html("₹" + ui.values[1]);
                 }
             });
         }
@@ -772,7 +772,7 @@
 
     // window load event
 
-    $(window).on("load", function() {
+    $(window).on("load", function () {
         if ($(".preloader").length) {
             $(".preloader").fadeOut();
         }
@@ -782,9 +782,9 @@
         goturSlickInit();
 
         if ($(".circle-progress").length) {
-            $(".circle-progress").appear(function() {
+            $(".circle-progress").appear(function () {
                 let circleProgress = $(".circle-progress");
-                circleProgress.each(function() {
+                circleProgress.each(function () {
                     let progress = $(this);
                     let progressOptions = progress.data("options");
                     progress.circleProgress(progressOptions);
@@ -792,14 +792,14 @@
             });
         }
         if ($(".masonry-layout").length) {
-            $(".masonry-layout").imagesLoaded(function() {
+            $(".masonry-layout").imagesLoaded(function () {
                 $(".masonry-layout").isotope({
                     layoutMode: "masonry",
                 });
             });
         }
         if ($(".fitRow-layout").length) {
-            $(".fitRow-layout").imagesLoaded(function() {
+            $(".fitRow-layout").imagesLoaded(function () {
                 $(".fitRow-layout").isotope({
                     layoutMode: "fitRows",
                 });
@@ -818,7 +818,7 @@
                 },
             });
             // on click filter links
-            postFilterList.on("click", function() {
+            postFilterList.on("click", function () {
                 var Self = $(this);
                 var selector = Self.attr("data-filter");
                 postFilterList.removeClass("active");
@@ -843,7 +843,7 @@
                 "li"
             );
 
-            activeFilterItem.each(function() {
+            activeFilterItem.each(function () {
                 var filterElement = $(this).data("filter");
                 var count = $(".filter-layout").find(filterElement).length;
                 $(this).append("<sup>[" + count + "]</sup>");
@@ -853,7 +853,7 @@
         gotur_cuved_circle();
     });
 
-    $(window).on("scroll", function() {
+    $(window).on("scroll", function () {
         OnePageMenuScroll();
         handleScrollbar();
         if ($(".sticky-header--one-page").length) {
@@ -886,7 +886,7 @@
         $(".time-wepper").countdown({
             date: deadLine,
             leadingZeros: true,
-            render: function(date) {
+            render: function (date) {
                 this.el.innerHTML =
                     (true == daysCondition ?
                         `<div class="time-wepper__item day text-center">
@@ -914,7 +914,7 @@
 
 
     if ($(".thumbnail-container .destination-three__carousel__thumb__item").length) {
-        $(".thumbnail-container .destination-three__carousel__thumb__item").click(function() {
+        $(".thumbnail-container .destination-three__carousel__thumb__item").click(function () {
             $(this).siblings().removeClass("active");
             $(this).addClass("active");
         });

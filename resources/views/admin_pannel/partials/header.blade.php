@@ -20,7 +20,7 @@
       <header class="page-header row">
           <div class="logo-wrapper d-flex align-items-center col-auto"><a
                   href="https://larathemes.pixelstrap.com/edmin/admin/default-dashboard"><img class="for-light"
-                      src="https://larathemes.pixelstrap.com/edmin/assets/images/logo/logo.png" alt="logo"><img
+                      src="{{ asset('assets/images/logo/logo-dark.png') }}" width="130px" alt="logo"><img
                       class="for-dark" src="https://larathemes.pixelstrap.com/edmin/assets/images/logo/dark-logo.png"
                       alt="logo"></a><a class="close-btn" href="javascript:void(0)">
                   <div class="toggle-sidebar">

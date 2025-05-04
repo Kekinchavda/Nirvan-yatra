@@ -81,22 +81,22 @@
                                                 <div class="listing-card-four__btns__hover">
                                                     <a href="#" class="listing-card-four__popup card__popup"
                                                         data-gallery-options='{
-                                                                                                                            "items": [
-                                                                                                                                {
-                                                                                                                                    "src": "assets/images/blog/listing-1-1.jpg"
-                                                                                                                                },
-                                                                                                                                {
-                                                                                                                                    "src": "assets/images/blog/listing-1-2.jpg"
-                                                                                                                                },
-                                                                                                                                {
-                                                                                                                                    "src": "assets/images/blog/listing-1-3.jpg"
-                                                                                                                                }
-                                                                                                                            ],
-                                                                                                                            "gallery": {
-                                                                                                                                "enabled": true
-                                                                                                                            },
-                                                                                                                            "type": "image"
-                                                                                                                        }'>
+                                                                                                                                                    "items": [
+                                                                                                                                                        {
+                                                                                                                                                            "src": "assets/images/blog/listing-1-1.jpg"
+                                                                                                                                                        },
+                                                                                                                                                        {
+                                                                                                                                                            "src": "assets/images/blog/listing-1-2.jpg"
+                                                                                                                                                        },
+                                                                                                                                                        {
+                                                                                                                                                            "src": "assets/images/blog/listing-1-3.jpg"
+                                                                                                                                                        }
+                                                                                                                                                    ],
+                                                                                                                                                    "gallery": {
+                                                                                                                                                        "enabled": true
+                                                                                                                                                    },
+                                                                                                                                                    "type": "image"
+                                                                                                                                                }'>
                                                         <span class="icon-image"></span>
                                                     </a>
                                                     <a class="video-popup"

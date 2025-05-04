@@ -75,6 +75,62 @@
             </div><!-- /.container -->
         </section><!-- /.page-header -->
 
+        <div class="tour-one section-space-top wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='500ms'>
+            <div class="tour-one__carousel gotur-owl__carousel owl-carousel owl-theme" data-owl-options='{
+            "items": 1,
+            "center":true,
+            "margin": 30,
+            "loop": true,
+            "smartSpeed": 700,
+            "nav": false,
+            "dots": false,
+            "autoplay": false,
+            "responsive": {
+                "0": {
+                    "items": 1
+                },
+                "575": {
+                    "items": 2
+                },
+                "768": {
+                    "items": 2
+                },
+                "992": {
+                    "items": 3
+                },
+                "1199": {
+                    "items": 4
+                }
+            }
+        }'>
+                <div class="item">
+                    <div class="tour-one__item">
+                        <img src="{{ asset('assets/images/gallery/listing-list-g-1-1.jpg') }}" alt="tour image">
+                    </div><!-- /.tour-one__item -->
+                </div><!-- /.item -->
+                <div class="item">
+                    <div class="tour-one__item">
+                        <img src="{{ asset('assets/images/gallery/listing-list-g-1-2.jpg') }}" alt="tour image">
+                    </div><!-- /.tour-one__item -->
+                </div><!-- /.item -->
+                <div class="item">
+                    <div class="tour-one__item">
+                        <img src="{{ asset('assets/images/gallery/listing-list-g-1-3.jpg') }}" alt="tour image">
+                    </div><!-- /.tour-one__item -->
+                </div><!-- /.item -->
+                <div class="item">
+                    <div class="tour-one__item">
+                        <img src="{{ asset('assets/images/gallery/listing-list-g-1-4.jpg') }}" alt="tour image">
+                    </div><!-- /.tour-one__item -->
+                </div><!-- /.item -->
+                <div class="item">
+                    <div class="tour-one__item">
+                        <img src="{{ asset('assets/images/gallery/listing-list-g-1-5.jpg') }}" alt="tour image">
+                    </div><!-- /.tour-one__item -->
+                </div><!-- /.item -->
+            </div><!-- /.tour-one__carousel -->
+        </div><!-- /.tour-one -->
+
         <section class="tour-listing-details section-space-bottom">
             <div class="tour-listing-details__destination wow fadeInUp" data-wow-duration='1500ms'
                 data-wow-delay='500ms'>
@@ -237,25 +293,6 @@
                                 <!-- /.tour-listing-details__amenities__inner -->
                             </div>
 
-                            <!-- image -->
-                            <div class="tour-listing-details__content__item tour-listing-details__thumb wow fadeInUp"
-                                data-wow-duration='1500ms' data-wow-delay='500ms'>
-                                <div class="row gutter-y-20">
-                                    <div class="col-md-6">
-                                        <div class="tour-listing-details__thumb__item">
-                                            <img src="{{ asset('assets/images/resources/tour-listing-details-1-3.jpg') }}"
-                                                alt="tour-listing-details">
-                                        </div><!-- /.tour-listing-details__thumb__item -->
-                                    </div><!-- /.col-md-6 -->
-                                    <div class="col-md-6">
-                                        <div class="tour-listing-details__thumb__item">
-                                            <img src="{{ asset('assets/images/resources/tour-listing-details-1-4.jpg') }}"
-                                                alt="tour-listing-details">
-                                        </div><!-- /.tour-listing-details__thumb__item -->
-                                    </div><!-- /.col-md-6 -->
-                                </div><!-- /.row -->
-                            </div>
-                            <!-- image -->
 
                             <div class="tour-listing-details__content__item tour-listing-details__ture-plan">
                                 <h4 class="tour-listing-details__title">Tour Plan</h4>
@@ -370,270 +407,269 @@
                                                     <!-- /.listing-card-four__featured -->
 
                                                 </div><!-- /.listing-card-four__btn-group -->
-                                                <!-- /.listing-card-four__btns__hover -->
-                                            </div>
-                                            <ul class="listing-card-four__meta list-unstyled">
-                                                <li>
-                                                    <a href="tour-listing-details-2.html"> <span
-                                                            class="listing-card-four__meta__icon"> <i
-                                                                class="icon-pin1"></i> </span>Slingerland</a>
-                                                </li>
-                                                <li>
-                                                    <a href="tour-listing-details-2.html"> <span
-                                                            class="listing-card-four__meta__icon"> <i
-                                                                class="icon-calendar"></i> </span>6 Days, 3
-                                                        Night</a>
-                                                </li>
-                                            </ul><!-- /.listing-card-four__meta -->
-                                            <a href="tour-listing-details-2.html"
-                                                class="listing-card-four__image__overly"></a>
-                                        </div><!-- /.listing-card-four__image -->
-                                        <div class="listing-card-four__content">
-                                            <div class="listing-card-four__rating">
-                                                <span>(10 Review)</span>
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star"></i>
-                                            </div><!-- /.listing-card-four__rating -->
-                                            <h3 class="listing-card-four__title"><a
-                                                    href="tour-listing-details-2.html">All Inclusive Ultimate
-                                                    Circle Island Day with Lunch</a></h3>
-                                            <!-- /.listing-card-four__title -->
-
-                                            <div class="listing-card-four__content__btn">
-                                                <div class="listing-card-four__price">
-                                                    <span class="listing-card-four__price__sub">Per Day</span>
-                                                    <span class="listing-card-four__price__number">$59.00</span>
-                                                </div><!-- /.listing-card-four__price -->
+                                                <div class="listing-card-four__btns">
+                                                    <a href="#"><i class="far fa-heart"></i></a>
+                                                    <div class="listing-card-four__btns__hover">
+                                                        <a href="#" class="listing-card-four__popup card__popup"
+                                                            data-gallery-options='{
+                                                                                        "items": [
+                                                                                            {
+                                                                                                "src": "assets/images/blog/listing-1-1.jpg"
+                                                                                            },
+                                                                                            {
+                                                                                                "src": "assets/images/blog/listing-1-2.jpg"
+                                                                                            },
+                                                                                            {
+                                                                                                "src": "assets/images/blog/listing-1-3.jpg"
+                                                                                            }
+                                                                                        ],
+                                                                                        "gallery": {
+                                                                                            "enabled": true
+                                                                                        },
+                                                                                        "type": "image"
+                                                                                    }'>
+                                                            <span class="icon-image"></span>
+                                                        </a>
+                                                        <a class="video-popup"
+                                                            href="https://www.youtube.com/watch?v=0MuL8fd3pb8"><span
+                                                                class="icon-video"></span></a>
+                                                    </div><!-- /.listing-card-four__btns__hover -->
+                                                </div>
+                                                <ul class="listing-card-four__meta list-unstyled">
+                                                    <li>
+                                                        <a href="tour-listing-details-2.html"> <span
+                                                                class="listing-card-four__meta__icon"> <i
+                                                                    class="icon-pin1"></i> </span>Slingerland</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="tour-listing-details-2.html"> <span
+                                                                class="listing-card-four__meta__icon"> <i
+                                                                    class="icon-calendar"></i> </span>6 Days, 3
+                                                            Night</a>
+                                                    </li>
+                                                </ul><!-- /.listing-card-four__meta -->
                                                 <a href="tour-listing-details-2.html"
-                                                    class="listing-card-four__btn gotur-btn"> Book Now <span
-                                                        class="icon"><i class="icon-right"></i> </span></a>
-                                            </div><!-- /.listing-card-four__content__btn -->
-                                        </div><!-- /.listing-card-four__content -->
-                                    </div><!-- /.listing-card-four -->
-                                </div><!-- /.col-lg-6 col-md-6 -->
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="listing-card-four wow fadeInUp" data-wow-duration='1500ms'
-                                        data-wow-delay='300ms'>
-                                        <div class="listing-card-four__image">
-                                            <img src="{{ asset('assets/images/blog/listing-list-4-2.jpg') }}"
-                                                alt="Molokini and Turtle Town Snorkeling Adventure Aboard">
-                                            <div class="listing-card-four__btn-group">
+                                                    class="listing-card-four__image__overly"></a>
+                                            </div><!-- /.listing-card-four__image -->
+                                            <div class="listing-card-four__content">
+                                                <div class="listing-card-four__rating">
+                                                    <span>(10 Review)</span>
+                                                    <i class="icon-star"></i>
+                                                    <i class="icon-star"></i>
+                                                    <i class="icon-star"></i>
+                                                    <i class="icon-star"></i>
+                                                    <i class="icon-star"></i>
+                                                </div><!-- /.listing-card-four__rating -->
+                                                <h3 class="listing-card-four__title"><a
+                                                        href="tour-listing-details-2.html">All Inclusive Ultimate Circle
+                                                        Island Day with Lunch</a></h3>
+                                                <!-- /.listing-card-four__title -->
 
-                                                <div class="listing-card-four__discount">-30% Off</div>
-                                                <!-- /.listing-card-four__discount -->
+                                                <div class="listing-card-four__content__btn">
+                                                    <div class="listing-card-four__price">
+                                                        <span class="listing-card-four__price__sub">Per Day</span>
+                                                        <span class="listing-card-four__price__number">₹5900.00</span>
+                                                    </div><!-- /.listing-card-four__price -->
+                                                    <a href="tour-listing-details-2.html"
+                                                        class="listing-card-four__btn gotur-btn"> Book Now <span
+                                                            class="icon"><i class="icon-right"></i> </span></a>
+                                                </div><!-- /.listing-card-four__content__btn -->
+                                            </div><!-- /.listing-card-four__content -->
+                                        </div><!-- /.listing-card-four -->
+                                    </div><!-- /.col-lg-6 col-md-6 -->
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="listing-card-four wow fadeInUp" data-wow-duration='1500ms'
+                                            data-wow-delay='300ms'>
+                                            <div class="listing-card-four__image">
+                                                <img src="{{ asset('assets/images/blog/listing-list-4-2.jpg') }}"
+                                                    alt="Molokini and Turtle Town Snorkeling Adventure Aboard">
+                                                <div class="listing-card-four__btn-group">
 
-                                                <div class="listing-card-four__featured">Featured</div>
-                                                <!-- /.listing-card-four__featured -->
+                                                    <div class="listing-card-four__discount">-30% Off</div>
+                                                    <!-- /.listing-card-four__discount -->
 
-                                            </div><!-- /.listing-card-four__btn-group -->
-                                            <div class="listing-card-four__btns">
-                                                <a href="#"><i class="far fa-heart"></i></a>
-                                                <div class="listing-card-four__btns__hover">
-                                                    <a href="#" class="listing-card-four__popup card__popup"
-                                                        data-gallery-options='{
-            "items": [
-                {
-                    "src": "assets/images/blog/listing-1-1.jpg"
-                },
-                {
-                    "src": "assets/images/blog/listing-1-2.jpg"
-                },
-                {
-                    "src": "assets/images/blog/listing-1-3.jpg"
-                }
-            ],
-            "gallery": {
-                "enabled": true
-            },
-            "type": "image"
-        }'>
-                                                        <span class="icon-image"></span>
-                                                    </a>
-                                                    <a class="video-popup"
-                                                        href="https://www.youtube.com/watch?v=0MuL8fd3pb8"><span
-                                                            class="icon-video"></span></a>
-                                                </div><!-- /.listing-card-four__btns__hover -->
-                                            </div>
-                                            <ul class="listing-card-four__meta list-unstyled">
-                                                <li>
-                                                    <a href="tour-listing-details-2.html"> <span
-                                                            class="listing-card-four__meta__icon"> <i
-                                                                class="icon-pin1"></i> </span>Slingerland</a>
-                                                </li>
-                                                <li>
-                                                    <a href="tour-listing-details-2.html"> <span
-                                                            class="listing-card-four__meta__icon"> <i
-                                                                class="icon-calendar"></i> </span>6 Days, 3
-                                                        Night</a>
-                                                </li>
-                                            </ul><!-- /.listing-card-four__meta -->
-                                            <a href="tour-listing-details-2.html"
-                                                class="listing-card-four__image__overly"></a>
-                                        </div><!-- /.listing-card-four__image -->
-                                        <div class="listing-card-four__content">
-                                            <div class="listing-card-four__rating">
-                                                <span>(10 Review)</span>
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star"></i>
-                                            </div><!-- /.listing-card-four__rating -->
-                                            <h3 class="listing-card-four__title"><a
-                                                    href="tour-listing-details-2.html">Molokini and Turtle Town
-                                                    Snorkeling Adventure Aboard</a></h3>
-                                            <!-- /.listing-card-four__title -->
 
-                                            <div class="listing-card-four__content__btn">
-                                                <div class="listing-card-four__price">
-                                                    <span class="listing-card-four__price__sub">Per Day</span>
-                                                    <span class="listing-card-four__price__number">$59.00</span>
-                                                </div><!-- /.listing-card-four__price -->
+                                                    <div class="listing-card-four__featured">Featured</div>
+                                                    <!-- /.listing-card-four__featured -->
+
+                                                </div><!-- /.listing-card-four__btn-group -->
+                                                <div class="listing-card-four__btns">
+                                                    <a href="#"><i class="far fa-heart"></i></a>
+                                                    <div class="listing-card-four__btns__hover">
+                                                        <a href="#" class="listing-card-four__popup card__popup"
+                                                            data-gallery-options='{
+                                                                                    "items": [
+                                                                                        {
+                                                                                            "src": "assets/images/blog/listing-1-1.jpg"
+                                                                                        },
+                                                                                        {
+                                                                                            "src": "assets/images/blog/listing-1-2.jpg"
+                                                                                        },
+                                                                                        {
+                                                                                            "src": "assets/images/blog/listing-1-3.jpg"
+                                                                                        }
+                                                                                    ],
+                                                                                    "gallery": {
+                                                                                        "enabled": true
+                                                                                    },
+                                                                                    "type": "image"
+                                                                                }'>
+                                                            <span class="icon-image"></span>
+                                                        </a>
+                                                        <a class="video-popup"
+                                                            href="https://www.youtube.com/watch?v=0MuL8fd3pb8"><span
+                                                                class="icon-video"></span></a>
+                                                    </div><!-- /.listing-card-four__btns__hover -->
+                                                </div>
+                                                <ul class="listing-card-four__meta list-unstyled">
+                                                    <li>
+                                                        <a href="tour-listing-details-2.html"> <span
+                                                                class="listing-card-four__meta__icon"> <i
+                                                                    class="icon-pin1"></i> </span>Slingerland</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="tour-listing-details-2.html"> <span
+                                                                class="listing-card-four__meta__icon"> <i
+                                                                    class="icon-calendar"></i> </span>6 Days, 3
+                                                            Night</a>
+                                                    </li>
+                                                </ul><!-- /.listing-card-four__meta -->
                                                 <a href="tour-listing-details-2.html"
-                                                    class="listing-card-four__btn gotur-btn"> Book Now <span
-                                                        class="icon"><i class="icon-right"></i> </span></a>
-                                            </div><!-- /.listing-card-four__content__btn -->
-                                        </div><!-- /.listing-card-four__content -->
-                                    </div><!-- /.listing-card-four -->
-                                </div><!-- /.col-lg-6 col-md-6 -->
-                            </div><!-- /.row -->
-                        </div><!-- / -->
-                        {{-- <div class="tour-listing-details__content__item tour-listing-details__reviews">
-                            <h4 class="tour-listing-details__title wow fadeInUp" data-wow-duration='1500ms'
-                                data-wow-delay='500ms'>1 Reviews</h4><!-- /.tour-listing-details__title -->
-                            <ul class="list-unstyled product-details__comment__list">
-                                <li class="product-details__comment__card wow fadeInUp" data-wow-duration='1500ms'
+                                                    class="listing-card-four__image__overly"></a>
+                                            </div><!-- /.listing-card-four__image -->
+                                            <div class="listing-card-four__content">
+                                                <div class="listing-card-four__rating">
+                                                    <span>(10 Review)</span>
+                                                    <i class="icon-star"></i>
+                                                    <i class="icon-star"></i>
+                                                    <i class="icon-star"></i>
+                                                    <i class="icon-star"></i>
+                                                    <i class="icon-star"></i>
+                                                </div><!-- /.listing-card-four__rating -->
+                                                <h3 class="listing-card-four__title"><a
+                                                        href="tour-listing-details-2.html">Molokini and Turtle Town
+                                                        Snorkeling Adventure Aboard</a></h3>
+                                                <!-- /.listing-card-four__title -->
+
+                                                <div class="listing-card-four__content__btn">
+                                                    <div class="listing-card-four__price">
+                                                        <span class="listing-card-four__price__sub">Per Day</span>
+                                                        <span class="listing-card-four__price__number">₹5900.00</span>
+                                                    </div><!-- /.listing-card-four__price -->
+                                                    <a href="tour-listing-details-2.html"
+                                                        class="listing-card-four__btn gotur-btn"> Book Now <span
+                                                            class="icon"><i class="icon-right"></i> </span></a>
+                                                </div><!-- /.listing-card-four__content__btn -->
+                                            </div><!-- /.listing-card-four__content -->
+                                        </div><!-- /.listing-card-four -->
+                                    </div><!-- /.col-lg-6 col-md-6 -->
+                                </div><!-- /.row -->
+                            </div><!-- / -->
+                            <!-- /.row -->
+                            <!-- / -->
+                            <!-- /.tour-listing-details__content__item -->
+                            <div class="tour-listing-details__content__item tour-listing-details__add-reviews">
+                                <h4 class="tour-listing-details__title wow fadeInUp" data-wow-duration='1500ms'
+                                    data-wow-delay='500ms'>Add a Review</h4><!-- /.tour-listing-details__title -->
+                                <div class="product-details__form-ratings wow fadeInUp" data-wow-duration='1500ms'
                                     data-wow-delay='500ms'>
-                                    <div class="product-details__comment__card__image">
-                                        <img src="assets/images/blog/blog-comment-1-1.png" alt="gotur">
-                                    </div>
-                                    <div class="product-details__comment__card__content">
-                                        <div class="product-details__comment__card__top">
-                                            <div class="product-details__comment__card__info">
-                                                <h3 class="product-details__comment__card__title">Leslie Alexander
-                                                </h3>
-                                                <p class="product-details__comment__card__date">February 10, 2024
-                                                    at 2:37 pm</p>
-                                            </div>
-                                            <div class="product-details__comment__card__star">
-                                                <span class="fa fa-star"></span>
-                                                <span class="fa fa-star"></span>
-                                                <span class="fa fa-star"></span>
-                                                <span class="fa fa-star"></span>
-                                                <span class="fa fa-star"></span>
-                                            </div>
+                                    <p class="product-details__form-ratings__label">Your Rating*</p>
+                                    <span class="far fa-star"></span>
+                                    <span class="far fa-star"></span>
+                                    <span class="far fa-star"></span>
+                                    <span class="far fa-star"></span>
+                                    <span class="far fa-star"></span>
+                                </div><!-- review-ratings -->
+                                <form
+                                    class="comments-form__form contact-form-validated product-details__form__form form-one wow fadeInUp"
+                                    data-wow-duration='1500ms' data-wow-delay='500ms'>
+                                    <div class="form-one__group">
+                                        <div class="form-one__control">
+                                            <label for="name">Your Name*</label>
+                                            <input type="text" name="name" id="name" placeholder="Your Name">
                                         </div>
-                                        <p class="product-details__comment__card__text">Neque porro est qui dolorem
-                                            ipsum quia quaed inventor veritatis et quasi architecto var sed
-                                            efficitur turpis gilla sed sit amet finibus eros. Lorem Ipsum is simply
-                                            dummy</p>
-                                    </div>
-                                </li>
-                            </ul><!-- /.list-unstyled comments-one__list -->
-                        </div> --}}
-                        <!-- /.tour-listing-details__content__item -->
-                        <div class="tour-listing-details__content__item tour-listing-details__add-reviews">
-                            <h4 class="tour-listing-details__title wow fadeInUp" data-wow-duration='1500ms'
-                                data-wow-delay='500ms'>Add a Review</h4><!-- /.tour-listing-details__title -->
-                            <div class="product-details__form-ratings wow fadeInUp" data-wow-duration='1500ms'
-                                data-wow-delay='500ms'>
-                                <p class="product-details__form-ratings__label">Your Rating*</p>
-                                <span class="far fa-star"></span>
-                                <span class="far fa-star"></span>
-                                <span class="far fa-star"></span>
-                                <span class="far fa-star"></span>
-                                <span class="far fa-star"></span>
-                            </div><!-- review-ratings -->
-                            <form
-                                class="comments-form__form contact-form-validated product-details__form__form form-one wow fadeInUp"
-                                data-wow-duration='1500ms' data-wow-delay='500ms'>
-                                <div class="form-one__group">
-                                    <div class="form-one__control">
-                                        <label for="name">Your Name*</label>
-                                        <input type="text" name="name" id="name" placeholder="Your Name">
-                                    </div>
-                                    <div class="form-one__control">
-                                        <label for="email">Your Email*</label>
-                                        <input type="email" name="email" id="email" placeholder="Your Email">
-                                    </div>
-                                    <div class="form-one__control form-one__control--full">
-                                        <label for="message">Message*</label>
-                                        <textarea name="message" id="message"
-                                            placeholder="Write Message . . "></textarea>
-                                    </div>
+                                        <div class="form-one__control">
+                                            <label for="email">Your Email*</label>
+                                            <input type="email" name="email" id="email" placeholder="Your Email">
+                                        </div>
+                                        <div class="form-one__control form-one__control--full">
+                                            <label for="message">Message*</label>
+                                            <textarea name="message" id="message"
+                                                placeholder="Write Message . . "></textarea>
+                                        </div>
 
-                                    <div class="form-one__control form-one__control--full">
-                                        <button type="submit" class="gotur-btn gotur-btn--base">Submit Now <i
-                                                class="icon-right"></i></button>
+                                        <div class="form-one__control form-one__control--full">
+                                            <button type="submit" class="gotur-btn gotur-btn--base">Submit Now <i
+                                                    class="icon-right"></i></button>
+                                        </div>
                                     </div>
-                                </div>
-                            </form>
-                            <div class="result"></div>
-                        </div><!-- / -->
-                    </div><!-- /.tour-listing-details__content -->
-
-                </div><!-- /.col-lg-8 -->
-                <div class="col-lg-4">
-                    <div class="tour-listing-details__sidebar">
-                        <div class="tour-listing-details__sidebar__item tour-listing-details__sidebar__item-form wow fadeInUp"
-                            data-wow-delay="0.4s" data-wow-duration="1500ms">
-                            <h4 class="tour-listing-details__sidebar__title">Book This Tour</h4>
-                            <!-- /.tour-listing-details__sidebar__title -->
-                            <div class="sidebar-two__form">
-                                <form class="sidebar-two__form__inner contact-form-validated" action="inc/sendemail.php"
-                                    novalidate="novalidate">
-                                    <div class="sidebar-two__form__control">
-                                        <label for="checkin">From:</label>
-                                        <input class="gotur-datepicker" id="checkin" type="text" name="checkin">
-                                        <i class="icon-calendar"></i>
-                                    </div>
-                                    <div class="sidebar-two__form__control">
-                                        <label for="checkout">Time:</label>
-                                        <input class="gotur-datepicker" id="checkout" type="text" name="checkout">
-                                    </div>
-                                    <div class="sidebar-two__form__control">
-                                        <label for="checkout">Tickets:</label>
-                                        <input id="checkout" type="text" name="checkout"
-                                            placeholder="Please, Select Date Fist">
-                                    </div>
-                                    <div class="sidebar-two__form__control sidebar-two__form__control--two">
-                                        <label class="sidebar-two__form__control--title" for="guests">Add
-                                            Extra:</label>
-                                        <ul class="list-unstyled sidebar-two__form__checkbox">
-                                            <li>
-                                                <input type="checkbox" name="check8" id="check8">
-                                                <label for="check8"> <span> Services per booking</span></label>
-
-                                            </li>
-                                            <li>
-                                                <input type="checkbox" name="check9" id="check9">
-                                                <label for="check9"><span>Services per person</span></label>
-
-                                            </li>
-                                        </ul><!-- /.list-unstyled -->
-                                    </div>
-                                    <ul class="list-unstyled sidebar-two__form__add-list">
-                                        <li>
-                                            <div class="sidebar-two__form__add">Adult:<span>$20.00</span></div>
-                                        </li>
-                                        <li>
-                                            <div class="sidebar-two__form__add">Youth: <span>$16.00</span></div>
-                                        </li>
-                                    </ul>
-                                    <div class="sidebar-two__form__total">Total:<span>$36.00</span></div>
-                                    <button type="submit" class="gotur-btn gotur-btn--base">Book Now <i
-                                            class="icon-right"></i></button>
                                 </form>
-                            </div>
-                        </div><!-- /.tour-listing-details__sidebar__item -->
-                    </div><!-- /.tour-listing-details-details__sidebar -->
-                </div><!-- /.col-lg-6 -->
-            </div><!-- /.row justify-content-center -->
-    </div><!-- /.container -->
-    </section><!-- /.tour-listing-details -->
+                                <div class="result"></div>
+                            </div><!-- / -->
+                        </div><!-- /.tour-listing-details__content -->
+                    </div>
+                    <!-- /.col-lg-8 -->
+                    <div class="col-lg-4">
+                        <div class="tour-listing-details__sidebar">
+                            <div class="tour-listing-details__sidebar__item tour-listing-details__sidebar__item-form wow fadeInUp"
+                                data-wow-delay="0.4s" data-wow-duration="1500ms">
+                                <h4 class="tour-listing-details__sidebar__title">Book This Tour</h4>
+                                <!-- /.tour-listing-details__sidebar__title -->
+                                <div class="sidebar-two__form">
+                                    <form class="sidebar-two__form__inner contact-form-validated"
+                                        action="inc/sendemail.php" novalidate="novalidate">
+                                        <div class="sidebar-two__form__control">
+                                            <label for="checkin">From:</label>
+                                            <input class="gotur-datepicker" id="checkin" type="text" name="checkin">
+                                            <i class="icon-calendar"></i>
+                                        </div>
+                                        <div class="sidebar-two__form__control">
+                                            <label for="checkout">Time:</label>
+                                            <input class="gotur-datepicker" id="checkout" type="text" name="checkout">
+                                        </div>
+                                        <div class="sidebar-two__form__control">
+                                            <label for="checkout">Tickets:</label>
+                                            <input id="checkout" type="text" name="checkout"
+                                                placeholder="Please, Select Date Fist">
+                                        </div>
+                                        <div class="sidebar-two__form__control sidebar-two__form__control--two">
+                                            <label class="sidebar-two__form__control--title" for="guests">Add
+                                                Extra:</label>
+                                            <ul class="list-unstyled sidebar-two__form__checkbox">
+                                                <li>
+                                                    <input type="checkbox" name="check8" id="check8">
+                                                    <label for="check8"> <span> Services per booking</span></label>
+
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" name="check9" id="check9">
+                                                    <label for="check9"><span>Services per person</span></label>
+
+                                                </li>
+                                            </ul><!-- /.list-unstyled -->
+                                        </div>
+                                        <ul class="list-unstyled sidebar-two__form__add-list">
+                                            <li>
+                                                <div class="sidebar-two__form__add">Adult:<span>₹20.00</span></div>
+                                            </li>
+                                            <li>
+                                                <div class="sidebar-two__form__add">Youth: <span>₹16.00</span></div>
+                                            </li>
+                                        </ul>
+                                        <div class="sidebar-two__form__total">Total:<span>₹36.00</span></div>
+                                        <button type="submit" class="gotur-btn gotur-btn--base">Book Now <i
+                                                class="icon-right"></i></button>
+                                    </form>
+                                </div>
+                            </div><!-- /.tour-listing-details__sidebar__item -->
+                        </div><!-- /.tour-listing-details-details__sidebar -->
+                    </div>
+                    <!-- /.col-lg-6 -->
+                </div>
+                <!-- /.row justify-content-center -->
+            </div>
+            <!-- /.container -->
+        </section><!-- /.tour-listing-details -->
 
     </div><!-- /.page-wrapper -->
 
