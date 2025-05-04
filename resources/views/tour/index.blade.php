@@ -67,8 +67,9 @@
                                             </td>
                                             <td>
                                                 @if ($tour->feature_image)
-                                                    <img src="{{ asset('storage/' . $tour->feature_image) }}" width="100"
-                                                        alt="Image">
+                                                    <img src="{{ asset('storage/' . $tour->feature_image) }}" width="150"
+                                                        alt="Image" data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        data-bs-image="{{ asset('storage/' . $tour->feature_image) }}">
                                                 @else
                                                     N/A
                                                 @endif
@@ -114,6 +115,16 @@
             <!-- Zero Configuration  Ends-->
         </div>
         <!-- Scroll - vertical dynamic Ends-->
+    </div>
+    <!-- Bootstrap Modal -->
+    <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <img id="modalImage" src="" alt="{{ $tour->title }}" class="img-fluid rounded" />
+                </div>
+            </div>
+        </div>
     </div>
     <!-- Container-fluid starts-->
     {{-- modal for show data of tour --}}
@@ -302,6 +313,16 @@
                     form.submit();
                 }
             });
+        });
+    </script>
+    <script>
+        // When any image with data-bs-toggle="modal" is clicked
+        $('[data-bs-toggle="modal"]').click(function () {
+            // Get the image source from the clicked image's data-bs-image attribute
+            var imageSrc = $(this).data('bs-image');
+
+            // Set the image source in the modal
+            $('#modalImage').attr('src', imageSrc);
         });
     </script>
 @endsection
