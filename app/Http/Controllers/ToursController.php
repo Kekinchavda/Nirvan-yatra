@@ -133,7 +133,7 @@ class ToursController extends Controller
     public function showTour($id)
     {
         $tour = Tours::with(['overview', 'plan', 'amenities'])->find($id);
-        // dd($tour);
+        
         if (!$tour) {
             return response()->json(['message' => 'Tour not found'], 404);
         }

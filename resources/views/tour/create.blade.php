@@ -195,7 +195,7 @@
                                             <div class="col-xl-6 col-sm-6">
                                                 <label class="form-label">Location Cover<span
                                                         class="font-danger">*</span></label>
-                                                <input name="locationCover[]" id="locationCover" class="form-control"
+                                                <input name="locationCover" id="locationCover" class="form-control"
                                                     placeholder="Enter trip locations" required
                                                     value="{{ is_array(old('locationCover')) ? implode(',', old('locationCover')) : old('locationCover') }}">
                                                 <div class="valid-feedback">Looks good!</div>
