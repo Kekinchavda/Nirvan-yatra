@@ -62,6 +62,7 @@ Route::middleware('auth')->group(function () {
     Route::get('tour/create', [ToursController::class, 'create'])->name('tour.create');
     Route::post('tour/store', [ToursController::class, 'store'])->name('tour.store');
     Route::get('tour/edit/{id}', [ToursController::class, 'edit'])->name('tour.edit');
+    Route::get('/tour/{id}', [ToursController::class, 'showTour'])->name('tour.show');
     Route::put('tour/update/{id}', [ToursController::class, 'update'])->name('tour.update');
     Route::delete('tour/delete/{id}', [ToursController::class, 'destroy'])->name('tour.delete');
 

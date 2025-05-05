@@ -9,6 +9,7 @@ use App\Models\tour_plans;
 use App\Models\tours;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Carbon\Carbon;
 
 
 class ToursController extends Controller
@@ -129,10 +130,92 @@ class ToursController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(tours $tours)
+    public function showTour($id)
     {
-        //
+        $tour = Tours::with(['overview', 'plan', 'amenities'])->find($id);
+        // dd($tour);
+        if (!$tour) {
+            return response()->json(['message' => 'Tour not found'], 404);
+        }
+        $itineraryData = $tour->plan->itinerary;
+        if (is_string($itineraryData)) {
+            $itineraryData = json_decode($itineraryData, true) ?? [];
+        }
+
+        $dates = explode(' to ', $tour->from_to);
+
+        $fromDate = Carbon::parse($dates[0])->format('d-M-Y');
+        $toDate = Carbon::parse($dates[1])->format('d-M-Y');
+
+        // location cover
+        if (is_string($tour->locationCover)) {
+            // Decode the main JSON array (assuming it’s a JSON string)
+            $decoded = json_decode($tour->locationCover, true);
+
+            // Check if the result is still a string (double-encoded JSON)
+            if (is_string($decoded)) {
+                // If it's still a string, decode again
+                $decoded = json_decode($decoded, true);
+            }
+            // dd($decoded);
+        } elseif (is_array($tour->locationCover) && count($tour->locationCover) === 1 && is_string($tour->locationCover[0])) {
+            // Handle: array with one JSON string
+            $decoded = json_decode($tour->locationCover[0], true);
+        } else {
+            // Already an array of objects (no decoding needed)
+            $decoded = $tour->locationCover;
+        }
+
+        // Extract 'value' from each object in the array
+        $tour->locationCover = collect($decoded)
+            ->pluck('value')  // Get the 'value' from each object in the array
+            ->filter()        // Remove any empty values
+            ->values()        // Re-index the array
+            ->toArray();
+        //location cover
+
+        if ($tour->amenities && is_string($tour->amenities->included_amenities)) {
+            $tour->amenities->included_amenities = json_decode($tour->amenities->included_amenities, true) ?? [];
+        }
+        if ($tour->amenities && is_string($tour->amenities->not_included_amenities)) {
+            $tour->amenities->not_included_amenities = json_decode($tour->amenities->not_included_amenities, true) ?? [];
+        }
+        if ($tour->other_charges && is_string($tour->other_charges)) {
+            $tour->other_charges = json_decode($tour->other_charges, true) ?? [];
+        }
+
+        // Return tour data as JSON
+        return response()->json([
+            'title' => $tour->title,
+            'slug' => $tour->slug,
+            'location' => $tour->location,
+            'activity_type' => trim($tour->activity_type, '"'),
+            'days' => $tour->days,
+            'nights' => $tour->nights,
+            'rate' => $tour->rate,
+            'feature_image' => $tour->feature_image
+                ? asset('storage/' . $tour->feature_image)
+                : null,
+            'from_to' => $fromDate . " To " . $toDate,
+            'pickup_drop_location' => $tour->pickup_drop_location,
+            'other_charges' => $tour->other_charges,
+            'things_to_carry' => json_decode(json: $tour->things_to_carry),
+            'terms_conditions' => json_decode($tour->terms_conditions),
+            'note' => json_decode($tour->note),
+            'locationCover' => $tour->locationCover,
+
+            'included_amenities' => $tour->amenities->included_amenities,
+            'not_included_amenities' => $tour->amenities->not_included_amenities,
+
+            'overview' => $tour->overview->overview,
+            'highlights' => is_string($tour->overview->highlights)
+                ? json_decode($tour->overview->highlights, true)
+                : $tour->overview->highlights ?? [],
+
+            'itinerary' => $itineraryData,
+        ]);
     }
+
 
     /**
      * Show the form for editing the specified resource.

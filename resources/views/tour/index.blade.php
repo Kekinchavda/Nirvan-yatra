@@ -146,63 +146,68 @@
                             <!-- Title -->
                             <tr>
                                 <th width="30%">Title</th>
-                                <td>@if(isset($tour)){{ $tour->title }}@endif</td>
+                                <td id="tourTitle"></td>
+                            </tr>
+
+                            {{-- from to --}}
+                            <tr>
+                                <th width="30%">from to</th>
+                                <td id="tourFromTo"></td>
+                            </tr>
+
+                            <!-- pickup and drop location -->
+                            <tr>
+                                <th>pickup and drop location</th>
+                                <td id="tourPickupDrop"></td>
                             </tr>
 
                             <!-- Slug -->
                             <tr>
                                 <th>Slug</th>
-                                <td>@if(isset($tour)){{ $tour->slug }}@endif</td>
+                                <td id="tourSlug"></td>
                             </tr>
 
                             <!-- Location -->
                             <tr>
                                 <th>Location</th>
-                                <td>@if(isset($tour)){{ $tour->location }}@endif</td>
+                                <td id="tourLocation"></td>
                             </tr>
 
                             <!-- Activity -->
                             <tr>
                                 <th>Activity</th>
-                                <td>@if(isset($tour)){{ trim($tour->activity_type, '"') }}@endif</td>
+                                <td id="tourActivity"></td>
                             </tr>
 
                             <!-- Duration -->
                             <tr>
                                 <th>Duration</th>
-                                <td>@if(isset($tour)){{ $tour->days }} days / {{ $tour->nights }} nights @endif</td>
+                                <td id="tourDuration"></td>
+                            </tr>
+
+                            <!-- location coverd -->
+                            <tr>
+                                <th>Location Cover</th>
+                                <td id="tourLocationCover"></td>
                             </tr>
 
                             <!-- Overview -->
                             <tr>
                                 <th>Overview</th>
-                                <td>
-                                    @if(isset($tour)){{ $tour->overview->overview }}@endif
+                                <td id="tourOverview">
                                 </td>
                             </tr>
 
                             <!-- Highlights -->
                             <tr>
                                 <th>Highlights</th>
-                                <td>
-                                    @if(isset($tour))
-                                        @if (!empty($tour->overview->highlights))
-                                            <ol>
-                                                @foreach ($tour->overview->highlights as $highlight)
-                                                    <li>{{ $highlight }}</li>
-                                                @endforeach
-                                            </ol>
-                                        @else
-                                            <p>No highlights available</p>
-                                        @endif
-                                    @endif
-                                </td>
+                                <td id="tourHighlights"></td>
                             </tr>
 
                             <!-- Tour Rate -->
                             <tr>
                                 <th>Tour Rate</th>
-                                <td>@if(isset($tour))₹ {{ $tour->rate }}@endif</td>
+                                <td id="tourRate"></td>
                             </tr>
 
                             <!-- Itinerary -->
@@ -240,52 +245,52 @@
                             <!-- Included Amenities -->
                             <tr>
                                 <th>Included Amenities</th>
-                                <td>
-                                    @if(isset($tour))
-                                        @if (!empty($tour->amenities->included_amenities))
-                                            <ol>
-                                                @foreach ($tour->amenities->included_amenities as $included_amenities)
-                                                    <li>{{ $included_amenities }}</li>
-                                                @endforeach
-                                            </ol>
-                                        @else
-                                            <p>No highlights available</p>
-                                        @endif
-                                    @endif
+                                <td id="includedAmenities">
                                 </td>
                             </tr>
 
                             <!-- Not Included Amenities -->
                             <tr>
                                 <th>Not Included Amenities</th>
-                                <td>
-                                    @if (!empty($tour->amenities->not_included_amenities))
-                                        <ol>
-                                            @foreach ($tour->amenities->not_included_amenities as $not_included_amenities)
-                                                <li>{{ $not_included_amenities }}</li>
-                                            @endforeach
-                                        </ol>
-                                    @else
-                                        <p>No highlights available</p>
-                                    @endif
+                                <td id="notIncludedAmenities">
+                                </td>
+                            </tr>
+
+                            <!-- Other charge -->
+                            <tr>
+                                <th>other charge</th>
+                                <td id="tourOtherCharges">
                                 </td>
                             </tr>
 
                             <!-- Feature Image -->
                             <tr>
                                 <th>Feature Image</th>
-                                <td>
-                                    @if(isset($tour))
-
-                                        @if ($tour->feature_image)
-                                            <img src="{{ asset('storage/' . $tour->feature_image) }}" alt="Feature Image"
-                                                class="img-fluid" style="max-width: 200px;">
-                                        @else
-                                            <p>No feature image available</p>
-                                        @endif
-                                    @endif
+                                <td id="tourImage">
                                 </td>
                             </tr>
+
+                            <!-- Things to carry -->
+                            <tr>
+                                <th>Things to carry</th>
+                                <td id="tourThingsToCarry">
+                                </td>
+                            </tr>
+
+                            <!-- terms and condition -->
+                            <tr>
+                                <th>Terms & Conditions</th>
+                                <td id="tourTerms">
+                                </td>
+                            </tr>
+
+                            <!-- note -->
+                            <tr>
+                                <th>note</th>
+                                <td id="tourNote">
+                                </td>
+                            </tr>
+
                         </tbody>
                     </table>
                 </div>
@@ -297,6 +302,7 @@
 @endsection
 
 @section('script')
+
     <script>
         $('.btn-delete').on('click', function (e) {
             e.preventDefault();
@@ -325,5 +331,112 @@
             // Set the image source in the modal
             $('#modalImage').attr('src', imageSrc);
         });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            // When the view button is clicked
+            $('a[data-bs-toggle="modal"]').click(function () {
+                var tourId = $(this).data('id');  // Get the tour ID
+                // Make an AJAX request to fetch the tour details
+                $.ajax({
+                    url: '/tour/' + tourId, // Your route to get tour details
+                    method: 'GET',
+                    success: function (data) {
+                        // Basic fields
+                        $('#tourTitle').text(data.title);
+                        $('#tourSlug').text(data.slug);
+                        $('#tourLocation').text(data.location);
+                        $('#tourActivity').text(data.activity_type);
+                        $('#tourDuration').text(data.days + ' days / ' + data.nights + ' nights');
+                        $('#tourOverview').text(data.overview);
+                        $('#tourRate').text(data.rate);
+                        $('#tourPickupDrop').text(data.pickup_drop_location || 'N/A');
+                        $('#tourFromTo').text(data.from_to || 'N/A');
+
+                        // Highlights
+                        if (Array.isArray(data.highlights) && data.highlights.length > 0) {
+                            let highlightList = data.highlights.map(h => `<li>${h}</li>`).join('');
+                            $('#tourHighlights').html(`<ol>${highlightList}</ol>`);
+                        } else {
+                            $('#tourHighlights').html('<p>No highlights available</p>');
+                        }
+
+                        // Feature image
+                        if (data.feature_image) {
+                            $('#tourImage').html('<img src="' + data.feature_image + '" class="img-fluid" style="max-width: 200px;">');
+                        } else {
+                            $('#tourImage').html('<p>No feature image available</p>');
+                        }
+                        if (Array.isArray(data.locationCover)) {
+                            const locationList = data.locationCover.join(', ');
+                            $('#tourLocationCover').text(locationList);
+                        } else {
+                            $('#tourLocationCover').text('No locations available');
+                        }
+                        // Itinerary
+                        var itineraryHtml = '';
+                        if (data.itinerary && data.itinerary.length > 0) {
+                            data.itinerary.forEach(function (item, index) {
+                                itineraryHtml += `
+                                                    <div class="accordion-item">
+                                                        <h2 class="accordion-header" id="heading${index}">
+                                                            <button class="accordion-button collapsed" type="button"
+                                                                data-bs-toggle="collapse" data-bs-target="#collapse${index}"
+                                                                aria-expanded="false" aria-controls="collapse${index}">
+                                                                Day ${index + 1}: ${item.title}
+                                                            </button>
+                                                        </h2>
+                                                        <div id="collapse${index}" class="accordion-collapse collapse"
+                                                            aria-labelledby="heading${index}" data-bs-parent="#itineraryAccordion">
+                                                            <div class="accordion-body">
+                                                                ${item.details}
+                                                            </div>
+                                                        </div>
+                                                    </div>`;
+                            });
+                            $('#itineraryAccordion').html(itineraryHtml);
+                        } else {
+                            $('#itineraryAccordion').html('<p>No itinerary available</p>');
+                        }
+
+                        // Included amenities
+                        if (data.included_amenities && data.included_amenities.length > 0) {
+                            var includedHtml = '';
+                            data.included_amenities.forEach(function (item) {
+                                includedHtml += '<li>' + item + '</li>';
+                            });
+                            $('#includedAmenities').html('<ol>' + includedHtml + '</ol>');
+                        } else {
+                            $('#includedAmenities').html('<p>No amenities available</p>');
+                        }
+
+                        // Not included amenities
+                        if (data.not_included_amenities && data.not_included_amenities.length > 0) {
+                            var notIncludedHtml = '';
+                            data.not_included_amenities.forEach(function (item) {
+                                notIncludedHtml += '<li>' + item + '</li>';
+                            });
+                            $('#notIncludedAmenities').html('<ol>' + notIncludedHtml + '</ol>');
+                        } else {
+                            $('#notIncludedAmenities').html('<p>No amenities available</p>');
+                        }
+                        // Optional fields
+                        if (Array.isArray(data.other_charges) && data.other_charges.length > 0) {
+                            let chargesHtml = data.other_charges.map(item => `<li>${item}</li>`).join('');
+                            $('#tourOtherCharges').html(`<ol>${chargesHtml}</ol>`);
+                        } else {
+                            $('#tourOtherCharges').html('<p>No other charges available</p>');
+                        }
+
+                        $('#tourThingsToCarry').html(data.things_to_carry || '<p>N/A</p>');
+                        $('#tourTerms').html(data.terms_conditions || '<p>N/A</p>');
+                        $('#tourNote').html(data.note || '<p>N/A</p>');
+
+                    }
+                });
+            });
+        });
+
     </script>
 @endsection
