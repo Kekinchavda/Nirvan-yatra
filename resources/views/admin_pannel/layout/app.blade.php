@@ -32,7 +32,8 @@
     <script src="https://larathemes.pixelstrap.com/edmin/assets/js/sweetalert/sweetalert2.min.js"></script>
     <script src="https://larathemes.pixelstrap.com/edmin/assets/js/sweetalert/sweetalert-custom.js"></script>
 
-    <script src="{{ asset('assets/admin_pannel/edmin/assets/js/datatable/datatables/jquery.dataTables.min.js') }}"></script>
+    <script
+        src="{{ asset('assets/admin_pannel/edmin/assets/js/datatable/datatables/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('assets/admin_pannel/edmin/assets/js/datatable/datatables/datatable.custom.js') }}"></script>
 
     <!-- scrollbar js-->
@@ -46,7 +47,8 @@
     <script src="{{ asset('assets/admin_pannel/edmin/assets/js/jquery.validate.min.js') }}"></script>
 
     <!-- customizer round -->
-    {{-- <script src="{{ asset('assets/admin_pannel/edmin/assets/js/theme-customizer/customizer.js') }}"></script> --}}
+    {{--
+    <script src="{{ asset('assets/admin_pannel/edmin/assets/js/theme-customizer/customizer.js') }}"></script> --}}
 
     <!-- toastr -->
     <script src="{{ asset('assets/admin_pannel/edmin/assets/js/toastr.min.js') }}"></script>
@@ -57,9 +59,11 @@
 
     <script src="{{ asset('assets/admin_pannel/edmin/assets/js/password.js') }}"></script>
 
+    <script src="{{ asset('assets/admin_pannel/edmin/assets/js/vendors/@yaireo/tagify/dist/tagify.js') }}"></script>
+    <script src="{{ asset('assets/admin_pannel/edmin/assets/js/vendors/@yaireo/tagify/dist/tagify.polyfills.min.js') }}"></script>
     <script>
-        $(document).ready(function() {
-            $('.toastr-message').each(function() {
+        $(document).ready(function () {
+            $('.toastr-message').each(function () {
                 var messageType = $(this).data('type');
                 var messageText = $(this).text();
                 toastr.options = {
@@ -89,11 +93,11 @@
         });
     </script>
     <script>
-        (function() {
+        (function () {
             'use strict'
             const forms = document.querySelectorAll('.needs-validation')
-            Array.from(forms).forEach(function(form) {
-                form.addEventListener('submit', function(event) {
+            Array.from(forms).forEach(function (form) {
+                form.addEventListener('submit', function (event) {
                     if (!form.checkValidity()) {
                         event.preventDefault()
                         event.stopPropagation()

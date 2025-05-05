@@ -69,9 +69,16 @@ class ToursController extends Controller
             'not_included_amenities' => 'required|array|min:1',
             'not_included_amenities.*' => 'required|string',
             'feature_image' => 'required|image',
-            // 'itinerary' => 'required',
             'itinerary.*.title' => 'required|string|max:255',  // Ensure title is required and is a string
             'itinerary.*.details' => 'required|string',         // Ensure details are required and are a string    
+            'fromTo' => 'required',
+            'pickup_drop' => 'required',
+            'other_charges' => 'required|array|min:1',
+            'other_charges.*' => 'required|string',
+            'locationCover' => 'required',
+            'things_to_carry' => 'required',
+            'terms_conditions' => 'required',
+            'note' => 'required',
         ]);
 
         // Step 2: Upload media
@@ -86,6 +93,13 @@ class ToursController extends Controller
             'nights' => $request->nights,
             'rate' => $request->tour_rate,
             'feature_image' => $imagePath,
+            'from_to' => $request->fromTo,
+            'pickup_drop_location' => $request->pickup_drop,
+            'other_charges' => json_encode($request->other_charges),
+            'locationCover' => json_encode($request->locationCover),
+            'things_to_carry' => json_encode($request->things_to_carry),
+            'terms_conditions' => json_encode($request->terms_conditions),
+            'note' => json_encode($request->note),
         ]);
 
 
@@ -146,7 +160,45 @@ class ToursController extends Controller
         $tour->activity_type = is_string($tour->activity_type)
             ? json_decode($tour->activity_type, true) ?? []
             : ($tour->activity_type ?? []);
+        $tour->other_charges = is_string($tour->other_charges)
+            ? json_decode($tour->other_charges, true) ?? []
+            : ($tour->other_charges ?? []);
 
+        if (is_string($tour->locationCover)) {
+            // Decode the main JSON array (assuming it’s a JSON string)
+            $decoded = json_decode($tour->locationCover, true);
+
+            // Check if the result is still a string (double-encoded JSON)
+            if (is_string($decoded)) {
+                // If it's still a string, decode again
+                $decoded = json_decode($decoded, true);
+            }
+            // dd($decoded);
+        } elseif (is_array($tour->locationCover) && count($tour->locationCover) === 1 && is_string($tour->locationCover[0])) {
+            // Handle: array with one JSON string
+            $decoded = json_decode($tour->locationCover[0], true);
+        } else {
+            // Already an array of objects (no decoding needed)
+            $decoded = $tour->locationCover;
+        }
+
+        // Extract 'value' from each object in the array
+        $tour->locationCover = collect($decoded)
+            ->pluck('value')  // Get the 'value' from each object in the array
+            ->filter()        // Remove any empty values
+            ->values()        // Re-index the array
+            ->toArray();
+
+
+        $tour->things_to_carry = is_string($tour->things_to_carry)
+            ? json_decode($tour->things_to_carry, true) ?? []
+            : ($tour->things_to_carry ?? []);
+        $tour->terms_conditions = is_string($tour->terms_conditions)
+            ? json_decode($tour->terms_conditions, true) ?? []
+            : ($tour->terms_conditions ?? []);
+        $tour->note = is_string($tour->note)
+            ? json_decode($tour->note, true) ?? []
+            : ($tour->note ?? []);
 
         return view('tour.edit', compact('tour', 'overview', 'plan', 'amenity'));
     }
@@ -171,10 +223,16 @@ class ToursController extends Controller
             'included_amenities' => 'required',
             'not_included_amenities' => 'required',
             'feature_image' => 'image',
-            // 'itinerary' => 'required',
             'itinerary.*.title' => 'required|string|max:255',  // Ensure title is required and is a string
             'itinerary.*.details' => 'required|string',         // Ensure details are required and are a string
-
+            'fromTo' => 'required',
+            'pickup_drop' => 'required',
+            'other_charges' => 'required|array|min:1',
+            'other_charges.*' => 'required|string',
+            'locationCover' => 'required',
+            'things_to_carry' => 'required',
+            'terms_conditions' => 'required',
+            'note' => 'required',
         ]);
         // Update image if uploaded
         $imagePath = $tour->feature_image;
@@ -193,6 +251,13 @@ class ToursController extends Controller
             'nights' => $request->nights,
             'rate' => $request->tour_rate,
             'feature_image' => $imagePath,
+            'from_to' => $request->fromTo,
+            'pickup_drop_location' => $request->pickup_drop,
+            'other_charges' => json_encode($request->other_charges),
+            'locationCover' => json_encode($request->locationCover),
+            'things_to_carry' => json_encode($request->things_to_carry),
+            'terms_conditions' => json_encode($request->terms_conditions),
+            'note' => json_encode($request->note),
         ]);
 
         // Update overview

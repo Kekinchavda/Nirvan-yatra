@@ -314,22 +314,7 @@
                             <img src="{{ asset('assets/images/about/about-s-2-1.jpg') }}" alt="gotur image">
                         </div>
                         <!-- /.about-two__thumb__item -->
-                        <div class="about-two__thumb__funfact">
-                            <div class="about-two__thumb__funfact__icon">
-                                <i class="icon-icon-4"></i>
-                            </div>
-                            <!-- /.about-two__thumb__funfact__icon -->
-                            <div class="about-two__thumb__funfact__content count-box">
-                                <h2 class="about-two__thumb__funfact__count">
-                                    <span class="count-text" data-stop="25" data-speed="2000"></span>
-                                    <span>Years</span>
-                                </h2>
-                                <!-- /.about-two__thumb__funfact__count -->
-                                <p class="about-two__thumb__funfact__text">Of Experience</p>
-                                <!-- /.about-two__thumb__funfact__text -->
-                            </div>
-                            <!-- /.about-two__thumb__funfact__content -->
-                        </div>
+                       
                         <!-- /.about-two__thumb__funfact -->
                         <div class="about-two__thumb__item-element">
                             <img src="{{ asset('assets/images/shapes/corki.png') }}" alt="gotur image">
@@ -653,7 +638,7 @@
 
 
 
-    <section class="offer-one section-space">
+    {{-- <section class="offer-one section-space">
         <div class="container">
             <div class="sec-title text-center">
                 <h6 class="sec-title__tagline bw-split-in-right">Special Offers</h6>
@@ -733,7 +718,7 @@
             <img src="assets/images/resources/about-3-1.png" alt>
         </div>
         <!-- /.offer-one__element -->
-    </section>
+    </section> --}}
     <!-- /.offer-one -->
 
     <section class="testimonials-three testimonials-three--two section-space" id="testimonials">

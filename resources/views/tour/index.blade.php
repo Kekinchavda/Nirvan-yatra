@@ -98,7 +98,8 @@
                                                     </li>
                                                     <li class="view show-tour-view">
                                                         <a data-bs-toggle="modal" class="cursor-pointer"
-                                                            data-bs-target=".show-data-of-tour-modal-xl">
+                                                            data-bs-target=".show-data-of-tour-modal-xl"
+                                                            data-id="{{ $tour->id }}">
                                                             <i class="icon-eye"></i>
                                                         </a>
                                                     </li>

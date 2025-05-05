@@ -29,8 +29,7 @@
                                         </div>
                                     </a>
                                     <a class="nav-link" id="TourDetails-wizard-tab" data-bs-toggle="pill"
-                                        href="#tour-details" role="tab" aria-controls="tour-details"
-                                        aria-selected="false">
+                                        href="#tour-details" role="tab" aria-controls="tour-details" aria-selected="false">
                                         <div class="horizontal-wizard">
                                             <div class="stroke-icon-wizard"><i class="fa fa-chain-broken"></i></div>
                                             <div class="horizontal-wizard-content">
@@ -57,12 +56,24 @@
                                             </div>
                                         </div>
                                     </a>
+                                    <a class="nav-link" id="ThingsToCarryAndTC-wizard-tab" data-bs-toggle="pill"
+                                        href="#ThingsToCarryAndTC" role="tab" aria-controls="ThingsToCarryAndTC"
+                                        aria-selected="false">
+                                        <div class="horizontal-wizard">
+                                            <div class="stroke-icon-wizard"><i class="fa-solid fa-clipboard-list"></i></div>
+                                            <div class="horizontal-wizard-content">
+                                                <h6>Things to Carry &amp; T&amp;C</h6>
+                                            </div>
+                                        </div>
+                                    </a>
+
                                 </div>
                             </div>
 
                             <div class="col-12">
                                 <form method="POST" action="{{ route('tour.store') }}" enctype="multipart/form-data"
-                                    class="tab-content dark-field" id="horizontal-wizard-tabContent" novalidate>
+                                    class="tab-content dark-field needs-validation" id="horizontal-wizard-tabContent"
+                                    novalidate="">
                                     @csrf
 
                                     <!-- Step 1: Basic Info -->
@@ -71,19 +82,24 @@
                                             <div class="col-xl-4 col-sm-6">
                                                 <label class="form-label">Tour Title<span
                                                         class="font-danger">*</span></label>
-                                                <input type="text" name="tour_title" class="form-control"
-                                                    placeholder="Enter Tour Title" required>
+                                                <input type="text" name="tour_title" class="form-control" required
+                                                    placeholder="Enter Tour Title" value="{{ old('tour_title') }}">
+                                                @error('tour_title')
+                                                    <small class="text-danger d-block mt-1">{{ $message }}</small>
+                                                @enderror
                                                 <div class="valid-feedback">Looks good!</div>
                                                 <div class="invalid-tooltip">
                                                     Please enter a valid title.
                                                 </div>
-                                                @error('tour_title')
-                                                    <small class="text-danger">{{ $message }}</small>
-                                                @enderror
                                             </div>
                                             <div class="col-xl-4 col-sm-6">
-                                                <label class="form-label">Feature Image</label>
-                                                <input type="file" name="feature_image" class="form-control">
+                                                <label class="form-label">Feature Image <span
+                                                        class="font-danger">*</span></label>
+                                                <input type="file" name="feature_image" class="form-control" required>
+                                                <div class="valid-feedback">Looks good!</div>
+                                                <div class="invalid-tooltip">
+                                                    Please select image.
+                                                </div>
                                                 @error('feature_image')
                                                     <small class="text-danger">{{ $message }}</small>
                                                 @enderror
@@ -92,12 +108,46 @@
                                             <div class="col-xl-4 col-sm-6">
                                                 <label class="form-label">Tour Slug<span
                                                         class="font-danger">*</span></label>
-                                                <input type="text" name="slug" class="form-control"
-                                                    placeholder="Enter slug" required>
+                                                <input type="text" name="slug" class="form-control" placeholder="Enter slug"
+                                                    required value="{{ old('slug') }}">
+                                                <div class="valid-feedback">Looks good!</div>
+                                                <div class="invalid-tooltip">
+                                                    Please enter a valid Url.
+                                                </div>
                                                 @error('slug')
                                                     <small class="text-danger">{{ $message }}</small>
                                                 @enderror
                                             </div>
+
+                                            <div class="col-xl-4 col-sm-6">
+                                                <label class="col-xxl-3 box-col-12 text-start">From - To<span
+                                                        class="text-danger">*</span></label>
+                                                <div class="input-group flatpicker-calender">
+                                                    <input class="form-control" id="datetime-range" name="fromTo" required
+                                                        type="text" placeholder="Select range" value="{{ old('fromTo') }}">
+                                                    <div class="valid-feedback">Looks good!</div>
+                                                    <div class="invalid-tooltip">
+                                                        Please enter a valid time range.
+                                                    </div>
+                                                </div>
+                                                <small class="text-danger" id="datetime-range-error"></small>
+                                                @error('fromTo')
+                                                    <small class="text-danger" id="datetime-range-error">{{ $message }}</small>
+                                                @enderror
+                                            </div>
+
+                                            <div class="col-xl-4 col-sm-6">
+                                                <label for="pickup_drop" class="form-label">Pickup and Drop Location <span
+                                                        class="text-danger">*</span></label>
+                                                <input type="text" name="pickup_drop" id="pickup_drop" class="form-control"
+                                                    placeholder="Enter pickup and drop location" required
+                                                    value="{{ old('pickup_drop') }}">
+                                                @error('pickup_drop')
+                                                    <small class="text-danger">{{ $message }}</small>
+                                                @enderror
+                                            </div>
+
+
                                             <div class="col-12 text-end">
                                                 <button type="button" class="btn btn-primary"
                                                     onclick="nextTab('TourDetails-wizard-tab')">Continue</button>
@@ -109,19 +159,19 @@
                                     <div class="tab-pane fade" id="tour-details" role="tabpanel">
                                         <div class="row g-3">
                                             <div class="col-xl-4 col-sm-6">
-                                                <label class="form-label">Location<span
-                                                        class="font-danger">*</span></label>
+                                                <label class="form-label">Location<span class="font-danger">*</span></label>
                                                 <input type="text" name="location" class="form-control"
-                                                    placeholder="Enter Tour Location" required>
+                                                    placeholder="Enter Tour Location" required
+                                                    value="{{ old('location') }}">
                                                 @error('location')
                                                     <small class="text-danger">{{ $message }}</small>
                                                 @enderror
                                             </div>
                                             <div class="col-xl-4 col-sm-6">
-                                                <label class="form-label">Activity<span
-                                                        class="font-danger">*</span></label>
+                                                <label class="form-label">Activity<span class="font-danger">*</span></label>
                                                 <input type="text" name="activity" class="form-control"
-                                                    placeholder="Enter Tour activity" required>
+                                                    placeholder="Enter Tour activity" required
+                                                    value="{{ old('activity') }}">
                                                 @error('activity')
                                                     <small class="text-danger">{{ $message }}</small>
                                                 @enderror
@@ -129,7 +179,7 @@
                                             <div class="col-xl-4 col-sm-6">
                                                 <label class="form-label">Days<span class="font-danger">*</span></label>
                                                 <input type="text" name="days" class="form-control"
-                                                    placeholder="Enter Tour Days" required>
+                                                    placeholder="Enter Tour Days" required value="{{ old('days') }}">
                                                 @error('days')
                                                     <small class="text-danger">{{ $message }}</small>
                                                 @enderror
@@ -137,27 +187,56 @@
                                             <div class="col-xl-6 col-sm-6">
                                                 <label class="form-label">Nights<span class="font-danger">*</span></label>
                                                 <input type="text" name="nights" class="form-control"
-                                                    placeholder="Enter Tour Nights" required>
+                                                    placeholder="Enter Tour Nights" required value="{{ old('nights') }}">
                                                 @error('nights')
+                                                    <small class="text-danger">{{ $message }}</small>
+                                                @enderror
+                                            </div>
+                                            <div class="col-xl-6 col-sm-6">
+                                                <label class="form-label">Location Cover<span
+                                                        class="font-danger">*</span></label>
+                                                <input name="locationCover[]" id="locationCover" class="form-control"
+                                                    placeholder="Enter trip locations" required
+                                                    value="{{ is_array(old('locationCover')) ? implode(',', old('locationCover')) : old('locationCover') }}">
+                                                <div class="valid-feedback">Looks good!</div>
+                                                <div class="invalid-feedback">
+                                                    Please enter Location Cover
+                                                </div>
+                                                @error('locationCover')
                                                     <small class="text-danger">{{ $message }}</small>
                                                 @enderror
                                             </div>
                                             <div class="col-xl-6 col-sm-6">
                                                 <label class="form-label">Trip Overview<span
                                                         class="font-danger">*</span></label>
-                                                <textarea name="overview" class="form-control" rows="1" placeholder="Enter trip overview"></textarea>
+                                                <textarea name="overview" class="form-control" rows="3"
+                                                    placeholder="Enter trip overview"
+                                                    required>{{ old('overview') }}</textarea>
+                                                <div class="valid-feedback">Looks good!</div>
+                                                <div class="invalid-feedback">
+                                                    Please enter Trip Overview
+                                                </div>
                                                 @error('overview')
                                                     <small class="text-danger">{{ $message }}</small>
                                                 @enderror
                                             </div>
                                             <div class="col-xl-6 col-sm-6">
-                                                <label class="form-label">Highlights</label>
+                                                <label class="form-label">Highlights <span
+                                                        class="font-danger">*</span></label>
                                                 <div id="highlight-wrapper">
                                                     <div class="d-flex mb-2">
-                                                        <input type="text" name="highlight_list[]"
-                                                            class="form-control me-2" placeholder="Enter highlight">
+                                                        @foreach(old('highlight_list', ['']) as $highlight)
+
+                                                            <input type="text" name="highlight_list[]" class="form-control me-2"
+                                                                placeholder="Enter highlight" required>
+                                                        @endforeach
+
                                                         <button type="button" class="btn btn-success btn-sm"
                                                             onclick="addHighlightField()">+</button>
+                                                    </div>
+                                                    <div class="valid-feedback">Looks good!</div>
+                                                    <div class="invalid-feedback">
+                                                        Please enter Highlights.
                                                     </div>
                                                     @error('highlight_list')
                                                         <small class="text-danger d-block">{{ $message }}</small>
@@ -187,52 +266,96 @@
                                                 <label class="form-label">Tour Rate (₹)<span
                                                         class="font-danger">*</span></label>
                                                 <input type="number" name="tour_rate" class="form-control"
-                                                    placeholder="Enter total tour rate" required>
+                                                    placeholder="Enter total tour rate" required
+                                                    value="{{ old('tour_rate') }}">
                                                 @error('tour_rate')
                                                     <small class="text-danger d-block">{{ $message }}</small>
                                                 @enderror
                                             </div>
-                                            <div class="col-xl-6 col-sm-6">
-                                                <label class="form-label">Included Amenities</label>
-                                                <div id="included-wrapper">
-                                                    <div class="d-flex mb-2">
-                                                        <input type="text" name="included_amenities[]"
-                                                            class="form-control me-2"
-                                                            placeholder="Enter included amenity">
-                                                        <button type="button" class="btn btn-success btn-sm"
-                                                            onclick="addAmenityField('included')">+</button>
-                                                    </div>
-                                                    @error('included_amenities')
-                                                        <small class="text-danger d-block">{{ $message }}</small>
-                                                    @enderror
 
-                                                    @foreach ($errors->get('included_amenities.*') as $messages)
-                                                        @foreach ($messages as $msg)
-                                                            <small class="text-danger d-block">{{ $msg }}</small>
+                                            <div class="row g-3 mt-1">
+                                                <div class="col-xl-6 col-sm-6">
+                                                    <label class="form-label">Included Amenities <span
+                                                            class="font-danger">*</span></label>
+                                                    <div id="included-wrapper">
+                                                        <div class="d-flex mb-2">
+                                                            <input type="text" name="included_amenities[]"
+                                                                class="form-control me-2"
+                                                                placeholder="Enter included amenity" required>
+                                                            <button type="button" class="btn btn-success btn-sm"
+                                                                onclick="addAmenityField('included')">+</button>
+                                                        </div>
+                                                        <div class="valid-feedback">Looks good!</div>
+                                                        <div class="invalid-feedback">Please enter at least one amenity.
+                                                        </div>
+
+                                                        @error('included_amenities')
+                                                            <small class="text-danger d-block">{{ $message }}</small>
+                                                        @enderror
+
+                                                        @foreach ($errors->get('included_amenities.*') as $messages)
+                                                            @foreach ($messages as $msg)
+                                                                <small class="text-danger d-block">{{ $msg }}</small>
+                                                            @endforeach
                                                         @endforeach
-                                                    @endforeach
+                                                    </div>
                                                 </div>
                                             </div>
 
-                                            <div class="col-xl-6 col-sm-6">
-                                                <label class="form-label">Not Included Amenities</label>
-                                                <div id="not-included-wrapper">
-                                                    <div class="d-flex mb-2">
-                                                        <input type="text" name="not_included_amenities[]"
-                                                            class="form-control me-2"
-                                                            placeholder="Enter not included amenity">
-                                                        <button type="button" class="btn btn-success btn-sm"
-                                                            onclick="addAmenityField('not-included')">+</button>
-                                                    </div>
-                                                    @error('not_included_amenities')
-                                                        <small class="text-danger d-block">{{ $message }}</small>
-                                                    @enderror
+                                            <div class="row g-3 mt-1">
+                                                <div class="col-xl-6 col-12">
+                                                    <label class="form-label">Not Included Amenities <span
+                                                            class="font-danger">*</span></label>
+                                                    <div id="not-included-wrapper">
+                                                        <div class="d-flex mb-2">
+                                                            <input type="text" name="not_included_amenities[]"
+                                                                class="form-control me-2"
+                                                                placeholder="Enter not included amenity" required>
+                                                            <button type="button" class="btn btn-success btn-sm"
+                                                                onclick="addAmenityField('not-included')">+</button>
+                                                        </div>
+                                                        <div class="valid-feedback">Looks good!</div>
+                                                        <div class="invalid-feedback">Please enter at least one Not Included
+                                                            Amenities.
+                                                        </div>
+                                                        @error('not_included_amenities')
+                                                            <small class="text-danger d-block">{{ $message }}</small>
+                                                        @enderror
 
-                                                    @foreach ($errors->get('not_included_amenities.*') as $messages)
-                                                        @foreach ($messages as $msg)
-                                                            <small class="text-danger d-block">{{ $msg }}</small>
+                                                        @foreach ($errors->get('not_included_amenities.*') as $messages)
+                                                            @foreach ($messages as $msg)
+                                                                <small class="text-danger d-block">{{ $msg }}</small>
+                                                            @endforeach
                                                         @endforeach
-                                                    @endforeach
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row g-3 mt-1">
+                                                <div class="col-xl-6 col-12 mt-3">
+                                                    <label class="form-label">Other Charges (if applicable) <span
+                                                            class="font-danger">*</span></label>
+                                                    <div id="other-charges-wrapper">
+                                                        <div class="d-flex mb-2">
+                                                            <input type="text" name="other_charges[]"
+                                                                class="form-control me-2" placeholder="Enter other charge"
+                                                                required>
+                                                            <button type="button" class="btn btn-success btn-sm"
+                                                                onclick="addOtherChargeField()">+</button>
+                                                        </div>
+                                                        <div class="valid-feedback">Looks good!</div>
+                                                        <div class="invalid-feedback">Please enter Other Charges.
+                                                        </div>
+                                                        @error('other_charges')
+                                                            <small class="text-danger d-block">{{ $message }}</small>
+                                                        @enderror
+
+                                                        @foreach ($errors->get('other_charges.*') as $messages)
+                                                            @foreach ($messages as $msg)
+                                                                <small class="text-danger d-block">{{ $msg }}</small>
+                                                            @endforeach
+                                                        @endforeach
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="col-12 text-end mt-3">
@@ -256,7 +379,8 @@
                                                         <input type="text" name="itinerary[0][title]"
                                                             class="form-control mb-2" placeholder="Enter title for Day 1">
                                                         <label class="form-label">Details</label>
-                                                        <textarea id="editor-0" name="itinerary[0][details]" class="form-control itinerary-editor" rows="4"
+                                                        <textarea id="editor-0" name="itinerary[0][details]"
+                                                            class="form-control itinerary-editor" rows="4"
                                                             placeholder="Enter details for Day 1"></textarea>
                                                     </div>
                                                 </div>
@@ -288,16 +412,71 @@
                                                 @endforeach
                                             @endforeach
 
-
-
                                             <div class="col-12 text-end mt-3">
                                                 <button type="button" class="btn btn-secondary me-2"
                                                     onclick="prevTab('Pricing-wizard-tab')">Previous</button>
+                                                <button type="button" class="btn btn-primary"
+                                                    onclick="nextTab('ThingsToCarryAndTC-wizard-tab')">Continue</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Things to Carry & T&C Tab Pane -->
+                                    <div class="tab-pane fade" id="ThingsToCarryAndTC" role="tabpanel">
+                                        <div class="row g-3">
+                                            <!-- Things to Carry Section -->
+                                            <div class="col-xl-6 col-sm-6">
+                                                <label class="form-label">Things to Carry <span
+                                                        class="font-danger">*</span></label>
+                                                <textarea name="things_to_carry" id="things_to_carry"
+                                                    class="form-control ckeditor" rows="6"
+                                                    placeholder="List things users should carry..." required></textarea>
+                                                <div class="valid-feedback">Looks good!</div>
+                                                <div class="invalid-feedback">
+                                                    Please enter Things to Carry.
+                                                </div>
+                                                @error('things_to_carry')
+                                                    <small class="text-danger d-block mt-1">{{ $message }}</small>
+                                                @enderror
+                                            </div>
+
+                                            <!-- T&C Section -->
+                                            <div class="col-xl-6 col-sm-6">
+                                                <label class="form-label">Terms & Conditions <span
+                                                        class="font-danger">*</span></label>
+                                                <textarea name="terms_conditions" id="terms_conditions"
+                                                    class="form-control ckeditor" rows="6" required
+                                                    placeholder="Add your terms and conditions here..."></textarea>
+                                                <div class="valid-feedback">Looks good!</div>
+                                                <div class="invalid-feedback">Please enter Terms & Conditions.
+                                                </div>
+                                                @error('terms_conditions')
+                                                    <small class="text-danger d-block">{{ $message }}</small>
+                                                @enderror
+                                            </div>
+
+                                            <!-- Note Section -->
+                                            <div class="col-xl-6 col-sm-6 mt-3">
+                                                <label class="form-label">Note <span class="font-danger">*</span></label>
+                                                <textarea name="note" id="note" required class="form-control ckeditor"
+                                                    rows="4" placeholder="Add any additional notes here..."></textarea>
+                                                <div class="valid-feedback">Looks good!</div>
+                                                <div class="invalid-feedback">Please enter Note.
+                                                </div>
+                                                @error('note')
+                                                    <small class="text-danger d-block">{{ $message }}</small>
+                                                @enderror
+                                            </div>
+
+                                            <div class="col-12 text-end mt-3">
+                                                <button type="button" class="btn btn-secondary me-2"
+                                                    onclick="prevTab('successful-wizard-tab')">Previous</button>
                                                 <button type="submit" class="btn btn-success">Submit Tour
                                                     Package</button>
                                             </div>
                                         </div>
                                     </div>
+
                                 </form>
                             </div>
                         </div>
@@ -328,9 +507,9 @@
             div.classList.add('d-flex', 'mb-2');
 
             div.innerHTML = `
-            <input type="text" name="highlight_list[]" class="form-control me-2" placeholder="Enter highlight">
-            <button type="button" class="btn btn-danger btn-sm" onclick="removeHighlightField(this)">−</button>`;
-
+                                                                                                                                                                                                                                                                    <input type="text" name="highlight_list[]" class="form-control me-2" placeholder="Enter highlight">
+                                                                                                                                                                                                                                                                    <button type="button" class="btn btn-danger btn-sm" onclick="removeHighlightField(this)">−</button>`
+                ;
             wrapper.appendChild(div);
         }
 
@@ -348,12 +527,26 @@
             div.classList.add('d-flex', 'mb-2');
 
             div.innerHTML = `
-            <input type="text" name="${inputName}" class="form-control me-2" placeholder="Enter amenity">
-            <button type="button" class="btn btn-danger btn-sm" onclick="this.parentElement.remove()">−</button>
-        `;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <input type="text" name="${inputName}" class="form-control me-2" placeholder="Enter amenity">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <button type="button" class="btn btn-danger btn-sm" onclick="this.parentElement.remove()">−</button>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                `;
 
             wrapper.appendChild(div);
         }
+        function addOtherChargeField() {
+            const wrapper = document.getElementById('other-charges-wrapper');
+
+            const div = document.createElement('div');
+            div.classList.add('d-flex', 'mb-2');
+
+            div.innerHTML = `
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <input type="text" name="other_charges[]" class="form-control me-2" placeholder="Enter other charge">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <button type="button" class="btn btn-danger btn-sm" onclick="this.parentElement.remove()">−</button>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                `;
+
+            wrapper.appendChild(div);
+        }
+
     </script>
     <script src="https://cdn.ckeditor.com/4.25.1/standard/ckeditor.js"></script>
 
@@ -371,19 +564,18 @@
             const editorId = `editor-${dayCount}`;
 
             col.innerHTML = `
-                <div class="card p-2 mb-3 shadow-sm position-relative">
-        <button type="button" class="btn-close position-absolute top-0 end-0 m-2"
-            aria-label="Close" onclick="removeDayItinerary(${dayCount})"></button>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <div class="card p-2 mb-3 shadow-sm position-relative">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                            <button type="button" class="btn-close position-absolute top-0 end-0 m-2"
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                aria-label="Close" onclick="removeDayItinerary(${dayCount})"></button>
 
-        <label class="form-label">Day ${dayCount + 1} Title</label>
-        <input type="text" name="itinerary[${dayCount}][title]"
-            class="form-control mb-2" placeholder="Enter title for Day ${dayCount + 1}">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                            <label class="form-label">Day ${dayCount + 1} Title</label>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                            <input type="text" name="itinerary[${dayCount}][title]"
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                class="form-control mb-2" placeholder="Enter title for Day ${dayCount + 1}">
 
-        <label class="form-label">Details</label>
-        <textarea id="${editorId}" name="itinerary[${dayCount}][details]" class="form-control itinerary-editor"
-            rows="4" placeholder="Enter details for Day ${dayCount + 1}"></textarea>
-        </div>`;
-
+                                                                                                                                                                                                                                                                                                                                                                                                                                                            <label class="form-label">Details</label>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                            <textarea id="${editorId}" name="itinerary[${dayCount}][details]" class="form-control itinerary-editor"
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                rows="4" placeholder="Enter details for Day ${dayCount + 1}"></textarea>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                            </div>`;
             wrapper.appendChild(col);
 
             setTimeout(() => {
@@ -466,8 +658,71 @@
         }
 
         // Initialize Day 1 on load
-        document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", function () {
             CKEDITOR.replace('editor-0');
         });
+
+        flatpickr("#datetime-range", {
+            mode: "range",
+            dateFormat: "Y-m-d",
+            time_24hr: true,
+            altInput: true,
+            altFormat: "F j, Y",
+            minDate: "today",
+            onChange: function (selectedDates, dateStr, instance) {
+                const errorElement = document.querySelector('#datetime-range-error');
+
+                if (selectedDates.length === 2) {
+                    const diffTime = Math.abs(selectedDates[1] - selectedDates[0]);
+                    const diffDays = diffTime / (1000 * 60 * 60 * 24);
+
+                    if (diffDays > 15) {
+                        // Show error and clear
+                        if (errorElement) {
+                            errorElement.textContent = "You can select a maximum range of 15 days.";
+                        }
+                        instance.clear();
+                    } else {
+                        // Clear error if range is valid
+                        if (errorElement) {
+                            errorElement.textContent = "";
+                        }
+                    }
+                }
+            }
+        });
+
+        // tagify
+        document.addEventListener('DOMContentLoaded', function () {
+            const input = document.querySelector('#locationCover');
+            new Tagify(input, {
+                enforceWhitelist: false, // Allow any entry
+                maxTags: 15,
+                dropdown: {
+                    enabled: 0 // Set to 1 or more if you want suggestions
+                }
+            });
+        });
     </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.querySelector('.needs-validation');
+
+            form.addEventListener('submit', function (event) {
+                // Update all CKEditor instances before validation
+                for (let instanceName in CKEDITOR.instances) {
+                    CKEDITOR.instances[instanceName].updateElement();
+                }
+
+                // Now run normal Bootstrap validation
+                if (!form.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+
+                form.classList.add('was-validated');
+            });
+        });
+    </script>
+
 @endsection

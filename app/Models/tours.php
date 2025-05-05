@@ -17,6 +17,13 @@ class tours extends Model
         'nights',
         'rate',
         'feature_image',
+        'from_to',
+        'pickup_drop_location',
+        'other_charges',
+        'locationCover',
+        'things_to_carry',
+        'terms_conditions',
+        'note',
     ];
     public function overview()
     {
