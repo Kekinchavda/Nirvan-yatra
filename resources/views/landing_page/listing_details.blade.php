@@ -137,7 +137,7 @@
                 <div class="container">
                     <div class="tour-listing-details__destination__inner">
                         <div class="tour-listing-details__destination__left">
-                            <h4 class="tour-listing-details__destination__title">{{ $slugData->title }}
+                            <h4 class="tour-listing-details__destination__title">{{ ucfirst($slugData->title) }}
                             </h4><!-- /.tour-listing-details__destination__title -->
                             <div class="tour-listing-details__destination__revue">
                                 <div class="tour-listing-details__destination__ratings-box">
@@ -150,7 +150,8 @@
                                 </div>
                                 <div class="tour-listing-details__destination__posted">
                                     <i class="icon-pin1"></i>
-                                    <p class="tour-listing-details__destination__posted-text">{{ $slugData->location }}
+                                    <p class="tour-listing-details__destination__posted-text">
+                                        {{ ucfirst($slugData->location) }}
                                     </p>
                                 </div><!-- / -->
                             </div><!-- /.tour-listing-details__destination__revue -->
@@ -190,7 +191,7 @@
                             <div class="tour-listing-details__info-area__content">
                                 <h5 class="tour-listing-details__info-area__title">Location</h5>
                                 <!-- /.tour-listing-details__info-area__title -->
-                                <p class="tour-listing-details__info-area__text">{{ $slugData->location }}</p>
+                                <p class="tour-listing-details__info-area__text">{{ ucfirst($slugData->location) }}</p>
                                 <!-- /.tour-listing-details__info-area__text -->
                             </div><!-- /.tour-listing-details__info-area__content -->
                         </li>
@@ -201,7 +202,8 @@
                             <div class="tour-listing-details__info-area__content">
                                 <h5 class="tour-listing-details__info-area__title">Activities Type</h5>
                                 <!-- /.tour-listing-details__info-area__title -->
-                                <p class="tour-listing-details__info-area__text">{{ $slugData->activity_type }}</p>
+                                <p class="tour-listing-details__info-area__text">{{ ucfirst($slugData->activity_type) }}
+                                </p>
                                 <!-- /.tour-listing-details__info-area__text -->
                             </div><!-- /.tour-listing-details__info-area__content -->
                         </li>
@@ -210,9 +212,9 @@
                                 <i class="icon-clock"></i>
                             </div><!-- /.tour-listing-details__info-area__icon -->
                             <div class="tour-listing-details__info-area__content">
-                                <h5 class="tour-listing-details__info-area__title">Activate Day</h5>
+                                <h5 class="tour-listing-details__info-area__title">Tour Day</h5>
                                 <!-- /.tour-listing-details__info-area__title -->
-                                <p class="tour-listing-details__info-area__text">Fev 5 - 5</p>
+                                <p class="tour-listing-details__info-area__text">{{ $slugData->from_to_formatted  }}</p>
                                 <!-- /.tour-listing-details__info-area__text -->
                             </div><!-- /.tour-listing-details__info-area__content -->
                         </li>
@@ -228,7 +230,8 @@
                             </div><!-- /.tour-listing-details__info-area__content -->
                         </li>
                         <li>
-                            <a href="checkout.html" class="gotur-btn">₹{{ $slugData->rate }}/ Per Person</a>
+                            <a href="https://wa.me/919011011366?text=I'm%20inquiring%20about%20the%20Tour%20Package"
+                                class="gotur-btn">₹{{ $slugData->rate }}/ Per Person</a>
                         </li>
                     </ul><!-- /.tour-listing-details__info-area__info -->
                 </div><!-- /.container -->
@@ -243,8 +246,29 @@
                                 <!-- /.tour-listing-details__title -->
                                 <p class="tour-listing-details__text">{{ $slugData->overview->overview }}</p>
                                 <!-- /.tour-listing-details__text -->
-                            </div><!-- /.tour-listing-details__content__item -->
-                            <div class="tour-listing-details__content__item tour-listing-details__list wow fadeInUp"
+                            </div>
+                            <div class="tour-listing-details__content__item tour-listing-details__content__text wow fadeInUp"
+                                data-wow-duration="1500ms" data-wow-delay="500ms">
+                                <h4 class="tour-listing-details__info-area__title">Pickup & Drop:</h4>
+                                <p class="tour-listing-details__info-area__text">{{ $slugData->pickup_drop_location }}
+                                </p>
+                            </div>
+
+                            <div class="tour-listing-details__content__item tour-listing-details__content__text wow fadeInUp"
+                                data-wow-duration="1500ms" data-wow-delay="500ms">
+                                <h4 class="tour-listing-details__info-area__title">Location Cover In Trip:</h4>
+                                <p class="tour-listing-details__info-area__text">
+                                    @if(is_array($slugData->locationCover))
+                                        {{ implode(", ", $slugData->locationCover) }}
+                                    @else
+                                        {{ $slugData->locationCover }} <!-- Display it directly if it's a string -->
+                                    @endif
+                                </p>
+                            </div>
+
+                            <!-- /.tour-listing-details__content__item -->
+                            <!-- /.tour-listing-details__content__item -->
+                            <div class=" tour-listing-details__content__item tour-listing-details__list wow fadeInUp"
                                 data-wow-duration='1500ms' data-wow-delay='500ms'>
                                 <h4 class="tour-listing-details__title">Highlight List</h4>
                                 <!-- /.tour-listing-details__title -->
@@ -252,15 +276,14 @@
                                 @if (!empty($slugData->overview->highlights) && is_array($slugData->overview->highlights))
                                     <ul class="tour-listing-details__content__list">
                                         @foreach ($slugData->overview->highlights as $highlight)
-                                            <li><i class="icon-check-star"></i> {{ $highlight }}</li>
+                                            <li><i class="icon-check-star"></i> {{ ucfirst($highlight) }}</li>
                                         @endforeach
                                     </ul>
                                 @else
                                     <p>No highlights available.</p>
                                 @endif
-
-                                <!-- /.tour-listing-details__content__list -->
-                            </div><!-- /.tour-listing-details__content__item -->
+                            </div>
+                            <!-- /.tour-listing-details__content__list -->
                             <div class="tour-listing-details__content__item tour-listing-details__amenities wow fadeInUp"
                                 data-wow-duration='1500ms' data-wow-delay='500ms'>
                                 <h4 class="tour-listing-details__title">Tour Amenities</h4>
@@ -297,72 +320,6 @@
                             <div class="tour-listing-details__content__item tour-listing-details__ture-plan">
                                 <h4 class="tour-listing-details__title">Tour Plan</h4>
                                 <!-- /.tour-listing-details__title -->
-                                {{-- <div class="faq-page__accordion faq-accordion gotur-accordion"
-                                    data-grp-name="gotur-accordion">
-                                    <div class="accordion wow fadeInUp" data-wow-duration='1500ms'
-                                        data-wow-delay='500ms'>
-                                        <div class="accordion-title">
-                                            <h4 class="accordion-title__text"> How long should a business plan be
-                                                <span class="accordion-title__icon"></span>
-                                            </h4>
-                                        </div>
-                                        <!-- /.accordian-title -->
-                                        <div class="accordion-content">
-                                            <div class="inner">
-                                                <p class="inner__text">Nulla facilisi. Vestibulum tristique sem in eros
-                                                    eleifend imperdiet. Donec quis convallis neque. In id lacus pulvinar
-                                                    lacus, eget vulputate lectus. Ut viverra bibendum lorem, at tempus
-                                                    nibh mattis in. Sed a massa eget lacus consequat auctor.</p>
-                                            </div><!-- /.accordian-content -->
-                                        </div>
-                                    </div>
-                                    <!-- /.accordian-item -->
-                                    <div class="accordion active wow fadeInUp" data-wow-duration='1500ms'
-                                        data-wow-delay='500ms'>
-                                        <div class="accordion-title">
-                                            <h4 class="accordion-title__text">What is included in your services<span
-                                                    class="accordion-title__icon"></span></h4>
-                                        </div><!-- /.accordian-title -->
-                                        <div class="accordion-content">
-                                            <div class="inner">
-                                                <p class="inner__text">Nulla facilisi. Vestibulum tristique sem in eros
-                                                    eleifend imperdiet. Donec quis convallis neque. In id lacus pulvinar
-                                                    lacus, eget vulputate lectus. Ut viverra bibendum lorem, at tempus
-                                                    nibh mattis in. Sed a massa eget lacus consequat auctor.</p>
-                                            </div><!-- /.accordian-content -->
-                                        </div>
-                                    </div><!-- /.accordian-item -->
-                                    <div class="accordion wow fadeInUp" data-wow-duration='1500ms'
-                                        data-wow-delay='500ms'>
-                                        <div class="accordion-title">
-                                            <h4 class="accordion-title__text"> What type of company is measured<span
-                                                    class="accordion-title__icon"></span></h4>
-                                        </div><!-- /.accordian-title -->
-                                        <div class="accordion-content">
-                                            <div class="inner">
-                                                <p class="inner__text">Nulla facilisi. Vestibulum tristique sem in eros
-                                                    eleifend imperdiet. Donec quis convallis neque. In id lacus pulvinar
-                                                    lacus, eget vulputate lectus. Ut viverra bibendum lorem, at tempus
-                                                    nibh mattis in. Sed a massa eget lacus consequat auctor.</p>
-                                            </div><!-- /.accordian-content -->
-                                        </div>
-                                    </div><!-- /.accordian-item -->
-                                    <div class="accordion wow fadeInUp" data-wow-duration='1500ms'
-                                        data-wow-delay='500ms'>
-                                        <div class="accordion-title">
-                                            <h4 class="accordion-title__text">What type of company is measured<span
-                                                    class="accordion-title__icon"></span></h4>
-                                        </div><!-- /.accordian-title -->
-                                        <div class="accordion-content">
-                                            <div class="inner">
-                                                <p class="inner__text">Nulla facilisi. Vestibulum tristique sem in eros
-                                                    eleifend imperdiet. Donec quis convallis neque. In id lacus pulvinar
-                                                    lacus, eget vulputate lectus. Ut viverra bibendum lorem, at tempus
-                                                    nibh mattis in. Sed a massa eget lacus consequat auctor.</p>
-                                            </div><!-- /.accordian-content -->
-                                        </div>
-                                    </div><!-- /.accordian-item -->
-                                </div> --}}
                                 <div class="faq-page__accordion faq-accordion gotur-accordion"
                                     data-grp-name="gotur-accordion">
                                     @if (!empty($slugData->plan->itinerary) && is_array($slugData->plan->itinerary))
@@ -387,6 +344,123 @@
                                     @else
                                         <p>No tour plan available.</p>
                                     @endif
+                                </div>
+                            </div>
+                            {{-- <div class="tour-listing-details__content__item tour-listing-details__ture-plan">
+                                <h4 class="tour-listing-details__title text-danger">Note :- </h4>
+                            </div> --}}
+                            <div class="tour-listing-details__content__item tour-listing-details__list wow fadeInUp">
+                                <h4 class="tour-listing-details__title">Other Charges</h4>
+                                <div class="faq-page__accordion faq-accordion gotur-accordion"
+                                    data-grp-name="gotur-accordion">
+                                    @if (!empty($slugData->other_charges) && is_array($slugData->other_charges))
+                                        <div class="accordion wow fadeInUp" data-wow-duration="1500ms"
+                                            data-wow-delay="500ms">
+                                            <div class="accordion-title">
+                                                <h4 class="">
+                                                    View All Charges
+                                                    <span class="accordion-title__icon"></span>
+                                                </h4>
+                                            </div>
+                                            <div class="accordion-content">
+                                                <div class="inner">
+                                                    <ul class="inner__text">
+                                                        @foreach ($slugData->other_charges as $charge)
+                                                            <li><strong>{{ $charge }}</strong></li>
+                                                        @endforeach
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @else
+                                        <p>No other charges available.</p>
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="tour-listing-details__content__item tour-listing-details__list wow fadeInUp"
+                                data-wow-duration='1500ms' data-wow-delay='500ms'>
+                                <h4 class="tour-listing-details__title">Things to Carry</h4>
+                                <!-- /.tour-listing-details__title -->
+
+                                <!-- Accordion Container -->
+                                <div class="faq-page__accordion faq-accordion gotur-accordion"
+                                    data-grp-name="gotur-accordion">
+                                    <div class="accordion wow fadeInUp" data-wow-duration="1500ms"
+                                        data-wow-delay="500ms">
+                                        <div class="accordion-title">
+                                            <h4 class="accordion-title__text">
+                                                View Items to Carry
+                                                <span class="accordion-title__icon"></span>
+                                            </h4>
+                                        </div>
+                                        <div class="accordion-content">
+                                            <div class="inner">
+                                                @if (!empty($slugData->things_to_carry))
+                                                    {!! strip_tags($slugData->things_to_carry, '<p><strong><em>') !!}
+                                                    <!-- Keep <p>, <strong>, <em> tags -->
+                                                @else
+                                                    <p>No items to carry available.</p>
+                                                @endif
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tour-listing-details__content__item tour-listing-details__list wow fadeInUp"
+                                data-wow-duration='1500ms' data-wow-delay='500ms'>
+                                <h4 class="tour-listing-details__title">Terms & Condition</h4>
+
+                                <!-- Accordion Container -->
+                                <div class="faq-page__accordion faq-accordion gotur-accordion"
+                                    data-grp-name="gotur-accordion">
+                                    <div class="accordion wow fadeInUp" data-wow-duration="1500ms"
+                                        data-wow-delay="500ms">
+                                        <div class="accordion-title">
+                                            <h4 class="accordion-title__text">
+                                                View Terms & Conditions
+                                                <span class="accordion-title__icon"></span>
+                                            </h4>
+                                        </div>
+                                        <div class="accordion-content">
+                                            <div class="inner">
+                                                @if (!empty($slugData->terms_conditions))
+                                                    {!! strip_tags($slugData->terms_conditions, '<p><strong><em><ol><li>') !!}
+                                                    <!-- Display terms & conditions while keeping <p>, <strong>, <em>, <ol>, and <li> tags -->
+                                                @else
+                                                    <p>No terms and conditions available.</p>
+                                                @endif
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tour-listing-details__content__item tour-listing-details__list wow fadeInUp"
+                                data-wow-duration='1500ms' data-wow-delay='500ms'>
+                                <h4 class="tour-listing-details__title">Note</h4>
+
+                                <!-- Accordion Container -->
+                                <div class="faq-page__accordion faq-accordion gotur-accordion"
+                                    data-grp-name="gotur-accordion">
+                                    <div class="accordion wow fadeInUp" data-wow-duration="1500ms"
+                                        data-wow-delay="500ms">
+                                        <div class="accordion-title">
+                                            <h4 class="accordion-title__text">
+                                                View note
+                                                <span class="accordion-title__icon"></span>
+                                            </h4>
+                                        </div>
+                                        <div class="accordion-content">
+                                            <div class="inner">
+                                                @if (!empty($slugData->note))
+                                                    {!! strip_tags($slugData->note, '<p><strong><em><ul><ol><li>') !!}
+                                                    <!-- Display terms & conditions while keeping <p>, <strong>, <em>, <ol>, and <li> tags -->
+                                                @else
+                                                    <p>No note available.</p>
+                                                @endif
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <!-- /.tour-listing-details__content__item -->
@@ -461,7 +535,8 @@
                                                     <i class="icon-star"></i>
                                                 </div><!-- /.listing-card-four__rating -->
                                                 <h3 class="listing-card-four__title"><a
-                                                        href="tour-listing-details-2.html">All Inclusive Ultimate Circle
+                                                        href="tour-listing-details-2.html">All Inclusive Ultimate
+                                                        Circle
                                                         Island Day with Lunch</a></h3>
                                                 <!-- /.listing-card-four__title -->
 

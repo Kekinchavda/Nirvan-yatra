@@ -379,21 +379,21 @@
                         if (data.itinerary && data.itinerary.length > 0) {
                             data.itinerary.forEach(function (item, index) {
                                 itineraryHtml += `
-                                                            <div class="accordion-item">
-                                                                <h2 class="accordion-header" id="heading${index}">
-                                                                    <button class="accordion-button collapsed" type="button"
-                                                                        data-bs-toggle="collapse" data-bs-target="#collapse${index}"
-                                                                        aria-expanded="false" aria-controls="collapse${index}">
-                                                                        Day ${index + 1}: ${item.title}
-                                                                    </button>
-                                                                </h2>
-                                                                <div id="collapse${index}" class="accordion-collapse collapse"
-                                                                    aria-labelledby="heading${index}" data-bs-parent="#itineraryAccordion">
-                                                                    <div class="accordion-body">
-                                                                        ${item.details}
-                                                                    </div>
-                                                                </div>
-                                                            </div>`;
+                                                                                <div class="accordion-item">
+                                                                                    <h2 class="accordion-header" id="heading${index}">
+                                                                                        <button class="accordion-button collapsed" type="button"
+                                                                                            data-bs-toggle="collapse" data-bs-target="#collapse${index}"
+                                                                                            aria-expanded="false" aria-controls="collapse${index}">
+                                                                                            Day ${index + 1}: ${item.title}
+                                                                                        </button>
+                                                                                    </h2>
+                                                                                    <div id="collapse${index}" class="accordion-collapse collapse"
+                                                                                        aria-labelledby="heading${index}" data-bs-parent="#itineraryAccordion">
+                                                                                        <div class="accordion-body">
+                                                                                            ${item.details}
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>`;
                             });
                             $('#itineraryAccordion').html(itineraryHtml);
                         } else {
@@ -431,7 +431,11 @@
 
                         $('#tourThingsToCarry').html(data.things_to_carry || '<p>N/A</p>');
                         $('#tourTerms').html(data.terms_conditions || '<p>N/A</p>');
-                        $('#tourNote').html(data.note || '<p>N/A</p>');
+                        if (data.note) {
+                            $('#tourNote').html(`<div class="tour-note-list">${data.note}</div>`);
+                        } else {
+                            $('#tourNote').html('<p>N/A</p>');
+                        }
 
                     }
                 });

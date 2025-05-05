@@ -21101,4 +21101,13 @@ body.boxed-wrapper .testimonials-three__inner {
     background-position: center;
     margin: 0 auto; /* Center the image */
 }
+.inner__text li {
+    font-weight: normal;  /* Reset the font weight */
+    font-family: inherit;  /* Ensure it uses the global font */
+}
+
+.inner__text li span {
+    font-weight: normal;  /* Ensure text inside <span> is also normal */
+}
+
 /*# sourceMappingURL=gotur.css.map */
