@@ -52,7 +52,7 @@
                                         <div class="horizontal-wizard">
                                             <div class="stroke-icon-wizard"><i class="fa-solid fa-image"></i></div>
                                             <div class="horizontal-wizard-content">
-                                                <h6>daily itinerary</h6>
+                                                <h6>Daily itinerary</h6>
                                             </div>
                                         </div>
                                     </a>

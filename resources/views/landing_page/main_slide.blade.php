@@ -178,7 +178,8 @@
                                             @endforeach
                                         </select>
                                     </div>
-                                    {{-- <div class="banner-form__control banner-form__control--date banner-form__col--3">
+                                    {{-- <div
+                                        class="banner-form__control banner-form__control--date banner-form__col--3">
                                         <i class="icon icon-clock"></i>
                                         <label for="date">Activate Day</label>
                                         <input class="gotur-multi-datepicker" id="date" type="text" name="date"
@@ -210,9 +211,9 @@
             <!-- /.container -->
         </div>
         <!-- /.main-slider-one__action-form -->
-        <div class="main-slider-one__element">
+        {{-- <div class="main-slider-one__element">
             <img src="assets/images/shapes/hero-1-2-hover.png" alt="element">
-        </div>
+        </div> --}}
         <!-- /.main-slider-one__element -->
         <div class="main-slider-one__element-one">
             <img src="assets/images/shapes/hero-shapr-1-2-2.png" alt="element">

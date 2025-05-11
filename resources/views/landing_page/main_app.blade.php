@@ -36,34 +36,34 @@
                 <div class="feature-package__carousel gotur-owl__carousel gotur-owl__carousel--custom-nav gotur-owl__carousel--with-shadow owl-carousel owl-theme"
                     data-owl-nav-prev=".feature-package__carousel__nav--left"
                     data-owl-nav-next=".feature-package__carousel__nav--right" data-owl-options='{
-                "items": 1,
-                "margin": 30,
-                "loop": false,
-                "smartSpeed": 700,
-                "nav": false,
-                "dots": false,
-                "autoplay": false,
-                "responsive": {
-                    "0": {
-                        "items": 1
-                    },
-                    "576": {
-                        "items": 2
-                    },
-                    "768": {
-                        "items": 2
-                    },
-                    "992": {
-                        "items": 3
-                    },
-                    "1199": {
-                        "items": 3
-                    },
-                    "1500": {
-                        "items": 4
+                    "items": 1,
+                    "margin": 30,
+                    "loop": false,
+                    "smartSpeed": 700,
+                    "nav": false,
+                    "dots": false,
+                    "autoplay": false,
+                    "responsive": {
+                        "0": {
+                            "items": 1
+                        },
+                        "576": {
+                            "items": 2
+                        },
+                        "768": {
+                            "items": 2
+                        },
+                        "992": {
+                            "items": 3
+                        },
+                        "1199": {
+                            "items": 3
+                        },
+                        "1500": {
+                            "items": 4
+                        }
                     }
-                }
-            }'>
+                }'>
                     @foreach ($tours as $tour)
                         <div class="item">
                             <div class="listing-card-four wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='100ms'>
@@ -82,22 +82,22 @@
                                         <a href="#"><i class="far fa-heart"></i></a>
                                         <div class="listing-card-four__btns__hover">
                                             <a href="#" class="listing-card-four__popup card__popup" data-gallery-options='{
-                                    "items": [
-                                        {
-                                            "src": "assets/images/blog/listing-1-1.jpg"
-                                        },
-                                        {
-                                            "src": "assets/images/blog/listing-1-2.jpg"
-                                        },
-                                        {
-                                            "src": "assets/images/blog/listing-1-3.jpg"
-                                        }
-                                    ],
-                                    "gallery": {
-                                        "enabled": true
-                                    },
-                                    "type": "image"
-                                }'>
+                                            "items": [
+                                                {
+                                                    "src": "assets/images/blog/listing-1-1.jpg"
+                                                },
+                                                {
+                                                    "src": "assets/images/blog/listing-1-2.jpg"
+                                                },
+                                                {
+                                                    "src": "assets/images/blog/listing-1-3.jpg"
+                                                }
+                                            ],
+                                            "gallery": {
+                                                "enabled": true
+                                            },
+                                            "type": "image"
+                                        }'>
                                                 <span class="icon-image"></span>
                                             </a>
                                             <a class="video-popup" href="https://www.youtube.com/watch?v=0MuL8fd3pb8"><span
@@ -314,7 +314,7 @@
                             <img src="{{ asset('assets/images/about/about-s-2-1.jpg') }}" alt="gotur image">
                         </div>
                         <!-- /.about-two__thumb__item -->
-                       
+
                         <!-- /.about-two__thumb__funfact -->
                         <div class="about-two__thumb__item-element">
                             <img src="{{ asset('assets/images/shapes/corki.png') }}" alt="gotur image">
@@ -721,7 +721,7 @@
     </section> --}}
     <!-- /.offer-one -->
 
-    <section class="testimonials-three testimonials-three--two section-space" id="testimonials">
+    {{-- <section class="testimonials-three testimonials-three--two section-space" id="testimonials">
         <div class="testimonials-three__bg" style="background-image: url(assets/images/backgrounds/testi-3-1.png);">
         </div>
         <!-- /.testimonials-three__bg -->
@@ -749,28 +749,28 @@
                         <div class="testimonials-three__carousel gotur-owl__carousel gotur-owl__carousel--custom-nav gotur-owl__carousel--basic-nav owl-carousel owl-theme"
                             data-owl-nav-prev=".testimonials-three__carousel__nav--left"
                             data-owl-nav-next=".testimonials-three__carousel__nav--right" data-owl-options='{
-                            "items": 1,
-                            "margin": 30,
-                            "loop": true,
-                            "smartSpeed": 700,
-                            "nav": false,
-                            "dots": false,
-                            "autoplay": false,
-                            "responsive": {
-                                "0": {
-                                    "items": 1
-                                },
-                                "768": {
-                                    "items": 2
-                                },
-                                "992": {
-                                    "items": 2
-                                },
-                                "1199": {
-                                    "items": 2
+                                "items": 1,
+                                "margin": 30,
+                                "loop": true,
+                                "smartSpeed": 700,
+                                "nav": false,
+                                "dots": false,
+                                "autoplay": false,
+                                "responsive": {
+                                    "0": {
+                                        "items": 1
+                                    },
+                                    "768": {
+                                        "items": 2
+                                    },
+                                    "992": {
+                                        "items": 2
+                                    },
+                                    "1199": {
+                                        "items": 2
+                                    }
                                 }
-                            }
-                        }'>
+                            }'>
                             <div class="item">
                                 <div class="testimonials-two-card testimonials-two-card--two  wow fadeInUp"
                                     data-wow-duration='1500ms' data-wow-delay='00ms'>
@@ -1054,7 +1054,7 @@
             <!-- /.row -->
         </div>
         <!-- /.container -->
-    </section>
+    </section> --}}
     <!-- /.testimonials-three -->
 
     {{-- <section class="blog-five section-space-top" id="blog">
@@ -1254,37 +1254,37 @@
         <!-- /.instagram-one__top -->
         <div class="container-fluid">
             <div class="instagram-one__carousel gotur-owl__carousel owl-carousel owl-theme" data-owl-options='{
-                "items": 6,
-                "margin": 30,
-                "loop": false,
-                "smartSpeed": 700,
-                "nav": false,
-                "dots": false,
-                "autoplay": true,
-                "responsive": {
-                    "0": {
-                        "items": 1
-                    },
-                    "500": {
-                        "items": 2
-                    },
-                    "768": {
-                        "items": 3
-                    },
-                    "992": {
-                        "items": 3
-                    },
-                    "1080": {
-                        "items": 4
-                    },
-                    "1200": {
-                        "items": 5
-                    },
-                    "1400": {
-                        "items": 6
+                    "items": 6,
+                    "margin": 30,
+                    "loop": false,
+                    "smartSpeed": 700,
+                    "nav": false,
+                    "dots": false,
+                    "autoplay": true,
+                    "responsive": {
+                        "0": {
+                            "items": 1
+                        },
+                        "500": {
+                            "items": 2
+                        },
+                        "768": {
+                            "items": 3
+                        },
+                        "992": {
+                            "items": 3
+                        },
+                        "1080": {
+                            "items": 4
+                        },
+                        "1200": {
+                            "items": 5
+                        },
+                        "1400": {
+                            "items": 6
+                        }
                     }
-                }
-            }'>
+                }'>
                 <div class="item">
                     <div class="instagram-one__item">
                         <img src="{{ asset('assets/images/instragarm/insta-1-1.jpg') }}" alt="instagram">

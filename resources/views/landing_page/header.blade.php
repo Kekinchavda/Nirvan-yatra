@@ -17,7 +17,7 @@
             <div class="top-one__right">
                 <div class="top-one__info__item">
                     <i class="icon-maps-and-flags"></i>
-                    <a href="https://www.google.com/maps">Chinchwad, Pune-411019</a>
+                    <a href="https://www.google.com/maps">Kharadi,Pune-411014</a>
                 </div>
                 <!-- /.top-one__info__item -->
                 <div class="top-one__social">
@@ -45,9 +45,9 @@
     <div class="container-fluid">
         <div class="main-header__inner">
             <div class="main-header__logo logo-retina">
-                <a href="{{ route('landingaPage') }}"><img src="{{ !empty($logo->header_logo) && file_exists(public_path('storage/' . $logo->header_logo))
+                <a href="{{ route('landingaPage') }}"><img src="{{ !empty($logo->header_logo) && file_exists(filename: public_path('storage/' . $logo->header_logo))
     ? asset('storage/' . $logo->header_logo)
-    : asset('assets/images/logo/logo.dark.png') }}" width="170" height="70" alt="nirvan_yatra logo"></a>
+    : asset('storage/logos/logo-dark.png') }}" width="170" height="70" alt="nirvan_yatra logo"></a>
             </div>
             <!-- /.main-header__logo -->
             <div class="main-header__right">

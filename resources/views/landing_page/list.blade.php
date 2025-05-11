@@ -49,7 +49,7 @@
     <div class="custom-cursor__cursor-two"></div>
 
     <div class="preloader">
-        <div class="preloader__image" style="background-image: url('{{ asset('assets/images/logo/logo-dark.png') }}');">
+        <div class="preloader__image" style="background-image: url('{{ asset('storage/logos/logo-light.png') }}');">
         </div>
     </div>
     <!-- /.preloader -->
@@ -81,22 +81,22 @@
                                                 <div class="listing-card-four__btns__hover">
                                                     <a href="#" class="listing-card-four__popup card__popup"
                                                         data-gallery-options='{
-                                                                                                                                                    "items": [
-                                                                                                                                                        {
-                                                                                                                                                            "src": "assets/images/blog/listing-1-1.jpg"
-                                                                                                                                                        },
-                                                                                                                                                        {
-                                                                                                                                                            "src": "assets/images/blog/listing-1-2.jpg"
-                                                                                                                                                        },
-                                                                                                                                                        {
-                                                                                                                                                            "src": "assets/images/blog/listing-1-3.jpg"
-                                                                                                                                                        }
-                                                                                                                                                    ],
-                                                                                                                                                    "gallery": {
-                                                                                                                                                        "enabled": true
-                                                                                                                                                    },
-                                                                                                                                                    "type": "image"
-                                                                                                                                                }'>
+                                                                                                    "items": [
+                                                                                                        {
+                                                                                                            "src": "assets/images/blog/listing-1-1.jpg"
+                                                                                                        },
+                                                                                                        {
+                                                                                                            "src": "assets/images/blog/listing-1-2.jpg"
+                                                                                                        },
+                                                                                                        {
+                                                                                                            "src": "assets/images/blog/listing-1-3.jpg"
+                                                                                                        }
+                                                                                                    ],
+                                                                                                    "gallery": {
+                                                                                                        "enabled": true
+                                                                                                    },
+                                                                                                    "type": "image"
+                                                                                                }'>
                                                         <span class="icon-image"></span>
                                                     </a>
                                                     <a class="video-popup"
@@ -108,7 +108,7 @@
                                                 <li>
                                                     <a href="{{ route('tour.details', $tour->slug) }}"> <span
                                                             class="listing-card-four__meta__icon"> <i class="icon-pin1"></i>
-                                                        </span>{{ $tour->location }}</a>
+                                                        </span>{{ ucfirst($tour->location) }}</a>
                                                 </li>
                                                 <li>
                                                     <a href="{{ route('tour.details', $tour->slug) }}"> <span
@@ -147,103 +147,8 @@
                                     </div><!-- /.listing-card-four -->
                                 </div><!-- /.col-md-6 -->
                             @endforeach
-                            {{-- <div class="col-md-6">
-                                <div class="listing-card-four wow fadeInUp" data-wow-duration='1500ms'
-                                    data-wow-delay='100ms'>
-                                    <div class="listing-card-four__image">
-                                        <img src="{{ asset('assets/images/blog/listing-list-4-2.jpg') }}"
-                                            alt="Molokini and Turtle Town Snorkeling Adventure Aboard">
-                                        <div class="listing-card-four__btn-group">
 
-                                            <div class="listing-card-four__discount">-40% Off</div>
-                                            <!-- /.listing-card-four__discount -->
-
-
-                                            <div class="listing-card-four__featured">Featured</div>
-                                            <!-- /.listing-card-four__featured -->
-
-                                        </div><!-- /.listing-card-four__btn-group -->
-                                        <div class="listing-card-four__btns">
-                                            <a href="#"><i class="far fa-heart"></i></a>
-                                            <div class="listing-card-four__btns__hover">
-                                                <a href="#" class="listing-card-four__popup card__popup"
-                                                    data-gallery-options='{
-                "items": [
-                    {
-                        "src": "assets/images/blog/listing-1-1.jpg"
-                    },
-                    {
-                        "src": "assets/images/blog/listing-1-2.jpg"
-                    },
-                    {
-                        "src": "assets/images/blog/listing-1-3.jpg"
-                    }
-                ],
-                "gallery": {
-                    "enabled": true
-                },
-                "type": "image"
-            }'>
-                                                    <span class="icon-image"></span>
-                                                </a>
-                                                <a class="video-popup"
-                                                    href="https://www.youtube.com/watch?v=0MuL8fd3pb8"><span
-                                                        class="icon-video"></span></a>
-                                            </div><!-- /.listing-card-four__btns__hover -->
-                                        </div>
-                                        <ul class="listing-card-four__meta list-unstyled">
-                                            <li>
-                                                <a href="tour-listing-details-2.html"> <span
-                                                        class="listing-card-four__meta__icon"> <i class="icon-pin1"></i>
-                                                    </span>Slingerland</a>
-                                            </li>
-                                            <li>
-                                                <a href="tour-listing-details-2.html"> <span
-                                                        class="listing-card-four__meta__icon"> <i
-                                                            class="icon-calendar"></i> </span>6 Days, 3 Night</a>
-                                            </li>
-                                        </ul><!-- /.listing-card-four__meta -->
-                                        <a href="tour-listing-details-2.html"
-                                            class="listing-card-four__image__overly"></a>
-                                    </div><!-- /.listing-card-four__image -->
-                                    <div class="listing-card-four__content">
-                                        <div class="listing-card-four__rating">
-                                            <span>(10 Review)</span>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star"></i>
-                                        </div><!-- /.listing-card-four__rating -->
-                                        <h3 class="listing-card-four__title"><a
-                                                href="tour-listing-details-2.html">Molokini and Turtle Town
-                                                Snorkeling
-                                                Adventure Aboard</a></h3><!-- /.listing-card-four__title -->
-
-                                        <div class="listing-card-four__content__btn">
-                                            <div class="listing-card-four__price">
-                                                <span class="listing-card-four__price__sub">Per Day</span>
-                                                <span class="listing-card-four__price__number">$59.00</span>
-                                            </div><!-- /.listing-card-four__price -->
-                                            <a href="tour-listing-details-2.html"
-                                                class="listing-card-four__btn gotur-btn"> Book Now <span class="icon"><i
-                                                        class="icon-right"></i> </span></a>
-                                        </div><!-- /.listing-card-four__content__btn -->
-                                    </div><!-- /.listing-card-four__content -->
-                                </div><!-- /.listing-card-four -->
-                            </div><!-- /.col-md-6 --> --}}
                             <div class="col-12">
-                                {{-- <ul class="post-pagination justify-content-center" data-wow-duration='1500ms'
-                                    data-wow-delay='500ms'>
-                                    <li> <a href="#" class="previous">Previous</a> </li>
-                                    <li> <a href="#">1</a></li>
-                                    <li> <a href="#">2</a></li>
-                                    <li> <a href="#">3</a></li>
-                                    <li> <a href="#">...</a></li>
-                                    <li class="active"> <a href="#" class="next">Next</a> </li>
-                                </ul> --}}
-                                {{-- {{ $tours->links('vendor.pagination.custom') }} --}}
-
                                 @if($tours->count() > 0)
                                     {{-- Only show pagination if more than one page exists --}}
                                     @if($tours->hasPages())
@@ -356,126 +261,6 @@
                                         <div id="slider-range-two"></div>
                                     </form>
                                 </div>
-                                <!-- /.listing__sidebar__filter -->
-
-                                {{-- <div class="listing__sidebar__rating listing__sidebar__item__inner">
-                                    <h3 class="listing__sidebar__title listing__sidebar__rating__title">Reviews
-                                        Star
-                                    </h3>
-                                    <ul class="list-unstyled">
-                                        <li>
-                                            <div class="listing__sidebar__rating__check">
-                                                <input type="checkbox" name="check1" id="check1">
-                                                <label for="check1"></label>
-                                            </div><!-- /.listing__sidebar__rating__check -->
-                                            <div class="listing__sidebar__rating__star">
-                                                <i class="fas fa-star" data-value="1"></i>
-                                                <i class="fas fa-star" data-value="2"></i>
-                                                <i class="fas fa-star" data-value="3"></i>
-                                                <i class="fas fa-star" data-value="4"></i>
-                                                <i class="fas fa-star" data-value="5"></i>
-                                                <span>5 only</span>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="listing__sidebar__rating__check">
-                                                <input type="checkbox" name="check2" id="check2">
-                                                <label for="check2"></label>
-                                            </div><!-- /.listing__sidebar__rating__check -->
-                                            <div class="listing__sidebar__rating__star">
-                                                <i class="fas fa-star" data-value="6"></i>
-                                                <i class="fas fa-star" data-value="7"></i>
-                                                <i class="fas fa-star" data-value="8"></i>
-                                                <i class="fas fa-star" data-value="9"></i>
-                                                <i class="far fa-star" data-value="5"></i>
-                                                <span>4 & up</span>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="listing__sidebar__rating__check">
-                                                <input type="checkbox" name="check3" id="check3">
-                                                <label for="check3"></label>
-                                            </div><!-- /.listing__sidebar__rating__check -->
-                                            <div class="listing__sidebar__rating__star">
-                                                <i class="fas fa-star" data-value="1"></i>
-                                                <i class="fas fa-star" data-value="2"></i>
-                                                <i class="fas fa-star" data-value="3"></i>
-                                                <i class="far fa-star" data-value="4"></i>
-                                                <i class="far fa-star" data-value="5"></i>
-                                                <span>3 & up</span>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="listing__sidebar__rating__check">
-                                                <input type="checkbox" name="check4" id="check4">
-                                                <label for="check4"></label>
-                                            </div><!-- /.listing__sidebar__rating__check -->
-                                            <div class="listing__sidebar__rating__star">
-                                                <i class="fas fa-star" data-value="1"></i>
-                                                <i class="fas fa-star" data-value="2"></i>
-                                                <i class="far fa-star" data-value="3"></i>
-                                                <i class="far fa-star" data-value="4"></i>
-                                                <i class="far fa-star" data-value="5"></i>
-                                                <span>2 & up</span>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="listing__sidebar__rating__check">
-                                                <input type="checkbox" name="check5" id="check5">
-                                                <label for="check5"></label>
-                                            </div><!-- /.listing__sidebar__rating__check -->
-                                            <div class="listing__sidebar__rating__star">
-                                                <i class="fas fa-star" data-value="1"></i>
-                                                <i class="far fa-star" data-value="2"></i>
-                                                <i class="far fa-star" data-value="3"></i>
-                                                <i class="far fa-star" data-value="4"></i>
-                                                <i class="far fa-star" data-value="5"></i>
-                                                <span>1 & up</span>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div> --}}
-                                <!-- /.listing__sidebar__rating -->
-                                {{-- <div class="listing__sidebar__amenitie listing__sidebar__item__inner">
-                                    <h3 class="listing__sidebar__title listing__sidebar__amenitie__title">Amenities
-                                    </h3>
-                                    <ul class="list-unstyled">
-                                        <li>
-                                            <input type="checkbox" name="check8" id="check8">
-                                            <label for="check8"> <span>Wireless Internet</span></label>
-
-                                        </li>
-                                        <li>
-                                            <input type="checkbox" name="check9" id="check9">
-                                            <label for="check9"><span>Laundry Services</span></label>
-
-                                        </li>
-                                        <li>
-                                            <input type="checkbox" name="check10" id="check10">
-                                            <label for="check10">
-                                                <span>Car Parking</span>
-                                            </label>
-                                        </li>
-                                        <li>
-                                            <input type="checkbox" name="check11" id="check11">
-                                            <label for="check11">
-                                                <span>Reservations</span>
-                                            </label>
-                                        </li>
-                                        <li>
-                                            <input type="checkbox" name="check12" id="check12">
-                                            <label for="check12">
-                                                <span>Free Coupons</span>
-                                            </label>
-                                        </li>
-                                        <li>
-                                            <input type="checkbox" name="check13" id="check13">
-                                            <label for="check13">
-                                                <span>Smoking Not Allowed</span>
-                                            </label>
-                                        </li>
-                                    </ul><!-- /.list-unstyled -->
-                                </div> --}}
                                 <!-- /.listing__sidebar__amenitie -->
                             </div><!-- /.listing__colort -->
                         </aside><!-- /.shop-sidebar -->
@@ -483,8 +268,118 @@
                 </div><!-- /.row -->
             </div><!-- /.container -->
         </section><!-- /.tour-listing-page -->
-
     </div><!-- /.page-wrapper -->
+    {{-- mobile wrapper --}}
+    <div class="mobile-nav__wrapper">
+        <div class="mobile-nav__overlay mobile-nav__toggler"></div><!-- /.mobile-nav__overlay -->
+        <div class="mobile-nav__content">
+            <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
+            <div class="logo-box logo-retina">
+                <a href="index.html" aria-label="logo image"><img src="assets/images/logo-light.png" width="158"
+                        alt="logo"></a>
+            </div><!-- /.logo-box -->
+            <div class="mobile-nav__container"></div><!-- /.mobile-nav__container -->
+            <ul class="mobile-nav__contact list-unstyled">
+                <li>
+                    <span class="mobile-nav__contact__icon">
+                        <i class="fa fa-envelope"></i>
+                    </span>
+                    <a href="mailto:nirvanyatra@gmail.com">nirvanyatra@gmail.com</a>
+                </li>
+                <li>
+                    <span class="mobile-nav__contact__icon">
+                        <i class="fa fa-phone-alt"></i>
+                    </span>
+                    <a href="tel:+919011011366">+91 90110 11366</a>
+                </li>
+            </ul><!-- /.mobile-nav__contact -->
+            <div class="mobile-nav__social">
+                <a href="https://facebook.com"> <i class="icon-facebook" aria-hidden="true"></i> <span
+                        class="sr-only">Facebook</span></a>
+                <a href="https://twitter.com"> <i class="icon-twitter" aria-hidden="true"></i> <span
+                        class="sr-only">Twitter</span></a>
+                <a href="https://instagram.com"> <i class="icon-linkedin" aria-hidden="true"></i> <span
+                        class="sr-only">Linked In</span></a>
+                <a href="https://youtube.com"> <i class="icon-youtube" aria-hidden="true"></i> <span
+                        class="sr-only">Youtube</span></a>
+            </div><!-- /.mobile-nav__social -->
+        </div><!-- /.mobile-nav__content -->
+    </div><!-- /.mobile-nav__wrapper -->
+    <div class="search-popup">
+        <div class="search-popup__overlay search-toggler"></div><!-- /.search-popup__overlay -->
+        <div class="search-popup__content">
+            <form role="search" method="get" class="search-popup__form" action="#">
+                <input type="text" id="search" placeholder="Search Here...">
+                <button type="submit" aria-label="search submit" class="gotur-btn"> <i class="icon-search"></i>
+                </button>
+            </form>
+        </div><!-- /.search-popup__content -->
+    </div><!-- /.search-popup -->
+    <div class="header-right-sidebar">
+        <div class="header-right-sidebar__overlay header-right-sidebar__toggler"></div>
+        <div class="header-right-sidebar__content">
+            <span class="header-right-sidebar__close header-right-sidebar__toggler"><i class="fa fa-times"></i></span>
+            <div class="header-right-sidebar__logo-box">
+                <a href="index.html" aria-label="logo image"> <img src="assets/images/logo-landing.png" width="158"
+                        alt="gotur"> </a>
+            </div>
+            <div class="header-right-sidebar__container">
+                <div class="header-right-sidebar__container__about wow fadeInUp" data-wow-duration='1500ms'
+                    data-wow-delay='300ms'>
+                    <h3 class="header-right-sidebar__container__title">We’re Number One Travel Adventure Company</h3>
+                    <p class="header-right-sidebar__container__text">It is a long established fact that a reader will
+                        be distracted the readable content of a page when looking at layout the point of using lorem the
+                        is Ipsum less normal distribution of letters.</p>
+                </div>
+                <div class="header-right-sidebar__container__contact">
+                    <h3 class="header-right-sidebar__container__title">Contact Us</h3>
+                    <ul class="header-right-sidebar__container__list list-unstyled">
+                        <li class="header-right-sidebar__container__list__item wow fadeInUp" data-wow-duration='1500ms'
+                            data-wow-delay='300ms'>
+                            <div class="header-right-sidebar__container__icon">
+                                <i class="icon-email"></i>
+                            </div>
+                            <div class="header-right-sidebar__container__list__content">
+                                <span class="header-right-sidebar__container__list__title">send email</span>
+                                <a href="">info@company.com</a>
+                            </div>
+                        </li>
+                        <li class="header-right-sidebar__container__list__item wow fadeInUp" data-wow-duration='1500ms'
+                            data-wow-delay='500ms'>
+                            <div class="header-right-sidebar__container__icon">
+                                <i class="icon-telephone"></i>
+                            </div>
+                            <div class="header-right-sidebar__container__list__content">
+                                <span class="header-right-sidebar__container__list__title">call agent</span>
+                                <a href="tel:+91-123-654-900">+91 123 654 900</a>
+                            </div>
+                        </li>
+                        <li class="header-right-sidebar__container__list__item wow fadeInUp" data-wow-duration='1500ms'
+                            data-wow-delay='700ms'>
+                            <div class="header-right-sidebar__container__icon">
+                                <i class="icon-clock"></i>
+                            </div>
+                            <div class="header-right-sidebar__container__list__content">
+                                <span class="header-right-sidebar__container__list__title">opening time</span>
+                                <p>Hours: Mon-Fri: 8am – 7pm</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="header-right-sidebar__container__newsletter-box wow fadeInUp" data-wow-duration='1500ms'
+                    data-wow-delay='900ms'>
+                    <h3 class="header-right-sidebar__container__title">get notification</h3>
+                    <form action="#" data-url="MAILCHIMP_FORM_URL" class="newsletter-box mc-form">
+                        <input type="email" name="EMAIL" placeholder="Email">
+                        <button type="submit" class="gotur-btn gotur-btn--base">subscribe now</button>
+                    </form>
+                    <div class="mc-form__response"></div>
+                </div>
+            </div>
+        </div><!-- /.header-right-sidebar__content -->
+    </div>
+    {{-- mobile wrapper --}}
+
     @include('landing_page.footer')
 
     <!-- /.page-wrapper -->

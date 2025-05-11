@@ -50,8 +50,8 @@
     <div class="custom-cursor__cursor-two"></div>
 
     <div class="preloader">
-        <div class="preloader__image"
-            style="background-image: url('{{ asset('assets/images/logos/logo-dark.png') }}');"></div>
+        <div class="preloader__image" style="background-image: url('{{ asset('storage/logos/logo-dark.png') }}');">
+        </div>
     </div>
     <!-- /.preloader -->
     <div class="page-wrapper">
@@ -68,8 +68,8 @@
                 <div class="page-header__content">
                     <h2 class="page-header__title bw-split-in-right">{{ $slugData->title }}</h2>
                     <ul class="gotur-breadcrumb list-unstyled">
-                        <li><a href="index.html">Home</a></li>
-                        <li><span>Tour Listing Details 02</span></li>
+                        <li><a href="{{ route('landingaPage') }}">Home</a></li>
+                        <li><span>Tour Listing Details of {{ $slugData->title }}</span></li>
                     </ul><!-- /.thm-breadcrumb list-unstyled -->
                 </div><!-- /.page-header__content -->
             </div><!-- /.container -->
@@ -349,120 +349,129 @@
                             {{-- <div class="tour-listing-details__content__item tour-listing-details__ture-plan">
                                 <h4 class="tour-listing-details__title text-danger">Note :- </h4>
                             </div> --}}
-                            <div class="tour-listing-details__content__item tour-listing-details__list wow fadeInUp">
-                                <h4 class="tour-listing-details__title">Other Charges</h4>
-                                <div class="faq-page__accordion faq-accordion gotur-accordion"
-                                    data-grp-name="gotur-accordion">
-                                    @if (!empty($slugData->other_charges) && is_array($slugData->other_charges))
+                            @if($slugData->other_charges)
+                                <div class="tour-listing-details__content__item tour-listing-details__list wow fadeInUp">
+                                    <h4 class="tour-listing-details__title">Other Charges</h4>
+                                    <div class="faq-page__accordion faq-accordion gotur-accordion"
+                                        data-grp-name="gotur-accordion">
+                                        @if (!empty($slugData->other_charges) && is_array($slugData->other_charges))
+                                            <div class="accordion wow fadeInUp" data-wow-duration="1500ms"
+                                                data-wow-delay="500ms">
+                                                <div class="accordion-title">
+                                                    <h4 class="">
+                                                        View All Charges
+                                                        <span class="accordion-title__icon"></span>
+                                                    </h4>
+                                                </div>
+                                                <div class="accordion-content">
+                                                    <div class="inner">
+                                                        <ul class="inner__text">
+                                                            @foreach ($slugData->other_charges as $charge)
+                                                                <li><strong>{{ $charge }}</strong></li>
+                                                            @endforeach
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @else
+                                            <p>No other charges available.</p>
+                                        @endif
+                                    </div>
+                                </div>
+                            @endif
+                            @if($slugData->things_to_carry)
+
+                                <div class="tour-listing-details__content__item tour-listing-details__list wow fadeInUp"
+                                    data-wow-duration='1500ms' data-wow-delay='500ms'>
+                                    <h4 class="tour-listing-details__title">Things to Carry</h4>
+                                    <!-- /.tour-listing-details__title -->
+
+                                    <!-- Accordion Container -->
+                                    <div class="faq-page__accordion faq-accordion gotur-accordion"
+                                        data-grp-name="gotur-accordion">
                                         <div class="accordion wow fadeInUp" data-wow-duration="1500ms"
                                             data-wow-delay="500ms">
                                             <div class="accordion-title">
-                                                <h4 class="">
-                                                    View All Charges
+                                                <h4 class="accordion-title__text">
+                                                    View Items to Carry
                                                     <span class="accordion-title__icon"></span>
                                                 </h4>
                                             </div>
                                             <div class="accordion-content">
                                                 <div class="inner">
-                                                    <ul class="inner__text">
-                                                        @foreach ($slugData->other_charges as $charge)
-                                                            <li><strong>{{ $charge }}</strong></li>
-                                                        @endforeach
-                                                    </ul>
+                                                    @if (!empty($slugData->things_to_carry))
+                                                        {!! strip_tags($slugData->things_to_carry, '<p><strong><em>') !!}
+                                                        <!-- Keep <p>, <strong>, <em> tags -->
+                                                    @else
+                                                        <p>No items to carry available.</p>
+                                                    @endif
                                                 </div>
                                             </div>
                                         </div>
-                                    @else
-                                        <p>No other charges available.</p>
-                                    @endif
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="tour-listing-details__content__item tour-listing-details__list wow fadeInUp"
-                                data-wow-duration='1500ms' data-wow-delay='500ms'>
-                                <h4 class="tour-listing-details__title">Things to Carry</h4>
-                                <!-- /.tour-listing-details__title -->
+                            @endif
+                            @if($slugData->terms_conditions)
+                                <div class="tour-listing-details__content__item tour-listing-details__list wow fadeInUp"
+                                    data-wow-duration='1500ms' data-wow-delay='500ms'>
+                                    <h4 class="tour-listing-details__title">Terms & Condition</h4>
 
-                                <!-- Accordion Container -->
-                                <div class="faq-page__accordion faq-accordion gotur-accordion"
-                                    data-grp-name="gotur-accordion">
-                                    <div class="accordion wow fadeInUp" data-wow-duration="1500ms"
-                                        data-wow-delay="500ms">
-                                        <div class="accordion-title">
-                                            <h4 class="accordion-title__text">
-                                                View Items to Carry
-                                                <span class="accordion-title__icon"></span>
-                                            </h4>
-                                        </div>
-                                        <div class="accordion-content">
-                                            <div class="inner">
-                                                @if (!empty($slugData->things_to_carry))
-                                                    {!! strip_tags($slugData->things_to_carry, '<p><strong><em>') !!}
-                                                    <!-- Keep <p>, <strong>, <em> tags -->
-                                                @else
-                                                    <p>No items to carry available.</p>
-                                                @endif
+                                    <!-- Accordion Container -->
+                                    <div class="faq-page__accordion faq-accordion gotur-accordion"
+                                        data-grp-name="gotur-accordion">
+                                        <div class="accordion wow fadeInUp" data-wow-duration="1500ms"
+                                            data-wow-delay="500ms">
+                                            <div class="accordion-title">
+                                                <h4 class="accordion-title__text">
+                                                    View Terms & Conditions
+                                                    <span class="accordion-title__icon"></span>
+                                                </h4>
+                                            </div>
+                                            <div class="accordion-content">
+                                                <div class="inner">
+                                                    @if (!empty($slugData->terms_conditions))
+                                                        {!! strip_tags($slugData->terms_conditions, '<p><strong><em><ol><li>') !!}
+                                                        <!-- Display terms & conditions while keeping <p>, <strong>, <em>, <ol>, and <li> tags -->
+                                                    @else
+                                                        <p>No terms and conditions available.</p>
+                                                    @endif
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="tour-listing-details__content__item tour-listing-details__list wow fadeInUp"
-                                data-wow-duration='1500ms' data-wow-delay='500ms'>
-                                <h4 class="tour-listing-details__title">Terms & Condition</h4>
+                            @endif
 
-                                <!-- Accordion Container -->
-                                <div class="faq-page__accordion faq-accordion gotur-accordion"
-                                    data-grp-name="gotur-accordion">
-                                    <div class="accordion wow fadeInUp" data-wow-duration="1500ms"
-                                        data-wow-delay="500ms">
-                                        <div class="accordion-title">
-                                            <h4 class="accordion-title__text">
-                                                View Terms & Conditions
-                                                <span class="accordion-title__icon"></span>
-                                            </h4>
-                                        </div>
-                                        <div class="accordion-content">
-                                            <div class="inner">
-                                                @if (!empty($slugData->terms_conditions))
-                                                    {!! strip_tags($slugData->terms_conditions, '<p><strong><em><ol><li>') !!}
-                                                    <!-- Display terms & conditions while keeping <p>, <strong>, <em>, <ol>, and <li> tags -->
-                                                @else
-                                                    <p>No terms and conditions available.</p>
-                                                @endif
+                            @if($slugData->note)
+                                <div class="tour-listing-details__content__item tour-listing-details__list wow fadeInUp"
+                                    data-wow-duration='1500ms' data-wow-delay='500ms'>
+                                    <h4 class="tour-listing-details__title">Note</h4>
+
+                                    <!-- Accordion Container -->
+                                    <div class="faq-page__accordion faq-accordion gotur-accordion"
+                                        data-grp-name="gotur-accordion">
+                                        <div class="accordion wow fadeInUp" data-wow-duration="1500ms"
+                                            data-wow-delay="500ms">
+                                            <div class="accordion-title">
+                                                <h4 class="accordion-title__text">
+                                                    View note
+                                                    <span class="accordion-title__icon"></span>
+                                                </h4>
+                                            </div>
+                                            <div class="accordion-content">
+                                                <div class="inner">
+                                                    @if (!empty($slugData->note))
+                                                        {!! strip_tags($slugData->note, '<p><strong><em><ul><ol><li>') !!}
+                                                        <!-- Display terms & conditions while keeping <p>, <strong>, <em>, <ol>, and <li> tags -->
+                                                    @else
+                                                        <p>No note available.</p>
+                                                    @endif
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-
-                            <div class="tour-listing-details__content__item tour-listing-details__list wow fadeInUp"
-                                data-wow-duration='1500ms' data-wow-delay='500ms'>
-                                <h4 class="tour-listing-details__title">Note</h4>
-
-                                <!-- Accordion Container -->
-                                <div class="faq-page__accordion faq-accordion gotur-accordion"
-                                    data-grp-name="gotur-accordion">
-                                    <div class="accordion wow fadeInUp" data-wow-duration="1500ms"
-                                        data-wow-delay="500ms">
-                                        <div class="accordion-title">
-                                            <h4 class="accordion-title__text">
-                                                View note
-                                                <span class="accordion-title__icon"></span>
-                                            </h4>
-                                        </div>
-                                        <div class="accordion-content">
-                                            <div class="inner">
-                                                @if (!empty($slugData->note))
-                                                    {!! strip_tags($slugData->note, '<p><strong><em><ul><ol><li>') !!}
-                                                    <!-- Display terms & conditions while keeping <p>, <strong>, <em>, <ol>, and <li> tags -->
-                                                @else
-                                                    <p>No note available.</p>
-                                                @endif
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            @endif
                             <!-- /.tour-listing-details__content__item -->
                             <div class="tour-listing-details__content__item tour-listing-details__ture-list">
                                 <h4 class="tour-listing-details__title">Related Tour List</h4>
@@ -475,7 +484,6 @@
                                                 <img src="{{ asset('assets/images/blog/listing-list-4-1.jpg') }}"
                                                     alt="All Inclusive Ultimate Circle Island Day with Lunch">
                                                 <div class="listing-card-four__btn-group">
-
 
                                                     <div class="listing-card-four__featured">Featured</div>
                                                     <!-- /.listing-card-four__featured -->
@@ -753,8 +761,8 @@
         <div class="mobile-nav__content">
             <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
             <div class="logo-box logo-retina">
-                <a href="index.html" aria-label="logo image"><img src="assets/images/logo-light.png" width="158"
-                        alt="logo"></a>
+                <a href="index.html" aria-label="logo image"><img src="{{ asset('storage/logos/logo-light.png') }}"
+                        width="158" alt="logo"></a>
             </div><!-- /.logo-box -->
             <div class="mobile-nav__container"></div><!-- /.mobile-nav__container -->
             <ul class="mobile-nav__contact list-unstyled">
@@ -762,13 +770,13 @@
                     <span class="mobile-nav__contact__icon">
                         <i class="fa fa-envelope"></i>
                     </span>
-                    <a href="mailto:needhelp@gotur.com">needhelp@gotur.com</a>
+                    <a href="mailto:nirvanyatra@gmail.com">nirvanyatra@gmail.com</a>
                 </li>
                 <li>
                     <span class="mobile-nav__contact__icon">
                         <i class="fa fa-phone-alt"></i>
                     </span>
-                    <a href="tel:+9156980036420">+91 5698 0036 420</a>
+                    <a href="tel:+919011011366">+91 90110 11366</a>
                 </li>
             </ul><!-- /.mobile-nav__contact -->
             <div class="mobile-nav__social">

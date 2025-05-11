@@ -49,7 +49,7 @@
     <div class="custom-cursor__cursor-two"></div>
 
     <div class="preloader">
-        <div class="preloader__image" style="background-image: url('{{ asset('assets/images/logo/logo-dark.png') }}');">
+        <div class="preloader__image" style="background-image: url('{{ asset('storage/logos/logo-dark.png') }}');">
         </div>
     </div>
     <!-- /.preloader -->
@@ -109,7 +109,7 @@
                         <div class="contact-page__map">
                             <div class="google-map google-map__@@extraClassName">
                                 <iframe title="Pimpri-Chinchwad Location"
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d898.2658!2d73.808523!3d18.659531!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTjCsDM5JzM0LjMiTiA3M8KwNDgnMzMuMCJF!5e0!3m2!1sen!2sin!4v1745405768906&zoom=18"
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.279946013781!2d73.9448651!3d18.561413599999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c37942ddc8d9%3A0x5617a3bcbfc7565f!2sCity%20Vista%2C%20Kharadi!5e0!3m2!1sen!2sin!4v1746950612463!5m2!1sen!2sin"
                                     class="map__iframe" allowfullscreen>
                                 </iframe>
                             </div>

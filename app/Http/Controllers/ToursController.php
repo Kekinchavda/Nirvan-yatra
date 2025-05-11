@@ -85,9 +85,20 @@ class ToursController extends Controller
         // Step 2: Upload media
         $imagePath = $request->file('feature_image')->store('uploads/tours', 'public');
         // Step 3: Create main Tour
+        $slug = Str::slug($request->slug);
+        $originalSlug = $slug;
+        $count = 1;
+
+        while (tours::where('slug', $slug)->exists()) {
+            $slug = $originalSlug . '-' . $count;
+            $count++;
+        }
+
+        $data['slug'] = $slug;
+
         $tour = tours::create([
             'title' => $request->tour_title,
-            'slug' => strtolower($request->slug), // this will generate 'goa-family-trip'
+            'slug' => $slug, // this will generate 'goa-family-trip'
             'activity_type' => json_encode($request->activity),
             'location' => $request->location,
             'days' => $request->days,
@@ -133,7 +144,7 @@ class ToursController extends Controller
     public function showTour($id)
     {
         $tour = Tours::with(['overview', 'plan', 'amenities'])->find($id);
-        
+
         if (!$tour) {
             return response()->json(['message' => 'Tour not found'], 404);
         }
