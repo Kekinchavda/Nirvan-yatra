@@ -28,29 +28,31 @@
                 <div class="destinations-two__inner">
                     <div class="destinations-two__carousel gotur-owl__carousel gotur-owl__carousel--custom-nav gotur-owl__carousel--with-shadow owl-carousel owl-theme"
                         data-owl-nav-prev=".main-slider-one__carousel__nav--left"
-                        data-owl-nav-next=".main-slider-one__carousel__nav--right" data-owl-options='{
-                    "items": 1,
-                    "margin": 30,
-                    "loop": true,
-                    "smartSpeed": 700,
-                    "nav": false,
-                    "dots": false,
-                    "autoplay": true,
-                    "responsive": {
-                        "0": {
-                            "items": 1
-                        },
-                        "575": {
-                            "items": 2
-                        },
-                        "768": {
-                            "items": 2
-                        },
-                        "992": {
-                            "items": 3
-                        }
-                    }
-                }'>
+                        data-owl-nav-next=".main-slider-one__carousel__nav--right"
+                        data-owl-options='{
+                                            "items": 1.3,
+                                            "center": true,
+                                            "margin": 30,
+                                            "loop": true,
+                                            "smartSpeed": 700,
+                                            "nav": false,
+                                            "dots": false,
+                                            "autoplay": true,
+                                            "responsive": {
+                                                "0": {
+                                                    "items": 1.1
+                                                },
+                                                "575": {
+                                                    "items": 1.2
+                                                },
+                                                "768": {
+                                                    "items": 1.3
+                                                },
+                                                "992": {
+                                                    "items": 1.4
+                                                }
+                                            }
+                                        }'>
                         <div class="item">
                             <div class="destinations-card-two wow fadeInUp" data-wow-duration='1500ms'
                                 data-wow-delay='100ms'>
@@ -116,6 +118,7 @@
                             </div>
                             <!-- /.destinations-card-two -->
                         </div>
+
                         <!-- /.item -->
                     </div>
                     <!-- /.destinations-two__carousel -->
@@ -124,7 +127,7 @@
             </div>
             <!-- /.container -->
             <div class="main-slider-one__destinations__hover">
-                <img src="assets/images/shapes/hero-1-1-hover.png" alt="destinations image">
+                {{-- <img src="assets/images/shapes/hero-1-1-hover.png" alt="destinations image"> --}}
             </div>
             <!-- /.destinations-card-two__group-card -->
         </div>
@@ -192,7 +195,8 @@
                                         <button type="button" class="banner-form__qty-minus sub">
                                             <i class="icon-down-arrow"></i>
                                         </button>
-                                        <input id="guests" type="number" value="2" name="guests" placeholder="2">
+                                        <input id="guests" type="number" value="2" name="guests"
+                                            placeholder="2">
                                         <button type="button" class="banner-form__qty-plus add">
                                             <i class="icon-down-arrow"></i>
                                         </button>

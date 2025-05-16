@@ -1,7 +1,7 @@
 @extends('landing_page.main')
 
 @section('content')
-
+    <!-- /.Kedarnath yatra -->
     <section class="feature-package feature-package--two section-space" id="guide">
         <div class="container">
             <div class="feature-package__top">
@@ -10,7 +10,7 @@
                         <div class="sec-title ">
                             <h6 class="sec-title__tagline bw-split-in-right">popular tours</h6>
                             <!-- /.sec-title__tagline -->
-                            <h3 class="sec-title__title bw-split-in-left">Most Popular <span>Tours</span></h3>
+                            <h3 class="sec-title__title bw-split-in-left">Kedarnath <span>Yatra</span></h3>
                             <!-- /.sec-title__title -->
                         </div>
                         <!-- /.sec-title -->
@@ -35,7 +35,8 @@
             <div class="feature-package__inner">
                 <div class="feature-package__carousel gotur-owl__carousel gotur-owl__carousel--custom-nav gotur-owl__carousel--with-shadow owl-carousel owl-theme"
                     data-owl-nav-prev=".feature-package__carousel__nav--left"
-                    data-owl-nav-next=".feature-package__carousel__nav--right" data-owl-options='{
+                    data-owl-nav-next=".feature-package__carousel__nav--right"
+                    data-owl-options='{
                     "items": 1,
                     "margin": 30,
                     "loop": false,
@@ -72,16 +73,16 @@
                                         alt="All Inclusive Ultimate Circle Island Day with Lunch">
                                     <div class="listing-card-four__btn-group">
 
-
-                                        <div class="listing-card-four__featured">Featured</div>
+                                        {{-- <div class="listing-card-four__featured">Featured</div> --}}
                                         <!-- /.listing-card-four__featured -->
 
                                     </div>
                                     <!-- /.listing-card-four__btn-group -->
                                     <div class="listing-card-four__btns">
-                                        <a href="#"><i class="far fa-heart"></i></a>
+                                        {{-- <a href="#"><i class="far fa-heart"></i></a> --}}
                                         <div class="listing-card-four__btns__hover">
-                                            <a href="#" class="listing-card-four__popup card__popup" data-gallery-options='{
+                                            {{-- <a href="#" class="listing-card-four__popup card__popup"
+                                                data-gallery-options='{
                                             "items": [
                                                 {
                                                     "src": "assets/images/blog/listing-1-1.jpg"
@@ -98,10 +99,10 @@
                                             },
                                             "type": "image"
                                         }'>
-                                                <span class="icon-image"></span>
-                                            </a>
-                                            <a class="video-popup" href="https://www.youtube.com/watch?v=0MuL8fd3pb8"><span
-                                                    class="icon-video"></span></a>
+                                                {{-- <span class="icon-image"></span> --}}
+                                            {{-- </a>  --}}
+                                            {{-- <a class="video-popup" href="https://www.youtube.com/watch?v=0MuL8fd3pb8"><span
+                                                    class="icon-video"></span></a> --}}
                                         </div>
                                         <!-- /.listing-card-four__btns__hover -->
                                     </div>
@@ -109,7 +110,7 @@
                                         <li>
                                             <a href="{{ route('tour.details', $tour->slug) }}"> <span
                                                     class="listing-card-four__meta__icon"> <i class="icon-pin1"></i>
-                                                </span>{{ $tour->location }}</a>
+                                                </span>{{ ucfirst($tour->location) }}</a>
                                         </li>
                                         <li>
                                             <a href="{{ route('tour.details', $tour->slug) }}"> <span
@@ -133,7 +134,7 @@
                                     </div>
                                     <!-- /.listing-card-four__rating -->
                                     <h3 class="listing-card-four__title"><a
-                                            href="{{ route('tour.details', $tour->slug) }}">{{ $tour->title }}</a>
+                                            href="{{ route('tour.details', $tour->slug) }}">{{ ucfirst($tour->title) }}</a>
                                     </h3>
                                     <!-- /.listing-card-four__title -->
 
@@ -168,9 +169,7 @@
             </div>
             <!-- here show https://tripqode.in/tour-listing-1-right.html -->
             <!-- see all button  -->
-
             <!-- /.feature-package__inner -->
-
         </div>
         <!-- /.container -->
 
@@ -179,7 +178,366 @@
         </div>
         <!-- /.feature-package__element -->
     </section>
-    <!-- /.feature-package -->
+    <!-- /.Kedarnath yatra -->
+
+    <!-- /.Maharashtra Monsoon Treks -->
+    <section class="feature-package feature-package--two section-space-second" id="guide">
+        <div class="container">
+            <div class="feature-package__top">
+                <div class="row align-items-end">
+                    <div class="col-lg-8">
+                        <div class="sec-title ">
+                            <h6 class="sec-title__tagline bw-split-in-right">Treks</h6>
+                            <!-- /.sec-title__tagline -->
+                            <h3 class="sec-title__title bw-split-in-left">Maharashtra <span>Monsoon Treks</span></h3>
+                            <!-- /.sec-title__title -->
+                        </div>
+                        <!-- /.sec-title -->
+                    </div>
+                    <!-- /.col-lg-8 -->
+                    <div class="col-lg-4">
+                        <div class="feature-package__bottom__nav">
+                            <button class="feature-package__carousel__nav--left"><span
+                                    class="icon-arrow-left"></span></button>
+                            <button class="feature-package__carousel__nav--right"><span
+                                    class="icon-arrow-right"></span></button>
+                        </div>
+                    </div>
+                    <!-- /.col-lg-4 -->
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.feature-package__top -->
+        </div>
+        <!-- /.container -->
+        <div class="container-fluid">
+            <div class="feature-package__inner">
+                <div class="feature-package__carousel gotur-owl__carousel gotur-owl__carousel--custom-nav gotur-owl__carousel--with-shadow owl-carousel owl-theme"
+                    data-owl-nav-prev=".feature-package__carousel__nav--left"
+                    data-owl-nav-next=".feature-package__carousel__nav--right"
+                    data-owl-options='{
+                    "items": 1,
+                    "margin": 30,
+                    "loop": false,
+                    "smartSpeed": 700,
+                    "nav": false,
+                    "dots": false,
+                    "autoplay": false,
+                    "responsive": {
+                        "0": {
+                            "items": 1
+                        },
+                        "576": {
+                            "items": 2
+                        },
+                        "768": {
+                            "items": 2
+                        },
+                        "992": {
+                            "items": 3
+                        },
+                        "1199": {
+                            "items": 3
+                        },
+                        "1500": {
+                            "items": 4
+                        }
+                    }
+                }'>
+                    @foreach ($tours as $tour)
+                        <div class="item">
+                            <div class="listing-card-four wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='100ms'>
+                                <div class="listing-card-four__image">
+                                    <img src="{{ asset('storage/' . $tour->feature_image) }}"
+                                        alt="All Inclusive Ultimate Circle Island Day with Lunch">
+                                    <div class="listing-card-four__btn-group">
+
+                                        {{-- <div class="listing-card-four__featured">Featured</div> --}}
+                                        <!-- /.listing-card-four__featured -->
+
+                                    </div>
+                                    <!-- /.listing-card-four__btn-group -->
+                                    <div class="listing-card-four__btns">
+                                        {{-- <a href="#"><i class="far fa-heart"></i></a> --}}
+                                        <div class="listing-card-four__btns__hover">
+                                            {{-- <a href="#" class="listing-card-four__popup card__popup"
+                                                data-gallery-options='{
+                                            "items": [
+                                                {
+                                                    "src": "assets/images/blog/listing-1-1.jpg"
+                                                },
+                                                {
+                                                    "src": "assets/images/blog/listing-1-2.jpg"
+                                                },
+                                                {
+                                                    "src": "assets/images/blog/listing-1-3.jpg"
+                                                }
+                                            ],
+                                            "gallery": {
+                                                "enabled": true
+                                            },
+                                            "type": "image"
+                                        }'>
+                                                {{-- <span class="icon-image"></span> --}}
+                                            {{-- </a>  --}}
+                                            {{-- <a class="video-popup" href="https://www.youtube.com/watch?v=0MuL8fd3pb8"><span
+                                                    class="icon-video"></span></a> --}}
+                                        </div>
+                                        <!-- /.listing-card-four__btns__hover -->
+                                    </div>
+                                    <ul class="listing-card-four__meta list-unstyled">
+                                        <li>
+                                            <a href="{{ route('tour.details', $tour->slug) }}"> <span
+                                                    class="listing-card-four__meta__icon"> <i class="icon-pin1"></i>
+                                                </span>{{ ucfirst($tour->location) }}</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('tour.details', $tour->slug) }}"> <span
+                                                    class="listing-card-four__meta__icon"> <i class="icon-calendar"></i>
+                                                </span>{{ $tour->days }} Days, {{ $tour->nights }} Night</a>
+                                        </li>
+                                    </ul>
+                                    <!-- /.listing-card-four__meta -->
+                                    <a href="{{ route('tour.details', $tour->slug) }}"
+                                        class="listing-card-four__image__overly"></a>
+                                </div>
+                                <!-- /.listing-card-four__image -->
+                                <div class="listing-card-four__content">
+                                    <div class="listing-card-four__rating">
+                                        <span>(10 Review)</span>
+                                        <i class="icon-star"></i>
+                                        <i class="icon-star"></i>
+                                        <i class="icon-star"></i>
+                                        <i class="icon-star"></i>
+                                        <i class="icon-star"></i>
+                                    </div>
+                                    <!-- /.listing-card-four__rating -->
+                                    <h3 class="listing-card-four__title"><a
+                                            href="{{ route('tour.details', $tour->slug) }}">{{ ucfirst($tour->title) }}</a>
+                                    </h3>
+                                    <!-- /.listing-card-four__title -->
+
+                                    <div class="listing-card-four__content__btn">
+                                        <div class="listing-card-four__price">
+                                            <span class="listing-card-four__price__sub">Rate</span>
+                                            <span class="listing-card-four__price__number">₹
+                                                {{ $tour->rate }}</span>
+                                        </div>
+                                        <!-- /.listing-card-four__price -->
+                                        <a href="{{ route('tour.details', $tour->slug) }}"
+                                            class="listing-card-four__btn gotur-btn">
+                                            Book Now <span class="icon"><i class="icon-right"></i> </span></a>
+                                    </div>
+                                    <!-- /.listing-card-four__content__btn -->
+                                </div>
+                                <!-- /.listing-card-four__content -->
+                            </div>
+                            <!-- /.listing-card-four -->
+                        </div>
+                        <!-- /.item -->
+                    @endforeach
+
+                </div>
+                <!-- /.feature-package__carousel -->
+            </div>
+
+            <!-- see all button  -->
+            <div class="destination-filter__btn mt-3">
+                <button data-tab="#itemFive" class="tab-btn gotur-btn"><a href="{{ route('tour.list') }}"
+                        class="text-white text-decoration-none">See All</a></button>
+            </div>
+            <!-- here show https://tripqode.in/tour-listing-1-right.html -->
+            <!-- see all button  -->
+            <!-- /.feature-package__inner -->
+        </div>
+        <!-- /.container -->
+
+        <div class="feature-package__element">
+            <img src="assets/images/shapes/love-1-2.png" alt>
+        </div>
+        <!-- /.feature-package__element -->
+    </section>
+    <!-- /.Maharashtra Monsoon Treks -->
+
+    <!-- /.himalayan Treks -->
+    <section class="feature-package feature-package--two section-space-second" id="guide">
+        <div class="container">
+            <div class="feature-package__top">
+                <div class="row align-items-end">
+                    <div class="col-lg-8">
+                        <div class="sec-title ">
+                            {{-- <h6 class="sec-title__tagline bw-split-in-right">Treks</h6> --}}
+                            <!-- /.sec-title__tagline -->
+                            <h3 class="sec-title__title bw-split-in-left">Himalayan <span> Treks</span></h3>
+                            <!-- /.sec-title__title -->
+                        </div>
+                        <!-- /.sec-title -->
+                    </div>
+                    <!-- /.col-lg-8 -->
+                    <div class="col-lg-4">
+                        <div class="feature-package__bottom__nav">
+                            <button class="feature-package__carousel__nav--left"><span
+                                    class="icon-arrow-left"></span></button>
+                            <button class="feature-package__carousel__nav--right"><span
+                                    class="icon-arrow-right"></span></button>
+                        </div>
+                    </div>
+                    <!-- /.col-lg-4 -->
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.feature-package__top -->
+        </div>
+        <!-- /.container -->
+        <div class="container-fluid">
+            <div class="feature-package__inner">
+                <div class="feature-package__carousel gotur-owl__carousel gotur-owl__carousel--custom-nav gotur-owl__carousel--with-shadow owl-carousel owl-theme"
+                    data-owl-nav-prev=".feature-package__carousel__nav--left"
+                    data-owl-nav-next=".feature-package__carousel__nav--right"
+                    data-owl-options='{
+                    "items": 1,
+                    "margin": 30,
+                    "loop": false,
+                    "smartSpeed": 700,
+                    "nav": false,
+                    "dots": false,
+                    "autoplay": false,
+                    "responsive": {
+                        "0": {
+                            "items": 1
+                        },
+                        "576": {
+                            "items": 2
+                        },
+                        "768": {
+                            "items": 2
+                        },
+                        "992": {
+                            "items": 3
+                        },
+                        "1199": {
+                            "items": 3
+                        },
+                        "1500": {
+                            "items": 4
+                        }
+                    }
+                }'>
+                    @foreach ($tours as $tour)
+                        <div class="item">
+                            <div class="listing-card-four wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='100ms'>
+                                <div class="listing-card-four__image">
+                                    <img src="{{ asset('storage/' . $tour->feature_image) }}"
+                                        alt="All Inclusive Ultimate Circle Island Day with Lunch">
+                                    <div class="listing-card-four__btn-group">
+
+                                        {{-- <div class="listing-card-four__featured">Featured</div> --}}
+                                        <!-- /.listing-card-four__featured -->
+
+                                    </div>
+                                    <!-- /.listing-card-four__btn-group -->
+                                    <div class="listing-card-four__btns">
+                                        {{-- <a href="#"><i class="far fa-heart"></i></a> --}}
+                                        <div class="listing-card-four__btns__hover">
+                                            {{-- <a href="#" class="listing-card-four__popup card__popup"
+                                                data-gallery-options='{
+                                            "items": [
+                                                {
+                                                    "src": "assets/images/blog/listing-1-1.jpg"
+                                                },
+                                                {
+                                                    "src": "assets/images/blog/listing-1-2.jpg"
+                                                },
+                                                {
+                                                    "src": "assets/images/blog/listing-1-3.jpg"
+                                                }
+                                            ],
+                                            "gallery": {
+                                                "enabled": true
+                                            },
+                                            "type": "image"
+                                        }'>
+                                                {{-- <span class="icon-image"></span> --}}
+                                            {{-- </a>  --}}
+                                            {{-- <a class="video-popup" href="https://www.youtube.com/watch?v=0MuL8fd3pb8"><span
+                                                    class="icon-video"></span></a> --}}
+                                        </div>
+                                        <!-- /.listing-card-four__btns__hover -->
+                                    </div>
+                                    <ul class="listing-card-four__meta list-unstyled">
+                                        <li>
+                                            <a href="{{ route('tour.details', $tour->slug) }}"> <span
+                                                    class="listing-card-four__meta__icon"> <i class="icon-pin1"></i>
+                                                </span>{{ ucfirst($tour->location) }}</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('tour.details', $tour->slug) }}"> <span
+                                                    class="listing-card-four__meta__icon"> <i class="icon-calendar"></i>
+                                                </span>{{ $tour->days }} Days, {{ $tour->nights }} Night</a>
+                                        </li>
+                                    </ul>
+                                    <!-- /.listing-card-four__meta -->
+                                    <a href="{{ route('tour.details', $tour->slug) }}"
+                                        class="listing-card-four__image__overly"></a>
+                                </div>
+                                <!-- /.listing-card-four__image -->
+                                <div class="listing-card-four__content">
+                                    <div class="listing-card-four__rating">
+                                        <span>(10 Review)</span>
+                                        <i class="icon-star"></i>
+                                        <i class="icon-star"></i>
+                                        <i class="icon-star"></i>
+                                        <i class="icon-star"></i>
+                                        <i class="icon-star"></i>
+                                    </div>
+                                    <!-- /.listing-card-four__rating -->
+                                    <h3 class="listing-card-four__title"><a
+                                            href="{{ route('tour.details', $tour->slug) }}">{{ ucfirst($tour->title) }}</a>
+                                    </h3>
+                                    <!-- /.listing-card-four__title -->
+
+                                    <div class="listing-card-four__content__btn">
+                                        <div class="listing-card-four__price">
+                                            <span class="listing-card-four__price__sub">Rate</span>
+                                            <span class="listing-card-four__price__number">₹
+                                                {{ $tour->rate }}</span>
+                                        </div>
+                                        <!-- /.listing-card-four__price -->
+                                        <a href="{{ route('tour.details', $tour->slug) }}"
+                                            class="listing-card-four__btn gotur-btn">
+                                            Book Now <span class="icon"><i class="icon-right"></i> </span></a>
+                                    </div>
+                                    <!-- /.listing-card-four__content__btn -->
+                                </div>
+                                <!-- /.listing-card-four__content -->
+                            </div>
+                            <!-- /.listing-card-four -->
+                        </div>
+                        <!-- /.item -->
+                    @endforeach
+
+                </div>
+                <!-- /.feature-package__carousel -->
+            </div>
+
+            <!-- see all button  -->
+            <div class="destination-filter__btn mt-3">
+                <button data-tab="#itemFive" class="tab-btn gotur-btn"><a href="{{ route('tour.list') }}"
+                        class="text-white text-decoration-none">See All</a></button>
+            </div>
+            <!-- here show https://tripqode.in/tour-listing-1-right.html -->
+            <!-- see all button  -->
+            <!-- /.feature-package__inner -->
+        </div>
+        <!-- /.container -->
+
+        <div class="feature-package__element">
+            <img src="assets/images/shapes/love-1-2.png" alt>
+        </div>
+        <!-- /.feature-package__element -->
+    </section>
+    <!-- /.himalayan Treks -->
+
 
     <section class="destination-filter section-space" id="destination">
         <div class="container">
@@ -237,7 +595,8 @@
                                     </div>
                                     <!-- /.destination-card-one__thumb -->
                                     <div class="destination-card-one__content">
-                                        <h3 class="destination-card-one__title"><a href="destination-details.html">Tokyo</a>
+                                        <h3 class="destination-card-one__title"><a
+                                                href="destination-details.html">Tokyo</a>
                                         </h3>
                                         <!-- /.destination-card-one__title -->
                                     </div>
@@ -1253,7 +1612,8 @@
         </div>
         <!-- /.instagram-one__top -->
         <div class="container-fluid">
-            <div class="instagram-one__carousel gotur-owl__carousel owl-carousel owl-theme" data-owl-options='{
+            <div class="instagram-one__carousel gotur-owl__carousel owl-carousel owl-theme"
+                data-owl-options='{
                     "items": 6,
                     "margin": 30,
                     "loop": false,

@@ -37,7 +37,6 @@
     <link rel="stylesheet" href="{{ asset('assets/vendors/owl-carousel/css/owl.theme.default.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendors/slick-carousel/slick.css') }}">
 
-    <link href="https://fonts.cdnfonts.com/css/samarkan" rel="stylesheet">
     <!-- samarkan font -->
 
     <!-- template styles -->
@@ -60,7 +59,6 @@
 
         @include('landing_page.main_slide')
 
-        {{-- @include('landing_page.main_app') --}}
         @yield('content')
 
         @include('landing_page.footer')
@@ -73,8 +71,8 @@
         <div class="header-right-sidebar__content">
             <span class="header-right-sidebar__close header-right-sidebar__toggler"><i class="fa fa-times"></i></span>
             <div class="header-right-sidebar__logo-box">
-                <a href="index.html" aria-label="logo image"> <img src="{{ asset('assets/images/logo/logo-dark.png') }}"
-                        width="158" alt="gotur"> </a>
+                <a href="index.html" aria-label="logo image"> <img
+                        src="{{ asset('assets/images/logo/logo-dark.png') }}" width="158" alt="gotur"> </a>
             </div>
             <div class="header-right-sidebar__container">
                 <div class="header-right-sidebar__container__about wow fadeInUp" data-wow-duration='1500ms'
@@ -107,8 +105,8 @@
                                 <a href="tel:+919011011366">+91 90110 11366</a>
                             </div>
                         </li>
-                        <li class="header-right-sidebar__container__list__item wow fadeInUp" data-wow-duration='1500ms'
-                            data-wow-delay='700ms'>
+                        <li class="header-right-sidebar__container__list__item wow fadeInUp"
+                            data-wow-duration='1500ms' data-wow-delay='700ms'>
                             <div class="header-right-sidebar__container__icon">
                                 <i class="icon-clock"></i>
                             </div>

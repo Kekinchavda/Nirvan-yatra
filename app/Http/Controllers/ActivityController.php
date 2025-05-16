@@ -7,7 +7,6 @@ use Exception;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Validator;
 
 class ActivityController extends Controller
 {
@@ -16,7 +15,7 @@ class ActivityController extends Controller
      */
     public function index()
     {
-        $activities = Activity::whereNull('deleted_at')->get();
+        $activities = Activity::select(['id', 'name'])->get();
         return view("activity.index", compact("activities"));
     }
 

@@ -12460,6 +12460,7 @@ a+.listing-card-four__btns__hover {
     overflow: hidden;
     border-radius: 122px;
     transition: all 0.4s ease-in-out;
+    border: 1px solid #63AB45 ;
 }
 
 .destinations-card-two__thumb img {
@@ -21109,5 +21110,17 @@ body.boxed-wrapper .testimonials-three__inner {
 .inner__text li span {
     font-weight: normal;  /* Ensure text inside <span> is also normal */
 }
+
+.destinations-card-two {
+    width: 100% !important;
+    max-width: 420px !important;
+    margin: 0 auto !important;
+}
+.owl-carousel .item {
+    max-width: 400px !important; /* or any value you prefer */
+    margin: 0 auto !important;
+}
+
+
 
 /*# sourceMappingURL=gotur.css.map */
