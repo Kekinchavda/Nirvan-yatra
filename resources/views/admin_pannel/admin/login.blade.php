@@ -11,7 +11,7 @@
             </use>
         </svg>
     </div>
-    
+
     <!-- tap on tapS ends-->
 
     <!-- page-wrapper Start-->

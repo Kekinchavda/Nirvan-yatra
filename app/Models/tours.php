@@ -10,6 +10,7 @@ class tours extends Model
     use HasFactory;
     protected $fillable = [
         'title',
+        'tour_type_id',
         'slug',
         'location',
         'activity_type',
@@ -38,6 +39,11 @@ class tours extends Model
     public function amenities()
     {
         return $this->hasOne(tour_amenities::class, 'tour_id');
+    }
+
+    public function tourType()
+    {
+        return $this->belongsTo(Tour_type::class, 'tour_type_id');
     }
 
 }

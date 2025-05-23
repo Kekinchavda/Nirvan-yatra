@@ -3,6 +3,7 @@
 use App\Http\Controllers\{
     ActivityController,
     DestinationController,
+    InstaPostController,
     LandingPageController,
     LocationController,
     LoginController,
@@ -76,4 +77,6 @@ Route::middleware('auth')->group(function () {
 
     Route::get('logo', [LogoController::class, 'index'])->name('logo');
     Route::post('logo', [LogoController::class, 'storeOrUpdate'])->name('logo.storeOrUpdate');
+
+    route::resource("insta-post", InstaPostController::class);
 });

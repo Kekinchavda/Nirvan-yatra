@@ -29,7 +29,8 @@
                                         </div>
                                     </a>
                                     <a class="nav-link" id="TourDetails-wizard-tab" data-bs-toggle="pill"
-                                        href="#tour-details" role="tab" aria-controls="tour-details" aria-selected="false">
+                                        href="#tour-details" role="tab" aria-controls="tour-details"
+                                        aria-selected="false">
                                         <div class="horizontal-wizard">
                                             <div class="stroke-icon-wizard"><i class="fa fa-chain-broken"></i></div>
                                             <div class="horizontal-wizard-content">
@@ -79,6 +80,25 @@
                                     <!-- Step 1: Basic Info -->
                                     <div class="tab-pane fade show active" id="wizard-info" role="tabpanel">
                                         <div class="row g-3">
+                                            {{-- tour type --}}
+                                            <div class="col-xl-4 col-sm-6">
+                                                <label class="form-label">Tour Type<span
+                                                        class="font-danger">*</span></label>
+                                                <select class="form-select" id="select" name="tour_type_id">
+                                                    <option value="">-- Select Tour Type --</option>
+                                                    @foreach ($tourType as $type)
+                                                        <option value="{{ $type->id }}">{{ $type->name }}</option>
+                                                    @endforeach
+                                                </select>
+
+                                                <div class="valid-feedback">Looks good!</div>
+                                                <div class="invalid-tooltip">
+                                                    Please select valid type.
+                                                </div>
+                                                @error('tour_type_id')
+                                                    <small class="text-danger">{{ $message }}</small>
+                                                @enderror
+                                            </div>
                                             <div class="col-xl-4 col-sm-6">
                                                 <label class="form-label">Tour Title<span
                                                         class="font-danger">*</span></label>
@@ -104,49 +124,49 @@
                                                     <small class="text-danger">{{ $message }}</small>
                                                 @enderror
                                             </div>
-                                            {{-- daily itinerary --}}
-                                            <div class="col-xl-4 col-sm-6">
-                                                <label class="form-label">Tour Slug<span
-                                                        class="font-danger">*</span></label>
-                                                <input type="text" name="slug" class="form-control" placeholder="Enter slug"
-                                                    required value="{{ old('slug') }}">
-                                                <div class="valid-feedback">Looks good!</div>
-                                                <div class="invalid-tooltip">
-                                                    Please enter a valid Url.
-                                                </div>
-                                                @error('slug')
-                                                    <small class="text-danger">{{ $message }}</small>
-                                                @enderror
-                                            </div>
+
 
                                             <div class="col-xl-4 col-sm-6">
                                                 <label class="col-xxl-3 box-col-12 text-start">From - To<span
                                                         class="text-danger">*</span></label>
-                                                <div class="input-group flatpicker-calender">
-                                                    <input class="form-control" id="datetime-range" name="fromTo" required
-                                                        type="text" placeholder="Select range" value="{{ old('fromTo') }}">
+                                                <div class="input-group">
+                                                    <input class="form-control" name="fromTo" required type="text"
+                                                        placeholder="Enter Date" value="{{ old('fromTo') }}">
                                                     <div class="valid-feedback">Looks good!</div>
                                                     <div class="invalid-tooltip">
-                                                        Please enter a valid time range.
+                                                        Please enter a valid date.
                                                     </div>
                                                 </div>
                                                 <small class="text-danger" id="datetime-range-error"></small>
                                                 @error('fromTo')
-                                                    <small class="text-danger" id="datetime-range-error">{{ $message }}</small>
+                                                    <small class="text-danger"
+                                                        id="datetime-range-error">{{ $message }}</small>
                                                 @enderror
                                             </div>
 
                                             <div class="col-xl-4 col-sm-6">
                                                 <label for="pickup_drop" class="form-label">Pickup and Drop Location <span
                                                         class="text-danger">*</span></label>
-                                                <input type="text" name="pickup_drop" id="pickup_drop" class="form-control"
-                                                    placeholder="Enter pickup and drop location" required
-                                                    value="{{ old('pickup_drop') }}">
+                                                <input type="text" name="pickup_drop" id="pickup_drop"
+                                                    class="form-control" placeholder="Enter pickup and drop location"
+                                                    required value="{{ old('pickup_drop') }}">
                                                 @error('pickup_drop')
                                                     <small class="text-danger">{{ $message }}</small>
                                                 @enderror
                                             </div>
 
+                                            <!-- other Section -->
+                                            <div class="col-12 mt-4 mt-sm-5 mt-lg-6">
+                                                <label class="form-label">Other</label>
+                                                <textarea name="other" id="other" class="form-control ckeditor" rows="4"
+                                                    placeholder="Add any additional other here..."></textarea>
+                                                <div class="valid-feedback">Looks good!</div>
+                                                <div class="invalid-feedback">Please enter something here.
+                                                </div>
+                                                @error('note')
+                                                    <small class="text-danger d-block">{{ $message }}</small>
+                                                @enderror
+                                            </div>
 
                                             <div class="col-12 text-end">
                                                 <button type="button" class="btn btn-primary"
@@ -159,7 +179,8 @@
                                     <div class="tab-pane fade" id="tour-details" role="tabpanel">
                                         <div class="row g-3">
                                             <div class="col-xl-4 col-sm-6">
-                                                <label class="form-label">Location<span class="font-danger">*</span></label>
+                                                <label class="form-label">Location<span
+                                                        class="font-danger">*</span></label>
                                                 <input type="text" name="location" class="form-control"
                                                     placeholder="Enter Tour Location" required
                                                     value="{{ old('location') }}">
@@ -168,7 +189,8 @@
                                                 @enderror
                                             </div>
                                             <div class="col-xl-4 col-sm-6">
-                                                <label class="form-label">Activity<span class="font-danger">*</span></label>
+                                                <label class="form-label">Activity<span
+                                                        class="font-danger">*</span></label>
                                                 <input type="text" name="activity" class="form-control"
                                                     placeholder="Enter Tour activity" required
                                                     value="{{ old('activity') }}">
@@ -209,9 +231,7 @@
                                             <div class="col-xl-6 col-sm-6">
                                                 <label class="form-label">Trip Overview<span
                                                         class="font-danger">*</span></label>
-                                                <textarea name="overview" class="form-control" rows="3"
-                                                    placeholder="Enter trip overview"
-                                                    required>{{ old('overview') }}</textarea>
+                                                <textarea name="overview" class="form-control ckeditor" rows="4" placeholder="Enter trip overview" required>{{ old('overview') }}</textarea>
                                                 <div class="valid-feedback">Looks good!</div>
                                                 <div class="invalid-feedback">
                                                     Please enter Trip Overview
@@ -225,10 +245,10 @@
                                                         class="font-danger">*</span></label>
                                                 <div id="highlight-wrapper">
                                                     <div class="d-flex mb-2">
-                                                        @foreach(old('highlight_list', ['']) as $highlight)
-
-                                                            <input type="text" name="highlight_list[]" class="form-control me-2"
-                                                                placeholder="Enter highlight" required>
+                                                        @foreach (old('highlight_list', ['']) as $highlight)
+                                                            <input type="text" name="highlight_list[]"
+                                                                class="form-control me-2" placeholder="Enter highlight"
+                                                                required>
                                                         @endforeach
 
                                                         <button type="button" class="btn btn-success btn-sm"
@@ -295,7 +315,8 @@
 
                                                         @foreach ($errors->get('included_amenities.*') as $messages)
                                                             @foreach ($messages as $msg)
-                                                                <small class="text-danger d-block">{{ $msg }}</small>
+                                                                <small
+                                                                    class="text-danger d-block">{{ $msg }}</small>
                                                             @endforeach
                                                         @endforeach
                                                     </div>
@@ -315,7 +336,8 @@
                                                                 onclick="addAmenityField('not-included')">+</button>
                                                         </div>
                                                         <div class="valid-feedback">Looks good!</div>
-                                                        <div class="invalid-feedback">Please enter at least one Not Included
+                                                        <div class="invalid-feedback">Please enter at least one Not
+                                                            Included
                                                             Amenities.
                                                         </div>
                                                         @error('not_included_amenities')
@@ -324,7 +346,8 @@
 
                                                         @foreach ($errors->get('not_included_amenities.*') as $messages)
                                                             @foreach ($messages as $msg)
-                                                                <small class="text-danger d-block">{{ $msg }}</small>
+                                                                <small
+                                                                    class="text-danger d-block">{{ $msg }}</small>
                                                             @endforeach
                                                         @endforeach
                                                     </div>
@@ -352,7 +375,8 @@
 
                                                         @foreach ($errors->get('other_charges.*') as $messages)
                                                             @foreach ($messages as $msg)
-                                                                <small class="text-danger d-block">{{ $msg }}</small>
+                                                                <small
+                                                                    class="text-danger d-block">{{ $msg }}</small>
                                                             @endforeach
                                                         @endforeach
                                                     </div>
@@ -379,8 +403,7 @@
                                                         <input type="text" name="itinerary[0][title]"
                                                             class="form-control mb-2" placeholder="Enter title for Day 1">
                                                         <label class="form-label">Details</label>
-                                                        <textarea id="editor-0" name="itinerary[0][details]"
-                                                            class="form-control itinerary-editor" rows="4"
+                                                        <textarea id="editor-0" name="itinerary[0][details]" class="form-control itinerary-editor" rows="4"
                                                             placeholder="Enter details for Day 1"></textarea>
                                                     </div>
                                                 </div>
@@ -428,8 +451,7 @@
                                             <div class="col-xl-6 col-sm-6">
                                                 <label class="form-label">Things to Carry <span
                                                         class="font-danger">*</span></label>
-                                                <textarea name="things_to_carry" id="things_to_carry"
-                                                    class="form-control ckeditor" rows="6"
+                                                <textarea name="things_to_carry" id="things_to_carry" class="form-control ckeditor" rows="6"
                                                     placeholder="List things users should carry..." required></textarea>
                                                 <div class="valid-feedback">Looks good!</div>
                                                 <div class="invalid-feedback">
@@ -444,8 +466,7 @@
                                             <div class="col-xl-6 col-sm-6">
                                                 <label class="form-label">Terms & Conditions <span
                                                         class="font-danger">*</span></label>
-                                                <textarea name="terms_conditions" id="terms_conditions"
-                                                    class="form-control ckeditor" rows="6" required
+                                                <textarea name="terms_conditions" id="terms_conditions" class="form-control ckeditor" rows="6" required
                                                     placeholder="Add your terms and conditions here..."></textarea>
                                                 <div class="valid-feedback">Looks good!</div>
                                                 <div class="invalid-feedback">Please enter Terms & Conditions.
@@ -458,8 +479,8 @@
                                             <!-- Note Section -->
                                             <div class="col-xl-6 col-sm-6 mt-3">
                                                 <label class="form-label">Note <span class="font-danger">*</span></label>
-                                                <textarea name="note" id="note" required class="form-control ckeditor"
-                                                    rows="4" placeholder="Add any additional notes here..."></textarea>
+                                                <textarea name="note" id="note" required class="form-control ckeditor" rows="4"
+                                                    placeholder="Add any additional notes here..."></textarea>
                                                 <div class="valid-feedback">Looks good!</div>
                                                 <div class="invalid-feedback">Please enter Note.
                                                 </div>
@@ -506,10 +527,10 @@
             const div = document.createElement('div');
             div.classList.add('d-flex', 'mb-2');
 
-            div.innerHTML = `
-                                                                                                                                                                                                                                                                    <input type="text" name="highlight_list[]" class="form-control me-2" placeholder="Enter highlight">
-                                                                                                                                                                                                                                                                    <button type="button" class="btn btn-danger btn-sm" onclick="removeHighlightField(this)">−</button>`
-                ;
+            div.innerHTML =
+                `
+                <input type="text" name="highlight_list[]" class="form-control me-2" placeholder="Enter highlight">
+                <button type="button" class="btn btn-danger btn-sm" onclick="removeHighlightField(this)">−</button>`;
             wrapper.appendChild(div);
         }
 
@@ -526,27 +547,29 @@
             const div = document.createElement('div');
             div.classList.add('d-flex', 'mb-2');
 
-            div.innerHTML = `
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <input type="text" name="${inputName}" class="form-control me-2" placeholder="Enter amenity">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <button type="button" class="btn btn-danger btn-sm" onclick="this.parentElement.remove()">−</button>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                `;
+            div.innerHTML =
+                `
+                <input type="text" name="${inputName}" class="form-control me-2" placeholder="Enter amenity">
+                <button type="button" class="btn btn-danger btn-sm" onclick="this.parentElement.remove()">−</button>
+                `;
 
             wrapper.appendChild(div);
         }
+
         function addOtherChargeField() {
             const wrapper = document.getElementById('other-charges-wrapper');
 
             const div = document.createElement('div');
             div.classList.add('d-flex', 'mb-2');
 
-            div.innerHTML = `
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <input type="text" name="other_charges[]" class="form-control me-2" placeholder="Enter other charge">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <button type="button" class="btn btn-danger btn-sm" onclick="this.parentElement.remove()">−</button>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                `;
+            div.innerHTML =
+                `
+                <input type="text" name="other_charges[]" class="form-control me-2" placeholder="Enter other charge">
+                <button type="button" class="btn btn-danger btn-sm" onclick="this.parentElement.remove()">−</button>
+            `;
 
             wrapper.appendChild(div);
         }
-
     </script>
     <script src="https://cdn.ckeditor.com/4.25.1/standard/ckeditor.js"></script>
 
@@ -563,19 +586,20 @@
 
             const editorId = `editor-${dayCount}`;
 
-            col.innerHTML = `
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <div class="card p-2 mb-3 shadow-sm position-relative">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                            <button type="button" class="btn-close position-absolute top-0 end-0 m-2"
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                aria-label="Close" onclick="removeDayItinerary(${dayCount})"></button>
+            col.innerHTML =
+                `
+                    <div class="card p-2 mb-3 shadow-sm position-relative">
+            <button type="button" class="btn-close position-absolute top-0 end-0 m-2"
+                aria-label="Close" onclick="removeDayItinerary(${dayCount})"></button>
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                            <label class="form-label">Day ${dayCount + 1} Title</label>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                            <input type="text" name="itinerary[${dayCount}][title]"
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                class="form-control mb-2" placeholder="Enter title for Day ${dayCount + 1}">
+            <label class="form-label">Day ${dayCount + 1} Title</label>
+            <input type="text" name="itinerary[${dayCount}][title]"
+                class="form-control mb-2" placeholder="Enter title for Day ${dayCount + 1}">
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                            <label class="form-label">Details</label>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                            <textarea id="${editorId}" name="itinerary[${dayCount}][details]" class="form-control itinerary-editor"
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                rows="4" placeholder="Enter details for Day ${dayCount + 1}"></textarea>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                            </div>`;
+            <label class="form-label">Details</label>
+            <textarea id="${editorId}" name="itinerary[${dayCount}][details]" class="form-control itinerary-editor"
+                rows="4" placeholder="Enter details for Day ${dayCount + 1}"></textarea>
+            </div>`;
             wrapper.appendChild(col);
 
             setTimeout(() => {
@@ -658,42 +682,13 @@
         }
 
         // Initialize Day 1 on load
-        document.addEventListener("DOMContentLoaded", function () {
+        document.addEventListener("DOMContentLoaded", function() {
             CKEDITOR.replace('editor-0');
         });
 
-        flatpickr("#datetime-range", {
-            mode: "range",
-            dateFormat: "Y-m-d",
-            time_24hr: true,
-            altInput: true,
-            altFormat: "F j, Y",
-            minDate: "today",
-            onChange: function (selectedDates, dateStr, instance) {
-                const errorElement = document.querySelector('#datetime-range-error');
-
-                if (selectedDates.length === 2) {
-                    const diffTime = Math.abs(selectedDates[1] - selectedDates[0]);
-                    const diffDays = diffTime / (1000 * 60 * 60 * 24);
-
-                    if (diffDays > 15) {
-                        // Show error and clear
-                        if (errorElement) {
-                            errorElement.textContent = "You can select a maximum range of 15 days.";
-                        }
-                        instance.clear();
-                    } else {
-                        // Clear error if range is valid
-                        if (errorElement) {
-                            errorElement.textContent = "";
-                        }
-                    }
-                }
-            }
-        });
 
         // tagify
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             const input = document.querySelector('#locationCover');
             new Tagify(input, {
                 enforceWhitelist: false, // Allow any entry
@@ -705,10 +700,10 @@
         });
     </script>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             const form = document.querySelector('.needs-validation');
 
-            form.addEventListener('submit', function (event) {
+            form.addEventListener('submit', function(event) {
                 // Update all CKEditor instances before validation
                 for (let instanceName in CKEDITOR.instances) {
                     CKEDITOR.instances[instanceName].updateElement();
@@ -724,5 +719,4 @@
             });
         });
     </script>
-
 @endsection

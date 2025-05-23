@@ -6,6 +6,7 @@ use App\Models\Activity;
 use App\Models\tour_amenities;
 use App\Models\tour_overviews;
 use App\Models\tour_plans;
+use App\Models\Tour_type;
 use App\Models\tours;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -33,7 +34,6 @@ class ToursController extends Controller
             if ($tour->plan && is_string($tour->plan->itinerary)) {
                 $tour->plan->itinerary = json_decode($tour->plan->itinerary, true) ?? [];
             }
-            // dd($tour->plan->itinerary);
         }
         return view('tour.index', compact('tours'));
     }
@@ -44,7 +44,8 @@ class ToursController extends Controller
     public function create()
     {
         $activity = Activity::all();
-        return view('tour.create', compact('activity'));
+        $tourType = Tour_type::select('id', 'name')->where('status', 'active')->get();
+        return view('tour.create', compact('activity', 'tourType'));
     }
 
     /**
@@ -56,7 +57,6 @@ class ToursController extends Controller
         // Step 1: Validate input
         $request->validate([
             'tour_title' => 'required|string|max:255',
-            'slug' => 'required|max:255|unique:tours,slug',
             'location' => 'required|string',
             'activity' => 'required',
             'days' => 'required|integer|min:1',
@@ -80,6 +80,7 @@ class ToursController extends Controller
             'things_to_carry' => 'required',
             'terms_conditions' => 'required',
             'note' => 'required',
+            'tour_type_id' => 'required',
         ]);
 
         // Step 2: Upload media
@@ -112,13 +113,14 @@ class ToursController extends Controller
             'things_to_carry' => json_encode($request->things_to_carry),
             'terms_conditions' => json_encode($request->terms_conditions),
             'note' => json_encode($request->note),
+            'tour_type_id' => $request->tour_type_id,
         ]);
 
 
         // Step 4: Overview
         tour_overviews::create([
             'tour_id' => $tour->id,
-            'overview' => $request->overview,
+            'overview' => json_encode($request->overview),
             'highlights' => json_encode($request->highlight_list),
         ]);
 
@@ -237,6 +239,7 @@ class ToursController extends Controller
         $overview = tour_overviews::where('tour_id', $id)->first();
         $plan = tour_plans::where('tour_id', $id)->first();
         $amenity = tour_amenities::where('tour_id', $id)->first();
+        $tourType = Tour_type::select('id', 'name')->where('status', 'active')->get();
 
         $plan->itinerary = is_string($plan->itinerary)
             ? json_decode($plan->itinerary, true) ?? []
@@ -258,6 +261,10 @@ class ToursController extends Controller
             ? json_decode($tour->other_charges, true) ?? []
             : ($tour->other_charges ?? []);
 
+        $tour->overview = is_string($tour->overview->overview)
+            ? json_decode($tour->overview->overview, true) ?? []
+            : ($tour->overview->overview ?? []);
+
         if (is_string($tour->locationCover)) {
             // Decode the main JSON array (assuming it’s a JSON string)
             $decoded = json_decode($tour->locationCover, true);
@@ -267,7 +274,6 @@ class ToursController extends Controller
                 // If it's still a string, decode again
                 $decoded = json_decode($decoded, true);
             }
-            // dd($decoded);
         } elseif (is_array($tour->locationCover) && count($tour->locationCover) === 1 && is_string($tour->locationCover[0])) {
             // Handle: array with one JSON string
             $decoded = json_decode($tour->locationCover[0], true);
@@ -294,7 +300,7 @@ class ToursController extends Controller
             ? json_decode($tour->note, true) ?? []
             : ($tour->note ?? []);
 
-        return view('tour.edit', compact('tour', 'overview', 'plan', 'amenity'));
+        return view('tour.edit', compact('tour', 'overview', 'plan', 'amenity', 'tourType'));
     }
 
 
@@ -304,9 +310,10 @@ class ToursController extends Controller
     public function update(Request $request, $id)
     {
         $tour = tours::findOrFail($id);
+        // dd($request->all());
+
         $request->validate([
             'tour_title' => 'required|string|max:255',
-            'slug' => 'required|max:255|unique:tours,slug,' . $tour->id,
             'location' => 'required|string',
             'activity' => 'required',
             'days' => 'required|integer|min:1',
@@ -328,6 +335,7 @@ class ToursController extends Controller
             'terms_conditions' => 'required',
             'note' => 'required',
         ]);
+
         // Update image if uploaded
         $imagePath = $tour->feature_image;
         if ($request->hasFile('feature_image')) {
@@ -338,7 +346,6 @@ class ToursController extends Controller
         // Update main tour
         $tour->update([
             'title' => $request->tour_title,
-            'slug' => strtolower($request->slug), // this will generate 'goa-family-trip'
             'activity_type' => json_encode($request->activity),
             'location' => $request->location,
             'days' => $request->days,
@@ -352,6 +359,7 @@ class ToursController extends Controller
             'things_to_carry' => json_encode($request->things_to_carry),
             'terms_conditions' => json_encode($request->terms_conditions),
             'note' => json_encode($request->note),
+            'tour_type_id' => $request->tour_type_id,
         ]);
 
         // Update overview
@@ -359,7 +367,7 @@ class ToursController extends Controller
             ['tour_id' => $tour->id],
             [
                 'tour_id' => $tour->id,
-                'overview' => $request->overview,
+                'overview' => json_encode($request->overview),
                 'highlights' => json_encode($request->highlight_list),
             ]
         );

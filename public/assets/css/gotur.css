@@ -21121,6 +21121,15 @@ body.boxed-wrapper .testimonials-three__inner {
     margin: 0 auto !important;
 }
 
-
+.destinations-two__carousel {
+    max-width: 800px;
+    margin: 0 auto;
+}
+.destinations-two__carousel .owl-item {
+    width: 350px !important;
+}
+.main-slider-one__destinations {
+    margin-right:-582px !important
+}
 
 /*# sourceMappingURL=gotur.css.map */

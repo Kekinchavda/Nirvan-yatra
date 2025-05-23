@@ -30,29 +30,29 @@
                         data-owl-nav-prev=".main-slider-one__carousel__nav--left"
                         data-owl-nav-next=".main-slider-one__carousel__nav--right"
                         data-owl-options='{
-                                            "items": 1.3,
-                                            "center": true,
-                                            "margin": 30,
-                                            "loop": true,
-                                            "smartSpeed": 700,
-                                            "nav": false,
-                                            "dots": false,
-                                            "autoplay": true,
-                                            "responsive": {
-                                                "0": {
-                                                    "items": 1.1
-                                                },
-                                                "575": {
-                                                    "items": 1.2
-                                                },
-                                                "768": {
-                                                    "items": 1.3
-                                                },
-                                                "992": {
-                                                    "items": 1.4
+                                            "items": 2,
+                                                    "center": false,
+                                                    "margin": 30,
+                                                    "loop": true,
+                                                    "smartSpeed": 700,
+                                                    "nav": false,
+                                                    "dots": false,
+                                                    "autoplay": true,
+                                                    "responsive": {
+                                                    "0": {
+                                                        "items": 2
+                                                    },
+                                                    "575": {
+                                                        "items": 2.3
+                                                    },
+                                                    "768": {
+                                                        "items": 2
+                                                    },
+                                                    "992": {
+                                                        "items": 2
+                                                    }
                                                 }
-                                            }
-                                        }'>
+                                            }'>
                         <div class="item">
                             <div class="destinations-card-two wow fadeInUp" data-wow-duration='1500ms'
                                 data-wow-delay='100ms'>

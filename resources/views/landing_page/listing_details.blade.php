@@ -76,7 +76,8 @@
         </section><!-- /.page-header -->
 
         <div class="tour-one section-space-top wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='500ms'>
-            <div class="tour-one__carousel gotur-owl__carousel owl-carousel owl-theme" data-owl-options='{
+            <div class="tour-one__carousel gotur-owl__carousel owl-carousel owl-theme"
+                data-owl-options='{
             "items": 1,
             "center":true,
             "margin": 30,
@@ -157,7 +158,8 @@
                             </div><!-- /.tour-listing-details__destination__revue -->
                         </div><!-- /.tour-listing-details__destination__left -->
                         <div class="tour-listing-details__destination__right">
-                            <a href="javascript:void(0)" class="tour-listing-details__destination__btn gotur-btn">Share
+                            <a href="javascript:void(0)"
+                                class="tour-listing-details__destination__btn gotur-btn">Share
                                 <i class="icon-share"></i></a>
                             <div class="tour-listing-details__destination__social__list">
                                 <a href="https://twitter.com">
@@ -181,7 +183,8 @@
                     </div><!-- /.tour-listing-details__destination__inner -->
                 </div><!-- /.container -->
             </div><!-- /.tour-listing-details__destination -->
-            <div class="tour-listing-details__info-area wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='500ms'>
+            <div class="tour-listing-details__info-area wow fadeInUp" data-wow-duration='1500ms'
+                data-wow-delay='500ms'>
                 <div class="container">
                     <ul class="tour-listing-details__info-area__info list-unstyled">
                         <li>
@@ -191,7 +194,8 @@
                             <div class="tour-listing-details__info-area__content">
                                 <h5 class="tour-listing-details__info-area__title">Location</h5>
                                 <!-- /.tour-listing-details__info-area__title -->
-                                <p class="tour-listing-details__info-area__text">{{ ucfirst($slugData->location) }}</p>
+                                <p class="tour-listing-details__info-area__text">{{ ucfirst($slugData->location) }}
+                                </p>
                                 <!-- /.tour-listing-details__info-area__text -->
                             </div><!-- /.tour-listing-details__info-area__content -->
                         </li>
@@ -202,7 +206,8 @@
                             <div class="tour-listing-details__info-area__content">
                                 <h5 class="tour-listing-details__info-area__title">Activities Type</h5>
                                 <!-- /.tour-listing-details__info-area__title -->
-                                <p class="tour-listing-details__info-area__text">{{ ucfirst($slugData->activity_type) }}
+                                <p class="tour-listing-details__info-area__text">
+                                    {{ ucfirst($slugData->activity_type) }}
                                 </p>
                                 <!-- /.tour-listing-details__info-area__text -->
                             </div><!-- /.tour-listing-details__info-area__content -->
@@ -214,7 +219,8 @@
                             <div class="tour-listing-details__info-area__content">
                                 <h5 class="tour-listing-details__info-area__title">Tour Day</h5>
                                 <!-- /.tour-listing-details__info-area__title -->
-                                <p class="tour-listing-details__info-area__text">{{ $slugData->from_to_formatted  }}</p>
+                                <p class="tour-listing-details__info-area__text">{{ $slugData->from_to_formatted }}
+                                </p>
                                 <!-- /.tour-listing-details__info-area__text -->
                             </div><!-- /.tour-listing-details__info-area__content -->
                         </li>
@@ -244,7 +250,8 @@
                                 data-wow-duration='1500ms' data-wow-delay='500ms'>
                                 <h4 class="tour-listing-details__title">Overview</h4>
                                 <!-- /.tour-listing-details__title -->
-                                <p class="tour-listing-details__text">{{ $slugData->overview->overview }}</p>
+                                <p class="tour-listing-details__text">{!! $slugData->overview->overview !!}
+                                </p>
                                 <!-- /.tour-listing-details__text -->
                             </div>
                             <div class="tour-listing-details__content__item tour-listing-details__content__text wow fadeInUp"
@@ -258,8 +265,8 @@
                                 data-wow-duration="1500ms" data-wow-delay="500ms">
                                 <h4 class="tour-listing-details__info-area__title">Location Cover In Trip:</h4>
                                 <p class="tour-listing-details__info-area__text">
-                                    @if(is_array($slugData->locationCover))
-                                        {{ implode(", ", $slugData->locationCover) }}
+                                    @if (is_array($slugData->locationCover))
+                                        {{ implode(', ', $slugData->locationCover) }}
                                     @else
                                         {{ $slugData->locationCover }} <!-- Display it directly if it's a string -->
                                     @endif
@@ -272,7 +279,6 @@
                                 data-wow-duration='1500ms' data-wow-delay='500ms'>
                                 <h4 class="tour-listing-details__title">Highlight List</h4>
                                 <!-- /.tour-listing-details__title -->
-                                {{-- @dd(is_array($slugData->overview->highlights)) --}}
                                 @if (!empty($slugData->overview->highlights) && is_array($slugData->overview->highlights))
                                     <ul class="tour-listing-details__content__list">
                                         @foreach ($slugData->overview->highlights as $highlight)
@@ -283,6 +289,7 @@
                                     <p>No highlights available.</p>
                                 @endif
                             </div>
+                            
                             <!-- /.tour-listing-details__content__list -->
                             <div class="tour-listing-details__content__item tour-listing-details__amenities wow fadeInUp"
                                 data-wow-duration='1500ms' data-wow-delay='500ms'>
@@ -349,8 +356,9 @@
                             {{-- <div class="tour-listing-details__content__item tour-listing-details__ture-plan">
                                 <h4 class="tour-listing-details__title text-danger">Note :- </h4>
                             </div> --}}
-                            @if($slugData->other_charges)
-                                <div class="tour-listing-details__content__item tour-listing-details__list wow fadeInUp">
+                            @if ($slugData->other_charges)
+                                <div
+                                    class="tour-listing-details__content__item tour-listing-details__list wow fadeInUp">
                                     <h4 class="tour-listing-details__title">Other Charges</h4>
                                     <div class="faq-page__accordion faq-accordion gotur-accordion"
                                         data-grp-name="gotur-accordion">
@@ -379,7 +387,7 @@
                                     </div>
                                 </div>
                             @endif
-                            @if($slugData->things_to_carry)
+                            @if ($slugData->things_to_carry)
 
                                 <div class="tour-listing-details__content__item tour-listing-details__list wow fadeInUp"
                                     data-wow-duration='1500ms' data-wow-delay='500ms'>
@@ -411,7 +419,7 @@
                                     </div>
                                 </div>
                             @endif
-                            @if($slugData->terms_conditions)
+                            @if ($slugData->terms_conditions)
                                 <div class="tour-listing-details__content__item tour-listing-details__list wow fadeInUp"
                                     data-wow-duration='1500ms' data-wow-delay='500ms'>
                                     <h4 class="tour-listing-details__title">Terms & Condition</h4>
@@ -442,7 +450,7 @@
                                 </div>
                             @endif
 
-                            @if($slugData->note)
+                            @if ($slugData->note)
                                 <div class="tour-listing-details__content__item tour-listing-details__list wow fadeInUp"
                                     data-wow-duration='1500ms' data-wow-delay='500ms'>
                                     <h4 class="tour-listing-details__title">Note</h4>
@@ -669,16 +677,17 @@
                                     <div class="form-one__group">
                                         <div class="form-one__control">
                                             <label for="name">Your Name*</label>
-                                            <input type="text" name="name" id="name" placeholder="Your Name">
+                                            <input type="text" name="name" id="name"
+                                                placeholder="Your Name">
                                         </div>
                                         <div class="form-one__control">
                                             <label for="email">Your Email*</label>
-                                            <input type="email" name="email" id="email" placeholder="Your Email">
+                                            <input type="email" name="email" id="email"
+                                                placeholder="Your Email">
                                         </div>
                                         <div class="form-one__control form-one__control--full">
                                             <label for="message">Message*</label>
-                                            <textarea name="message" id="message"
-                                                placeholder="Write Message . . "></textarea>
+                                            <textarea name="message" id="message" placeholder="Write Message . . "></textarea>
                                         </div>
 
                                         <div class="form-one__control form-one__control--full">
@@ -703,12 +712,14 @@
                                         action="inc/sendemail.php" novalidate="novalidate">
                                         <div class="sidebar-two__form__control">
                                             <label for="checkin">From:</label>
-                                            <input class="gotur-datepicker" id="checkin" type="text" name="checkin">
+                                            <input class="gotur-datepicker" id="checkin" type="text"
+                                                name="checkin">
                                             <i class="icon-calendar"></i>
                                         </div>
                                         <div class="sidebar-two__form__control">
                                             <label for="checkout">Time:</label>
-                                            <input class="gotur-datepicker" id="checkout" type="text" name="checkout">
+                                            <input class="gotur-datepicker" id="checkout" type="text"
+                                                name="checkout">
                                         </div>
                                         <div class="sidebar-two__form__control">
                                             <label for="checkout">Tickets:</label>
@@ -806,8 +817,8 @@
         <div class="header-right-sidebar__content">
             <span class="header-right-sidebar__close header-right-sidebar__toggler"><i class="fa fa-times"></i></span>
             <div class="header-right-sidebar__logo-box">
-                <a href="index.html" aria-label="logo image"> <img src="assets/images/logo-landing.png" width="158"
-                        alt="gotur"> </a>
+                <a href="index.html" aria-label="logo image"> <img src="assets/images/logo-landing.png"
+                        width="158" alt="gotur"> </a>
             </div>
             <div class="header-right-sidebar__container">
                 <div class="header-right-sidebar__container__about wow fadeInUp" data-wow-duration='1500ms'
@@ -820,8 +831,8 @@
                 <div class="header-right-sidebar__container__contact">
                     <h3 class="header-right-sidebar__container__title">Contact Us</h3>
                     <ul class="header-right-sidebar__container__list list-unstyled">
-                        <li class="header-right-sidebar__container__list__item wow fadeInUp" data-wow-duration='1500ms'
-                            data-wow-delay='300ms'>
+                        <li class="header-right-sidebar__container__list__item wow fadeInUp"
+                            data-wow-duration='1500ms' data-wow-delay='300ms'>
                             <div class="header-right-sidebar__container__icon">
                                 <i class="icon-email"></i>
                             </div>
@@ -830,8 +841,8 @@
                                 <a href="">info@company.com</a>
                             </div>
                         </li>
-                        <li class="header-right-sidebar__container__list__item wow fadeInUp" data-wow-duration='1500ms'
-                            data-wow-delay='500ms'>
+                        <li class="header-right-sidebar__container__list__item wow fadeInUp"
+                            data-wow-duration='1500ms' data-wow-delay='500ms'>
                             <div class="header-right-sidebar__container__icon">
                                 <i class="icon-telephone"></i>
                             </div>
@@ -840,8 +851,8 @@
                                 <a href="tel:+91-123-654-900">+91 123 654 900</a>
                             </div>
                         </li>
-                        <li class="header-right-sidebar__container__list__item wow fadeInUp" data-wow-duration='1500ms'
-                            data-wow-delay='700ms'>
+                        <li class="header-right-sidebar__container__list__item wow fadeInUp"
+                            data-wow-duration='1500ms' data-wow-delay='700ms'>
                             <div class="header-right-sidebar__container__icon">
                                 <i class="icon-clock"></i>
                             </div>

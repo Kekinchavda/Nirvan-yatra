@@ -6,13 +6,15 @@ use App\Models\{
     Activity,
     ContactForm,
     Destination,
+    Insta_post,
     Location,
     Logo,
     tours
 };
+use App\Models\Tour_type;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
-
+use Illuminate\Support\Facades\DB;
 
 class LandingPageController extends Controller
 {
@@ -21,9 +23,17 @@ class LandingPageController extends Controller
         $locations = Location::all();
         $activitys = Activity::all();
         $destinations = Destination::all();
-        $tours = tours::all();
+        $tourData = Tour_type::with('tours')->get()
+            ->mapWithKeys(function ($tourType) {
+                return [
+                    $tourType->name => $tourType->tours
+                ];
+            })->toArray();
+
         $logo = Logo::first(); // assuming only one logo record
-        return view("landing_page.main_app", compact('locations', 'activitys', 'destinations', 'tours', 'logo'));
+        $instaPosts = Insta_post::select('id', 'image')->get(); // assuming only one logo record
+
+        return view("landing_page.main_app", compact('locations', 'activitys', 'destinations', 'tourData', 'logo', 'instaPosts'));
     }
 
     public function show($slug)
@@ -81,6 +91,9 @@ class LandingPageController extends Controller
             $slugData->note = json_decode($slugData->note, true);
         }
 
+        if ($slugData->overview) {
+            $slugData->overview->overview = json_decode($slugData->overview->overview, true);
+        }
         // location cover
         if (is_string($slugData->locationCover)) {
             // Decode the main JSON array (assuming it’s a JSON string)
