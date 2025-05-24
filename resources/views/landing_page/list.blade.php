@@ -107,7 +107,8 @@
                                             <ul class="listing-card-four__meta list-unstyled">
                                                 <li>
                                                     <a href="{{ route('tour.details', $tour->slug) }}"> <span
-                                                            class="listing-card-four__meta__icon"> <i class="icon-pin1"></i>
+                                                            class="listing-card-four__meta__icon"> <i
+                                                                class="icon-pin1"></i>
                                                         </span>{{ ucfirst($tour->location) }}</a>
                                                 </li>
                                                 <li>
@@ -137,11 +138,12 @@
                                             <div class="listing-card-four__content__btn">
                                                 <div class="listing-card-four__price">
                                                     <span class="listing-card-four__price__sub">Rate</span>
-                                                    <span class="listing-card-four__price__number">₹{{ $tour->rate }}</span>
+                                                    <span
+                                                        class="listing-card-four__price__number">₹{{ $tour->rate }}</span>
                                                 </div><!-- /.listing-card-four__price -->
                                                 <a href="{{ route('tour.details', $tour->slug) }}"
-                                                    class="listing-card-four__btn gotur-btn"> Book Now <span class="icon"><i
-                                                            class="icon-right"></i> </span></a>
+                                                    class="listing-card-four__btn gotur-btn"> Book Now <span
+                                                        class="icon"><i class="icon-right"></i> </span></a>
                                             </div><!-- /.listing-card-four__content__btn -->
                                         </div><!-- /.listing-card-four__content -->
                                     </div><!-- /.listing-card-four -->
@@ -149,21 +151,22 @@
                             @endforeach
 
                             <div class="col-12">
-                                @if($tours->count() > 0)
+                                @if ($tours->count() > 0)
                                     {{-- Only show pagination if more than one page exists --}}
-                                    @if($tours->hasPages())
+                                    @if ($tours->hasPages())
                                         <ul class="post-pagination justify-content-center" data-wow-duration='1500ms'
                                             data-wow-delay='500ms'>
                                             {{-- Previous Page Link --}}
-                                            @if($tours->onFirstPage())
+                                            @if ($tours->onFirstPage())
                                                 <li class="disabled"><span class="previous">Previous</span></li>
                                             @else
-                                                <li><a href="{{ $tours->previousPageUrl() }}" class="previous">Previous</a></li>
+                                                <li><a href="{{ $tours->previousPageUrl() }}"
+                                                        class="previous">Previous</a></li>
                                             @endif
 
                                             {{-- Pagination Numbers --}}
-                                            @foreach($tours->links()->elements[0] as $page => $url)
-                                                @if($page == $tours->currentPage())
+                                            @foreach ($tours->links()->elements[0] as $page => $url)
+                                                @if ($page == $tours->currentPage())
                                                     <li class="active"><span>{{ $page }}</span></li>
                                                 @else
                                                     <li><a href="{{ $url }}">{{ $page }}</a></li>
@@ -171,8 +174,9 @@
                                             @endforeach
 
                                             {{-- Next Page Link --}}
-                                            @if($tours->hasMorePages())
-                                                <li><a href="{{ $tours->nextPageUrl() }}" class="next">Next</a></li>
+                                            @if ($tours->hasMorePages())
+                                                <li><a href="{{ $tours->nextPageUrl() }}" class="next">Next</a>
+                                                </li>
                                             @else
                                                 <li class="disabled"><span class="next">Next</span></li>
                                             @endif
@@ -196,8 +200,8 @@
                     <div class="col-lg-4">
                         <aside class="listing__sidebar">
                             <div class="listing__sidebar__item">
-                                <form action="#" class="listing__sidebar__form wow fadeInUp" data-wow-delay="0.4s"
-                                    data-wow-duration="1500ms">
+                                <form action="#" class="listing__sidebar__form wow fadeInUp"
+                                    data-wow-delay="0.4s" data-wow-duration="1500ms">
                                     <div class="banner-form">
                                         <div class="banner-form__control">
                                             <i class="icon icon-location"></i>
@@ -206,7 +210,7 @@
                                                 data-live-search="true" title="Select Location">
                                                 @foreach ($locations as $location)
                                                     <option value="{{ $location->id }}"
-                                                        @if(request('location') == $location->id) selected @endif
+                                                        @if (request('location') == $location->id) selected @endif
                                                         data-tokens="{{ strtolower($location->name) }}">
                                                         {{ $location->name }}
                                                     </option>
@@ -220,7 +224,7 @@
                                                 data-live-search="true" title="Select Activity">
                                                 @foreach ($activitys as $activity)
                                                     <option value="{{ $activity->id }}"
-                                                        @if(request('activity') == $activity->id) selected @endif
+                                                        @if (request('activity') == $activity->id) selected @endif
                                                         data-tokens="{{ strtolower($activity->name) }}">
                                                         {{ $activity->name }}
                                                     </option>
@@ -231,7 +235,8 @@
                                         <div class="banner-form__control banner-form__control--date">
                                             <i class="icon icon-clock"></i>
                                             <label for="date">Activity Day</label>
-                                            <input class="gotur-datepicker" id="date" type="text" name="date_range">
+                                            <input class="gotur-datepicker" id="date" type="text"
+                                                name="date_range">
                                         </div>
                                         <div class="banner-form__control">
                                             <i class="icon icon-group"></i><!-- / -->
@@ -239,7 +244,8 @@
                                             <button type="button" class="banner-form__qty-minus sub">
                                                 <i class="icon-down-arrow"></i>
                                             </button>
-                                            <input id="guests" type="number" value="2" name="guests" placeholder="2">
+                                            <input id="guests" type="number" value="2" name="guests"
+                                                placeholder="2">
                                             <button type="button" class="banner-form__qty-plus add">
                                                 <i class="icon-down-arrow"></i>
                                             </button>
@@ -320,8 +326,8 @@
         <div class="header-right-sidebar__content">
             <span class="header-right-sidebar__close header-right-sidebar__toggler"><i class="fa fa-times"></i></span>
             <div class="header-right-sidebar__logo-box">
-                <a href="index.html" aria-label="logo image"> <img src="assets/images/logo-landing.png" width="158"
-                        alt="gotur"> </a>
+                <a href="index.html" aria-label="logo image"> <img src="assets/images/logo-landing.png"
+                        width="158" alt="gotur"> </a>
             </div>
             <div class="header-right-sidebar__container">
                 <div class="header-right-sidebar__container__about wow fadeInUp" data-wow-duration='1500ms'
@@ -334,8 +340,8 @@
                 <div class="header-right-sidebar__container__contact">
                     <h3 class="header-right-sidebar__container__title">Contact Us</h3>
                     <ul class="header-right-sidebar__container__list list-unstyled">
-                        <li class="header-right-sidebar__container__list__item wow fadeInUp" data-wow-duration='1500ms'
-                            data-wow-delay='300ms'>
+                        <li class="header-right-sidebar__container__list__item wow fadeInUp"
+                            data-wow-duration='1500ms' data-wow-delay='300ms'>
                             <div class="header-right-sidebar__container__icon">
                                 <i class="icon-email"></i>
                             </div>
@@ -344,8 +350,8 @@
                                 <a href="">info@company.com</a>
                             </div>
                         </li>
-                        <li class="header-right-sidebar__container__list__item wow fadeInUp" data-wow-duration='1500ms'
-                            data-wow-delay='500ms'>
+                        <li class="header-right-sidebar__container__list__item wow fadeInUp"
+                            data-wow-duration='1500ms' data-wow-delay='500ms'>
                             <div class="header-right-sidebar__container__icon">
                                 <i class="icon-telephone"></i>
                             </div>
@@ -354,8 +360,8 @@
                                 <a href="tel:+91-123-654-900">+91 123 654 900</a>
                             </div>
                         </li>
-                        <li class="header-right-sidebar__container__list__item wow fadeInUp" data-wow-duration='1500ms'
-                            data-wow-delay='700ms'>
+                        <li class="header-right-sidebar__container__list__item wow fadeInUp"
+                            data-wow-duration='1500ms' data-wow-delay='700ms'>
                             <div class="header-right-sidebar__container__icon">
                                 <i class="icon-clock"></i>
                             </div>

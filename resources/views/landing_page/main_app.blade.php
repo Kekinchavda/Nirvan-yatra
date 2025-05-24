@@ -136,10 +136,23 @@
                     </div>
 
                     <!-- see all button  -->
-                    <div class="destination-filter__btn mt-3">
+                    {{-- <div class="destination-filter__btn mt-3">
                         <button data-tab="#itemFive" class="tab-btn gotur-btn"><a href="{{ route('tour.list') }}"
                                 class="text-white text-decoration-none">See All</a></button>
-                    </div>
+                    </div> --}}
+                    @php
+                        $tourTypeId = $tours[0]['tour_type_id'] ?? null;
+                    @endphp
+
+                    @if ($tourTypeId)
+                        <div class="destination-filter__btn mt-3">
+                            <button data-tab="#itemFive" class="tab-btn gotur-btn">
+                                <a href="{{ route('tour.list.tourType', ['tour_type_id' => $tourTypeId]) }}"
+                                    class="text-white text-decoration-none">See All</a>
+                            </button>
+                        </div>
+                    @endif
+
                     <!-- here show https://tripqode.in/tour-listing-1-right.html -->
                     <!-- see all button  -->
                     <!-- /.feature-package__inner -->
@@ -196,6 +209,82 @@
                                     <div class="destination-card-one__content">
                                         <h3 class="destination-card-one__title"><a
                                                 href="destination-details.html">Bangkok</a></h3>
+                                        <!-- /.destination-card-one__title -->
+                                    </div>
+                                    <!-- /.destination-one__content -->
+                                </div>
+                                <!-- /.destination-one -->
+                            </div>
+                            <!-- /.col-xl-3 col-lg-4 col-md-4 col-sm-6 -->
+                            <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+                                <div class="destination-card-one wow fadeInUp" data-wow-duration='1500ms'
+                                    data-wow-delay='300ms'>
+                                    <div class="destination-card-one__thumb">
+                                        <img src="assets/images/destination/destination-1-2.jpg" alt="destination">
+                                        <a href="" class="destination-card-one__overly"></a>
+                                    </div>
+                                    <!-- /.destination-card-one__thumb -->
+                                    <div class="destination-card-one__content">
+                                        <h3 class="destination-card-one__title"><a
+                                                href="destination-details.html">Tokyo</a>
+                                        </h3>
+                                        <!-- /.destination-card-one__title -->
+                                    </div>
+                                    <!-- /.destination-one__content -->
+                                </div>
+                                <!-- /.destination-one -->
+                            </div>
+                            <!-- /.col-xl-3 col-lg-4 col-md-4 col-sm-6 -->
+                            <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+                                <div class="destination-card-one wow fadeInUp" data-wow-duration='1500ms'
+                                    data-wow-delay='300ms'>
+                                    <div class="destination-card-one__thumb">
+                                        <img src="assets/images/destination/destination-1-2.jpg" alt="destination">
+                                        <a href="" class="destination-card-one__overly"></a>
+                                    </div>
+                                    <!-- /.destination-card-one__thumb -->
+                                    <div class="destination-card-one__content">
+                                        <h3 class="destination-card-one__title"><a
+                                                href="destination-details.html">Tokyo</a>
+                                        </h3>
+                                        <!-- /.destination-card-one__title -->
+                                    </div>
+                                    <!-- /.destination-one__content -->
+                                </div>
+                                <!-- /.destination-one -->
+                            </div>
+                            <!-- /.col-xl-3 col-lg-4 col-md-4 col-sm-6 -->
+                            <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+                                <div class="destination-card-one wow fadeInUp" data-wow-duration='1500ms'
+                                    data-wow-delay='300ms'>
+                                    <div class="destination-card-one__thumb">
+                                        <img src="assets/images/destination/destination-1-2.jpg" alt="destination">
+                                        <a href="" class="destination-card-one__overly"></a>
+                                    </div>
+                                    <!-- /.destination-card-one__thumb -->
+                                    <div class="destination-card-one__content">
+                                        <h3 class="destination-card-one__title"><a
+                                                href="destination-details.html">Tokyo</a>
+                                        </h3>
+                                        <!-- /.destination-card-one__title -->
+                                    </div>
+                                    <!-- /.destination-one__content -->
+                                </div>
+                                <!-- /.destination-one -->
+                            </div>
+                            <!-- /.col-xl-3 col-lg-4 col-md-4 col-sm-6 -->
+                            <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+                                <div class="destination-card-one wow fadeInUp" data-wow-duration='1500ms'
+                                    data-wow-delay='300ms'>
+                                    <div class="destination-card-one__thumb">
+                                        <img src="assets/images/destination/destination-1-2.jpg" alt="destination">
+                                        <a href="" class="destination-card-one__overly"></a>
+                                    </div>
+                                    <!-- /.destination-card-one__thumb -->
+                                    <div class="destination-card-one__content">
+                                        <h3 class="destination-card-one__title"><a
+                                                href="destination-details.html">Tokyo</a>
+                                        </h3>
                                         <!-- /.destination-card-one__title -->
                                     </div>
                                     <!-- /.destination-one__content -->

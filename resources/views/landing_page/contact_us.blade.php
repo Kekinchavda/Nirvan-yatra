@@ -49,7 +49,7 @@
     <div class="custom-cursor__cursor-two"></div>
 
     <div class="preloader">
-        <div class="preloader__image" style="background-image: url('{{ asset('storage/logos/logo-dark.png') }}');">
+        <div class="preloader__image" style="background-image: url('{{ asset('storage/logos/logo-light.png') }}');">
         </div>
     </div>
     <!-- /.preloader -->

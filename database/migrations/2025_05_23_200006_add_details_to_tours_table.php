@@ -10,12 +10,8 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('tour_type', function (Blueprint $table) {
-            $table->id();
-            $table->string("name");
-            $table->enum("status", ['active', 'inactive']);
-            $table->integer("order_number")->nullable();
-            $table->timestamps();
+        Schema::table('tours', function (Blueprint $table) {
+            $table->longText('details')->nullable()->after("location"); // You can remove `nullable()` if it's required
         });
     }
 
@@ -24,6 +20,8 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('tour_type');
+        Schema::table('tours', function (Blueprint $table) {
+            $table->dropColumn('details');
+        });
     }
 };

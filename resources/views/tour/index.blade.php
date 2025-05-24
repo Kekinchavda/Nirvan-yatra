@@ -43,6 +43,7 @@
                                 <thead>
                                     <tr>
                                         <th>Sr No.</th>
+                                        <th>Tour Type</th>
                                         <th>Title</th>
                                         <th>Slug</th>
                                         <th>Feature Image</th>
@@ -57,6 +58,10 @@
                                     @foreach ($tours as $index => $tour)
                                         <tr>
                                             <td>{{ $index + 1 }}</td>
+                                            <td
+                                                style="width: 200px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                                                {{ $tour->tourtype->name }}
+                                            </td>
                                             <td
                                                 style="width: 200px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
                                                 {{ $tour->title }}
@@ -129,12 +134,17 @@
     </div>
     <!-- Container-fluid starts-->
     {{-- modal for show data of tour --}}
-    <div class="modal fade show-data-of-tour-modal-xl" tabindex="-1" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal fade show-data-of-tour-modal-xl" tabindex="-1" aria-labelledby="myLargeModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <!-- Modal Header -->
                 <div class="modal-header">
-                    <h5 class="modal-title" id="myLargeModalLabel">@if(isset($tour)){{ $tour->title }}@endif</h5>
+                    <h5 class="modal-title" id="myLargeModalLabel">
+                        @if (isset($tour))
+                            {{ $tour->title }}
+                        @endif
+                    </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
@@ -147,6 +157,11 @@
                             <tr>
                                 <th width="30%">Title</th>
                                 <td id="tourTitle"></td>
+                            </tr>
+                            <!-- type -->
+                            <tr>
+                                <th width="30%">Tour Type </th>
+                                <td id="tourType"></td>
                             </tr>
 
                             {{-- from to --}}
@@ -215,19 +230,23 @@
                                 <th>Itinerary</th>
                                 <td>
                                     <div class="accordion" id="itineraryAccordion">
-                                        @if(isset($tour))
+                                        @if (isset($tour))
                                             @if (!empty($tour->plan->itinerary))
                                                 @foreach ($tour->plan->itinerary as $index => $itinerary)
                                                     <div class="accordion-item">
                                                         <h2 class="accordion-header" id="heading{{ $index }}">
                                                             <button class="accordion-button collapsed" type="button"
-                                                                data-bs-toggle="collapse" data-bs-target="#collapse{{ $index }}"
-                                                                aria-expanded="false" aria-controls="collapse{{ $index }}">
+                                                                data-bs-toggle="collapse"
+                                                                data-bs-target="#collapse{{ $index }}"
+                                                                aria-expanded="false"
+                                                                aria-controls="collapse{{ $index }}">
                                                                 Day {{ $index + 1 }}: {{ $itinerary['title'] }}
                                                             </button>
                                                         </h2>
-                                                        <div id="collapse{{ $index }}" class="accordion-collapse collapse"
-                                                            aria-labelledby="heading{{ $index }}" data-bs-parent="#itineraryAccordion">
+                                                        <div id="collapse{{ $index }}"
+                                                            class="accordion-collapse collapse"
+                                                            aria-labelledby="heading{{ $index }}"
+                                                            data-bs-parent="#itineraryAccordion">
                                                             <div class="accordion-body">
                                                                 {!! $itinerary['details'] !!}
                                                             </div>
@@ -302,9 +321,8 @@
 @endsection
 
 @section('script')
-
     <script>
-        $('.btn-delete').on('click', function (e) {
+        $('.btn-delete').on('click', function(e) {
             e.preventDefault();
             var form = $(this).closest('form');
             Swal.fire({
@@ -324,7 +342,7 @@
     </script>
     <script>
         // When any image with data-bs-toggle="modal" is clicked
-        $('[data-bs-toggle="modal"]').click(function () {
+        $('[data-bs-toggle="modal"]').click(function() {
             // Get the image source from the clicked image's data-bs-image attribute
             var imageSrc = $(this).data('bs-image');
 
@@ -334,21 +352,22 @@
     </script>
 
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             // When the view button is clicked
-            $('a[data-bs-toggle="modal"]').click(function () {
-                var tourId = $(this).data('id');  // Get the tour ID
+            $('a[data-bs-toggle="modal"]').click(function() {
+                var tourId = $(this).data('id'); // Get the tour ID
                 // Make an AJAX request to fetch the tour details
                 $.ajax({
                     url: '/tour/' + tourId, // Your route to get tour details
                     method: 'GET',
-                    success: function (data) {
+                    success: function(data) {
                         // Basic fields
                         $('#tourTitle').text(data.title);
                         $('#tourSlug').text(data.slug);
                         $('#tourLocation').text(data.location);
                         $('#tourActivity').text(data.activity_type);
-                        $('#tourDuration').text(data.days + ' days / ' + data.nights + ' nights');
+                        $('#tourDuration').text(data.days + ' days / ' + data.nights +
+                            ' nights');
                         $('#tourOverview').text(data.overview);
                         $('#tourRate').text(data.rate);
                         $('#tourPickupDrop').text(data.pickup_drop_location || 'N/A');
@@ -356,7 +375,8 @@
 
                         // Highlights
                         if (Array.isArray(data.highlights) && data.highlights.length > 0) {
-                            let highlightList = data.highlights.map(h => `<li>${h}</li>`).join('');
+                            let highlightList = data.highlights.map(h => `<li>${h}</li>`).join(
+                                '');
                             $('#tourHighlights').html(`<ol>${highlightList}</ol>`);
                         } else {
                             $('#tourHighlights').html('<p>No highlights available</p>');
@@ -364,7 +384,8 @@
 
                         // Feature image
                         if (data.feature_image) {
-                            $('#tourImage').html('<img src="' + data.feature_image + '" class="img-fluid" style="max-width: 200px;">');
+                            $('#tourImage').html('<img src="' + data.feature_image +
+                                '" class="img-fluid" style="max-width: 200px;">');
                         } else {
                             $('#tourImage').html('<p>No feature image available</p>');
                         }
@@ -377,7 +398,7 @@
                         // Itinerary
                         var itineraryHtml = '';
                         if (data.itinerary && data.itinerary.length > 0) {
-                            data.itinerary.forEach(function (item, index) {
+                            data.itinerary.forEach(function(item, index) {
                                 itineraryHtml += `
                                                                                 <div class="accordion-item">
                                                                                     <h2 class="accordion-header" id="heading${index}">
@@ -403,7 +424,7 @@
                         // Included amenities
                         if (data.included_amenities && data.included_amenities.length > 0) {
                             var includedHtml = '';
-                            data.included_amenities.forEach(function (item) {
+                            data.included_amenities.forEach(function(item) {
                                 includedHtml += '<li>' + item + '</li>';
                             });
                             $('#includedAmenities').html('<ol>' + includedHtml + '</ol>');
@@ -412,9 +433,10 @@
                         }
 
                         // Not included amenities
-                        if (data.not_included_amenities && data.not_included_amenities.length > 0) {
+                        if (data.not_included_amenities && data.not_included_amenities.length >
+                            0) {
                             var notIncludedHtml = '';
-                            data.not_included_amenities.forEach(function (item) {
+                            data.not_included_amenities.forEach(function(item) {
                                 notIncludedHtml += '<li>' + item + '</li>';
                             });
                             $('#notIncludedAmenities').html('<ol>' + notIncludedHtml + '</ol>');
@@ -422,8 +444,10 @@
                             $('#notIncludedAmenities').html('<p>No amenities available</p>');
                         }
                         // Optional fields
-                        if (Array.isArray(data.other_charges) && data.other_charges.length > 0) {
-                            let chargesHtml = data.other_charges.map(item => `<li>${item}</li>`).join('');
+                        if (Array.isArray(data.other_charges) && data.other_charges.length >
+                            0) {
+                            let chargesHtml = data.other_charges.map(item => `<li>${item}</li>`)
+                                .join('');
                             $('#tourOtherCharges').html(`<ol>${chargesHtml}</ol>`);
                         } else {
                             $('#tourOtherCharges').html('<p>No other charges available</p>');
@@ -432,7 +456,8 @@
                         $('#tourThingsToCarry').html(data.things_to_carry || '<p>N/A</p>');
                         $('#tourTerms').html(data.terms_conditions || '<p>N/A</p>');
                         if (data.note) {
-                            $('#tourNote').html(`<div class="tour-note-list">${data.note}</div>`);
+                            $('#tourNote').html(
+                                `<div class="tour-note-list">${data.note}</div>`);
                         } else {
                             $('#tourNote').html('<p>N/A</p>');
                         }
@@ -441,6 +466,5 @@
                 });
             });
         });
-
     </script>
 @endsection

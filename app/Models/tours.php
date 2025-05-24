@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class tours extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
     protected $fillable = [
         'title',
         'tour_type_id',
@@ -25,6 +26,7 @@ class tours extends Model
         'things_to_carry',
         'terms_conditions',
         'note',
+        'details',
     ];
     public function overview()
     {

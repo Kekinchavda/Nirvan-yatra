@@ -53,6 +53,19 @@
             </li>
             {{-- activity menu --}}
 
+            {{-- Tour Type menu --}}
+            <li class="sidebar-list">
+                <svg class="pinned-icon">
+                    <use href="{{ asset('assets/admin_pannel/edmin/assets/svg/iconly-sprite.svg#Travel') }}">
+                    </use>
+                </svg>
+                <a class="sidebar-link" href="{{ route('tour-type.index') }}">
+                    <i class="fa-solid fa-people-line fa-fw stroke-icon"></i>
+                    <span>Tour Type</span>
+                </a>
+            </li>
+            {{-- Tour Type menu --}}
+
             {{-- Tour Details menu --}}
             <li class="sidebar-list">
                 <svg class="pinned-icon">

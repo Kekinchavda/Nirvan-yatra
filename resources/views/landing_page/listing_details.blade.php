@@ -50,7 +50,7 @@
     <div class="custom-cursor__cursor-two"></div>
 
     <div class="preloader">
-        <div class="preloader__image" style="background-image: url('{{ asset('storage/logos/logo-dark.png') }}');">
+        <div class="preloader__image" style="background-image: url('{{ asset('storage/logos/logo-light.png') }}');">
         </div>
     </div>
     <!-- /.preloader -->
@@ -256,15 +256,15 @@
                             </div>
                             <div class="tour-listing-details__content__item tour-listing-details__content__text wow fadeInUp"
                                 data-wow-duration="1500ms" data-wow-delay="500ms">
-                                <h4 class="tour-listing-details__info-area__title">Pickup & Drop:</h4>
-                                <p class="tour-listing-details__info-area__text">{{ $slugData->pickup_drop_location }}
+                                <h4 class="tour-listing-details__title">Pickup & Drop:</h4>
+                                <p>{{ $slugData->pickup_drop_location }}
                                 </p>
                             </div>
 
                             <div class="tour-listing-details__content__item tour-listing-details__content__text wow fadeInUp"
                                 data-wow-duration="1500ms" data-wow-delay="500ms">
-                                <h4 class="tour-listing-details__info-area__title">Location Cover In Trip:</h4>
-                                <p class="tour-listing-details__info-area__text">
+                                <h3 class="tour-listing-details__title">Location Cover In Trip:</h3>
+                                <p>
                                     @if (is_array($slugData->locationCover))
                                         {{ implode(', ', $slugData->locationCover) }}
                                     @else
@@ -272,6 +272,16 @@
                                     @endif
                                 </p>
                             </div>
+                            @if (!empty($slugData->details))
+                                <div class="tour-listing-details__content__item tour-listing-details__content__text wow fadeInUp"
+                                    data-wow-duration='1500ms' data-wow-delay='500ms'>
+                                    <h4 class="tour-listing-details__title">Details</h4>
+                                    <!-- /.tour-listing-details__title -->
+                                    <p class="tour-listing-details__text">{!! $slugData->details !!}
+                                    </p>
+                                    <!-- /.tour-listing-details__text -->
+                                </div>
+                            @endif
 
                             <!-- /.tour-listing-details__content__item -->
                             <!-- /.tour-listing-details__content__item -->
@@ -289,7 +299,7 @@
                                     <p>No highlights available.</p>
                                 @endif
                             </div>
-                            
+
                             <!-- /.tour-listing-details__content__list -->
                             <div class="tour-listing-details__content__item tour-listing-details__amenities wow fadeInUp"
                                 data-wow-duration='1500ms' data-wow-delay='500ms'>
@@ -408,8 +418,7 @@
                                             <div class="accordion-content">
                                                 <div class="inner">
                                                     @if (!empty($slugData->things_to_carry))
-                                                        {!! strip_tags($slugData->things_to_carry, '<p><strong><em>') !!}
-                                                        <!-- Keep <p>, <strong>, <em> tags -->
+                                                        {!! $slugData->things_to_carry !!}
                                                     @else
                                                         <p>No items to carry available.</p>
                                                     @endif
@@ -438,8 +447,7 @@
                                             <div class="accordion-content">
                                                 <div class="inner">
                                                     @if (!empty($slugData->terms_conditions))
-                                                        {!! strip_tags($slugData->terms_conditions, '<p><strong><em><ol><li>') !!}
-                                                        <!-- Display terms & conditions while keeping <p>, <strong>, <em>, <ol>, and <li> tags -->
+                                                        {!! $slugData->terms_conditions !!}
                                                     @else
                                                         <p>No terms and conditions available.</p>
                                                     @endif
@@ -469,8 +477,8 @@
                                             <div class="accordion-content">
                                                 <div class="inner">
                                                     @if (!empty($slugData->note))
-                                                        {!! strip_tags($slugData->note, '<p><strong><em><ul><ol><li>') !!}
                                                         <!-- Display terms & conditions while keeping <p>, <strong>, <em>, <ol>, and <li> tags -->
+                                                        {!! $slugData->note !!}
                                                     @else
                                                         <p>No note available.</p>
                                                     @endif
@@ -485,176 +493,58 @@
                                 <h4 class="tour-listing-details__title">Related Tour List</h4>
                                 <!-- /.tour-listing-details__title -->
                                 <div class="row">
-                                    <div class="col-lg-6 col-md-6">
-                                        <div class="listing-card-four wow fadeInUp" data-wow-duration='1500ms'
-                                            data-wow-delay='100ms'>
-                                            <div class="listing-card-four__image">
-                                                <img src="{{ asset('assets/images/blog/listing-list-4-1.jpg') }}"
-                                                    alt="All Inclusive Ultimate Circle Island Day with Lunch">
-                                                <div class="listing-card-four__btn-group">
+                                    @foreach ($relatedTours as $index => $tour)
+                                        <div class="col-lg-6 col-md-6">
+                                            <div class="listing-card-four wow fadeInUp" data-wow-duration="1500ms"
+                                                data-wow-delay="{{ $index == 0 ? '100ms' : '300ms' }}">
 
-                                                    <div class="listing-card-four__featured">Featured</div>
-                                                    <!-- /.listing-card-four__featured -->
-
-                                                </div><!-- /.listing-card-four__btn-group -->
-                                                <div class="listing-card-four__btns">
-                                                    <a href="#"><i class="far fa-heart"></i></a>
-                                                    <div class="listing-card-four__btns__hover">
-                                                        <a href="#" class="listing-card-four__popup card__popup"
-                                                            data-gallery-options='{
-                                                                                        "items": [
-                                                                                            {
-                                                                                                "src": "assets/images/blog/listing-1-1.jpg"
-                                                                                            },
-                                                                                            {
-                                                                                                "src": "assets/images/blog/listing-1-2.jpg"
-                                                                                            },
-                                                                                            {
-                                                                                                "src": "assets/images/blog/listing-1-3.jpg"
-                                                                                            }
-                                                                                        ],
-                                                                                        "gallery": {
-                                                                                            "enabled": true
-                                                                                        },
-                                                                                        "type": "image"
-                                                                                    }'>
-                                                            <span class="icon-image"></span>
-                                                        </a>
-                                                        <a class="video-popup"
-                                                            href="https://www.youtube.com/watch?v=0MuL8fd3pb8"><span
-                                                                class="icon-video"></span></a>
-                                                    </div><!-- /.listing-card-four__btns__hover -->
+                                                <div class="listing-card-four__image">
+                                                    <img src="{{ asset('storage/' . $tour->feature_image) }}"
+                                                        alt="{{ $tour->title }}">
+                                                    <div class="listing-card-four__btns__hover"></div>
+                                                    <ul class="listing-card-four__meta list-unstyled">
+                                                        <li>
+                                                            <a href="{{ route('tour.details', $tour->slug) }}">
+                                                                <span class="listing-card-four__meta__icon"><i
+                                                                        class="icon-pin1"></i></span>
+                                                                {{ $tour->location ?? 'N/A' }}
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="{{ route('tour.details', $tour->slug) }}">
+                                                                <span class="listing-card-four__meta__icon"><i
+                                                                        class="icon-calendar"></i></span>
+                                                                {{ $tour['days'] }} Days, {{ $tour['nights'] }} Night
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                    <a href="{{ route('tour.details', $tour->slug) }}"
+                                                        class="listing-card-four__image__overly"></a>
                                                 </div>
-                                                <ul class="listing-card-four__meta list-unstyled">
-                                                    <li>
-                                                        <a href="tour-listing-details-2.html"> <span
-                                                                class="listing-card-four__meta__icon"> <i
-                                                                    class="icon-pin1"></i> </span>Slingerland</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="tour-listing-details-2.html"> <span
-                                                                class="listing-card-four__meta__icon"> <i
-                                                                    class="icon-calendar"></i> </span>6 Days, 3
-                                                            Night</a>
-                                                    </li>
-                                                </ul><!-- /.listing-card-four__meta -->
-                                                <a href="tour-listing-details-2.html"
-                                                    class="listing-card-four__image__overly"></a>
-                                            </div><!-- /.listing-card-four__image -->
-                                            <div class="listing-card-four__content">
-                                                <div class="listing-card-four__rating">
-                                                    <span>(10 Review)</span>
-                                                    <i class="icon-star"></i>
-                                                    <i class="icon-star"></i>
-                                                    <i class="icon-star"></i>
-                                                    <i class="icon-star"></i>
-                                                    <i class="icon-star"></i>
-                                                </div><!-- /.listing-card-four__rating -->
-                                                <h3 class="listing-card-four__title"><a
-                                                        href="tour-listing-details-2.html">All Inclusive Ultimate
-                                                        Circle
-                                                        Island Day with Lunch</a></h3>
-                                                <!-- /.listing-card-four__title -->
 
-                                                <div class="listing-card-four__content__btn">
-                                                    <div class="listing-card-four__price">
-                                                        <span class="listing-card-four__price__sub">Per Day</span>
-                                                        <span class="listing-card-four__price__number">₹5900.00</span>
-                                                    </div><!-- /.listing-card-four__price -->
-                                                    <a href="tour-listing-details-2.html"
-                                                        class="listing-card-four__btn gotur-btn"> Book Now <span
-                                                            class="icon"><i class="icon-right"></i> </span></a>
-                                                </div><!-- /.listing-card-four__content__btn -->
-                                            </div><!-- /.listing-card-four__content -->
-                                        </div><!-- /.listing-card-four -->
-                                    </div><!-- /.col-lg-6 col-md-6 -->
-                                    <div class="col-lg-6 col-md-6">
-                                        <div class="listing-card-four wow fadeInUp" data-wow-duration='1500ms'
-                                            data-wow-delay='300ms'>
-                                            <div class="listing-card-four__image">
-                                                <img src="{{ asset('assets/images/blog/listing-list-4-2.jpg') }}"
-                                                    alt="Molokini and Turtle Town Snorkeling Adventure Aboard">
-                                                <div class="listing-card-four__btn-group">
+                                                <div class="listing-card-four__content">
+                                                    <h3 class="listing-card-four__title">
+                                                        <a
+                                                            href="{{ route('tour.details', $tour->slug) }}">{{ $tour->title }}</a>
+                                                    </h3>
 
-                                                    <div class="listing-card-four__discount">-30% Off</div>
-                                                    <!-- /.listing-card-four__discount -->
-
-
-                                                    <div class="listing-card-four__featured">Featured</div>
-                                                    <!-- /.listing-card-four__featured -->
-
-                                                </div><!-- /.listing-card-four__btn-group -->
-                                                <div class="listing-card-four__btns">
-                                                    <a href="#"><i class="far fa-heart"></i></a>
-                                                    <div class="listing-card-four__btns__hover">
-                                                        <a href="#" class="listing-card-four__popup card__popup"
-                                                            data-gallery-options='{
-                                                                                    "items": [
-                                                                                        {
-                                                                                            "src": "assets/images/blog/listing-1-1.jpg"
-                                                                                        },
-                                                                                        {
-                                                                                            "src": "assets/images/blog/listing-1-2.jpg"
-                                                                                        },
-                                                                                        {
-                                                                                            "src": "assets/images/blog/listing-1-3.jpg"
-                                                                                        }
-                                                                                    ],
-                                                                                    "gallery": {
-                                                                                        "enabled": true
-                                                                                    },
-                                                                                    "type": "image"
-                                                                                }'>
-                                                            <span class="icon-image"></span>
+                                                    <div class="listing-card-four__content__btn">
+                                                        <div class="listing-card-four__price">
+                                                            <span class="listing-card-four__price__sub">Per Day</span>
+                                                            <span
+                                                                class="listing-card-four__price__number">₹{{ number_format($tour->rate, 2) }}</span>
+                                                        </div>
+                                                        <a href="{{ route('tour.details', $tour->slug) }}"
+                                                            class="listing-card-four__btn gotur-btn">
+                                                            Book Now <span class="icon"><i
+                                                                    class="icon-right"></i></span>
                                                         </a>
-                                                        <a class="video-popup"
-                                                            href="https://www.youtube.com/watch?v=0MuL8fd3pb8"><span
-                                                                class="icon-video"></span></a>
-                                                    </div><!-- /.listing-card-four__btns__hover -->
+                                                    </div>
                                                 </div>
-                                                <ul class="listing-card-four__meta list-unstyled">
-                                                    <li>
-                                                        <a href="tour-listing-details-2.html"> <span
-                                                                class="listing-card-four__meta__icon"> <i
-                                                                    class="icon-pin1"></i> </span>Slingerland</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="tour-listing-details-2.html"> <span
-                                                                class="listing-card-four__meta__icon"> <i
-                                                                    class="icon-calendar"></i> </span>6 Days, 3
-                                                            Night</a>
-                                                    </li>
-                                                </ul><!-- /.listing-card-four__meta -->
-                                                <a href="tour-listing-details-2.html"
-                                                    class="listing-card-four__image__overly"></a>
-                                            </div><!-- /.listing-card-four__image -->
-                                            <div class="listing-card-four__content">
-                                                <div class="listing-card-four__rating">
-                                                    <span>(10 Review)</span>
-                                                    <i class="icon-star"></i>
-                                                    <i class="icon-star"></i>
-                                                    <i class="icon-star"></i>
-                                                    <i class="icon-star"></i>
-                                                    <i class="icon-star"></i>
-                                                </div><!-- /.listing-card-four__rating -->
-                                                <h3 class="listing-card-four__title"><a
-                                                        href="tour-listing-details-2.html">Molokini and Turtle Town
-                                                        Snorkeling Adventure Aboard</a></h3>
-                                                <!-- /.listing-card-four__title -->
-
-                                                <div class="listing-card-four__content__btn">
-                                                    <div class="listing-card-four__price">
-                                                        <span class="listing-card-four__price__sub">Per Day</span>
-                                                        <span class="listing-card-four__price__number">₹5900.00</span>
-                                                    </div><!-- /.listing-card-four__price -->
-                                                    <a href="tour-listing-details-2.html"
-                                                        class="listing-card-four__btn gotur-btn"> Book Now <span
-                                                            class="icon"><i class="icon-right"></i> </span></a>
-                                                </div><!-- /.listing-card-four__content__btn -->
-                                            </div><!-- /.listing-card-four__content -->
-                                        </div><!-- /.listing-card-four -->
-                                    </div><!-- /.col-lg-6 col-md-6 -->
-                                </div><!-- /.row -->
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
                             </div><!-- / -->
                             <!-- /.row -->
                             <!-- / -->
@@ -875,6 +765,64 @@
             </div>
         </div><!-- /.header-right-sidebar__content -->
     </div>
+    <!-- Modal -->
+    <!-- Modal -->
+    <!-- Modal -->
+    <div class="modal fade" id="delayedModal" tabindex="-1" aria-labelledby="travelModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg"> <!-- Large modal for better spacing -->
+            <form class="modal-content" method="POST" action="/send-query">
+                @csrf
+                <div class="modal-header">
+                    <h5 class="modal-title" id="travelModalLabel">
+                        Get me a quote
+                        <br>
+                        <small
+                            class="text-muted fw-bold">{{ $slugData->title . ' | ' . $slugData->location ?? '' }}</small>
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="fullName" class="form-label">Full Name</label>
+                                <input type="text" name="full_name" id="fullName" class="form-control" required>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="phone" class="form-label">Phone Number</label>
+                                <input type="tel" name="phone" id="phone" class="form-control" required>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="people" class="form-label">Number of People</label>
+                                <input type="number" name="number_of_people" id="people" class="form-control"
+                                    required min="1">
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="travelDate" class="form-label">Preferred Travel Date</label>
+                                <input type="date" name="travel_date" id="travelDate" class="form-control"
+                                    required>
+                            </div>
+
+                            <div class="col-12">
+                                <label for="message" class="form-label">Additional Comment / Message</label>
+                                <textarea name="message" id="message" class="form-control" rows="3" placeholder="Write your message..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Send Query</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
     @include('landing_page.footer')
 
     </div>
@@ -916,6 +864,15 @@
 
     <!-- template js -->
     <script src="{{ asset('assets/js/gotur.js') }}"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                $('#delayedModal').modal('show'); // Bootstrap jQuery modal trigger
+            }, 30000); // 30000 ms = 30 seconds
+        });
+    </script>
+
 </body>
 
 </html>

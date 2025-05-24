@@ -8,7 +8,8 @@ use App\Http\Controllers\{
     LocationController,
     LoginController,
     LogoController,
-    ToursController
+    ToursController,
+    TourTypeController
 };
 use Illuminate\Support\Facades\Route;
 
@@ -27,6 +28,7 @@ Route::get('/tours/{slug}', [LandingPageController::class, 'show'])->name(name: 
 Route::get('/tour/list', [LandingPageController::class, 'list'])->name('tour.list');
 Route::get('/contact-us', [LandingPageController::class, 'contactUs'])->name('contactUs');
 Route::post('/contact-us-form', [LandingPageController::class, 'contactUsForm'])->name('contactUsForm');
+Route::get('/tour/list/{tour_type_id}', [LandingPageController::class, 'tourTypeList'])->name('tour.list.tourType');
 
 
 // Login routes should NOT be under auth middleware
@@ -79,4 +81,8 @@ Route::middleware('auth')->group(function () {
     Route::post('logo', [LogoController::class, 'storeOrUpdate'])->name('logo.storeOrUpdate');
 
     route::resource("insta-post", InstaPostController::class);
+    route::resource("tour-type", TourTypeController::class);
+    Route::post('/tour-type/toggle-status/{id}', [TourTypeController::class, 'toggleStatus']);
+    Route::post('/update-order-number/{id}', [TourTypeController::class, 'updateOrderNumber']);
+
 });

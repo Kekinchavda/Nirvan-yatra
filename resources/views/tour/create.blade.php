@@ -157,13 +157,13 @@
 
                                             <!-- other Section -->
                                             <div class="col-12 mt-4 mt-sm-5 mt-lg-6">
-                                                <label class="form-label">Other</label>
-                                                <textarea name="other" id="other" class="form-control ckeditor" rows="4"
-                                                    placeholder="Add any additional other here..."></textarea>
+                                                <label class="form-label">Details</label>
+                                                <textarea name="details" id="details" class="form-control ckeditor" rows="4"
+                                                    placeholder="Add details here...">{{ old('details') }}</textarea>
                                                 <div class="valid-feedback">Looks good!</div>
-                                                <div class="invalid-feedback">Please enter something here.
+                                                <div class="invalid-feedback">Please enter details here.
                                                 </div>
-                                                @error('note')
+                                                @error('details')
                                                     <small class="text-danger d-block">{{ $message }}</small>
                                                 @enderror
                                             </div>
@@ -452,7 +452,7 @@
                                                 <label class="form-label">Things to Carry <span
                                                         class="font-danger">*</span></label>
                                                 <textarea name="things_to_carry" id="things_to_carry" class="form-control ckeditor" rows="6"
-                                                    placeholder="List things users should carry..." required></textarea>
+                                                    placeholder="List things users should carry..." required>{{ old('things_to_carry') }}</textarea>
                                                 <div class="valid-feedback">Looks good!</div>
                                                 <div class="invalid-feedback">
                                                     Please enter Things to Carry.
@@ -467,7 +467,7 @@
                                                 <label class="form-label">Terms & Conditions <span
                                                         class="font-danger">*</span></label>
                                                 <textarea name="terms_conditions" id="terms_conditions" class="form-control ckeditor" rows="6" required
-                                                    placeholder="Add your terms and conditions here..."></textarea>
+                                                    placeholder="Add your terms and conditions here...">{{ old('terms_conditions') }}</textarea>
                                                 <div class="valid-feedback">Looks good!</div>
                                                 <div class="invalid-feedback">Please enter Terms & Conditions.
                                                 </div>
@@ -480,7 +480,7 @@
                                             <div class="col-xl-6 col-sm-6 mt-3">
                                                 <label class="form-label">Note <span class="font-danger">*</span></label>
                                                 <textarea name="note" id="note" required class="form-control ckeditor" rows="4"
-                                                    placeholder="Add any additional notes here..."></textarea>
+                                                    placeholder="Add any additional notes here...">{{ old('note') }}</textarea>
                                                 <div class="valid-feedback">Looks good!</div>
                                                 <div class="invalid-feedback">Please enter Note.
                                                 </div>

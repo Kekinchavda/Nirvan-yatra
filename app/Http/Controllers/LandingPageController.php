@@ -23,7 +23,7 @@ class LandingPageController extends Controller
         $locations = Location::all();
         $activitys = Activity::all();
         $destinations = Destination::all();
-        $tourData = Tour_type::with('tours')->get()
+        $tourData = Tour_type::with('tours')->orderby('order_number', 'ASC')->where('status', 'active')->get()
             ->mapWithKeys(function ($tourType) {
                 return [
                     $tourType->name => $tourType->tours
@@ -40,6 +40,12 @@ class LandingPageController extends Controller
     {
         $slugData = tours::with('overview', 'plan', 'amenities')->where('slug', $slug)->firstOrFail();
 
+        $relatedTours = Tours::where('id', '!=', $slugData->id)
+            ->orderByRaw("CASE WHEN tour_type_id = ? THEN 0 ELSE 1 END", [$slugData->tour_type_id])
+            ->orderby('updated_at', 'DESC')
+            ->take(2)
+            ->get();
+
         // Decode JSON fields if they are strings
         if ($slugData->plan) {
             $slugData->plan->itinerary = is_string($slugData->plan->itinerary)
@@ -51,6 +57,11 @@ class LandingPageController extends Controller
             $slugData->overview->highlights = is_string($slugData->overview->highlights)
                 ? json_decode($slugData->overview->highlights, true) ?? []
                 : ($slugData->overview->highlights ?? []);
+        }
+        if ($slugData->details) {
+            $slugData->details = is_string($slugData->details)
+                ? json_decode($slugData->details, true) ?? []
+                : ($slugData->details ?? []);
         }
 
         if ($slugData->amenities) {
@@ -121,7 +132,7 @@ class LandingPageController extends Controller
             ->toArray();
         //location cover
 
-        return view('landing_page.listing_details', compact('slugData', 'logo'));
+        return view('landing_page.listing_details', compact('slugData', 'logo', 'relatedTours'));
     }
 
     public function list()
@@ -129,7 +140,6 @@ class LandingPageController extends Controller
         $logo = Logo::first(); // assuming only one logo record
         $locations = Location::all();
         $activitys = Activity::all();
-        // $tours = tours::all();
         $tours = tours::paginate(6); // 6 items per page
         return view("landing_page.list", compact("logo", "locations", "activitys", "tours"));
     }
@@ -160,6 +170,16 @@ class LandingPageController extends Controller
             'success' => true,
             'message' => 'Thank you! Your message has been sent successfully.'
         ]);
+    }
+
+    public function tourTypeList(Request $request, $tour_type_id)
+    {
+        $logo = Logo::first(); // assuming only one logo record
+        $locations = Location::all();
+        $activitys = Activity::all();
+        $tours = Tours::where('tour_type_id', $tour_type_id)->paginate(6);
+        return view('landing_page.list', compact('tours', 'logo', 'locations', 'activitys'));
+
     }
 
 }

@@ -86,7 +86,7 @@ class ToursController extends Controller
         // Step 2: Upload media
         $imagePath = $request->file('feature_image')->store('uploads/tours', 'public');
         // Step 3: Create main Tour
-        $slug = Str::slug($request->slug);
+        $slug = Str::slug($request->tour_title);
         $originalSlug = $slug;
         $count = 1;
 
@@ -114,6 +114,7 @@ class ToursController extends Controller
             'terms_conditions' => json_encode($request->terms_conditions),
             'note' => json_encode($request->note),
             'tour_type_id' => $request->tour_type_id,
+            'details' => json_encode($request->details) ?? '',
         ]);
 
 
@@ -265,6 +266,10 @@ class ToursController extends Controller
             ? json_decode($tour->overview->overview, true) ?? []
             : ($tour->overview->overview ?? []);
 
+        $tour->details = is_string($tour->details)
+            ? json_decode($tour->details, true) ?? ''
+            : ($tour->details ?? '');
+
         if (is_string($tour->locationCover)) {
             // Decode the main JSON array (assuming it’s a JSON string)
             $decoded = json_decode($tour->locationCover, true);
@@ -334,6 +339,7 @@ class ToursController extends Controller
             'things_to_carry' => 'required',
             'terms_conditions' => 'required',
             'note' => 'required',
+            // 'details' => '',
         ]);
 
         // Update image if uploaded
@@ -360,6 +366,7 @@ class ToursController extends Controller
             'terms_conditions' => json_encode($request->terms_conditions),
             'note' => json_encode($request->note),
             'tour_type_id' => $request->tour_type_id,
+            'details' => json_encode($request->details) ?? '',
         ]);
 
         // Update overview
