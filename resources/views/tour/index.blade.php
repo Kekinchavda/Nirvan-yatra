@@ -166,13 +166,19 @@
 
                             {{-- from to --}}
                             <tr>
-                                <th width="30%">from to</th>
+                                <th width="30%">From to</th>
                                 <td id="tourFromTo"></td>
+                            </tr>
+
+                            {{-- details --}}
+                            <tr>
+                                <th width="30%">Details</th>
+                                <td id="details"></td>
                             </tr>
 
                             <!-- pickup and drop location -->
                             <tr>
-                                <th>pickup and drop location</th>
+                                <th>Pickup and Drop location</th>
                                 <td id="tourPickupDrop"></td>
                             </tr>
 
@@ -277,7 +283,7 @@
 
                             <!-- Other charge -->
                             <tr>
-                                <th>other charge</th>
+                                <th>Other charge</th>
                                 <td id="tourOtherCharges">
                                 </td>
                             </tr>
@@ -305,7 +311,7 @@
 
                             <!-- note -->
                             <tr>
-                                <th>note</th>
+                                <th>Note</th>
                                 <td id="tourNote">
                                 </td>
                             </tr>
@@ -364,14 +370,17 @@
                         // Basic fields
                         $('#tourTitle').text(data.title);
                         $('#tourSlug').text(data.slug);
+                        $('#tourType').text(data.tour_type);
                         $('#tourLocation').text(data.location);
                         $('#tourActivity').text(data.activity_type);
                         $('#tourDuration').text(data.days + ' days / ' + data.nights +
                             ' nights');
-                        $('#tourOverview').text(data.overview);
+                        $('#tourOverview').html(data.overview || '<p>N/A</p>');
+
                         $('#tourRate').text(data.rate);
                         $('#tourPickupDrop').text(data.pickup_drop_location || 'N/A');
                         $('#tourFromTo').text(data.from_to || 'N/A');
+                        $('#details').html(data.details);
 
                         // Highlights
                         if (Array.isArray(data.highlights) && data.highlights.length > 0) {

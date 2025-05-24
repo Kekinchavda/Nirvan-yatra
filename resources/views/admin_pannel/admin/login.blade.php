@@ -28,13 +28,10 @@
                         @endif
 
                         <div>
-                            <div><a class="logo"
-                                    href="https://larathemes.pixelstrap.com/edmin/admin/default-dashboard"><img
-                                        class="img-fluid for-light"
-                                        src="https://larathemes.pixelstrap.com/edmin/assets/images/logo/logo.png"
-                                        alt="looginpage"><img class="img-fluid for-dark m-auto"
-                                        src="https://larathemes.pixelstrap.com/edmin/assets/images/logo/dark-logo.png"
-                                        alt="logo"></a></div>
+                            <div><a class="logo" href="#"><img class="img-fluid for-light"
+                                        src="{{ asset('storage/logos/logo-dark.png') }}" alt="looginpage"><img
+                                        class="img-fluid for-dark m-auto"
+                                        src="{{ asset('storage/logos/logo-dark.png') }}" alt="logo"></a></div>
                             <div class="login-main">
                                 <form class="theme-form" method="POST" action="{{ route('loginUser') }}">
                                     @csrf
@@ -60,7 +57,7 @@
 
                                     <div class="form-group mb-0 checkbox-checked">
                                         <a class="form-check checkbox-solid-info"
-                                            href="https://larathemes.pixelstrap.com/edmin/password/reset">Forgot
+                                            href="#">Forgot
                                             password?</a>
                                         <div class="text-end mt-3">
                                             <button class="btn btn-primary btn-block w-100 text-white"

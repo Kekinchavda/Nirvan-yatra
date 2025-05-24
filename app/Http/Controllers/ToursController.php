@@ -146,11 +146,12 @@ class ToursController extends Controller
      */
     public function showTour($id)
     {
-        $tour = Tours::with(['overview', 'plan', 'amenities'])->find($id);
+        $tour = Tours::with(['overview', 'plan', 'amenities', 'tourType'])->find($id);
 
         if (!$tour) {
             return response()->json(['message' => 'Tour not found'], 404);
         }
+
         $itineraryData = $tour->plan->itinerary;
         if (is_string($itineraryData)) {
             $itineraryData = json_decode($itineraryData, true) ?? [];
@@ -171,7 +172,6 @@ class ToursController extends Controller
                 // If it's still a string, decode again
                 $decoded = json_decode($decoded, true);
             }
-            // dd($decoded);
         } elseif (is_array($tour->locationCover) && count($tour->locationCover) === 1 && is_string($tour->locationCover[0])) {
             // Handle: array with one JSON string
             $decoded = json_decode($tour->locationCover[0], true);
@@ -202,7 +202,9 @@ class ToursController extends Controller
         return response()->json([
             'title' => $tour->title,
             'slug' => $tour->slug,
+            'tour_type' => $tour->tourType->name,
             'location' => $tour->location,
+            'details' => json_decode($tour->details),
             'activity_type' => trim($tour->activity_type, '"'),
             'days' => $tour->days,
             'nights' => $tour->nights,
@@ -213,7 +215,7 @@ class ToursController extends Controller
             'from_to' => $fromDate . " To " . $toDate,
             'pickup_drop_location' => $tour->pickup_drop_location,
             'other_charges' => $tour->other_charges,
-            'things_to_carry' => json_decode(json: $tour->things_to_carry),
+            'things_to_carry' => json_decode($tour->things_to_carry),
             'terms_conditions' => json_decode($tour->terms_conditions),
             'note' => json_decode($tour->note),
             'locationCover' => $tour->locationCover,
@@ -221,7 +223,7 @@ class ToursController extends Controller
             'included_amenities' => $tour->amenities->included_amenities,
             'not_included_amenities' => $tour->amenities->not_included_amenities,
 
-            'overview' => $tour->overview->overview,
+            'overview' => json_decode($tour->overview->overview),
             'highlights' => is_string($tour->overview->highlights)
                 ? json_decode($tour->overview->highlights, true)
                 : $tour->overview->highlights ?? [],
